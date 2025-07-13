@@ -107,7 +107,6 @@ ei_lib.set_prerequisites("ei-electronic-parts",{"processing-unit"})
 ei_lib.set_prerequisites("ei-lithium-battery",{"lithium-processing"})
 ei_lib.set_prerequisites("ei-lithium-processing",{"lithium-processing"})
 ei_lib.set_prerequisites("space-platform-thruster",{"rocket-silo"})
-ei_lib.set_prerequisites("ei-iron-beacon",{"ei-copper-beacon"})
 ei_lib.set_prerequisites("ei-superior-electric-mining-drill",{"ei-quantum-computer"})
 ei_lib.set_prerequisites("recycling",{"rocket-silo"})
 ei_lib.set_prerequisites("holmium-processing",{"recycling","planet-discovery-fulgora"})
@@ -150,7 +149,7 @@ ei_lib.set_prerequisites("flamethrower",{"flammables"})
 
 ei_lib.set_prerequisites("wdm_home_planet",{})
 
-ei_lib.set_prerequisites("ei-quantum-age",{"ei-crystal-accumulator","ei-high-energy-crystal-growing","ei-bio-electronic-parts","ei-bio-nitric-acid","ei-bio-high-energy-crystal","ei-iron-beacon"})
+ei_lib.set_prerequisites("ei-quantum-age",{"ei-crystal-accumulator","ei-high-energy-crystal-growing","ei-bio-electronic-parts","ei-bio-nitric-acid","ei-bio-high-energy-crystal","ei-copper-beacon"})
 
 ei_lib.set_prerequisites("automation-2",{"automation","ei-electricity-age"})
 ei_lib.set_prerequisites("ei_fueler",{"ei-electricity-age"})

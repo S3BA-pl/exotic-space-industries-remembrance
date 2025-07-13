@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.7
+Date: 7-13-2025
+  Changes:
+    - RESTORED removal of Kovarex Enrichment Process recipe—technology renamed Kovarex Fuel Enrichment to reflect remaining Nuclear Fuel recipe unlock.
+    - Black hole, Quantum, Exotic and associated sub ages recipe complexity increased.
+    - Pollution combinator recipe requires electronic parts as well as an electronic circuit.
+  Bugfixes:
+    - Corrected mispelling of Suspicious and Crushing in en lang file.
+    - Compact beacon correctly shows as being in Quantum Age with all associated prerequisites.
+    - Molten carbon symbiote reheating now yields molten carbon symbiote instead of reverting to molten carbon.
+    - Change method of modifying jamie's pollution combinator recipe.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.6
 Date: 7-12-2025
   Bugfixes:

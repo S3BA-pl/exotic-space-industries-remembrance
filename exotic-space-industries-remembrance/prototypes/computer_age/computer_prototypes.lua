@@ -1558,12 +1558,14 @@ data:extend({
         energy_required = 24,
         ingredients =
         {
-            {type="item", name="ei-simulation-data", amount=20},
-            {type="item", name="ei-space-data", amount=3},
+            {type="item", name="ei-fission-tech", amount=20},
+            {type="item", name="ei-space-data", amount=8},
+            {type="item", name="ei-copper-beacon", amount=2},
+            {type="item", name="ei-crystal-accumulator", amount=2},
             {type="item", name="ei-high-energy-crystal", amount=2},
-            {type="item", name="ei-computing-unit", amount=1},
+            {type="item", name="ei-computing-unit", amount=2},
         },
-        results = {{type="item", name="ei-quantum-age-tech", amount=8}},
+        results = {{type="item", name="ei-quantum-age-tech", amount=4}},
         enabled = false,
         always_show_made_in = true,
         main_product = "ei-quantum-age-tech",

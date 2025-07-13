@@ -110,7 +110,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."quantum-age.png",
         icon_size = 128,
-        prerequisites = {},
+        prerequisites = {"ei-copper-beacon","ei-crystal-accumulator"},
         effects = {
 
         },

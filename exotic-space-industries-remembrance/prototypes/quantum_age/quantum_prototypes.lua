@@ -1249,7 +1249,7 @@ data:extend({
         ingredients = {
             {type = "item", name = "ei-charged-neutron-container", amount = 1},
             {type = "item", name = "ei-simulation-data", amount = 20},
-            {type = "item", name = "ei-fusion-data", amount = 3},
+            {type = "item", name = "ei-fusion-data", amount = 9},
         },
         results = {
             {type = "item", name = "ei-fusion-quantum-age-tech", amount = 10},
@@ -1265,9 +1265,9 @@ data:extend({
         category = "ei-nano-factory",
         energy_required = 240,
         ingredients = {
-            {type = "item", name = "ei-high-tech-parts", amount = 2},
-            {type = "item", name = "ei-superior-data", amount = 10},
-            {type = "item", name = "ei-cavity", amount = 1},
+            {type = "item", name = "ei-high-tech-parts", amount = 8},
+            {type = "item", name = "ei-superior-data", amount = 40},
+            {type = "item", name = "ei-cavity", amount = 2},
         },
         results = {
             {type = "item", name = "ei-exotic-age-tech", amount = 10},

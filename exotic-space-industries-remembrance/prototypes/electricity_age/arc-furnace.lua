@@ -667,10 +667,10 @@ data:extend({
             {type = "fluid", name = "ei-molten-carbon-symbiote", amount = 10},
         },
         results = {
-            {type = "fluid", name = "ei-molten-carbon", amount = 10,temperature=950},
+            {type = "fluid", name = "ei-molten-carbon-symbiote", amount = 10,temperature=950},
         },
         always_show_made_in = true,
         enabled = false,
-        main_product = "ei-molten-carbon",
+        main_product = "ei-molten-carbon-symbiote",
     },
 })

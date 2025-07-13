@@ -715,6 +715,12 @@ ei_lib.recipe_new("rocket-fuel",
 
 --TECHS
 ------------------------------------------------------------------------------------------------------
+---
+ei_lib.remove_unlock_recipe("kovarex-enrichment-process", "kovarex-enrichment-process")
+ei_lib.raw.recipe["kovarex-enrichment-process"].hidden = true
+ei_lib.raw["technology"]["kovarex-enrichment-process"].localised_name = {"technology-name.ei-kovarex-fuel-enrichment"}
+ei_lib.raw["technology"]["kovarex-enrichment-process"].localised_description = {"technology-description.ei-kovarex-fuel-enrichment"}
+
 ei_lib.overwrite_entity_and_description("logistic-system","technology") -- overwrite to theory fluff because ei logistic containers is an post-grad tech
 ei_lib.remove_unlock_recipe("logistic-system", "active-provider-chest")
 ei_lib.remove_unlock_recipe("logistic-system", "buffer-chest")
