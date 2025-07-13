@@ -7,3 +7,7 @@ MoreAsteroids / ESI branch by
     Naarkerotics and
 originally by
     spartanlaser32 
+
+animated steam train art by cupcakescankill, integrated code from ionshield
+
+Camp fire branched from @dodo.the.last's Fire Place

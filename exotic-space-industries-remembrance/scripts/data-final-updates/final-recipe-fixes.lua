@@ -56,7 +56,7 @@ local recipes = {
     "ei-lithium-crystal",
     "ei-molten-steel-mix",
     "ei-steam-engine",
-    "ei_electron-tube",
+    "ei-electron-tube",
     "ei-cpu",
     "ei-electronic-parts",
     "ei-module-part",

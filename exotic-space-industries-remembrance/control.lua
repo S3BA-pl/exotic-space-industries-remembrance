@@ -746,11 +746,7 @@ function updater(event)
 end
 
 function on_built_entity(e)
-    if not e["entity"] then
-      return
-    end
-
-    if not e["entity"].valid then
+    if not e or not e["entity"] or not e["entity"].valid then
       return
     end
 
@@ -793,7 +789,7 @@ function on_built_entity(e)
     ei_neutron_collector.on_built_entity(e["entity"])
     ei_fusion_reactor.on_built_entity(e["entity"])
     ei_matter_stabilizer.on_built_entity(e["entity"])
-    ei_induction_matrix.on_built_entity(e["entity"])
+    ei_induction_matrix.on_built_entity(e)
     ei_black_hole.on_built_entity(e)
     ei_gate.on_built_entity(e["entity"])
     ei_alien_system.on_built_entity(e["entity"])
@@ -811,11 +807,7 @@ function on_built_tile(e)
 end
 
 function on_destroyed_entity(e)
-    if not e["entity"] then
-        return
-    end
-
-    if not e["entity"].valid then
+    if not e or not e["entity"] or not e["entity"].valid then
       return
     end
 
@@ -859,7 +851,7 @@ function on_destroyed_entity(e)
     ei_neutron_collector.on_destroyed_entity(e["entity"], e["destroy_type"])
     ei_alien_spawner.on_destroyed_entity(e["entity"])
     ei_matter_stabilizer.on_destroyed_entity(e["entity"])
-    ei_induction_matrix.on_destroyed_entity(e["entity"])
+    ei_induction_matrix.on_destroyed_entity(e)
     ei_black_hole.on_destroyed_entity(e["entity"], transfer)
     ei_gate.on_destroyed_entity(e["entity"], transfer)
     ei_fueler.on_destroyed_entity(e["entity"], transfer)

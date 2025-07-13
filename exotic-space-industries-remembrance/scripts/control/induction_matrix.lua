@@ -260,14 +260,14 @@ function model.check_connected_tiles(pos, surface, render, matrix_id, force, eve
         }
 
         if render == true then
-            model.queue_tile_render(surface, progress_list, {r=1, g=0, b=0, a=0.001})
+            model.queue_tile_render(surface, progress_list, {r=1, g=0, b=0, a=0.001},event)
         end
 
         return {["state"] = false, ["matrix_id"] = matrix_id, ["tiles"] = known_lenght}
     end
 
     if render == true then
-        model.queue_tile_render(surface, progress_list, {r=0, g=1, b=0, a=0.001})
+        model.queue_tile_render(surface, progress_list, {r=0, g=1, b=0, a=0.001},event)
     end
 
     return {["state"] = true, ["matrix_id"] = matrix_id, ["tiles"] = known_lenght}
@@ -896,7 +896,7 @@ function model.queue_tile_render(surface, progress_list, color, event)
 
     model.check_global_init()
 
-    if #progress_list == 0 then
+    if #progress_list == 0 or not event then
         return
     end
 
@@ -1163,8 +1163,8 @@ end
 --HANDLERS
 ------------------------------------------------------------------------------------------------------
 
-function model.on_built_entity(entity)
-
+function model.on_built_entity(event)
+    local entity = event.entity
     if model.entity_check(entity) == false then
         return
     end
@@ -1179,7 +1179,7 @@ function model.on_built_entity(entity)
 
     if entity.name == "ei-induction-matrix-core-0" then
 
-        local dict = model.check_connected_tiles(entity.position, entity.surface, true, entity.unit_number, entity.force)
+        local dict = model.check_connected_tiles(entity.position, entity.surface, true, entity.unit_number, entity.force,event)
 
         model.set_core_state(dict.matrix_id, dict.state)
 
@@ -1189,7 +1189,7 @@ function model.on_built_entity(entity)
 
     if model.but_cores[entity.name] then
 
-        local dict = model.check_connected_tiles(entity.position, entity.surface, false, nil, entity.force)
+        local dict = model.check_connected_tiles(entity.position, entity.surface, false, nil, entity.force,event)
 
         model.set_core_state(dict.matrix_id, dict.state)
 
@@ -1200,8 +1200,8 @@ function model.on_built_entity(entity)
 end
 
 
-function model.on_destroyed_entity(entity)
-
+function model.on_destroyed_entity(event)
+    local entity = event.entity
     if model.entity_check(entity) == false then
         return
     end
@@ -1225,7 +1225,7 @@ function model.on_destroyed_entity(entity)
 
     if model.but_cores[entity.name] then
 
-        local dict = model.check_connected_tiles(entity.position, entity.surface, false, nil, entity.force)
+        local dict = model.check_connected_tiles(entity.position, entity.surface, false, nil, entity.force,event)
 
         model.set_core_state(dict.matrix_id, dict.state)
 
@@ -1267,7 +1267,7 @@ function model.on_built_tile(event)
 
         pos = {x = pos.x + 0.25, y = pos.y + 0.25}
 
-        local dict = model.check_connected_tiles(pos, surface, false, nil, source.force)
+        local dict = model.check_connected_tiles(pos, surface, false, nil, source.force,event)
 
         if dict == false then
             goto continue
@@ -1416,7 +1416,7 @@ function model.on_destroyed_tile(event)
             if y.name == "ei-induction-matrix-tile" then
 
                 local shifted_pos = {x = y.position.x + 0.25, y = y.position.y + 0.25}
-                local dict = model.check_connected_tiles(shifted_pos, surface, false, nil, source.force)
+                local dict = model.check_connected_tiles(shifted_pos, surface, false, nil, source.force,event)
 
                 if dict == false then
                     goto contin
@@ -1443,7 +1443,7 @@ function model.update(event)
     local tick = event.tick
 
     model.update_render_queue(tick)
-    model.update_dirty()
+    model.update_dirty(event)
     if tick % 15 == 0 then
         model.update_player_guis()
     end

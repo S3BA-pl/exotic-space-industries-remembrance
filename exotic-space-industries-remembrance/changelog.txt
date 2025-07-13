@@ -1,7 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.6
+Date: 7-12-2025
+  Bugfixes:
+    - Actually send events all the way through induction matrix control preventing nil value.
+    - Added check against nil event in on_built and on_destroyed events.
+    - Logistics 3 prerequisites and age set to match its research inputs, ie Simulation Computer Age.
+    - Corrected mispelled prototype name which was prohibiting productivity on electron tube.
+    - Corrected incorrect prototype name for jamie's pollution combinator, recipe now properly modified.
+    - Altered changelog formatting in pursuit of allowing in-game display.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.5
 Date: 7-12-2025
-  Additions:
+  Features:
     - Alternative artillery shell and turret recipes using ingredients located on Nauvis created and added to Artillery technology.
     - Alternative pre-quantum age carbon-fiber plate production involving Carbon and Molten glass in the Arc Furnace to make high-temperature Molten carbon combined with High energy crystal and/or Energy crystal solution in the Crystal grower to make high-temperature molten carbon symbiote which the Caster then combines with 500c steam to cast Carbon-fiber plates—all recipes unlocked with Rocket Silo, cooled molten carbon can be fed back through the Arc furnace to heat it up again.
   Changes:
@@ -14,20 +24,20 @@ Date: 7-12-2025
     - Slag extraction, fluorite from sand, fluorite from dirty water, dirty water from any sorted into material refining category.
     - [BREAKING]Purifier inputs/outputs 1 -> 2.
     - [BREAKING]Crystal grower inputs/outputs 1/0 -> 2/2.
-    - [BREAKING]Arc furnace fluid input 0 -> 1, output 1 -> 2.
+    - Arc furnace fluid input 0 -> 1.
     - Caster fluid inputs 1 -> 2.
     - Water extraction from morphium additionally outputs bio sludge.
     - Bio sludge as byproduct production drastically curtailed and productivity forbidden.
     - Steam logistic chest size 48 -> 32.
     - Fluorite from morphium category crafting-with-fluid -> centrifuging.
     - Fluorite from dirty water category crafting-with-fluid -> purifier. Additionally outputs water.
-  Fixes:
+  Bugfixes:
     - Added lang definition for ei-warm-fire.
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.4
 Date: 7-11-2025
-  Additions:
-    - Added camp-fire which can burn fuel for light, slotted into Dark age—caution around open flames is always warranted.
+  Features:
+    - Added camp-fire which can burn fuel for light, slotted into Dark age—caution around open flames is always warranted. Adapted from: @dodo.the.last's fire
     - Lignumis compatibility adds recipe to Caster for gold plate.
     - Added flammable oils to required dependencies—flammable fluids in destroyed pipes have a chance to catch fire and/or explode. See optional dependency WaterTurret-revived for countermeasure.
   Changes:
@@ -75,12 +85,12 @@ Date: 7-11-2025
     - Neuromarrow Engine emissions 0 -> 35/m.
     - Flesh Crucible emissions 0 -> 20/m.
     - Nano material factory emissions 0 -> 8/m.
-  Fixes:
+  Bugfixes:
     - Included lang definitions for: ei-matter-explosion and Lignumis entries which were (winding up?) missing.
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.3
 Date: 7-11-2025
-  Additions:
+  Features:
     - Mod compatibility added for Flare Stack by @GotLag—slots into Steam and Electricity age.
   Changes:
     - Steam assembler module slots 0 -> 2.
@@ -93,14 +103,14 @@ Date: 7-10-2025
     - Merged Lignumis gold ore and molten gold with EI equivalents.
     - Lignumis molten gold from ore recipe additionally yields slag.
     - Lignumis gold plate recipe additionally yields slag.
-  Fixes:
+  Bugfixes:
     - Foundry molten iron & copper now merge into EI equivalents instead of vice versa.
     - Steel beam -> molten steel recipe input corrected to Steel beam, not Steel ingot.
     - Removed vanilla requester chest from logistic robotics.
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.1
 Date: 7-10-2025
-  Additions:
+  Features:
     - Steam pumps are now created with enough steam to jump-start fluid flow in remote bases—initial amount increases with quality.
   Changes:
     - Foundry molten metal from ores slag output probability 100 -> 33%.
@@ -108,7 +118,7 @@ Date: 7-10-2025
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.0
 Date: 7-9-2025
-  Additions:
+  Features:
     - Burner and electric lab made compatible with Disco Science. @ShayoDarkleaf
   Changes:
     - Caster can additionally craft holmium and tungsten plates.
@@ -118,7 +128,7 @@ Date: 7-9-2025
     - Foundry iron gear wheel casting -> iron mechanical parts casting.
     - Foundry iron stick casting -> iron beam.
     - Foundry crafting speed reduced 4 -> 1.5. Power usage increased 2.5 -> 58MW. Module slots reduced 4 -> 2.
-  Fixes:
+  Bugfixes:
     - Prevented productivity from affecting slag output.
     - Prevented productivity from affecting morphium -> extraction by-products.
     - Lang entry for neodymium extraction from morphium.
@@ -126,7 +136,7 @@ Date: 7-9-2025
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.9
 Date: 7-8-2025
-  Additions:
+  Features:
     - Infinite productivity technologies for: Ore purification, Dirty water usage, and Morphium usage.
     - Technology for creating dirty water from stone and water: Dirty water production.
     - Technology for extracting pure ores from dirty water: Dirty water usage.
@@ -145,28 +155,28 @@ Version: 1.0.8
 Date: 7-7-2025
   Changes:
     - Burner lab, assembler and quarry smoke sprite swapped and production thinned out.
-  Fixes:
+  Bugfixes:
     - Beacon overload on_destroyed not updating machines.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.7
 Date: 7-7-2025
-  Fixes:
+  Bugfixes:
     - Correctly remove vanilla passive provider and storage logistic chests from technology unlocks.
     - Set internal flag indicating mod's Space Age requirement.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.6
 Date: 7-5-2025
-  Fixes:
+  Bugfixes:
     - Swapped direct data.raw calls in music_patches with ei_lib.raw to prevent indexing nil values and now falls back to creating new track entries if originals are missing.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.5
 Date: 7-5-2025
-  Additions:
+  Features:
     - Imported french translation from Patch FR des Mods by @bev.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: 7-3-2025
-  Additions:
+  Features:
     - Individual technologies for the EI Containers progression— Containers (Electricity Age—Regular, Filter) -> Logistic Containers (Computer Age—Red, Yellow) -> Advanced Logistic Containers (Computer Age—Blue, Pink, Green).
   Changes:
     - Renamed Logistic System to Logistic Theory and rewrote description to reflect its lack of chest unlocks.
@@ -175,13 +185,13 @@ Date: 7-3-2025
     - Turbo belt, splitter, underground lubricant input -> electrolyte.
     - Air scrubber lubricant distillate input -> lubricant.
     - Computer age technology pack lubricant distillate input -> lubricant.
-  Fixes:
+  Bugfixes:
     - Corrected spelling of Nuetron -> Neutron in collector entity filter resolving nil error.
     - Gaia discovery and Induction matrix core tier 1 additionally require Epoch packs upto Computer Age.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.3
 Date: 7-3-2025
-  Additions:
+  Features:
     - More asteroid spawner definition set created for Nauvis<->Gaia route.
   Changes:
     - Slag chunk extraction using Morphium recipe: Morphium input 100 -> 10. Acidic water output -> 1-3 Bio sludge.
@@ -190,7 +200,7 @@ Date: 7-3-2025
     - All Morphium->Resource extraction recipes outputs: Dirty water -> Bio sludge, additionally small chance to yield Energy crystal.
     - Starting coal 2 -> 4.
     - Updated internal More Asteroids to 0.4.2.
-  Fixes:
+  Bugfixes:
     - Neutron collector additionally checks if emitters are active before counting towards collection.
     - Neutron collector visibly shuts off according to being disabled by control behavior.
     - Molten glass sand input 240 -> 60, ratio now not abysmally worse than using regular smelters and instead 25% more efficient for the same volume of sand.
@@ -200,19 +210,19 @@ Date: 7-3-2025
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.2 
 Date: 7-3-2025
-  Fixes:
+  Bugfixes:
     - Copper, Iron, Steel ingot recipes sorted back into Material refining.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.1 
 Date: 7-3-2025
   Changes:
     - Pneumatic soul no longer requires gold.
-  Fixes:
+  Bugfixes:
     - Steam inserter filter icons now visible above steam fluidbox.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 7-2-2025
-  Additions:
+  Features:
     - Seven main menu background replacements—select a choice from startup options—defaults to The Crystal That Screams. Options include: Vector Bifurcation: Portal Ignition, Saluting the Solar Core, Daemonic Invitation, Yin and Yang: Cloudflesh, Industrial Dominance: Crystalline Vigil, and Choking Smog: Ascension Protocol
     - Soundtrack replacement for main menu.
     - Full soundtrack replacement for Nauvis.
@@ -416,7 +426,7 @@ Date: 7-2-2025
     - Gate activation threshold moved from 20% -> 90%.
     - Gate per item energy requirement now assesses weight table for scaling (ie count=count*weight table[item]), additionally paid energy cost scales by ((items*count)^1.2)*100
     - reforge_gaia transitioned to internal on_nthtick scheduler to support reverting internal name to gaia.
-  Fixes:
+  Bugfixes:
     - Remote call which disables Krastorio2 singularity beacon win condition no longer endlessly called in on_nth tick—on init and config changed only.
     - Black hole, Induction matrix, and Gaia on_tick scripts now use the on_tick event.tick instead of game.tick.
     - EM train power draw no longer initializes with 10% reduction via efficiency, now properly defaults to 0%.
@@ -446,12 +456,12 @@ Date: 7-2-2025
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.7
 Date: 4-30-2025
-  Additions:
+  Features:
     - EM Train Carriages now glow alongside EM Locomotives
   Changes:
     - lang_ru updated by ashot15
     - ei_rng switched from UPS expensive factorio rng to deterministic linear congruential generator
-  Fixes:
+  Bugfixes:
     - reforge_gaia behavior corrected, recursion stabilized. You will need to correct your ship schedule.
     - alien_spawner.lua transitioned from math.rand to ei_rng
 ---------------------------------------------------------------------------------------------------
@@ -462,7 +472,7 @@ Date: 4-19-2025
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.5
 Date: 4-17-2025
-  Additions:
+  Features:
     - Crystal_echo ei_lib command to support colorful printed messages
     - Custom HID headlights for EM trains. Also projects behind at reduced power.
     - Custom underglow for EM trains while loading/unloading.
@@ -479,7 +489,7 @@ Date: 4-17-2025
   Changes:
     - EM Updater Ring que customization added, indicated color will now reflect working/offline/error/etc status.
     - AAI burner lab disabled due to overlap with EI burner lab. Reported by @L??M??3674
-  Fixes:
+  Bugfixes:
     - Gaia correctly receives autoplacement instructions IE the 5 Exotic Industries specific resources will now consistently spawn.. WHEN YOU CONNECT ON CONFIGURATION CHANGE GAIA WILL BE SCANNED AND IF NONE OF THE CUSTOM RESOURCES ARE FOUND, DESTROYED AND REGENERATED ... PLAYERS WILL BE TELEPORTED TO NAUVIS.
     - EI tanks requirements for previous tier fixed, previously Spherical tank required Silo tank. Reported by @crysiszocker1
     - Loader prototype complexity setting toggle works again.
@@ -488,24 +498,24 @@ Version: 0.5.4
 Date: 4-16-2025
   Changes:
      - K2 import related errors will log errors instead of preventing game from loading at all
-  Fixes:
+  Bugfixes:
      - Duplicate map gen preset name removed from RU locale
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.3
 Date: 4-15-2025
-  Additions:
+  Features:
      - Custom sound effects for EM trains & cargo wagons
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.2
 Date: 4-15-2025
-  Fixes:
+  Bugfixes:
      - Commented out a naughty line related to inhibitor lamp
      - Removed errant deregister call from update charger.
      - Removed register charger debug output.
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.1
 Date: 4-15-2025
-  Additions:
+  Features:
     - Imported ru, zh locales from previous repository, applied pull from @astorin, now committed.. likely requires updates which will require native speaker
     - Visual indicators added for EM train charger -> train energy transfer process. Style can be set in startup settings to either Beam, Ring, or off.
     - Colorful glow effects have been added to the EM charger & trains.
@@ -515,7 +525,7 @@ Date: 4-15-2025
     - EM trains will now reinitialize on configuration change, this mitigates certain somewhat intangible issues.
     - EM trains updater no longer loops buffs each tick. Now they are checked on configuration change and finishing research.
     - Diurnal Dynamics, Distant Misfires, Fire Lights, Visible Pollution, Light Overhaul, Pro Flashlight, and Overloaded Trains added to optional dependencies. Diurnal Dynamics provides for darker, 50% longer nights and space platforms which darken with distance from the sun. Distant Misfires transforms projectiles into physically simulated entities capable of missing. Fire lights adds lights and/or glow effects to all projectiles, fires, etc. Visible Pollution adds a visible smog cloud which affects gameplay by obscuring solar panels and reducing their output, incentivizing solar builds away from your main pollution clouds. Light Overhaul provides an improved flashlight, increases nighttime contrast, and reduces the desaturation of nightvision. Pro Flashlight causes you to aim your flashlight at highlighted entities when standing still. Overloaded Trains will cause the weight of cargo to affect train acceleration, top speed and deceleration. These can impact UPS and are removable at any time.
-  Fixes:
+  Bugfixes:
     - Lithium chloride recipe restored and added to Lithium technology
     - EM train charger properly counts nearby tiles-Overlaps will double charge.
     - EM train charger no longer provides infinite energy if you power it up and then remove the electric network connection.
@@ -527,21 +537,21 @@ Version: 0.5.0
 Date: 4-13-2025
   Changes:
     - EI Storage tanks adjusted to provide iron:storage capacity ratios superior to the stock tank. Health was also increased and resistances to physical, impact, and fire added. The ratios are: stock tank-555:1, tank1-600:1, tank2:666:1, tank3:750:1.
-  Fixes:
+  Bugfixes:
     - Tooltips added for metalworks recipes, arc furnace, purifier, crusher, biolab.
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.9
 Date: 4-11-2025
   Changes:
     - Loader electricity usage adjusted and now increases per tier
-  Fixes:
+  Bugfixes:
     - Sanity check when creating insulated/data pipe from default pipe, this mitigates crashes caused by multi layered sprites. (Revealed by Muluna 1.34.2) While it will not crash, other mods changing entities to use multiple layer sprites will cause insulated/data pipe graphics to display incorrectly. Proper resolution pending.
     - Electronic components now tied to EI electronic parts technology. Reported by @Vasishtha
     - Spidertron limiter updated to use 2.0s new lua logistics commands, setting a logistic request on the spidertron will no longer cause a crash. Reported by @debuasgaming
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.8
 Date: 4-10-2025
-  Additions:
+  Features:
     - Colorful animated glow effects for Arc Furnace, Plasma Heater, Gate, & Caster working states. (Current sprites imported from Glow Trees; credit to asher_sky)
     - Loader Complexity Patch: Startup setting which significantly increases material input complexity for loaders and REWARDS YOU by enabling filtering for the Express loader and stacking for the Neodymium loader
     - Rocket lift capacity multiplier added to startup settings
@@ -552,7 +562,7 @@ Date: 4-10-2025
     - Plasma Heater energy requirement 20Mw -> 70MW, craft speed 1 -> 1.25, now accepts Quality module, pollution value 0 -> 3
     - Caster module slots 1 -> 2, now accepts Quality module, pollution value 0 -> 1
     - Skip converting Fulgora oceans into crude oil if Fulgora Extended is enabled & chemical-mire-gives-muck is enabled
-  Fixes:
+  Bugfixes:
     - Additional checks to prevent null references in on tick updater & gate updater
     - Startup settings tooltips were configured inconsistently, tooltips should all work now
   Notes:
