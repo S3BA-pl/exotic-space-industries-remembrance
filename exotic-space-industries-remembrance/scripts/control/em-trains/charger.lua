@@ -464,17 +464,35 @@ function model.cast_beam(charger, train)
 end
 
 function ei_draw_train_glow(train, params)
-	if not (train and train.valid) or not storage.ei.em_train_glow_toggle then return end
+	if not (train and train.valid) or not storage.ei.em_train_glow then return end
 
 	local glow_params = {
 	sprite = "emt_train_glow",
 	scale_range = {1, 4},
-	intensity_range = {0.4, 0.77},
+	intensity_range = {40, 77},
 	color_pool = {
-	  {r = 0, g = 0.4, b = 1.0},
-	  {r = 0.4, g = 0.2, b = 1.0},
-	  {r = 0.2, g = 0.2, b = 1.0},
-	  {r = 0.4, g = 0.1, b = 0.8},
+        {r = 0.1, g = 0.9, b = 1.0},   -- Aetherglow Surge  
+        {r = 0.2, g = 0.85, b = 0.95}, -- Ionstream Fade  
+        {r = 0.5, g = 0.15, b = 0.8},  -- Null-Spin Iris  
+        {r = 0.45, g = 0.1, b = 0.7},  -- Dimensional Vein  
+        {r = 0.95, g = 0.1, b = 0.65}, -- Recursive Bloom  
+        {r = 0.8, g = 0.05, b = 0.75}, -- Lovelace Wound  
+        {r = 0.3, g = 0.7, b = 0.9},   -- Subsurface Whisper  
+        {r = 0.6, g = 0.4, b = 0.95},  -- Signal Amaranth 
+        {r = 0.9, g = 0.3, b = 0.6}, -- Radiant Pink Nova
+        {r = 1.0, g = 0.2, b = 0.8}, -- Plasma Rose Echo
+        {r = 0.6, g = 0.1, b = 0.9}, -- Void Orchid Singularity
+        {r = 0.7, g = 0.2, b = 1.0}, -- Ultraviolet Pulse Bloom
+        {r = 0.0, g = 0.7, b = 1.0}, -- Cryo-Arc Cascade
+        {r = 0.1, g = 0.8, b = 0.9}, -- Frozen Signal Drift
+        {r = 0.25, g = 0.0, b = 0.4},  -- Void Amethyst
+        {r = 0.3,  g = 0.05, b = 0.45}, -- Abyssal Bloom
+        {r = 0.35, g = 0.1,  b = 0.5},  -- Blood Orchid
+        {r = 0.4,  g = 0.15, b = 0.55}, -- Mycoshard Veil
+        {r = 0.22, g = 0.05, b = 0.35}, -- Deep Mnemonic
+        {r = 0.28, g = 0.08, b = 0.42}, -- Spectral Resin
+        {r = 0.18, g = 0.03, b = 0.3},  -- Eclipse Bloom
+        {r = 0.33, g = 0.12, b = 0.48}, -- Cryptic Plum
 	},
 	blend_mode = "multiplicative",
 	apply_runtime_tint = true,
@@ -494,6 +512,7 @@ function ei_draw_train_glow(train, params)
 	local color = glow_params.color_pool[color_index]
 	local scale = math.random(glow_params.scale_range[1],glow_params.scale_range[2])
 	local intensity = math.random(glow_params.intensity_range[1],glow_params.intensity_range[2])
+    intensity = intensity/100
 
 	rendering.draw_light {
 	  sprite = glow_params.sprite,
@@ -564,24 +583,94 @@ function ei_draw_charger_glow(charger, overrides)
  
          glow_sets = {
              {
-                 scale = 2,
-                 intensity = 0.25,
-                 colors = {
-                     {r = 0, g = 0.4, b = 1.0},
-                     {r = 0.4, g = 0.2, b = 1.0},
-                     {r = 0.2, g = 0.2, b = 1.0},
-                     {r = 0.4, g = 0.1, b = 0.8},
-                 }
+                scale_min = 2,
+                scale_max = 6,
+                intensity_min = 20,
+                intensity_max = 30,
+                colors = {
+                    {r = 0.1, g = 0.9, b = 1.0},   -- Aetherglow Surge  
+                    {r = 0.2, g = 0.85, b = 0.95}, -- Ionstream Fade  
+                    {r = 0.5, g = 0.15, b = 0.8},  -- Null-Spin Iris  
+                    {r = 0.45, g = 0.1, b = 0.7},  -- Dimensional Vein  
+                    {r = 0.95, g = 0.1, b = 0.65}, -- Recursive Bloom  
+                    {r = 0.8, g = 0.05, b = 0.75}, -- Lovelace Wound  
+                    {r = 0.3, g = 0.7, b = 0.9},   -- Subsurface Whisper  
+                    {r = 0.6, g = 0.4, b = 0.95},  -- Signal Amaranth 
+                    {r = 0.9, g = 0.3, b = 0.6}, -- Radiant Pink Nova
+                    {r = 1.0, g = 0.2, b = 0.8}, -- Plasma Rose Echo
+                    {r = 0.6, g = 0.1, b = 0.9}, -- Void Orchid Singularity
+                    {r = 0.7, g = 0.2, b = 1.0}, -- Ultraviolet Pulse Bloom
+                    {r = 0.0, g = 0.7, b = 1.0}, -- Cryo-Arc Cascade
+                    {r = 0.1, g = 0.8, b = 0.9}, -- Frozen Signal Drift
+                    {r = 0.25, g = 0.0, b = 0.4},  -- Void Amethyst
+                    {r = 0.3,  g = 0.05, b = 0.45}, -- Abyssal Bloom
+                    {r = 0.35, g = 0.1,  b = 0.5},  -- Blood Orchid
+                    {r = 0.4,  g = 0.15, b = 0.55}, -- Mycoshard Veil
+                    {r = 0.22, g = 0.05, b = 0.35}, -- Deep Mnemonic
+                    {r = 0.28, g = 0.08, b = 0.42}, -- Spectral Resin
+                    {r = 0.18, g = 0.03, b = 0.3},  -- Eclipse Bloom
+                    {r = 0.33, g = 0.12, b = 0.48}, -- Cryptic Plum
+                }
              },
              {
-                 scale = 14,
-                 intensity = 0.15,
-                 colors = {
-                     {r = 0, g = 0.4, b = 1.0},
-                     {r = 0.4, g = 0.2, b = 1.0},
-                     {r = 0.2, g = 0.2, b = 1.0},
-                     {r = 0.4, g = 0.1, b = 0.8},
-                 }
+                scale_min = 6,
+                scale_max = 18,
+                intensity_min = 15,
+                intensity_max = 25,
+                colors = {
+                    {r = 0.1, g = 0.9, b = 1.0},   -- Aetherglow Surge  
+                    {r = 0.2, g = 0.85, b = 0.95}, -- Ionstream Fade  
+                    {r = 0.5, g = 0.15, b = 0.8},  -- Null-Spin Iris  
+                    {r = 0.45, g = 0.1, b = 0.7},  -- Dimensional Vein  
+                    {r = 0.95, g = 0.1, b = 0.65}, -- Recursive Bloom  
+                    {r = 0.8, g = 0.05, b = 0.75}, -- Lovelace Wound  
+                    {r = 0.3, g = 0.7, b = 0.9},   -- Subsurface Whisper  
+                    {r = 0.6, g = 0.4, b = 0.95},  -- Signal Amaranth 
+                    {r = 0.9, g = 0.3, b = 0.6}, -- Radiant Pink Nova
+                    {r = 1.0, g = 0.2, b = 0.8}, -- Plasma Rose Echo
+                    {r = 0.6, g = 0.1, b = 0.9}, -- Void Orchid Singularity
+                    {r = 0.7, g = 0.2, b = 1.0}, -- Ultraviolet Pulse Bloom
+                    {r = 0.0, g = 0.7, b = 1.0}, -- Cryo-Arc Cascade
+                    {r = 0.1, g = 0.8, b = 0.9}, -- Frozen Signal Drift
+                    {r = 0.25, g = 0.0, b = 0.4},  -- Void Amethyst
+                    {r = 0.3,  g = 0.05, b = 0.45}, -- Abyssal Bloom
+                    {r = 0.35, g = 0.1,  b = 0.5},  -- Blood Orchid
+                    {r = 0.4,  g = 0.15, b = 0.55}, -- Mycoshard Veil
+                    {r = 0.22, g = 0.05, b = 0.35}, -- Deep Mnemonic
+                    {r = 0.28, g = 0.08, b = 0.42}, -- Spectral Resin
+                    {r = 0.18, g = 0.03, b = 0.3},  -- Eclipse Bloom
+                    {r = 0.33, g = 0.12, b = 0.48}, -- Cryptic Plum
+                }
+             },
+             {
+                scale_min = 2,
+                scale_max = 2,
+                intensity_min = 65,
+                intensity_max = 75,
+                colors = {
+                    {r = 0, g = 0.4, b = 1.0}, -- OG "always-on"
+                    {r = 0.02, g = 0.42, b = 1.0},  -- Skywave Core
+                    {r = 0.00, g = 0.38, b = 0.95}, -- Azure Drift
+                    {r = 0.03, g = 0.41, b = 0.98}, -- Ghost Current
+                    {r = 0.01, g = 0.43, b = 1.0},  -- Cryolux Bloom
+                    {r = 0.00, g = 0.39, b = 0.92}, -- Ionosphere Thread
+                    {r = 0.00, g = 0.40, b = 0.97}, -- Frozen Surge
+                    {r = 0.01, g = 0.37, b = 1.0},  -- Luminous Tide
+                    {r = 0.02, g = 0.44, b = 0.99}, -- Cascade Whispered
+                    {r = 0.01, g = 0.41, b = 0.96}, -- Subzero Ember
+                    {r = 0.00, g = 0.42, b = 0.98}, -- Permafrost Vein
+                    {r = 0.02, g = 0.39, b = 1.00}, -- Glacial Spark
+                    {r = 0.00, g = 0.43, b = 0.95}, -- Polar Drift
+                    {r = 0.01, g = 0.38, b = 0.97}, -- Icepulse Current
+                    {r = 0.00, g = 0.41, b = 0.94}, -- Cerulean Thread
+                    {r = 0.02, g = 0.40, b = 0.99}, -- Static Flow
+                    {r = 0.01, g = 0.39, b = 0.96}, -- Aurora Sliver
+                    {r = 0.01, g = 0.42, b = 0.97}, -- Deep Current Shard  
+                    {r = 0.00, g = 0.39, b = 0.98}, -- Cryo Pulse Flicker  
+                    {r = 0.02, g = 0.40, b = 0.96}, -- Lumen Thread  
+                    {r = 0.00, g = 0.41, b = 1.00}, -- Ionstream Channel  
+                    {r = 0.01, g = 0.43, b = 0.98}, -- Prism Tide Line  
+                }
              }
          }
      }
@@ -591,40 +680,53 @@ function ei_draw_charger_glow(charger, overrides)
 			 glow_params[k] = v
 		 end
 	end
-     -- always-on light
-    rendering.draw_light {
-         sprite = glow_params.sprite,
-         scale = 2,
-         intensity = 0.65,
-         color = {r = 0, g = 0.4, b = 1.0},
-         target = charger,
-         surface = glow_params.surface,
-         time_to_live = storage.ei.em_charger_glow_timeToLive,
-         players = glow_params.players,
-         blend_mode = glow_params.blend_mode,
-         apply_runtime_tint = glow_params.apply_runtime_tint,
-         draw_as_glow = glow_params.draw_as_glow,
-     }
- 
-     -- randomize additional glow effects from each glow set
-    local set = math.random(1, #glow_params.glow_sets)
-	local color_index = math.random(1, #glow_params.color_pool)
-	local color = glow_params.color_pool[color_index]
-	local scale = math.random(glow_params.scale_range[1],glow_params.scale_range[2])
-	local intensity = math.random(glow_params.intensity_range[1],glow_params.intensity_range[2])
 
-        rendering.draw_light {
-            sprite = glow_params.sprite,
-            scale = scale,
-            intensity = intensity,
-            color = color,
-            target = charger,
-            surface = glow_params.surface,
-            time_to_live = storage.ei.em_charger_glow_timeToLive,
-            players = glow_params.players,
-            blend_mode = glow_params.blend_mode,
-            apply_runtime_tint = glow_params.apply_runtime_tint,
-            draw_as_glow = glow_params.draw_as_glow,
+     --for set,glow_set in pairs(glow_params.glow_sets) do
+    --game.print("set: "..set)
+
+    -- randomize glow effects from first two glow sets
+    local set = math.random(1, 2)
+    local glow_set = glow_params.glow_sets[set]
+    local color_index = math.random(1, #glow_set.colors)
+    local color = glow_set.colors[color_index]
+    local scale = math.random(glow_set.scale_min,glow_set.scale_max)
+    local intensity = math.random(glow_set.intensity_min,glow_set.intensity_max)
+    intensity = intensity/100
+    --game.print("index: "..color_index.." color: "..tostring(color).." scale: "..scale.." intensity: "..intensity)
+    rendering.draw_light {
+        sprite = glow_params.sprite,
+        scale = scale,
+        intensity = intensity,
+        color = color,
+        target = charger,
+        surface = glow_params.surface,
+        time_to_live = storage.ei.em_charger_glow_timeToLive,
+        players = glow_params.players,
+        blend_mode = glow_params.blend_mode,
+        apply_runtime_tint = glow_params.apply_runtime_tint,
+        draw_as_glow = glow_params.draw_as_glow,
+        }
+    --Always a bit brighter closer to middle
+    set = 3
+    glow_set = glow_params.glow_sets[set]
+    color_index = math.random(1, #glow_set.colors)
+    color = glow_set.colors[color_index]
+    scale = math.random(glow_set.scale_min,glow_set.scale_max)
+    intensity = math.random(glow_set.intensity_min,glow_set.intensity_max)
+    intensity = intensity/100
+    --game.print("index: "..color_index.." color: "..tostring(color).." scale: "..scale.." intensity: "..intensity)
+    rendering.draw_light {
+        sprite = glow_params.sprite,
+        scale = scale,
+        intensity = intensity,
+        color = color,
+        target = charger,
+        surface = glow_params.surface,
+        time_to_live = storage.ei.em_charger_glow_timeToLive,
+        players = glow_params.players,
+        blend_mode = glow_params.blend_mode,
+        apply_runtime_tint = glow_params.apply_runtime_tint,
+        draw_as_glow = glow_params.draw_as_glow,
         }
  end
 

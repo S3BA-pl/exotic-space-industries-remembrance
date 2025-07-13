@@ -262,7 +262,7 @@ function echo_codex.handle_global_settings(event)
             font="default-bold"
         })
     end
-    storage.ei.em_train_glow_toggle = train_glow
+    storage.ei.em_train_glow = train_glow
 
     --=== [Train Glow TTL] ===--
     tint, tint_adj = next_tint(event)

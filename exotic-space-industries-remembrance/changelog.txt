@@ -1,9 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.81
+Date: 7-13-2025
+  Changes:
+    - EMT glow effect color pool expanded upon.
+  Bugfixes:
+    - Merged pull request from @baadfood: heat furnace connections now functioning properly and accessible from all sides.
+    - Fixed charger glow params associated nil error.
+    - Fixed train glow function referred to mispelled startup setting and ergo was always off.
+    - Fixed echo_codex handle_global also referred to mispelled startup setting.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.7
 Date: 7-13-2025
   Changes:
     - RESTORED removal of Kovarex Enrichment Process recipe—technology renamed Kovarex Fuel Enrichment to reflect remaining Nuclear Fuel recipe unlock.
-    - Black hole, Quantum, Exotic and associated sub ages recipe complexity increased.
+    - Black hole, Quantum, Exotic and associated sub ages technology recipe complexity increased.
     - Pollution combinator recipe requires electronic parts as well as an electronic circuit.
   Bugfixes:
     - Corrected mispelling of Suspicious and Crushing in en lang file.
