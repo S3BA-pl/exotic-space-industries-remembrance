@@ -3,20 +3,23 @@ local model = {}
 ei_lib = require("lib/lib")
 local FIRE_UPDATE_TICK = math.max(60,ei_ticksPerFullUpdate)
 --------------------------------------------------------------------------------
-
-function model.on_built_entity(event)
-    if event.entity.name == "ei-camp-fire" then
-        storage.ei.campfire[event.entity.unit_number] = event.entity
+local function register(entity)
+    if entity and entity.unit_number then
+        storage.ei.campfire[entity.unit_number] = entity
     end
 end
-
+function model.on_built_entity(event)
+    if event and event.entity and event.entity.valid and event.entity.name == "ei-camp-fire" then
+        register(event.entity)
+    end
+end
 local function cleanup(entity)
-    if entity.unit_number then
+    if entity and entity.unit_number then
         storage.ei.campfire[entity.unit_number] = nil
     end
 end
 function model.on_destroyed_entity(event)
-    if event.entity.name == "ei-camp-fire" then
+    if event and event.entity and event.entity.valid and event.entity.name == "ei-camp-fire" then
         cleanup(event.entity)
     end
 end

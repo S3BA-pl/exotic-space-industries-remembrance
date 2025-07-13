@@ -1,10 +1,24 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.83
+Date: 7-13-2025
+  Bugfixes:
+    - Measure twice cut once >.<
+---------------------------------------------------------------------------------------------------
+Version: 1.1.82
+Date: 7-13-2025
+  Changes:
+    - Camp fire can now burn wood, wooden chests, and Lignumis lumber.
+    - Gate energy inflow limit 5 -> 25GW.
+    - Gate buffer capacity 50 -> 60GJ. Shutoff remains 45 GJ.
+  Bugfixes:
+    - Nil check to prevent invalid entity in camp_fire control file caused by removing entities with on_destroy handlers.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.81
 Date: 7-13-2025
   Changes:
     - EMT glow effect color pool expanded upon.
   Bugfixes:
-    - Merged pull request from @baadfood: heat furnace connections now functioning properly and accessible from all sides.
+    - Merged pull request from @baadfood: heat steel furnace connections now functioning properly and accessible from all sides.
     - Fixed charger glow params associated nil error.
     - Fixed train glow function referred to mispelled startup setting and ergo was always off.
     - Fixed echo_codex handle_global also referred to mispelled startup setting.
