@@ -254,6 +254,24 @@ data:extend({
         main_product = "steel-plate",
         hide_from_player_crafting = true,
     },
+    --below unlocked with carbon manipulation in computer age
+    {
+        name = "ei-cast-carbon",
+        type = "recipe",
+        category = "ei-casting",
+        energy_required = 0.5,
+        ingredients = {
+            {type = "fluid", name = "ei-molten-carbon", amount = 10},
+            {type = "fluid", name = "steam", amount = 100, minimum_temperature=500},
+        },
+        results = {
+            {type = "item", name = "carbon", amount = 1},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "carbon",
+        hide_from_player_crafting = true,
+    },
     {
         name = "ei-molten-carbon-symbiote-casting",
         type = "recipe",

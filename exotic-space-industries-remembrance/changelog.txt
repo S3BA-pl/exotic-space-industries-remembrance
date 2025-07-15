@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.84
+Date: 7-14-2025
+  Features:
+    - Moved carbon manipulation recipes introduced in 1.1.5 into new technology: Carbon Manipulation, prerequisites are Space Platform and High Energy Crystal Production.
+    - Added recipe to turn molten carbon into raw carbon.
+    - Added recipe to turn coal coke into molten carbon.
+   Changes:
+    - Carbon -> Molten carbon slag output -> ash.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.83
 Date: 7-13-2025
   Bugfixes:

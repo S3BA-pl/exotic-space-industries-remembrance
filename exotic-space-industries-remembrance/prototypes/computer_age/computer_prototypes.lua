@@ -2966,6 +2966,54 @@ data:extend({
         age = "computer-age",
         order = "k-a"
     },
+--carbon fiber plate casting pre-quantum age
+    {
+        name = "ei-carbon-manipulation",
+        type = "technology",
+        icon = ei_path.."graphics/tech/carbon-manipulation.png",
+        icon_size = 256,
+        prerequisites = {"space-platform","ei-high-energy-crystal"},
+        effects = {
+            {
+                type = "unlock-recipe",
+                recipe = "ei-molten-carbon"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-molten-carbon-coke"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-molten-carbon-fusion"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-molten-carbon-fusion-high-energy"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-molten-carbon-symbiote-casting"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-cast-carbon"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-molten-carbon-reheat"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-molten-carbon-symbiote-reheat"
+            }
+        },
+        unit = {
+            count = 100,
+            ingredients = ei_data.science["computer-age"],
+            time = 20
+        },
+        age = "computer-age"
+    }
 })
 
 table.insert(data.raw["technology"]["processing-unit"].effects, {

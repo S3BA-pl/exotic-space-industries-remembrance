@@ -1331,13 +1331,6 @@ data.raw.module["ei-productivity-module-6"].limitation = data.raw.module["produc
 -- properly set logistics 3 age and prere 
 ei_lib.raw.technology["logistics-3"].age = "advanced-computer-age"
 ei_lib.raw.technology["logistics-3"].prerequisites = {"ei-advanced-computer-age-tech","logistics-2"}
---carbon fiber plate casting pre-quantum age
-ei_lib.add_unlock_recipe("rocket-silo","ei-molten-carbon")
-ei_lib.add_unlock_recipe("rocket-silo","ei-molten-carbon-fusion")
-ei_lib.add_unlock_recipe("rocket-silo","ei-molten-carbon-fusion-high-energy")
-ei_lib.add_unlock_recipe("rocket-silo","ei-molten-carbon-symbiote-casting")
-ei_lib.add_unlock_recipe("rocket-silo","ei-molten-carbon-reheat")
-ei_lib.add_unlock_recipe("rocket-silo","ei-molten-carbon-symbiote-reheat")
 
 -- add 2 more module slots to rocket silo
 ei_lib.raw["rocket-silo"]["rocket-silo"].module_slots = 4

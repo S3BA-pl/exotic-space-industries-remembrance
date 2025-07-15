@@ -626,6 +626,24 @@ data:extend({
         hide_from_player_crafting = true,
     },
     ]]
+--below unlocked with carbon manipulation in computer age
+    {
+        name = "ei-molten-carbon-coke",
+        type = "recipe",
+        category = "ei-arc-furnace",
+        energy_required = 5,
+        ingredients = {
+            {type = "fluid", name = "ei-molten-glass", amount = 10},
+            {type = "item", name = "ei-crushed-coke", amount = 20},
+        },
+        results = {
+            {type = "fluid", name = "ei-molten-carbon", amount = 10,temperature=950},
+            {type = "item", name = "atan-ash", amount_min = 2, amount_max = 6, probability = 0.90,allow_productivity=false}
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-molten-carbon",
+    },
     {
         name = "ei-molten-carbon",
         type = "recipe",
@@ -637,7 +655,7 @@ data:extend({
         },
         results = {
             {type = "fluid", name = "ei-molten-carbon", amount = 10,temperature=950},
-            {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.002,allow_productivity=false}
+            {type = "item", name = "atan-ash", amount_min = 1, amount_max = 3, probability = 0.60,allow_productivity=false}
         },
         always_show_made_in = true,
         enabled = false,

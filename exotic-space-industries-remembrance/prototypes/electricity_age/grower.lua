@@ -79,6 +79,7 @@ data:extend({
         enabled = false,
         main_product = "ei-energy-crystal",
     },
+    --below unlocked with carbon manipulation in computer age
     {
         name = "ei-molten-carbon-fusion",
         type = "recipe",
