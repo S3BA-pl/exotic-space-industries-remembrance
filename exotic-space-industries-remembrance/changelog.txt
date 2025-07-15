@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.87
+Date: 7-15-2025
+  Changes:
+    - ei_lib.merge_item can now additionally iterate over simple-entity and tree.
+    - Lignumis gold ore -> gold chunk merge now includes the flora.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.86
 Date: 7-15-2025
   Bugfixes:

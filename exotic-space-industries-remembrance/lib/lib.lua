@@ -1215,27 +1215,45 @@ function ei_lib.do_fluid_merge(recipe, target, fluid)
     end
 end
 
-function ei_lib.merge_item(target, item, icon_transfer)
+function ei_lib.merge_item(target, item, icon_transfer, placeables)
 
-    if not data.raw.item[target] then return end
-    if not data.raw.item[item] then return end
-    icon_transfer = icon_transfer or false
+  if not data.raw.item[target] then return end
+  if not data.raw.item[item] then return end
+  icon_transfer = icon_transfer or false
 
-    -- loop over all recipes and swap
-    for recipe_name,_ in pairs(data.raw.recipe) do
-        local recipe = data.raw.recipe[recipe_name]
-        
-        ei_lib.do_item_merge(recipe, target, item)
+  -- loop over all recipes and swap
+  for recipe_name,_ in pairs(data.raw.recipe) do
+      local recipe = data.raw.recipe[recipe_name]
+      
+      ei_lib.do_item_merge(recipe, target, item)
+  end
+  --also iterate iover placeables?
+  if placeables then
+    local ps = {
+      "simple-entity",
+      "tree"
+    }
+    for _,category in pairs(ps) do
+      for pname, placeable in pairs(data.raw[category]) do
+        if placeable.minable and placeable.minable.results then
+          for i, result in ipairs(placeable.minable.results) do
+            if result.type == "item" and result.name == item then
+                log("ei: Replacing '"..result.name.."' with '"..target.."' in placeable: " .. pname)
+                result.name = target
+            end
+          end
+        end
+      end
     end
+  end
+  -- icon transfer needed?
+  if icon_transfer then
+      data.raw.item[target].icon = data.raw.item[item].icon
+      data.raw.item[target].icon_size = data.raw.item[item].icon_size
+  end
 
-    -- icon transfer needed?
-    if icon_transfer then
-        data.raw.item[target].icon = data.raw.item[item].icon
-        data.raw.item[target].icon_size = data.raw.item[item].icon_size
-    end
-
-    -- hide the old item
-    data.raw.item[item].hidden = true
+  -- hide the old item
+  data.raw.item[item].hidden = true
 
 end
 

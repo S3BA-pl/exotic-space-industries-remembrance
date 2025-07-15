@@ -75,9 +75,9 @@ if mods["lignumis"] then
     color_hint = { text = "C" },
     order = "a[smelting]-0[gold-plate]",
   }
-  ei_lib.merge_item("ei-gold-chunk","gold-ore",false)
+  ei_lib.merge_item("ei-gold-chunk","gold-ore",false,true)
   --ei_lib.merge_item("gold-plate","ei-gold-ingot",true)
-  ei_lib.merge_fluid("ei-molten-gold","molten-gold",false)
+  ei_lib.merge_fluid("ei-molten-gold","molten-gold",false,true)
 
   data:extend{
     {
