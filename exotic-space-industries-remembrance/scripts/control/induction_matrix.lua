@@ -92,7 +92,12 @@ function model.check_global_init()
     end
 
     if not storage.ei.induction_matrix.core then
-        storage.ei.induction_matrix.core = {}
+        storage.ei.induction_matrix.core = { 
+            stats = {
+                max_IO = 0,
+                capacity = 0
+            }
+        }
     end
 
 end
@@ -1070,7 +1075,7 @@ function model.get_matrix_capacity(matrix_id)
 
     model.check_global_init()
 
-    if not storage.ei.induction_matrix.core[matrix_id] then
+    if not storage.ei.induction_matrix.core[matrix_id] or not storage.ei.induction_matrix.core[matrix_id].stats or not storage.ei.induction_matrix.core[matrix_id].stats.capacity then
         return 0
     end
 
@@ -1084,7 +1089,7 @@ function model.get_matrix_max_IO(matrix_id)
 
     model.check_global_init()
 
-    if not storage.ei.induction_matrix.core[matrix_id] then
+    if not storage.ei.induction_matrix.core[matrix_id] or not storage.ei.induction_matrix.core[matrix_id].stats or not storage.ei.induction_matrix.core[matrix_id].stats.max_IO then
         return 0
     end
 

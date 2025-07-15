@@ -449,20 +449,20 @@ local new_ingredients_table = {
     ["express-transport-belt"] = {
         {type="item",name="fast-transport-belt", amount=1},
         {type="item",name="ei-steel-mechanical-parts", amount=5},
-        {type="item",name="ei-carbon", amount=1},
+        {type="item",name="ei-carbon", amount=3},
         {type="fluid", name="lubricant", amount=15},
     },
     ["express-underground-belt"] = {
         {type="item",name="fast-underground-belt", amount=2},
-        {type="item",name="ei-steel-mechanical-parts", amount=5},
-        {type="item",name="ei-carbon", amount=1},
+        {type="item",name="ei-steel-mechanical-parts", amount=30},
+        {type="item",name="ei-carbon", amount=12},
         {type="fluid", name="lubricant", amount=35},
     },
     ["express-splitter"] = {
         {type="item",name="fast-splitter", amount=1},
         {type="item",name="advanced-circuit", amount=10},
-        {type="item",name="ei-steel-mechanical-parts", amount=5},
-        {type="item",name="ei-carbon", amount=1},
+        {type="item",name="ei-steel-mechanical-parts", amount=12},
+        {type="item",name="ei-carbon", amount=12},
         {type="fluid", name="lubricant", amount=55},
     },
     ["firearm-magazine"] = {
@@ -1399,9 +1399,13 @@ ei_lib.raw.stream["flamethrower-fire-stream"] = {
 }
 
 
- ei_lib.recipe_swap("turbo-transport-belt", "lubricant","electrolyte", 20)
- ei_lib.recipe_swap("turbo-underground-belt", "lubricant","electrolyte", 40)
-  ei_lib.recipe_swap("turbo-splitter", "lubricant","electrolyte", 80)
+ei_lib.recipe_swap("turbo-transport-belt", "lubricant","electrolyte", 20)
+ei_lib.recipe_swap("turbo-underground-belt", "lubricant","electrolyte", 40)
+ei_lib.recipe_swap("turbo-splitter", "lubricant","electrolyte", 80)
+ei_lib.recipe_add("turbo-transport-belt", "ei-steel-mechanical-parts", 8, false)
+ei_lib.recipe_add("turbo-underground-belt", "ei-steel-mechanical-parts", 30, false)
+ei_lib.recipe_add("turbo-splitter", "ei-steel-mechanical-parts", 15, false)
+
 -- set next upgrade of turbo belt, splitter and underground to ei_neo-belt
 ei_lib.raw["transport-belt"]["turbo-transport-belt"].next_upgrade = "ei-neo-belt"
 ei_lib.raw["splitter"]["turbo-splitter"].next_upgrade = "ei-neo-splitter"

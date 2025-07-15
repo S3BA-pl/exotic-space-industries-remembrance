@@ -36,6 +36,7 @@ data:extend({
         name = "ei-neo-belt",
         type = "recipe",
         category = "crafting-with-fluid",
+		additional_categories = {"metallurgy-or-assembling"},
         energy_required = 2,
         ingredients = {
             {type = "fluid", name = "ei-liquid-nitrogen", amount = 20},
@@ -54,12 +55,14 @@ data:extend({
         name = "ei-neo-splitter",
         type = "recipe",
         category = "crafting-with-fluid",
+		additional_categories = {"metallurgy-or-assembling"},
         energy_required = 2,
         ingredients = {
             {type = "fluid", name = "ei-liquid-nitrogen", amount = 20},
             {type = "item", name = "express-splitter", amount = 2},
             {type = "item", name = "ei-neodym-ingot", amount = 2},
-            {type = "item", name = "processing-unit", amount = 5},
+            {type = "item", name = "ei-computing-unit", amount = 5},
+            {type = "item", name = "ei-steel-mechanical-parts", amount = 18},
         },
         results = {
             {type = "item", name = "ei-neo-splitter", amount = 1},
@@ -72,6 +75,7 @@ data:extend({
         name = "ei-neo-underground-belt",
         type = "recipe",
         category = "crafting-with-fluid",
+		additional_categories = {"metallurgy-or-assembling"},
         energy_required = 6,
         ingredients = {
             {type = "fluid", name = "ei-liquid-nitrogen", amount = 100},

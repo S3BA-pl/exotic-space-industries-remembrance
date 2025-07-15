@@ -86,7 +86,7 @@ data:extend({
         collision_box = data.raw["assembling-machine"]["assembling-machine-1"].collision_box,
         selection_box = data.raw["assembling-machine"]["assembling-machine-1"].selection_box,
         map_color = ei_data.colors.assembler,
-        crafting_categories = {"ei-steam-assembler", "crafting", "crafting-with-fluid", "electronics"},
+        crafting_categories = {"ei-steam-assembler", "crafting", "crafting-with-fluid", "electronics",},
         crafting_speed = 0.5,
         energy_source = {
             type = "fluid",

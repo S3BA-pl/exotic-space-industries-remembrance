@@ -1,7 +1,7 @@
 -- campfire
 local model = {}
 ei_lib = require("lib/lib")
-local FIRE_UPDATE_TICK = math.max(60,ei_ticksPerFullUpdate)
+local FIRE_UPDATE_TICK = math.max(150,ei_ticksPerFullUpdate)
 --------------------------------------------------------------------------------
 local function register(entity)
     if entity and entity.unit_number then

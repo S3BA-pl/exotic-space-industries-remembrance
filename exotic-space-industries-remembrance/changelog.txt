@@ -1,8 +1,30 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.86
+Date: 7-15-2025
+  Bugfixes:
+    - Wrapped extinguisher technology prerequisite in { } to satisfy the table gods.
+---------------------------------------------------------------------------------------------------
+Version: 1.1.85
+Date: 7-15-2025
+  Features:
+    - Added fire extinguisher to required dependencies, slotted into Electric age—prerequisite is Sulfur Processing, enables hand-held fire-fighting efforts.
+  Changes:
+    - Reduced how often camp-fire spawns fire.
+    - Turbo belts, splitters, and undergrounds additionally require 8, 12, and 30 steel mechanical parts.
+    - Neodymium belts, splitters, and undergrounds additionally craftable in Foundry.
+    - Neodymium splitter input: processing unit -> computing unit, additionally requires 18 steel mechanical parts. 
+    - Neodymium belt and underground additionally require 10, 30 steel mechanical parts.
+    - Express transport belt input: carbon-fiber plate 1 -> 3.
+    - Express transport underground belt input: carbon-fiber plate 1 -> 12, steel mechanical parts 5 -> 30.
+    - Express transport splitter input: carbon-fiber plate 1 -> 12, steel mechanical parts 5 -> 12. 
+  Bugfixes:
+    - Induction matrix core stats initialized with values of 0 instead of nil preventing error in editor.
+    - Induction matrix core stats checker additionally guards against nil error.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.84
 Date: 7-14-2025
   Features:
-    - Moved carbon manipulation recipes introduced in 1.1.5 into new technology: Carbon Manipulation, prerequisites are Space Platform and High Energy Crystal Production.
+    - Moved carbon manipulation recipes introduced in 1.1.5 into new technology: Carbon Manipulation—prerequisites are Space Platform and High Energy Crystal Production.
     - Added recipe to turn molten carbon into raw carbon.
     - Added recipe to turn coal coke into molten carbon.
    Changes:
@@ -356,7 +378,7 @@ Date: 7-2-2025
     - Arc Furnace/Plasma Heater ore smelting now has 1% chance of producing slag.
     - Restored slag mechanic—smelting produces accompanying slag which must be dealt with.
     - Milestone preset: Added variety of items, entities, and doodads.
-    - Advanced roboport doubled in size. Charging slots 6 -> 12. Slots 10 -> 20. Radius 70 -> 115. Idle energy usage 4 -> 8MW. Charging energy 4 -> 12 MW. Buffer capacity 400 -> 1GJ. Input flow limit 160 -> 300MW. Health 1000 -> 2000.
+    - Advanced roboport doubled in size. Charging slots 6 -> 12. Slots 10 -> 20. Radius 70 -> 115. Idle energy usage 4 -> 8MW. Charging energy 4 -> 12 MW. Buffer capacity 400MJ -> 1GJ. Input flow limit 160 -> 300MW. Health 1000 -> 2000.
     - Advanced roboport recipe: additionally requires 50 Electronic parts and 40 Steel beams, Roboports 4 -> 8, Processing units 20 -> 40, Advanced motors 20 -> 40. No longer allows Productivity.
     - Biochamber power source restored to nutrients.
     - Steam long inserter recipe inputs: Burner inserter -> Steam inserter, Steam engine -> Steel mechanical parts.
