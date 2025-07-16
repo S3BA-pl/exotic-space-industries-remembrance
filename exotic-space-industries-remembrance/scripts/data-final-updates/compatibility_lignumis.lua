@@ -27,15 +27,75 @@ if mods["lignumis"] then
   
   ei_lib.raw.item.lumber.place_as_tile = table.deepcopy(data.raw.item.wood.place_as_tile)
   ei_lib.raw.item.wood.place_as_tile = nil
-  
-  ei_lib.recipe_swap("burner-mining-drill", "ei-iron-mechanical-parts", "wooden-gear-wheel")
-  ei_lib.recipe_swap("burner-mining-drill", "iron-plate", "stone-brick")
-  
-  ei_lib.recipe_swap("ei-dark-age-lab", "iron-plate", "lumber")
-  ei_lib.recipe_swap("ei-dark-age-lab", "ei-copper-mechanical-parts", "wooden-gear-wheel")
-  
-  ei_lib.recipe_swap("burner-inserter", "ei-copper-mechanical-parts", "wooden-gear-wheel")
-  ei_lib.recipe_swap("ei-mechanical-inserter", "ei-iron-mechanical-parts", "wooden-gear-wheel")
+
+  --alt recipes for burner lab, drill, mechanical and burner inserters
+  data:extend({
+      {
+        name = "ei-dark-age-lab-lignumis",
+        type = "recipe",
+        category = "crafting",
+        energy_required = ei_lib.raw.recipe["ei-dark-age-lab"].energy_required*1.25,
+        ingredients =
+        {
+            {type="item", name="wooden-gear-wheel", amount=4},
+            {type="item", name="gold-plate", amount=6},
+            {type="item", name="stone-brick", amount=4},
+        },
+        results = {{type="item", name="ei-dark-age-lab", amount=1}},
+        enabled = true,
+        always_show_made_in = false,
+        main_product = "ei-dark-age-lab",
+    },
+    {
+        name = "ei-burner-mining-drill-lignumis",
+        type = "recipe",
+        category = "crafting",
+        energy_required = ei_lib.raw.recipe["burner-mining-drill"].energy_required*1.25,
+        ingredients =
+        {
+            {type="item", name="stone-furnace", amount=1},
+            {type="item", name="gold-plate", amount=3},
+            {type="item", name="wooden-gear-wheel", amount=3},
+
+        },
+        results = {{type="item", name="burner-mining-drill", amount=1}},
+        enabled = true,
+        always_show_made_in = false,
+        main_product = "burner-mining-drill",
+    },
+    {
+        name = "ei-mechanical-inserter-lignumis",
+        type = "recipe",
+        category = "crafting",
+        energy_required = ei_lib.raw.recipe["ei-mechanical-inserter"].energy_required*1.25, --lefty loosey
+        ingredients =
+        {
+            {type="item", name="burner-inserter", amount=1},
+            {type="item", name="wooden-gear-wheel", amount=10},
+        },
+        results = {{type="item", name="ei-mechanical-inserter", amount=1}},
+        enabled = false,
+        always_show_made_in = false,
+        main_product = "ei-mechanical-inserter",
+    },
+    {
+        name = "ei-burner-inserter-lignumis",
+        type = "recipe",
+        category = "crafting",
+        energy_required = 1,
+        ingredients =
+        {
+            {type="item", name="gold-plate", amount=1},
+            {type="item", name="wooden-gear-wheel", amount=2},
+        },
+        results = {{type="item", name="burner-inserter", amount=1}},
+        enabled = true,
+        always_show_made_in = false,
+        main_product = "burner-inserter",
+    },
+  })
+  ei_lib.add_unlock_recipe("ei-mechanical-inserter","ei-mechanical-inserter-lignumis")
+
   ei_lib.recipe_swap("steam-assembling-machine", "ei-burner-assembler", "burner-assembling-machine")
   ei_lib.recipe_swap("lumber-mill", "ei-burner-assembler", "steam-assembling-machine")
 
@@ -74,6 +134,9 @@ if mods["lignumis"] then
     subgroup = "raw-material",
     color_hint = { text = "C" },
     order = "a[smelting]-0[gold-plate]",
+  }
+  ei_lib.raw.item["gold-bacteria"].results = {
+    {type="item",name="ei-gold-chunk",amount=1},
   }
   ei_lib.merge_item("ei-gold-chunk","gold-ore",false,true)
   --ei_lib.merge_item("gold-plate","ei-gold-ingot",true)

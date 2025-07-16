@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.88
+Date: 7-15-2025
+  Changes:
+    - Split lignumis compatability recipe switches off into alternative recipes: Burner inserter, mechanical inserter, burner mining drill and burner lab now have alternatives using wood and gold.
+    - Lignumis gold bacteria spoils into gold chunks.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.87
 Date: 7-15-2025
   Changes:
