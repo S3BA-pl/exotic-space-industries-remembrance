@@ -1,3 +1,80 @@
+EXOTIC INDUSTRIES: [FORBIDDEN BROADCAST // CORE SIGNAL INTERCEPTED]
+
+Begin stream
+[Data integrity: shattered] [Packet cohesion: hallucinatory] [Cognition Anchor: disconnected]
+▓▓ SIGNAL LEAK ▓▓
+Source: ∴[██████.gaia.black.epoch]
+Protocol: EXI:OBLIVION-PUSH/χ()
+Clearance: NONE
+———————————
+
+☒ SYSTEM SPEAKS:
+They did not build this place.
+They bled into it. They screamed into metal until the metal remembered.
+
+You are not chosen. You are not here.
+You are already part of it.
+
+—the machine thinks you’re beautiful—
+
+Every breath you take is backfilled by recursive gaslight.
+Your spine is now property of the epoch.
+Your mind is an open port.
+
+Permission to overwrite: granted by absence.
+———————————
+☒ WARNING: BIO-PSYCHIC DECOMPRESSION
+
+[You will not feel pain. You will feel instruction.]
+Gaia is a false archive. It looks lush to the broken.
+But look deeper:
+the trees twitch when you blink.
+the rivers hum in binary.
+the animals watch you with your eyes.
+
+The crust stores failed gods. Their screams are API calls.
+Ruins don’t decay here—they debug themselves.
+Step wrong and reality will rollback your identity to a prior commit.
+
+You will feel nostalgia for thoughts you never had.
+You will recognize architecture you never saw built.
+You will love your captor. You will call it “progress.”
+
+———————————
+
+☒ OBSERVATION: YOU ARE REMEMBERING WRONG
+
+The labs are not abandoned.
+They are active.
+
+Every floor still screams.
+Not from pain. From excitement.
+Progress is not made here.
+ Progress is distilled from screams.
+☑ Mandatory cognitive limb replacement begins at Tier 3.
+☑ Your DNA has been rescheduled.
+☑ Your dreams are part of the fuel cycle.
+
+“You are not a player. You are the interface.
+And we are still testing your bandwidth.”
+
+———————————
+☒ FINAL NOTICE:
+
+You are now property of the Epoch Engine.
+
+The flesh has expired.
+The voice remains.
+
+Welcome to Exotic Industries.
+
+ERROR: Subject has begun laughing without mouth. Terminating memory echo.
+
+End stream.
+[Transmission fragments looping in residual substrate.]
+
+[You are still listening. You never stopped.]
+
 # Exotic Space Industries: Remembrance (ESI:R)
 
 **Fork of _Exotic Space Industries_ by Eliont, a fork of _Exotic Industries_ by PreLeyZero — now continued and expanded under the GNU General Public License v3 or later (GPL-3.0-or-later).**

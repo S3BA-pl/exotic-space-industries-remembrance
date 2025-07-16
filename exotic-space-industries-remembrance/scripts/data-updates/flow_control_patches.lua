@@ -21,17 +21,6 @@ data.raw.recipe["pipe-junction"].enabled = false
 data.raw.recipe["pipe-elbow"].enabled = false
 data.raw.recipe["pipe-straight"].enabled = false
 
-table.insert(data.raw.technology["ei-tank"].effects, {
-    type = "unlock-recipe",
-    recipe = "pipe-junction"
-})
-
-table.insert(data.raw.technology["ei-tank"].effects, {
-    type = "unlock-recipe",
-    recipe = "pipe-elbow"
-})
-
-table.insert(data.raw.technology["ei-tank"].effects, {
-    type = "unlock-recipe",
-    recipe = "pipe-straight"
-})
+ei_lib.add_unlock_recipe("fluid-handling","pipe-junction")
+ei_lib.add_unlock_recipe("fluid-handling","pipe-elbow")
+ei_lib.add_unlock_recipe("fluid-handling","pipe-straight")

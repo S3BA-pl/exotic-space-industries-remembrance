@@ -135,9 +135,8 @@ if mods["lignumis"] then
     color_hint = { text = "C" },
     order = "a[smelting]-0[gold-plate]",
   }
-  ei_lib.raw.item["gold-bacteria"].results = {
-    {type="item",name="ei-gold-chunk",amount=1},
-  }
+  ei_lib.raw.item["gold-bacteria"].spoil_result = "ei-gold-chunk"
+
   ei_lib.merge_item("ei-gold-chunk","gold-ore",false,true)
   --ei_lib.merge_item("gold-plate","ei-gold-ingot",true)
   ei_lib.merge_fluid("ei-molten-gold","molten-gold",false,true)

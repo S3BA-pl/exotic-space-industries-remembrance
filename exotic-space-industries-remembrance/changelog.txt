@@ -1,8 +1,20 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.90
+Date: 7-15-2025
+  Changes:
+    - Pruned unwarranted and synergy-unconfirmed optional mod dependencies.
+    - Reduced slot size of several chest-shaped vehicles' inventory, notably: Car—14, Tank—16.
+    - Moved Flow Control pipe section unlocks to Fluid Handling.
+---------------------------------------------------------------------------------------------------
+Version: 1.1.89
+Date: 7-15-2025
+  Changes:
+    - Result ~= spoil_result—gold bacteria spoiling into gold chunks corrected.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.88
 Date: 7-15-2025
   Changes:
-    - Split lignumis compatability recipe switches off into alternative recipes: Burner inserter, mechanical inserter, burner mining drill and burner lab now have alternatives using wood and gold.
+    - Split lignumis compatibility recipe switches off into alternative recipes: Burner inserter, mechanical inserter, burner mining drill and burner lab now have alternatives using wood and gold.
     - Lignumis gold bacteria spoils into gold chunks.
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.87
