@@ -1,4 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.92
+Date: 7-16-2025
+  Changes:
+    - Heat steel furnace recipe aligned with regular steel furnace + 1 low capacity heat pipe.
+    - Several planets as well as Krastorio2-spaced-out re-added as hidden dependencies to encourage amenable load order.
+    - Krastorio2-spaced-out singularity beacons now count as 2 beacons toward beacon overload limit.
+  Bugfixes:
+    - Get_ages() now avoids infinite loops by keeping track of seen technologies and de-duplicating return output with new ei_lib.unique_values_only().
+    - Heat steel furnace prototype no longer based off deepcopy of steel furnace and ergo existence can be guaranteed despite interlopers.
+---------------------------------------------------------------------------------------------------
+Version: 1.1.91
+Date: 7-16-2025
+  Bugfixes:
+    - Reforge_gaia global no longer reset to 0 on every load due to checking against variable with typo ergo Gaia will only be reborn once if necessary.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.90
 Date: 7-15-2025
   Changes:

@@ -127,7 +127,7 @@ function model.count_beacons(entity)
         name = "ei-alien-beacon"
     }
     local kr_beacons = {};
-    if script.active_mods["Krastorio2"] then
+    if script.active_mods["krastorio2-spaced-out"] then
         kr_beacons = entity.surface.find_entities_filtered{
         area = area,
         name = "kr-singularity-beacon"
@@ -140,7 +140,7 @@ function model.count_beacons(entity)
         name = "ei-iron-beacon"
     }
 
-    return #beacons + #iron_beacons - #alien_beacons - #kr_beacons
+    return #beacons + #iron_beacons + #kr_beacons - #alien_beacons
 end
 
 

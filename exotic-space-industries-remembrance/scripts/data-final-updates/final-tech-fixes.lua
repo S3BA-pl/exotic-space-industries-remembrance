@@ -77,36 +77,47 @@ end
 
 
 
-local function get_ages(tech)
+
+local function get_ages(tech, visited)
     if not tech then return {} end
-    
-    -- if tech unlocks an age tech pack, give the age corresponding to the tech pack
+
+    -- Initialize visited table if not passed in
+    visited = visited or {}
+
+    -- Prevent infinite recursion
+    if visited[tech.name] then
+        return {}
+    end
+    visited[tech.name] = true
+
+    -- If tech explicitly maps to a known age
     if ei_data.tech_ages_with_sub[tech.name] then
         return {ei_data.tech_ages_with_sub[tech.name]}
     end
 
+    -- If tech directly has an age assigned
     if tech.age then
         return {tech.age}
     end
 
+    -- If there are no prerequisites
     if not tech.prerequisites then
         return {}
     end
 
+    -- Collect all ages from prerequisites
     local return_ages = {}
-    
-    for i,v in ipairs(tech.prerequisites) do
-        local ages = get_ages(data.raw.technology[v])
-        if ages then
-            for x,y in ipairs(ages) do
-                table.insert(return_ages, y)
-            end
+    for _, prereq_name in ipairs(tech.prerequisites) do
+        local prereq_tech = data.raw.technology[prereq_name]
+        local ages = get_ages(prereq_tech, visited)
+        for _, age in ipairs(ages) do
+            table.insert(return_ages, age)
         end
     end
 
-    return return_ages
-
+    return ei_lib.unique_values_only(return_ages)
 end
+
 
 
 local function get_highest_age(ages)

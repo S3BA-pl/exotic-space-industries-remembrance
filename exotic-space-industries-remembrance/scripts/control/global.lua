@@ -42,7 +42,7 @@ function ei_global.check_init()
     if not storage.ei.original_gaia_settings then
         storage.ei.original_gaia_settings = full_gaia_map_gen_settings
     end
-    if not storage.ei.gaia_reforged_version then
+    if not storage.ei.gaia_reforged then
         storage.ei.gaia_reforged = 0    --Leaving room for planetary evolution down the road
     end
     if not storage.ei.campfire then

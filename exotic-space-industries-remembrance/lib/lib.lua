@@ -23,6 +23,17 @@ function ei_lib.clean_nils(t)
   return ans
 end
 
+--returns input tbl minus duplicates
+function ei_lib.unique_values_only(tbl)
+    local seen, out = {}, {}
+    for _, val in ipairs(tbl) do
+        if not seen[val] then
+            seen[val] = true
+            table.insert(out, val)
+        end
+    end
+    return out
+end
 
 function ei_lib.table_contains_value(table_in, value)
     for i,v in pairs(table_in) do
