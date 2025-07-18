@@ -1,4 +1,40 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.94
+Date: 7-17-2025
+  Features:
+    - Created alternative Advanced motor recipe requiring 150 lubricant but no cryo-dust.
+    - New technology Advanced motor created in Computer Age for alternative Advanced motor recipe.
+    - New technology Advanced motor cryo created in Alien Age for Advanced motor cryo recipe which substitutes 135 lubricant for 2 cryodust.
+  Changes:
+    - Restored advanced motor recipe requiring lubricant.
+    - Rocket silo technology prerequisites now includes Advanced motor.
+    - Module core and Module part recipes moved to Modules technology.
+    - Module technologies now require Modules technology as a prerequisite.
+    - Computer core prerequisite changed from Gaia to Advanced motor—Simulation Computer Age can be reached without leaving Nauvis.
+    - Simulation chamber recipe input: 8 Electric engine unit -> 8 Advanced engine unit.
+    - Krastorio storage inventory slot sizes: Strongbox 120 -> 24, Warehouse 500 -> 48. Includes logistic variants.
+    - Capped all detected storage and logistic containers at 64 slots—overfilled containers items will not disappear, but they will only allow items to be taken out.
+    - Exotic matter centrifuging from exotic ore probability cut in half and max output doubled from 1 -> 2.
+  Bugfixes:
+    - Check if Steel furnace is an assembler or a smelter before setting its energy_usage.
+    - ei_data.heating_energy table creation fortified with dynamic creation and sanity checks.
+---------------------------------------------------------------------------------------------------
+Version: 1.1.93
+Date: 7-17-2025
+  Changes:
+    - Camp-fire now requires favorable surface conditions such as an atmosphere.
+    - Camp-fire no longer requires heating not to freeze.
+    - Quantum research computer recipe inputs: 100 processing units -> 100 computing units.
+    - Warp beacon recipe inputs: 2000 processing units -> 2000 computing units.
+    - Alien beacon repair kit recipe inputs: 200 processing units -> 200 computing units.
+    - EI Crushers can now do all space crushing recipes.
+    - Space crusher can now do all ground crushing recipes.
+    - EI crushers' heating energy requirement aligned with space crusher.
+    - Steam crusher energy usage 50 -> 380kW.
+  Bugfixes:
+    - Added lang entry for camp-fire burning recipes.
+    - Vanilla_patches.lua prevents nil error checking if steel-furnace has been turned internally into an assembling-machine ie Krastorio2-spaced-out.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.92
 Date: 7-16-2025
   Changes:

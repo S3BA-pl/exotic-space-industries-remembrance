@@ -79,7 +79,7 @@ data:extend({
         ingredients =
         {
             {type="item", name="ei-electronic-parts", amount=4},
-            {type="item", name="electric-engine-unit", amount=8},
+            {type="item", name="ei-advanced-motor", amount=8},
             {type="item", name="steel-plate", amount=4},
             {type="item", name="ei-steel-mechanical-parts", amount=12}
         },

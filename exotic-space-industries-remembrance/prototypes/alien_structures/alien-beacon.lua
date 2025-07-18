@@ -262,7 +262,7 @@ data:extend({
             {type = "item", name = "ei-odd-plating", amount = 100},
             {type = "item", name = "ei-carbon-structure", amount = 125},
             {type = "item", name = "ei-superior-data", amount = 200},
-            {type = "item", name = "processing-unit", amount = 200},
+            {type = "item", name = "ei-computing-unit", amount = 200},
             {type = "item", name = "ei-high-energy-crystal", amount = 45},
         },
         results = {
@@ -282,7 +282,7 @@ data:extend({
             {type = "item", name = "ei-odd-plating", amount = 1000},
             {type = "item", name = "ei-carbon-structure", amount = 1250},
             {type = "item", name = "ei-superior-data", amount = 2000},
-            {type = "item", name = "processing-unit", amount = 2000},
+            {type = "item", name = "ei-computing-unit", amount = 2000},
             {type = "item", name = "ei-high-energy-crystal", amount = 450},
         },
         results = {

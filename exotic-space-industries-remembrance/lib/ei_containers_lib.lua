@@ -393,9 +393,9 @@ function ei_containers_lib.make_container(size, slots, typus, animation)
         container.type = "container"
         container.logistic_mode = nil
         container.max_logistic_slots = 0
-        local fixType = ei_lib.raw.container["steel-chest"].inventory_type
-        if fixType then
-            container.inventory_type = fixType
+        local fixType = ei_lib.raw.container["steel-chest"]
+        if fixType and fixType.inventory_type then
+            container.inventory_type = fixType.inventory_type
         end
     end
     data:extend({container})

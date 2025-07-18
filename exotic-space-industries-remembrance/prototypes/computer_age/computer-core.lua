@@ -56,7 +56,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."computer-core.png",
         icon_size = 256,
-        prerequisites = {"ei-computer-age","ei-gaia"},
+        prerequisites = {"ei-advanced-motor"},
         effects = {
             {
                 type = "unlock-recipe",

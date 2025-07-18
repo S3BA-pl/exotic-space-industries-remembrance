@@ -169,8 +169,8 @@ data:extend({
           {type = "item", name = "ei-exotic-ore", amount = 1},
       },
       results = {
-          {type = "item", name = "ei-exotic-matter-up", amount = 1, probability = 0.5},
-          {type = "item", name = "ei-exotic-matter-down", amount = 1, probability = 0.5},
+          {type = "item", name = "ei-exotic-matter-up", amount_min = 1,amount_max = 2, probability = 0.25},
+          {type = "item", name = "ei-exotic-matter-down", amount_min = 1,amount_max = 2, probability = 0.25},
       },
       always_show_made_in = true,
       enabled = false,

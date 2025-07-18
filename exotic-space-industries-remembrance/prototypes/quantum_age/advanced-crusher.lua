@@ -76,7 +76,8 @@ data:extend({
         collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
         selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
         map_color = ei_data.colors.assembler,
-        crafting_categories = {"ei-crushing"},
+        crafting_categories = {"ei-crushing","crushing"},
+        heating_energy = ei_data.heating_energy["ei-advanced-crusher"],
         crafting_speed = 2,
         energy_source = {
             type = 'electric',

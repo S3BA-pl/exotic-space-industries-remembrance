@@ -29,7 +29,7 @@ data:extend({
             {type="item", name="ei-computer-core", amount=4},
             {type="item", name="ei-magnet", amount=40},
             {type="item", name="refined-concrete", amount=200},
-            {type="item", name="processing-unit", amount=100}
+            {type="item", name="ei-computing-unit", amount=100}
         },
         results = {{type="item", name="ei-quantum-computer", amount=1}},
         enabled = false,
@@ -222,4 +222,81 @@ data:extend({
             }
           },
     },
+    --late game recipe, evaluate ratios, add unlock
+{
+        name = "ei-space-science-data",
+        type = "recipe",
+        category = "crafting",
+        energy_required = 10,
+        ingredients = {
+            {type = "item", name = "ei-space-data", amount = 1},
+        },
+        results = {
+            {type = "item", name = "space-science-pack", amount = 10},
+        },
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+        always_show_made_in = false,
+        enabled = false,
+        main_product = "space-science-pack",
+    },
+
+{
+        name = "ei-space-data",
+        type = "recipe",
+        category = "crafting",
+        energy_required = 10,
+        ingredients = {
+            --?
+        },
+        results = {
+            {type = "item", name = "ei-space-data", amount = 1},
+        },
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+        always_show_made_in = false,
+        enabled = false,
+        main_product = "ei-space-data",
+    },
+{
+        name = "ei-black-hole-data",
+        type = "recipe",
+        category = "crafting",
+        energy_required = 10,
+        ingredients = {
+            --?
+        },
+        results = {
+            {type = "item", name = "ei-black-hole-data", amount = 1},
+        },
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+        always_show_made_in = false,
+        enabled = false,
+        main_product = "ei-black-hole-data",
+    },
 })
+--exotic ore goes straight in centrifuge to make exotic matter? nah...
+
+
+
+
+--ei_lib.add_unlock_recipe("space-science-pack","ei-space-data")

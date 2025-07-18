@@ -98,8 +98,9 @@ data:extend({
         collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
         selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
         map_color = ei_data.colors.assembler,
-        crafting_categories = {"ei-crushing"},
+        crafting_categories = {"ei-crushing","crushing"},
         crafting_speed = 0.5,
+        heating_energy = ei_data.heating_energy["ei-steam-crusher"],
         energy_source = {
             type = "fluid",
             emissions_per_minute={pollution=2},
@@ -119,7 +120,7 @@ data:extend({
         },
         fast_replaceable_group = "ei-crusher",
         next_upgrade = "ei-crusher",
-        energy_usage = "50kW",
+        energy_usage = "380kW",
         graphics_set = {
             animation = {
                 filename = ei_graphics_entity_path.."steam-crusher.png",

@@ -149,7 +149,6 @@ for name,recipe in pairs(data.raw.recipe) do
     ei_lib.recipe_swap(name, "steel-gear-wheel", "ei-steel-mechanical-parts")
     ei_lib.recipe_swap(name, "iron-stick", "ei-iron-beam")
     ei_lib.recipe_swap(name, "nuclear-fuel", "ei-uranium-235-fuel")
-    ei_lib.recipe_swap(name, "ei-space-data", "space-science-pack")
     ei_lib.recipe_swap(name, "burner-assembling-machine", "ei-burner-assembler")
 end
 
@@ -669,23 +668,14 @@ data:extend({
     enabled = true,
     main_product = "ei-copper-mechanical-parts",
 },]]
-data:extend({
-{
-  name = "ei-space-data",
-  type = "recipe",
-  category = "crafting",
-  energy_required = 10,
-  ingredients = {
-      {type = "item", name = "ei-space-data", amount = 1},
-  },
-  results = {
-      {type = "item", name = "space-science-pack", amount = 1},
-  },
-  always_show_made_in = false,
-  enabled = false,
-  main_product = "space-science-pack",
-},
-
-})
-
-ei_lib.add_unlock_recipe("space-science-pack","ei-space-data")
+local cap_size = {
+    "logistic-container",
+    "container"
+}
+for _,entity_class in pairs(cap_size) do
+    for _,entity in pairs(data.raw[entity_class]) do
+        if entity and entity.inventory_size > 64 then
+            entity.inventory_size = 64
+        end
+    end
+end

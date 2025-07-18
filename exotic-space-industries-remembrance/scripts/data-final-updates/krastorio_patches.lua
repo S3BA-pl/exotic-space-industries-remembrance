@@ -5,11 +5,26 @@
 
 if not mods["krastorio2-spaced-out"] then
     return
-else
-    log("EI Compat: K2 Spaced Out detected—compatibility patch intentionally disabled in script.")
-    return
+end
+local containers = {
+["warehouse"] = 48,
+["active-provider-warehouse"] = 48,
+["buffer-warehouse"] = 48,
+["passive-provider-warehouse"] = 48,
+["requester-warehouse"] = 48,
+["storage-warehouse"] = 48,
+["strongbox"] = 24,
+["active-provider-strongbox"] = 24,
+["buffer-strongbox"] = 24,
+["passive-provider-strongbox"] = 24,
+["requester-strongbox"] = 24,
+["storage-strongbox"] = 24,
+}
+for entity,size in pairs(containers) do
+    entity.inventory_size = size
 end
 
+goto skip_rest
 
 local k2path = "__krastorio2-spaced-out__/"
 -- changes to K2 mod
@@ -2344,3 +2359,4 @@ for recipe, info in pairs(hard_recipe_overwrite) do
     ei_lib.recipe_hard_overwrite(recipe, info)
     ::continue::
 end
+::skip_rest::

@@ -1,7 +1,7 @@
 -- this file contains the prototype definition for varios stuff from computer age
 
 local ei_data = require("lib/data")
-
+local ei_lib = require("lib/lib")
 --====================================================================================================
 --PROTOTYPE DEFINITIONS
 --====================================================================================================
@@ -1690,14 +1690,32 @@ data:extend({
     {
         name = "ei-advanced-motor",
         type = "recipe",
-        category = "crafting",
+        category = "crafting-with-fluid",
         energy_required = 10,
         ingredients = {
             {type = "item", name = "electric-engine-unit", amount = 1},
             {type = "item", name = "ei-electronic-parts", amount = 1},
             {type = "item", name = "ei-steel-mechanical-parts", amount = 2},
+            {type = "fluid", name = "lubricant", amount = 150},
+        },
+        results = {
+            {type = "item", name = "ei-advanced-motor", amount = 1},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-advanced-motor",
+    },
+    {
+        name = "ei-advanced-motor-cryo",
+        type = "recipe",
+        category = "crafting-with-fluid",
+        energy_required = 8,
+        ingredients = {
+            {type = "item", name = "electric-engine-unit", amount = 1},
+            {type = "item", name = "ei-electronic-parts", amount = 1},
+            {type = "item", name = "ei-steel-mechanical-parts", amount = 2},
             {type = "item", name = "ei-condensed-cryodust", amount = 2},
-            -- {type = "fluid", name = "lubricant", amount = 15},
+            {type = "fluid", name = "lubricant", amount = 15},
         },
         results = {
             {type = "item", name = "ei-advanced-motor", amount = 1},
@@ -2133,6 +2151,25 @@ data:extend({
 --TECHS
 ------------------------------------------------------------------------------------------------------
 data:extend({
+        {
+        name = "ei-advanced-motor",
+        type = "technology",
+        icon = ei_path.."graphics/tech/advanced-motor.png",
+        icon_size = 256,
+        prerequisites = {"ei-computer-age"},
+        effects = {
+            {
+                type = "unlock-recipe",
+                recipe = "ei-advanced-motor"
+            },
+        },
+        unit = {
+            count = 100,
+            ingredients = ei_data.science["computer-age"],
+            time = 20
+        },
+        age = "computer-age",
+    },
         {
         name = "ei-oxygen-difluoride",
         type = "technology",
@@ -2571,6 +2608,25 @@ data:extend({
         age = "alien-computer-age",
     },
     {
+        name = "ei-advanced-motor-cryodust",
+        type = "technology",
+        icon = ei_path.."graphics/tech/advanced-motor-cryo.png",
+        icon_size = 256,
+        prerequisites = {"ei-cryodust","ei-advanced-motor"},
+        effects = {
+            {
+                type = "unlock-recipe",
+                recipe = "ei-advanced-motor-cryo"
+            },
+        },
+        unit = {
+            count = 100,
+            ingredients = ei_data.science["alien-computer-age"],
+            time = 20
+        },
+        age = "alien-computer-age",
+    },
+    {
         name = "ei-advanced-steel",
         type = "technology",
         icon = ei_graphics_tech_path.."steel-processing.png",
@@ -2885,7 +2941,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."simulation-computer-age-tech.png",
         icon_size = 256,
-        prerequisites = {"ei-big-lab", "ei-ammonia", "ei-gaia"},
+        prerequisites = {"ei-big-lab", "ei-ammonia"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -3026,35 +3082,16 @@ table.insert(data.raw["technology"]["processing-unit"].effects, {
     recipe = "ei-rocket-processing-unit"
 })
 
-table.insert(data.raw["technology"]["speed-module"].effects, {
-    type = "unlock-recipe",
-    recipe = "ei-module-base"
-})
-
-table.insert(data.raw["technology"]["speed-module"].effects, {
-    type = "unlock-recipe",
-    recipe = "ei-module-part"
-})
-
-table.insert(data.raw["technology"]["productivity-module"].effects, {
-    type = "unlock-recipe",
-    recipe = "ei-module-base"
-})
-
-table.insert(data.raw["technology"]["productivity-module"].effects, {
-    type = "unlock-recipe",
-    recipe = "ei-module-part"
-})
-
-table.insert(data.raw["technology"]["efficiency-module"].effects, {
-    type = "unlock-recipe",
-    recipe = "ei-module-base"
-})
-
-table.insert(data.raw["technology"]["efficiency-module"].effects, {
-    type = "unlock-recipe",
-    recipe = "ei-module-part"
-})
+ei_lib.raw.technology.modules.effects = {
+    {
+        type = "unlock-recipe",
+        recipe = "ei-module-base"
+    },
+    {
+        type = "unlock-recipe",
+        recipe = "ei-module-part"
+    }
+}
 
 table.insert(data.raw["technology"]["ei-quantum-age"].effects, {
     type = "unlock-recipe",
@@ -3080,6 +3117,3 @@ table.insert
 	(data.raw["technology"]["space-platform"].effects, {type = "unlock-recipe", recipe = "ei-space-steam-1"})
 table.insert
 	(data.raw["technology"]["space-platform-thruster"].effects, {type = "unlock-recipe", recipe = "ei-space-steam-2"})
-
-ei_lib.add_prerequisite("ei-quantum-age", "rocket-silo")
-ei_lib.add_prerequisite("ei-quantum-age", "ei-sus-plating")

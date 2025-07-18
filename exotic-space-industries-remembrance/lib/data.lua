@@ -1,7 +1,7 @@
 -- store data like switch tables and other constants/parameters here
 -- excluding global table stuff
 -- can be used in data stage AND in control
-
+local ei_lib = require("lib/lib")
 local ei_data = {}
 
 ei_data.prerequisites_to_set = {}
@@ -15,6 +15,7 @@ ei_data.lab_inputs = {}
 ei_data.pipe_pictures = {}
 ei_data.fusion = {}
 ei_data.matter_stabilizer = {}
+ei_data.heating_energy = {}
 
 --====================================================================================================
 --COLORS
@@ -335,7 +336,6 @@ ei_data.add_to_sub_age["alien-computer-age"] = {
     "bulk-inserter",
     "inserter-capacity-bonus-3",
     "inserter-capacity-bonus-4",
-    "automation-3",
 }
 
 ei_data.add_to_sub_age["advanced-computer-age"] = {
@@ -343,7 +343,8 @@ ei_data.add_to_sub_age["advanced-computer-age"] = {
     "mining-productivity-2",
     "research-speed-3",
     "research-speed-4",
-    -- "spidertron",
+    "automation-3",
+     "spidertron",
     "processing-unit",
     "ei-quantum-age",
     "speed-module-3",
@@ -623,13 +624,13 @@ ei_data.tech_structure["computer-age"] = {
 --    "braking-force-7",
     "modules",
     -- "effect-transmission",
-    "efficiency-module",
+--    "efficiency-module",
 --    "efficiency-module-2",
 --   "efficiency-module-3",
-    "productivity-module",
+--    "productivity-module",
 --    "productivity-module-2",
 --    "productivity-module-3",
-    "speed-module",
+--    "speed-module",
 --[[    "speed-module-2",
     "speed-module-3",
     "inserter-capacity-bonus-3",
@@ -866,6 +867,125 @@ function ei_data.repair_tool_entity_filter(name)
     table.insert(entity_filter, ent)
   end
   return entity_filter
+end
+
+--====================================================================================================
+-- HEATING_ENERGY
+-- in watts
+--an argument could be made this is excessive and it would fall on deaf ears ^_^
+--====================================================================================================
+--gh = get heat
+local function gh(category,entity)
+    if not category or entity then return nil end
+    if not data.raw[category] then return nil end
+    if not data.raw[category][entity] then return nil end
+    local target = ei_lib.raw[category][entity]
+    if not target then return nil end
+    if target and target.heating_energy then
+        return target.heating_energy
+    else
+        return nil
+    end
+end
+
+--groups in W
+local categories = {
+    ["insulated"] = 0,
+    ["crusher"] = 3333.33
+}
+
+-- formatting
+-- data.raw category = {
+--      "entity-name" = {
+--          category = {categories[category]},
+--          pullfrom = {
+--              category = data.raw[category],
+--              target = category[target]
+--          }
+--          explicit = double
+--}
+local entities = {
+    ["assembling-machine"] = {
+        --default is an entity of this categories type OR a double
+        ["default"] = "assembling-machine",
+        ["ei-crusher"] = {
+            --category goes against the categories table
+            category = "crusher",
+            --pullfrom looks in data.raw in this category for target
+            pullfrom = {
+                category = "assembling-machine",
+                target = "crusher"
+            },
+            -- direct set value, double
+            explicit = 3333.33
+        }
+    },
+    ["pipe"] = {
+        ["default"] = "pipe",
+        ["ei-insulated-pipe"] = {
+            category = "insulated"
+        }
+    },
+    ["storage-tank"] = {
+        ["default"] = "tank",
+        ["ei-insulated-pipe"] = {
+            category = "insulated"
+        }
+    }
+}
+
+--priority order: category > pullfrom > explicit > default but only 1 "needs" to be present
+for rawCatName,rawCat in pairs(entities) do
+    for _,entity in pairs(rawCat) do
+        local set = nil
+        --category
+        if entity.category then
+            set = categories[entity.category]
+            if set then
+                goto continue
+            else
+                log("ei_data: entity: "..entity.." had category: "..entity.category" set but no corresponding value was found in the categories table")
+            end
+        end
+        --pullfrom
+        if entity and entity.pullfrom and entity.pullfrom.category and entity.pullfrom.target then
+            set = gh(entity.pullfrom.category,entity.pullfrom.target)
+            if set then
+                goto continue
+            else
+                log("ei_data: entity: "..entity.." had pullfrom set to category: "..entity.pullfrom.category.." entity: "..entity.pullfrom.target.." but the corresponding entity in that category either couldn't be found or didn't have a heating_energy")
+            end
+        end
+        --explicit
+        if entity.explicit then
+            set = entity.explicit
+            if set >= 0 then
+                goto continue
+            else
+                log("ei_data: entity: "..entity.." had explicit set but the valid was either invalid or less than 0")
+            end
+        end
+        --default backup
+        if rawCat["default"] then
+            --if string get the prototype from this cat for that string's entity
+            if type(rawCat["default"]) == "string" then
+                set = gh(rawCat,rawCat.default)
+            -- otherwise if it's a number simply get that
+            elseif type(rawCat["default"] == "int") or type(rawCat["default"] == "double") then
+                set = rawCat["default"]
+            end
+        end
+        if not set then
+            log("ei_data: unable to get heating_energy for entity: "..entity.." in category "..rawCatName)
+            set = 1000.0
+        end
+        ::continue::
+        if type(set) == "string" then --gh returns value with W on end
+            ei_data.heating_energy[entity] = set
+        else
+            ei_data.heating_energy[entity] = tostring(set).."W"
+        end
+    end
 end
 
 return ei_data

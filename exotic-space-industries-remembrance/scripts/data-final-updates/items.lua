@@ -1,6 +1,8 @@
+--[[
 data.raw['tool']['space-science-pack'].icon = data.raw['item']['ei-space-data'].icon
 data.raw['tool']['space-science-pack'].pictures = data.raw['item']['ei-space-data'].pictures
 data.raw['tool']['space-science-pack'].icon_size = data.raw['item']['ei-space-data'].icon_size
+]]
 
 data.raw['item']["iron-plate"].icon = ei_graphics_item_path.."iron-ingot.png"
 data.raw['item']["copper-plate"].icon = ei_graphics_item_path.."copper-ingot.png"

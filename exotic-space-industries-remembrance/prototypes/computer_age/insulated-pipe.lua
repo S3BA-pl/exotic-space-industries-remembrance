@@ -105,7 +105,7 @@ data:extend({
 		circuit_connector_sprites = circuit_connector_definitions["storage-tank"].sprites,
 		circuit_wire_max_distance = 20,
         flow_length_in_ticks = 1,
-        heating_energy = "0W",
+        heating_energy = ei_data.heating_energy["ei-insulated-tank"],
         additional_categories = "cryogenics",
         window_bounding_box = {{0,0},{1,1}},
         pictures = {
@@ -163,7 +163,7 @@ data:extend({
 local pipe = util.table.deepcopy(data.raw.pipe.pipe)
 pipe.name = "ei-insulated-pipe"
 pipe.minable.result = "ei-insulated-pipe"
-pipe.heating_energy = "0W"
+pipe.heating_energy = ei_data.heating_energy["ei-insulated-pipe"]
 pipe.additional_categories = "cryogenics"
 -- pipe.fluid_box.filter = "ei-liquid-nitrogen"
 

@@ -778,6 +778,7 @@ new_prerequisites_table["computer-age"] = {
     {"low-density-structure", "ei-advanced-steel"},
     {"ei-rocket-parts", "rocket-fuel"},
     {"rocket-silo", "ei-rocket-parts"},
+    {"rocket-silo", "ei-advanced-motor"},
     {"fission-reactor-equipment", "ei-high-temperature-reactor"},
     
 }
@@ -1087,7 +1088,10 @@ ei_lib.raw["item"]["nuclear-reactor"].subgroup = "ei-nuclear-buildings"
 ei_lib.raw["item"]["nuclear-reactor"].order = "b-a"
 
 ei_lib.raw["mining-drill"]["big-mining-drill"].energy_usage = "2MW"
-ei_lib.raw["furnace"]["steel-furnace"].energy_usage = "135kW"
+local sf = ei_lib.raw["furnace"]["steel-furnace"] --or ei_lib.raw["assembling-machine"]["steel-furnace"] --K2SO is setting it to 200, even better
+if sf then
+    sf.energy_usage = "135kW"
+end
 
 --electric chem plant uses same energy but is slower than heat chem plant 1 vs 1.5
 ei_lib.raw["assembling-machine"]["chemical-plant"].energy_usage = "1MW"
@@ -1461,6 +1465,14 @@ for _,toCast in pairs(addToCaster) do
             recipe.additional_categories = {"ei-casting"}
         end
     end
+end
+
+--allow space crusher to do ground based crusher recipes
+local space_crusher = ei_lib.raw["assembling-machine"]["crusher"]
+if space_crusher.additional_categories then
+    table.insert(space_crusher.additional_categories,"ei-crushing")
+else
+    space_crusher.additional_categories = {"ei-crushing"}
 end
 
 --====================================================================================================

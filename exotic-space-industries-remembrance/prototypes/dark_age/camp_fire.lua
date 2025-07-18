@@ -45,6 +45,10 @@ data:extend{
         crafting_categories = {"ei-burning"},
         source_inventory_size = 1,
         result_inventory_size = 2,
+        heating_energy = ei_data.heating_energy["ei-camp-fire"],
+        surface_conditions = {
+            {property = "pressure",    min = 33, max = 100000},
+        },
         resistances = {
             {
                 type = "fire",
