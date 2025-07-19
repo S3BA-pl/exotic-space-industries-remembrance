@@ -36,7 +36,7 @@ data:extend({
             ingredients = ei_data.science["advanced-computer-age"],
             time = 20
         },
-        age = "alien-computer-age",
+        age = "advanced-computer-age",
     },
     {
         name = "ei-advanced-deep-drill",

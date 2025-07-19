@@ -108,7 +108,7 @@ data:extend({
         heat_buffer = {
             max_temperature = 275,
             specific_heat = ei_data.specific_heat,
-            max_transfer = "1800kW",
+            max_transfer = "5400kW",
             minimum_heat = "1kJ",
             heat_decay = 0,
             heat_buffer = "100MW",
@@ -116,43 +116,35 @@ data:extend({
                 {
                     position = {1.3,1.3},
                     direction = defines.direction.east,
-                    type = "output",
                 },
                 {
                     position = {-1.3,1.3},
                     direction = defines.direction.west,
-                    type = "output",
                 },
                 {
                     position = {1.3,-1.3},
                     direction = defines.direction.east,
-                    type = "output",
                 },
                 {
                     position = {-1.3,-1.3},
                     direction = defines.direction.west,
-                    type = "output",
                 },
 
                 {
                     position = {1.3,1.3},
                     direction = defines.direction.south,
-                    type = "output",
                 },
                 {
                     position = {-1.3,1.3},
                     direction = defines.direction.south,
-                    type = "output",
                 },
                 {
                     position = {1.3,-1.3},
                     direction = defines.direction.north,
-                    type = "output",
                 },
                 {
                     position = {-1.3,-1.3},
                     direction = defines.direction.north,
-                    type = "output",
                 },
             },
             pipe_covers = ei_pipe_heat_basic,

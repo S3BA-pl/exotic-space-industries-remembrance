@@ -305,24 +305,3 @@ data:extend({
         main_product = "ei-steam-age-tech",
     }
 })
-
---TECHS
-------------------------------------------------------------------------------------------------------
-
--- insert steam-age-tech and engine unit aswell as pipe into steam-age-tech
-
-data.raw["technology"]["ei-steam-age"].effects = {
-    {
-        type = "unlock-recipe",
-        recipe = "pipe"
-    },
-    {
-        type = "unlock-recipe",
-        recipe = "ei-steam-engine"
-    },
-    {
-        type = "unlock-recipe",
-        recipe = "ei-steam-age-tech"
-    },
-
-}

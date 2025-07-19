@@ -668,14 +668,3 @@ data:extend({
     enabled = true,
     main_product = "ei-copper-mechanical-parts",
 },]]
-local cap_size = {
-    "logistic-container",
-    "container"
-}
-for _,entity_class in pairs(cap_size) do
-    for _,entity in pairs(data.raw[entity_class]) do
-        if entity and entity.inventory_size > 64 then
-            entity.inventory_size = 64
-        end
-    end
-end

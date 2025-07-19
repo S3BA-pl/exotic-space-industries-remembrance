@@ -425,11 +425,11 @@ ei_data.ages_with_sub = {
     ["quantum-age"] = 6,
     ["fusion-quantum-age"] = 7,
     ["space-quantum-age"] = 7,
-    ["both-quantum-age"] = 10,
+    ["both-quantum-age"] = 8,
     ["imersite-quantum-age"] = 8,
-    ["matter-quantum-age"] = 9,
-    ["exotic-age"] = 11,
-    ["black-hole-exotic-age"] = 12,
+    ["matter-quantum-age"] = 8,
+    ["exotic-age"] = 9,
+    ["black-hole-exotic-age"] = 10,
 }
 
 -- used in final fixes to account for age techs
@@ -906,7 +906,7 @@ local categories = {
 --}
 local entities = {
     ["assembling-machine"] = {
-        --default is an entity of this categories type OR a double
+       
         ["default"] = "assembling-machine",
         ["ei-crusher"] = {
             --category goes against the categories table
@@ -928,7 +928,7 @@ local entities = {
     },
     ["storage-tank"] = {
         ["default"] = "tank",
-        ["ei-insulated-pipe"] = {
+        ["ei-insulated-tank"] = {
             category = "insulated"
         }
     }

@@ -141,5 +141,5 @@ table.insert(neo_assembler.graphics_set.animation.layers,
     animation_speed = 1,
     scale = 0.5
 })
-
+table.insert(neo_assembler.crafting_categories,"electronics-with-fluid")
 data:extend({neo_assembler})

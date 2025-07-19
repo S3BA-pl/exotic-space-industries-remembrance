@@ -20,6 +20,7 @@ data:extend({
         name = "ei-data-pipe",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 1,
         ingredients =
         {

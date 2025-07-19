@@ -79,6 +79,7 @@ data:extend({
         ingredients = {
             {type = "item", name = "ei-clean-plating", amount = 50},
             {type = "item", name = "ei-high-tech-parts", amount = 100},
+            {type="item", name="ei-gauss-module", amount=1},          
             {type="item", name="ei-simulation-data", amount=50},
             {type="item", name="ei-superior-data", amount=50},
             {type="item", name="ei-fusion-data", amount=50},
@@ -86,7 +87,7 @@ data:extend({
             {type = "item", name = "ei-charged-neutron-container", amount = 10},
         },
         results = {
-            {type = "item", name = "ei-black-hole-exotic-age-tech", amount = 2},
+            {type = "item", name = "ei-black-hole-exotic-age-tech", amount = 1},
             {type = "item", name = "ei-neutron-container", amount = 10, probability = 0.9},
         },
         always_show_made_in = true,
@@ -107,7 +108,7 @@ data:extend({
           },
       },
       unit = {
-          count = 100,
+          count = 900,
           ingredients = ei_data.science["exotic-age"],
           time = 20
       },

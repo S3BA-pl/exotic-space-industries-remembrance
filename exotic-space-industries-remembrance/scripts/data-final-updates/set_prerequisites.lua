@@ -100,7 +100,7 @@ end
 -- error(serpent.block(data.raw.technology["repair-pack"].prerequisites))
 
 -- ======================================================================================
-
+ei_lib.set_prerequisites("automation-3",{"ei-advanced-motor","ei-advanced-computer-age-tech"})
 ei_lib.set_prerequisites("kovarex-enrichment-process",{"uranium-processing"})
 ei_lib.set_prerequisites("processing-unit",{"advanced-circuit"})
 ei_lib.set_prerequisites("ei-electronic-parts",{"processing-unit"})
@@ -149,7 +149,7 @@ ei_lib.set_prerequisites("flamethrower",{"flammables"})
 
 ei_lib.set_prerequisites("wdm_home_planet",{})
 
-ei_lib.set_prerequisites("ei-quantum-age",{"ei-crystal-accumulator","ei-high-energy-crystal-growing","ei-bio-electronic-parts","ei-bio-nitric-acid","ei-bio-high-energy-crystal","ei-copper-beacon"})
+
 
 ei_lib.set_prerequisites("automation-2",{"automation","ei-electricity-age"})
 ei_lib.set_prerequisites("ei_fueler",{"ei-electricity-age"})

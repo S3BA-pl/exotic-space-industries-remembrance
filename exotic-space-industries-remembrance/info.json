@@ -1,6 +1,6 @@
 {
     "name": "exotic-space-industries-remembrance",
-    "version": "1.1.94",
+    "version": "1.1.98",
     "title": "Exotic Space Industries: Remembrance",
     "author": "aRighteousGod",
     "factorio_version": "2.0",
@@ -47,7 +47,7 @@
 
         "? lignumis",
 
-        "(?) krastorio2-spaced-out",
+        "(?) Krastorio2-spaced-out",
         "(?) planet-muluna",
         "(?) Cerys-Moon-of-Fulgora",
         "(?) castra",
@@ -64,7 +64,7 @@
         "(?) dea-dia-system",
         "(?) Paracelsin",
         "(?) rubia",
-        "(?) woodoria",
+        "(?) planet-woodoria",
 
         "! ExoticDiscoIndustries",
         "! factorioplus",

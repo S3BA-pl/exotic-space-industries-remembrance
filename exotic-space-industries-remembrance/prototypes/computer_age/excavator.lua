@@ -51,15 +51,15 @@ data:extend({
         },
         unit = {
             count = 100,
-            ingredients = ei_data.science["alien-computer-age"],
+            ingredients = ei_data.science["advanced-computer-age"],
             time = 20
         },
-        age = "alien-computer-age",
+        age = "advanced-computer-age",
     },
     {
         name = "ei-excavator",
         type = "assembling-machine",
-        crafting_categories = {"ei-bio-chamber", "ei-excavator"},
+        crafting_categories = {"ei-excavator"},
         icon = ei_graphics_item_2_path.."excavator.png",
         icon_size = 64,
         flags = {"placeable-neutral", "placeable-player", "player-creation"},

@@ -38,7 +38,14 @@ data:extend({
 
         },
         effects = {
-
+            {
+            type = "unlock-quality",
+            quality = "normal"
+            },
+            {
+            type = "unlock-quality",
+            quality = "uncommon"
+            }
         },
         unit = {
             count = 100,
@@ -54,13 +61,24 @@ data:extend({
         icon = ei_graphics_tech_path.."steam-age.png",
         icon_size = 128,
         prerequisites = {
-            -- "ei-dark-age",
+        "ei-burner-assembler","military","stone-wall","gun-turret","ei-mechanical-inserter"
         },
         effects = {
-
+            {
+                type = "unlock-recipe",
+                recipe = "pipe"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-steam-engine"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-steam-age-tech"
+            },
         },
         unit = {
-            count = 100,
+            count = 200,
             ingredients = science["dark-age"],
             time = 20
         },
@@ -73,13 +91,20 @@ data:extend({
         icon = ei_graphics_tech_path.."electricity-age.png",
         icon_size = 128,
         prerequisites = {
-            -- "ei-steam-age",
+            "engine","electronics","ei-steam-inserter","logistics","ei-steam-assembler","ei-tank-silo","ei-steam-advanced-train","rp-steam-logistics-chests","ei-fluid-boiler"
         },
         effects = {
-
+            {
+                type = "unlock-recipe",
+                recipe = "ei-electricity-age-tech"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "lab"
+            }
         },
         unit = {
-            count = 100,
+            count = 300,
             ingredients = science["steam-age"],
             time = 30
         },
@@ -89,16 +114,19 @@ data:extend({
     {
         name = "ei-computer-age",
         type = "technology",
-        icon = ei_graphics_tech_path.."computer-age.png",
-        icon_size = 128,
+        icon = ei_path.."graphics/tech/computer-age.png",
+        icon_size = 512,
         prerequisites = {
-            -- "ei-electricity-age",
+            "construction-robotics","logistic-robotics","ei-circuit-waver","oil-gathering","ei-grower","logistics-2","fluid-wagon","ei-castor","ei-benzol","ei-small-inserter","ei-combustion-turbine","ei-arc-furnace"
         },
         effects = {
-
+            {
+                type = "unlock-recipe",
+                recipe = "ei-computer-age-tech"
+            }
         },
         unit = {
-            count = 100,
+            count = 400,
             ingredients = science["electricity-age"],
             time = 40
         },
@@ -108,14 +136,21 @@ data:extend({
     {
         name = "ei-quantum-age",
         type = "technology",
-        icon = ei_graphics_tech_path.."quantum-age.png",
-        icon_size = 128,
-        prerequisites = {"ei-copper-beacon","ei-crystal-accumulator"},
+        icon = ei_path.."graphics/tech/quantum-age.png",
+        icon_size = 512,
+        prerequisites = {"ei-crystal-accumulator","ei-high-energy-crystal-growing","ei-bio-electronic-parts","ei-bio-nitric-acid","ei-bio-high-energy-crystal","ei-copper-beacon","ei-advanced-deep-drill","ei-advanced-centrifuge","ei-excavator","ei-advanced-refinery"},
         effects = {
-
+            {
+                type = "unlock-recipe",
+                recipe = "ei-quantum-age-tech"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-computing-unit"
+            }
         },
         unit = {
-            count = 100,
+            count = 600,
             ingredients = science["both-computer-age"],
             time = 50
         },
@@ -125,22 +160,31 @@ data:extend({
     {
         name = "ei-exotic-age",
         type = "technology",
-        icon = ei_graphics_tech_path.."exotic-age.png",
-        icon_size = 128,
-        prerequisites = {},
+        icon = ei_path.."graphics/tech/exotic-age.png",
+        icon_size = 512,
+        prerequisites = {"ei-cavity","ei-efficiency-module-6","ei-productivity-module-6","ei-speed-module-6","ei-matter-stabilizer"},
         effects = {
-            
+            {
+                type = "unlock-recipe",
+                recipe = "ei-exotic-matter"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-exotic-age-tech"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-crushed-promethium-asteroid-chunk"
+            }
         },
         unit = {
-            count = 100,
+            count = 700,
             ingredients = science["both-quantum-age"],
             time = 60
         },
         enabled = true,
         visible_when_disabled = true,
     },
-
-
     -- dummy techs to have all of their age as prerequisites for storage of "age-marks"
     {
         name = "ei-steam-age-dummy",

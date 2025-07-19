@@ -25,6 +25,7 @@ local blank = {
         name = "ei-holo-moon",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 4,
         ingredients =
         {

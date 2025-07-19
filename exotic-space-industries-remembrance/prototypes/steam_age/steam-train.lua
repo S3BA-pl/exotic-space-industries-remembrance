@@ -829,7 +829,7 @@ data:extend({
 		},
 		mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
 		max_health = 1000,
-		capacity = 10000,
+		capacity = 25000,
 		corpse = "medium-remnants",
 		dying_explosion = "medium-explosion",
 		collision_box = {{-0.6, -2.4}, {0.6, 2.4}},

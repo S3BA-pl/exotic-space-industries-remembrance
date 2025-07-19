@@ -4,6 +4,40 @@ local formula = "1.5^L*500"
 data:extend({
 {
 	type = "technology",
+	name = "ei-productivity-slag-chunk-extraction",
+	icon = ei_path.."graphics/tech/ore-purification-productivity.png", 
+    icon_size = 256,
+    effects =
+    {
+      {
+        type = "change-recipe-productivity",
+        recipe = "ei-slag-extraction-morphium",
+        change = 0.1
+      },
+      {
+        type = "change-recipe-productivity",
+        recipe = "ei-slag-extraction-sulfuric",
+        change = 0.1
+      },
+      {
+        type = "change-recipe-productivity",
+        recipe = "ei-slag-extraction-nitric",
+        change = 0.1
+      },
+    },
+    prerequisites = {"ei-morphium-usage","ei-nitric-acid","ei-purifier","ei-advanced-computer-age-tech"},
+    unit =
+    {
+      count_formula = formula,
+      ingredients = ei_data.science["advanced-computer-age"],
+      time = 20
+    },
+    max_level = 5,
+    upgrade = true,
+    age = "advanced-computer-age",
+	},
+{
+	type = "technology",
 	name = "ei-productivity-dirty-water-usage",
 	icon = ei_graphics_tech_path.."morphium-usage.png", --used to be named dirty-water-usage.png ...
     icon_size = 128,
@@ -14,31 +48,31 @@ data:extend({
         recipe = "ei-dirty-water-iron-extraction",
         change = 0.1
       },
-	  {
-		type = "change-recipe-productivity",
+      {
+        type = "change-recipe-productivity",
         recipe = "ei-dirty-water-copper-extraction",
         change = 0.1
-		},
+      },
       {
         type = "change-recipe-productivity",
         recipe = "ei-dirty-water-lead-extraction",
         change = 0.1
       },
-	  {
-		type = "change-recipe-productivity",
+      {
+        type = "change-recipe-productivity",
         recipe = "ei-dirty-water-uranium-extraction",
         change = 0.1
-		},
+      },
       {
         type = "change-recipe-productivity",
         recipe = "ei-dirty-water-gold-extraction",
         change = 0.1
       },
-	  {
-		type = "change-recipe-productivity",
+      {
+        type = "change-recipe-productivity",
         recipe = "ei-dirty-water-copper-extraction",
         change = 0.1
-		}
+      }
     },
     prerequisites = {"ei-dirty-water-usage","ei-neodym-dirty-water-usage"},
     unit =

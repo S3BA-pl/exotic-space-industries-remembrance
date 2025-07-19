@@ -450,6 +450,7 @@ data:extend({
         name = "ei-insulated-wire",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 0.5,
         ingredients = {
             {type = "item", name = "copper-cable", amount = 2},
@@ -649,6 +650,7 @@ data:extend({
         name = "ei-cpu",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 8,
         ingredients = {
             {type = "item", name = "ei-semiconductor", amount = 1},
@@ -666,6 +668,7 @@ data:extend({
         name = "ei-electronic-parts",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 6,
         ingredients = {
             {type = "item", name = "ei-cpu", amount = 1},
@@ -898,6 +901,7 @@ data:extend({
         name = "ei-green-circuit-waver",
         type = "recipe",
         category = "crafting-with-fluid",
+        additional_categories = {"electronics-with-fluid"},
         energy_required = 10,
         ingredients = {
             {type = "fluid", name = "sulfuric-acid", amount = 10},
@@ -920,6 +924,7 @@ data:extend({
         name = "ei-red-circuit-waver",
         type = "recipe",
         category = "crafting-with-fluid",
+        additional_categories = {"electronics-with-fluid"},
         energy_required = 18,
         ingredients = {
             {type = "fluid", name = "sulfuric-acid", amount = 10},
@@ -1265,31 +1270,12 @@ data:extend({
 
 -- insert prereqs
 ei_lib.set_prerequisites("ei-electricity-age",{
-    "engine",
-    "electronics",
-    "ei-steam-inserter",
-    "logistics",
-    "ei-steam-assembler",
-    "ei-tank-silo",
-    "ei-steam-advanced-train",
-    "rp-steam-logistics-chests",
-    "ei-fluid-boiler"
+
 })
 
 table.insert(data.raw.technology["lubricant"].prerequisites, "automation-2")
 table.insert(data.raw.technology["power-armor"].prerequisites, "ei-grower")
 table.insert(data.raw.technology["solar-energy"].prerequisites, "ei-waver-factory")
-table.insert(data.raw.technology["ei-computer-age"].prerequisites, "ei-electronic-parts")
-
-table.insert(data.raw.technology["ei-electricity-age"].effects,  {
-    type = "unlock-recipe",
-    recipe = "ei-electricity-age-tech"
-})
-
-table.insert(data.raw.technology["ei-electricity-age"].effects,  {
-    type = "unlock-recipe",
-    recipe = "lab"
-})
 
 table.insert(data.raw.technology["plastics"].effects,  {
     type = "unlock-recipe",
@@ -1339,11 +1325,6 @@ table.insert(data.raw["technology"]["coal-liquefaction"].effects, {
 table.insert(data.raw["technology"]["coal-liquefaction"].effects, {
     type = "unlock-recipe",
     recipe = "ei-benzol-petroleum"
-})
-
-table.insert(data.raw["technology"]["ei-computer-age"].effects, {
-    type = "unlock-recipe",
-    recipe = "ei-computer-age-tech"
 })
 
 table.insert(data.raw["technology"]["ei-electricity-power"].effects, {
@@ -1402,5 +1383,3 @@ table.insert(data.raw["technology"]["concrete"].effects, {
 --     },
 --     quarry,
 -- })
-
-ei_lib.set_prerequisites("ei-computer-age",{"construction-robotics","logistic-robotics","ei-circuit-waver","oil-gathering","ei-grower","logistics-2","fluid-wagon","ei-castor","ei-benzol","ei-small-inserter","ei-combustion-turbine","ei-arc-furnace"})

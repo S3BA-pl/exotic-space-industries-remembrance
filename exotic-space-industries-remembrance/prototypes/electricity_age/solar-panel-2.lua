@@ -39,6 +39,7 @@ data:extend({
         name = "ei-solar-panel-2",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 1,
         ingredients =
         {

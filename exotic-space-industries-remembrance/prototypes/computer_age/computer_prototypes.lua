@@ -709,7 +709,7 @@ data:extend({
         name = "ei-sus-plating",
         type = "recipe",
         category = "ei-bio-reactor",
-        additional_categories = {"ei-bio-chamber"},
+        additional_categories = {"ei-bio-chamber","organic"},
         energy_required = 2,
         ingredients = {
             {type = "item", name = "iron-plate", amount = 1},
@@ -730,7 +730,7 @@ data:extend({
         name = "ei-bio-insulated-wire",
         type = "recipe",
         category = "ei-bio-reactor",
-        additional_categories = {"ei-bio-chamber"},
+        additional_categories = {"ei-bio-chamber","organic"},
         energy_required = 2,
         ingredients = {
             {type = "item", name = "plastic-bar", amount = 2},
@@ -752,7 +752,7 @@ data:extend({
         name = "ei-bio-energy-crystal",
         type = "recipe",
         category = "ei-bio-reactor",
-        additional_categories = {"ei-bio-chamber"},
+        additional_categories = {"ei-bio-chamber","organic"},
         energy_required = 10,
         ingredients = {
             {type = "item", name = "ei-energy-crystal", amount = 1},
@@ -774,7 +774,7 @@ data:extend({
         name = "ei-bio-high-energy-crystal",
         type = "recipe",
         category = "ei-bio-reactor",
-        additional_categories = {"ei-bio-chamber"},
+        additional_categories = {"ei-bio-chamber","organic"},
         energy_required = 60,
         ingredients = {
             {type = "item", name = "ei-high-energy-crystal", amount = 1},
@@ -796,7 +796,7 @@ data:extend({
         name = "ei-bio-hydrofluoric-acid",
         type = "recipe",
         category = "ei-bio-reactor",
-        additional_categories = {"ei-bio-chamber"},
+        additional_categories = {"ei-bio-chamber","organic"},
         energy_required = 1,
         ingredients = {
             {type = "item", name = "ei-fluorite", amount = 1},
@@ -819,7 +819,7 @@ data:extend({
         name = "ei-bio-nitric-acid",
         type = "recipe",
         category = "ei-bio-reactor",
-        additional_categories = {"ei-bio-chamber"},
+        additional_categories = {"ei-bio-chamber","organic"},
         energy_required = 3,
         ingredients = {
             {type = "item", name = "ei-crushed-gold", amount = 1},
@@ -842,7 +842,7 @@ data:extend({
         name = "ei-bio-electronic-parts",
         type = "recipe",
         category = "ei-bio-reactor",
-        additional_categories = {"ei-bio-chamber"},
+        additional_categories = {"ei-bio-chamber","organic"},
         energy_required = 6,
         ingredients = {
             {type = "item", name = "battery", amount = 2},
@@ -1039,7 +1039,7 @@ data:extend({
     {
         name = "ei-evolved-alien-seed",
         type = "recipe",
-        category = "chemistry",
+        category = "ei-bio-chamber",
         energy_required = 10,
         ingredients = {
             {type = "fluid", name = "ei-ammonia-gas", amount = 25},
@@ -1094,7 +1094,7 @@ data:extend({
     {
         name = "ei-bio-matter",
         type = "recipe",
-        category = "chemistry",
+        category = "ei-bio-reactor",
         energy_required = 2,
         ingredients = {
             {type = "item", name = "ei-bio-matter", amount = 1},
@@ -1233,6 +1233,7 @@ data:extend({
         name = "ei-computing-unit",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 15,
         ingredients = {
             {type = "item", name = "ei-rocket-control-unit", amount = 1},
@@ -1288,6 +1289,7 @@ data:extend({
         name = "ei-module-part",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 4,
         ingredients =
         {
@@ -1397,6 +1399,7 @@ data:extend({
         name = "ei-module-base",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 4,
         ingredients =
         {
@@ -1565,7 +1568,7 @@ data:extend({
             {type="item", name="ei-high-energy-crystal", amount=2},
             {type="item", name="ei-computing-unit", amount=2},
         },
-        results = {{type="item", name="ei-quantum-age-tech", amount=4}},
+        results = {{type="item", name="ei-quantum-age-tech", amount=1}},
         enabled = false,
         always_show_made_in = true,
         main_product = "ei-quantum-age-tech",
@@ -1663,7 +1666,7 @@ data:extend({
             {type = "fluid", name = "ei-ammonia-gas", amount = 100},
         },
         results = {
-            {type = "item", name = "ei-advanced-computer-age-tech", amount = 8},
+            {type = "item", name = "ei-advanced-computer-age-tech", amount = 2},
         },
         always_show_made_in = true,
         enabled = false,
@@ -1681,7 +1684,7 @@ data:extend({
             {type = "fluid", name = "ei-concentrated-morphium", amount = 100},
         },
         results = {
-            {type = "item", name = "ei-alien-computer-age-tech", amount = 10},
+            {type = "item", name = "ei-alien-computer-age-tech", amount = 2},
         },
         always_show_made_in = true,
         enabled = false,
@@ -2751,10 +2754,10 @@ data:extend({
         },
         unit = {
             count = 100,
-            ingredients = ei_data.science["computer-age"],
+            ingredients = ei_data.science["advanced-computer-age"],
             time = 20
         },
-        age = "alien-computer-age",
+        age = "advanced-computer-age",
     },
     {
         name = "ei-oxygen-gas",
@@ -2939,8 +2942,8 @@ data:extend({
     {
         name = "ei-advanced-computer-age-tech",
         type = "technology",
-        icon = ei_graphics_tech_path.."simulation-computer-age-tech.png",
-        icon_size = 256,
+        icon = ei_path.."graphics/tech/simulation-age.png",
+        icon_size = 512,
         prerequisites = {"ei-big-lab", "ei-ammonia"},
         effects = {
             {
@@ -2949,7 +2952,7 @@ data:extend({
             },
         },
         unit = {
-            count = 100,
+            count = 500,
             ingredients = ei_data.science["computer-age"],
             time = 20
         },
@@ -2958,8 +2961,8 @@ data:extend({
     {
         name = "ei-alien-computer-age-tech",
         type = "technology",
-        icon = ei_graphics_tech_path.."alien-computer-age-tech.png",
-        icon_size = 256,
+        icon = ei_path.."graphics/tech/alien-age.png",
+        icon_size = 512,
         prerequisites = {"ei-big-lab", "ei-oxygen-difluoride","ei-gaia","processing-unit","ei-high-energy-crystal"},
         effects = {
             {
@@ -2972,7 +2975,7 @@ data:extend({
             },
         },
         unit = {
-            count = 100,
+            count = 500,
             ingredients = ei_data.science["computer-age"],
             time = 20
         },
@@ -2992,6 +2995,10 @@ data:extend({
             {
                 type = "unlock-recipe",
                 recipe = "ei-nitric-acid"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-slag-extraction-nitric"
             },
         },
         unit = {
@@ -3092,21 +3099,6 @@ ei_lib.raw.technology.modules.effects = {
         recipe = "ei-module-part"
     }
 }
-
-table.insert(data.raw["technology"]["ei-quantum-age"].effects, {
-    type = "unlock-recipe",
-    recipe = "ei-quantum-age-tech"
-})
-
-table.insert(data.raw["technology"]["ei-quantum-age"].effects, {
-    type = "unlock-recipe",
-    recipe = "ei-computing-unit"
-})
-
-table.insert(data.raw["technology"]["automation-3"].effects, {
-    type = "unlock-recipe",
-    recipe = "ei-advanced-motor"
-})
 
 table.insert(data.raw["technology"]["military-4"].effects, {
     type = "unlock-recipe",

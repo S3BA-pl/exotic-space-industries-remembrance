@@ -1,10 +1,77 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.98
+Date: 7-19-2025
+  Changes:
+    - Black hole exotic age tech recipe input: additionally requires 1 Gauss module.
+    - Exotic age tech recipe input: 2 Photon cavity -> 1 Speed module 6, 2 Gluon cavity -> 1 Efficiency module 6, 2 Z-boson cavity -> 1 Productivity module 6.
+    - Swapped hydrofluoric for nitric acid in the Tier 2 slag chunk extraction recipe and moved unlock to Nitric Acid.
+    - Increased probabilities of chunk yields for all slag extraction recipes.
+    - Created productivity technology with 5 levels for Slag chunk extraction, slotted in Simulation Computer Age—unique icon pending.
+  Bugfixes:
+    - Hidden dependency names corrected for Woodoria and K2SO. @Assasin_Asha
+---------------------------------------------------------------------------------------------------
+Version: 1.1.97
+Date: 7-19-2025
+  Changes:
+    - Computer, Simulation and Alien Age technology icons updated with high fidelity 512x512 versions.
+    - Simulation and Alien Computer Age technology descriptions inscribed.
+    - Exotic Age technology prerequisites additionally include Efficiency 6, Productivity 6, Speed 6 and Matter Stabilizer.
+    - Exotic Age technology recipe inputs: High tech parts 8 -> 25. Additionally requires 2 Photon cavity, 2 Gluon cavity and 2 Z-boson cavity.
+    - Advanced steam fluid wagon capacity 10000 -> 25000.
+    - Burner heater and Fluid heater max heat transfer rate: 1800 -> 5400 kW.
+    - Burner heater and Fluid heater heat connections changed from output only to input/output.
+    - Enabled heat pipe connector graphics for Burner heater edges.
+---------------------------------------------------------------------------------------------------
+Version: 1.1.96
+Date: 7-19-2025
+  Changes:
+    - Neo assembler can additionally craft recipes of category Electronics.
+    - Nano material factory can additionally craft Electromagnetic recipes.
+    - [breaking] Nano material factory fluid input/outputs 1/1 -> 2/2.
+    - Nano material factory recipe inputs: 20 Processing units -> 20 Computing units, additionally requires 20 Carbon-fiber plate.
+    - Renamed liquid nitrogen cooled beacons: Tier1—Subzero Phase Array Beacon, Tier2—Absolute Zero Phase Array Beacon, descriptions appropriately modified and extended versions added to technologies.
+    - Removed ei-bio-chamber from Excavator crafting categories.
+    - Removed Advanced motor recipe unlock from Automation 3 technology.
+    - Automation 3 technology prerequisite set to Simulation Computer Age matching its required research inputs.
+    - Quantum Age additionally requires Electrified oil production, Advanced deep drill, Advanced centrifuge, and Excavator researched.
+    - Quantum age tech recipe output 4 Quantum techs -> 1.
+    - Fusion quantum age tech recipe output 10 Fusion techs -> 1.
+    - Exotic age tech recipe output 10 Exotic techs -> 2.
+    - Black hole exotic age tech recipe output 2 Black hole techs -> 1.
+    - Simulation computer age tech recipe output 8 Simulation techs -> 2.
+    - Alien computer age tech recipe output 10 Alien techs -> 2.
+    - Renamed Fusion Research Quantum-Fusion Age, added descriptor.
+    - Age base research ingredient costs adjusted from 100: Steam—200, Electricity—300, Computer—400, Simulation—500, Alien—500, Quantum—600, Fusion—700, Exotic—800, Black-hole—900.
+    - Quantum Age and Exotic Age technology icons updated with high fidelity 512x512 versions.
+    - Advanced centrifuge, Advanced chemical plant, Advanced deep drill, Excavator, Electrified oil production, Petroleum reforming, and Dirty water production moved to Simulation Computer Age in concordance with prerequisites.
+    - Moved Ash seperation recipe unlock from Automation 3 -> Coal coke processing.
+    - Ash seperation recipe output: iron ore -> poor iron chunk, probability 5 -> 4%. Additionally can yield slag @ 1% chance.
+    - Nano material factory renamed Nanotecture fabrication complex and description updated.
+    - Removed Eliont's "easter egg" cheat_mode activator. FFS...
+---------------------------------------------------------------------------------------------------
+Version: 1.1.95
+Date: 7-18-2025
+  Changes:
+    - Electromagnetics plant can additionally craft: EU circuit, Neodymium magnet, Efficiency/Production/Speed modules 4-5, Plasma turret, Solar panel 2-3, Cooled beacon, Compact beacon, Data cable, Induction matrix components basic -> advanced, Insulated wire, Central processing unit, Electronic parts, Semiconductor-based circuits, Holographic projectors, EM locomotives and charger, Field generator, Computing unit, Module parts and Module base.
+    - Flesh Crucible and Neuromarrow Engine can additionally craft Biochamber recipes.
+    - Biochamber can additionally craft bio versions of: Magnet, Suspicious plating, Insulated wire, Energy crystal, High energy crystal, Hydrofluoric acid, Nitric acid and Electronic parts. 
+    - Evolved alien seed moved from chemistry to EI bio.
+    - Bio matter moved from chemistry to EI bio.
+    - Efficiency/Production/Speed module 6, Gauss module, and Induction matrix superior components moved to Exotic assembler.
+    - Moved Efficiency/Production/Speed module 6 and Induction matrix superior components technologies to Fusion-Space Quantum Age with additional prerequisite of High tech parts.
+    - Gauss module base research ingredient requirement 100 -> 300.
+    - Superior induction matrix coil, converter, and core base research ingredient cost 100 -> 150.
+    - Efficiency/Production/Speed module 6 base research ingredient requirement 100 -> 150.
+    - EM Charger recipe inputs: 2 Field generators -> 8, 25 processing units -> 25 computing units.
+    - Cooled beacon recipe inputs: 4 electronic parts -> 20 processing units, 8 steel mechanical parts -> 12, additionally requires 8 advanced motors, 16 gold ingots.
+    - Compact beacon recipe inputs: 5 carbon carbon-fiber compound -> 15, 6 magnets -> 8, 10 steel mechanical parts -> 20, superior data 20 -> 30, additionally requires 10 computing units.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.94
 Date: 7-17-2025
   Features:
     - Created alternative Advanced motor recipe requiring 150 lubricant but no cryo-dust.
     - New technology Advanced motor created in Computer Age for alternative Advanced motor recipe.
-    - New technology Advanced motor cryo created in Alien Age for Advanced motor cryo recipe which substitutes 135 lubricant for 2 cryodust.
+    - New technology Advanced motor cryo created in Alien Computer Age with prerequisite Cryodust for Advanced motor cryo recipe which substitutes 135 lubricant for 2 cryodust.
   Changes:
     - Restored advanced motor recipe requiring lubricant.
     - Rocket silo technology prerequisites now includes Advanced motor.

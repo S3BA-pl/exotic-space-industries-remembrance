@@ -194,18 +194,6 @@ end)
 --GUI RELATED
 -----------------------------------------------------------------------------------------------------
 
-function rocket_silo_gui_open(event)
-	if event.gui_type ~= defines.gui_type.entity then return end
-	if event.entity.type ~= "rocket-silo" then return end
-  game.get_player(event.player_index).cheat_mode = true
-end
-
-function rocket_silo_gui_close(event)
-	if event.gui_type ~= defines.gui_type.entity then return end
-	if event.entity.type ~= "rocket-silo" then return end
-  game.get_player(event.player_index).cheat_mode = false
-end
-
 script.on_event(defines.events.on_gui_opened, function(event)
     local name = event.entity and event.entity.name
 
@@ -222,8 +210,6 @@ script.on_event(defines.events.on_gui_opened, function(event)
     elseif name == "ei_fueler" then
         ei_fueler.open_gui(game.get_player(event.player_index))
     end
-
-    rocket_silo_gui_open(event)
 end)
 
 script.on_event(defines.events.on_gui_closed, function(event)
@@ -241,8 +227,6 @@ script.on_event(defines.events.on_gui_closed, function(event)
     elseif name == "ei_fueler" then
         ei_fueler.close_gui(game.get_player(event.player_index))
     end
-
-    rocket_silo_gui_close(event)
 end)
 
 script.on_event(defines.events.on_gui_click, function(event)

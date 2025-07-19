@@ -23,12 +23,14 @@ data:extend({
         name = "ei-nano-factory",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 4,
         ingredients =
         {
             {type="item", name="ei-advanced-motor", amount=20},
             {type="item", name="assembling-machine-3", amount=4},
-            {type="item", name="processing-unit", amount=20},
+            {type="item", name="ei-computing-unit", amount=20},
+            {type="item", name="ei-carbon", amount=20},
             {type="item", name="ei-steel-mechanical-parts", amount=40}
         },
         results = {{type="item", name="ei-nano-factory", amount=1}},
@@ -99,7 +101,7 @@ data:extend({
         selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
         map_color = ei_data.colors.assembler,
         -- crafting_categories = {"ei-nano-factory", "crafting", "advanced-crafting", "crafting-with-fluid"},
-        crafting_categories = {"ei-nano-factory"},
+        crafting_categories = {"ei-nano-factory","electromagnetics"},
         crafting_speed = 2,
         energy_source = {
             type = 'electric',
@@ -115,7 +117,7 @@ data:extend({
                 pipe_covers = pipecoverspictures(),
                 pipe_picture = ei_pipe_big,
                 pipe_connections = {
-                    {flow_direction = "input", direction = defines.direction.east, position = {2, 0}},
+                    {flow_direction = "input", direction = defines.direction.east, position = {2, 1}},
                 },
                 production_type = "input",
             },
@@ -124,7 +126,25 @@ data:extend({
                 pipe_covers = pipecoverspictures(),
                 pipe_picture = ei_pipe_big,
                 pipe_connections = {
-                    {flow_direction = "output", direction = defines.direction.west, position = {-2, 0}},
+                    {flow_direction = "input", direction = defines.direction.east, position = {2, -1}},
+                },
+                production_type = "input",
+            },
+            {   
+                volume = 200,
+                pipe_covers = pipecoverspictures(),
+                pipe_picture = ei_pipe_big,
+                pipe_connections = {
+                    {flow_direction = "output", direction = defines.direction.west, position = {-2, 1}},
+                },
+                production_type = "output",
+            },
+            {   
+                volume = 200,
+                pipe_covers = pipecoverspictures(),
+                pipe_picture = ei_pipe_big,
+                pipe_connections = {
+                    {flow_direction = "output", direction = defines.direction.west, position = {-2, -1}},
                 },
                 production_type = "output",
             },

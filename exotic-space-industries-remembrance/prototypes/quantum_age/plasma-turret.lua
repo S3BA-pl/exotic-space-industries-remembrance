@@ -19,6 +19,7 @@ data:extend({
         name = "ei-plasma-turret",
         type = "recipe",
         category = "crafting-with-fluid",
+        additional_categories = {"electronics-with-fluid"},
         energy_required = 4,
         ingredients =
         {

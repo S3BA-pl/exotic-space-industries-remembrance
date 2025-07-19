@@ -735,10 +735,3 @@ table.insert(data.raw["technology"]["steel-processing"].effects, {
     type = "unlock-recipe",
     recipe = "ei-steel-beam"
 })
-ei_lib.set_prerequisites("ei-steam-age",{
-    "ei-burner-assembler",
-    "military",
-    "stone-wall",
-    "gun-turret",
-    "ei-mechanical-inserter"
-})

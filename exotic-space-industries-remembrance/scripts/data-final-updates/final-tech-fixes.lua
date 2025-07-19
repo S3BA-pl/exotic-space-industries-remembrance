@@ -594,15 +594,7 @@ for i,v in pairs(data.raw.technology) do
 end
 
 
-table.insert(data.raw["technology"]["ei-dark-age"].effects, {
-  type = "unlock-quality",
-  quality = "normal"
-})
 
-table.insert(data.raw["technology"]["ei-dark-age"].effects, {
-  type = "unlock-quality",
-  quality = "uncommon"
-})
 
 table.insert(data.raw["technology"]["ei-steam-age"].effects, {
   type = "unlock-quality",

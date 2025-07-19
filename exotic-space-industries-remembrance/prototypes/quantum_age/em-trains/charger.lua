@@ -20,12 +20,13 @@ data:extend({
         name = "ei_charger",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 20,
         ingredients =
         {
           {type="item", name="ei-copper-beacon", amount=6},
-          {type="item", name="processing-unit", amount=25},
-          {type="item", name="ei_em-fielder", amount=2},
+          {type="item", name="ei-computing-unit", amount=25},
+          {type="item", name="ei_em-fielder", amount=8},
         },
         results = {{type="item", name="ei_charger", amount=1}},
         enabled = false,

@@ -19,6 +19,7 @@ data:extend({
         name = "ei-induction-matrix-core",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 10,
         ingredients =
         {
@@ -95,7 +96,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."induction-matrix-core.png",
         icon_size = 256,
-        prerequisites = {"ei-advanced-induction-matrix", "ei-odd-plating"},
+        prerequisites = {"ei-advanced-induction-matrix", "ei-odd-plating","ei-high-tech-parts"},
         effects = {
             { 
                 type = "nothing",
@@ -103,11 +104,11 @@ data:extend({
             },
         },
         unit = {
-            count = 100,
-            ingredients = ei_data.science["quantum-age"],
+            count = 150,
+            ingredients = ei_data.science["both-quantum-age"],
             time = 20
         },
-        age = "quantum-age",
+        age = "both-quantum-age",
     },
     -- coils
     {
@@ -134,7 +135,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."induction-matrix-superior-coil.png",
         icon_size = 256,
-        prerequisites = {"ei-superior-induction-matrix", "ei-magnet-data"},
+        prerequisites = {"ei-superior-induction-matrix", "ei-magnet-data","ei-high-tech-parts"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -142,11 +143,11 @@ data:extend({
             }
         },
         unit = {
-            count = 100,
-            ingredients = ei_data.science["quantum-age"],
+            count = 150,
+            ingredients = ei_data.science["both-quantum-age"],
             time = 20
         },
-        age = "quantum-age",
+        age = "both-quantum-age",
     },
     {
         name = "ei-induction-matrix-basic-coil",
@@ -182,6 +183,7 @@ data:extend({
         name = "ei-induction-matrix-basic-coil",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 1,
         ingredients =
         {
@@ -199,6 +201,7 @@ data:extend({
         name = "ei-induction-matrix-advanced-coil",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 4,
         ingredients =
         {
@@ -214,7 +217,7 @@ data:extend({
     {
         name = "ei-induction-matrix-superior-coil",
         type = "recipe",
-        category = "crafting",
+        category = "ei-exotic-assembler",
         energy_required = 10,
         ingredients =
         {
@@ -342,6 +345,7 @@ data:extend({
         name = "ei-induction-matrix-basic-solenoid",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 2,
         ingredients =
         {
@@ -357,6 +361,7 @@ data:extend({
         name = "ei-induction-matrix-advanced-solenoid",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 1,
         ingredients =
         {
@@ -446,11 +451,11 @@ data:extend({
             }
         },
         unit = {
-            count = 100,
-            ingredients = ei_data.science["quantum-age"],
+            count = 150,
+            ingredients = ei_data.science["both-quantum-age"],
             time = 20
         },
-        age = "quantum-age",
+        age = "both-quantum-age",
     },
     {
         name = "ei-induction-matrix-basic-converter",
@@ -486,6 +491,7 @@ data:extend({
         name = "ei-induction-matrix-basic-converter",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 4,
         ingredients =
         {
@@ -502,6 +508,7 @@ data:extend({
         name = "ei-induction-matrix-advanced-converter",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 10,
         ingredients =
         {
@@ -518,7 +525,7 @@ data:extend({
     {
         name = "ei-induction-matrix-superior-converter",
         type = "recipe",
-        category = "crafting",
+        category = "ei-exotic-assembler",
         energy_required = 20,
         ingredients =
         {

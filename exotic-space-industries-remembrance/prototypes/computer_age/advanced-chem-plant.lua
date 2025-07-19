@@ -58,10 +58,10 @@ data:extend({
         },
         unit = {
             count = 100,
-            ingredients = ei_data.science["computer-age"],
+            ingredients = ei_data.science["advanced-computer-age"],
             time = 20
         },
-        age = "alien-computer-age",
+        age = "advanced-computer-age",
     },
     {
         name = "ei-ceramic-water",

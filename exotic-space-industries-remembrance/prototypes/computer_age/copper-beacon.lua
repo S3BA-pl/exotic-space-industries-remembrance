@@ -27,13 +27,16 @@ data:extend({
         name = "ei-copper-beacon",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 1,
         ingredients =
         {
-            {type="item", name="ei-electronic-parts", amount=4},
+            {type="item", name="processing-unit", amount=20},
+            {type="item", name="ei-advanced-motor", amount=8},
             {type="item", name="steel-plate", amount=16},
+            {type="item", name="ei-gold-ingot", amount=16},
             {type="item", name="ei-simulation-data", amount=20},
-            {type="item", name="ei-steel-mechanical-parts", amount=8}
+            {type="item", name="ei-steel-mechanical-parts", amount=12}
         },
         results = {{type="item", name="ei-copper-beacon", amount=1}},
         enabled = false,

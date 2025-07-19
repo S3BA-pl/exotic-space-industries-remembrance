@@ -1065,6 +1065,7 @@ data:extend({
         name = "ei-magnet",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 10,
         ingredients = {
             {type = "item", name = "ei-neodym-ingot", amount = 3},
@@ -1252,7 +1253,7 @@ data:extend({
             {type = "item", name = "ei-fusion-data", amount = 9},
         },
         results = {
-            {type = "item", name = "ei-fusion-quantum-age-tech", amount = 10},
+            {type = "item", name = "ei-fusion-quantum-age-tech", amount = 1},
             {type = "item", name = "ei-neutron-container", amount = 1, probability = 0.99},
         },
         always_show_made_in = true,
@@ -1265,12 +1266,15 @@ data:extend({
         category = "ei-nano-factory",
         energy_required = 240,
         ingredients = {
-            {type = "item", name = "ei-high-tech-parts", amount = 8},
+            {type = "item", name = "ei-high-tech-parts", amount = 25},
             {type = "item", name = "ei-superior-data", amount = 40},
             {type = "item", name = "ei-cavity", amount = 2},
+            {type = "item", name = "ei-speed-module-6", amount = 1},
+            {type = "item", name = "ei-productivity-module-6", amount = 1},
+            {type = "item", name = "ei-efficiency-module-6", amount = 1},
         },
         results = {
-            {type = "item", name = "ei-exotic-age-tech", amount = 10},
+            {type = "item", name = "ei-exotic-age-tech", amount = 1},
         },
         always_show_made_in = true,
         enabled = false,
@@ -1331,6 +1335,7 @@ data:extend({
         name = "ei-eu-circuit",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 14,
         ingredients = {
             {type = "item", name = "processing-unit", amount = 2},
@@ -1621,6 +1626,7 @@ data:extend({
         name = "ei-bio-magnet",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"organic"},
         energy_required = 10,
         ingredients = {
             {type = "item", name = "ei-neodym-ingot", amount = 3},
@@ -1813,6 +1819,7 @@ data:extend({
         name = "ei-speed-module-4",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 80,
         ingredients = {
             {type = "item", name = "speed-module-3", amount = 2},
@@ -1830,6 +1837,7 @@ data:extend({
         name = "ei-efficiency-module-4",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 80,
         ingredients = {
             {type = "item", name = "efficiency-module-3", amount = 2},
@@ -1847,6 +1855,7 @@ data:extend({
         name = "ei-productivity-module-4",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 80,
         ingredients = {
             {type = "item", name = "productivity-module-3", amount = 2},
@@ -1864,6 +1873,7 @@ data:extend({
         name = "ei-speed-module-5",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 120,
         ingredients = {
             {type = "item", name = "ei-speed-module-4", amount = 2},
@@ -1881,6 +1891,7 @@ data:extend({
         name = "ei-efficiency-module-5",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 120,
         ingredients = {
             {type = "item", name = "ei-efficiency-module-4", amount = 2},
@@ -1898,6 +1909,7 @@ data:extend({
         name = "ei-productivity-module-5",
         type = "recipe",
         category = "crafting",
+        additional_categories = {"electronics"},
         energy_required = 120,
         ingredients = {
             {type = "item", name = "ei-productivity-module-4", amount = 2},
@@ -1914,7 +1926,7 @@ data:extend({
     {
         name = "ei-speed-module-6",
         type = "recipe",
-        category = "crafting",
+        category = "ei-exotic-assembler",
         energy_required = 240,
         ingredients = {
             {type = "item", name = "ei-speed-module-5", amount = 2},
@@ -1931,7 +1943,7 @@ data:extend({
     {
         name = "ei-efficiency-module-6",
         type = "recipe",
-        category = "crafting",
+        category = "ei-exotic-assembler",
         energy_required = 240,
         ingredients = {
             {type = "item", name = "ei-efficiency-module-5", amount = 2},
@@ -1948,7 +1960,7 @@ data:extend({
     {
         name = "ei-productivity-module-6",
         type = "recipe",
-        category = "crafting",
+        category = "ei-exotic-assembler",
         energy_required = 240,
         ingredients = {
             {type = "item", name = "ei-productivity-module-5", amount = 2},
@@ -1965,7 +1977,7 @@ data:extend({
     {
         name = "ei-gauss-module",
         type = "recipe",
-        category = "crafting",
+        category = "ei-exotic-assembler",
         energy_required = 600,
         ingredients = {
             {type = "item", name = "ei-productivity-module-6", amount = 4},
@@ -2280,7 +2292,7 @@ data:extend({
             },
         },
         unit = {
-            count = 100,
+            count = 700,
             ingredients = ei_data.science["quantum-age"],
             time = 20
         },
@@ -2625,7 +2637,7 @@ data:extend({
         icon = ei_graphics_tech_path.."speed-module-6.png",
         icon_size = 256,
         icon_mipmaps = 4,
-        prerequisites = {"ei-speed-module-5", "ei-cavity"},
+        prerequisites = {"ei-speed-module-5", "ei-cavity","ei-high-tech-parts"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2637,11 +2649,11 @@ data:extend({
             },
         },
         unit = {
-            count = 100,
-            ingredients = ei_data.science["space-quantum-age"],
+            count = 150,
+            ingredients = ei_data.science["both-quantum-age"],
             time = 20
         },
-        age = "space-quantum-age",
+        age = "both-quantum-age",
     },
     {
         name = "ei-efficiency-module-6",
@@ -2649,7 +2661,7 @@ data:extend({
         icon = ei_graphics_tech_path.."effectivity-module-6.png",
         icon_size = 256,
         icon_mipmaps = 4,
-        prerequisites = {"ei-efficiency-module-5", "ei-cavity"},
+        prerequisites = {"ei-efficiency-module-5", "ei-cavity","ei-high-tech-parts"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2661,11 +2673,11 @@ data:extend({
             },
         },
         unit = {
-            count = 100,
-            ingredients = ei_data.science["space-quantum-age"],
+            count = 150,
+            ingredients = ei_data.science["both-quantum-age"],
             time = 20
         },
-        age = "space-quantum-age",
+        age = "both-quantum-age",
     },
     {
         name = "ei-productivity-module-6",
@@ -2673,7 +2685,7 @@ data:extend({
         icon = ei_graphics_tech_path.."productivity-module-6.png",
         icon_size = 256,
         icon_mipmaps = 4,
-        prerequisites = {"ei-productivity-module-5", "ei-cavity"},
+        prerequisites = {"ei-productivity-module-5", "ei-cavity","ei-high-tech-parts"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2685,18 +2697,18 @@ data:extend({
             },
         },
         unit = {
-            count = 100,
-            ingredients = ei_data.science["space-quantum-age"],
+            count = 150,
+            ingredients = ei_data.science["both-quantum-age"],
             time = 20
         },
-        age = "space-quantum-age",
+        age = "both-quantum-age",
     },
     {
         name = "ei-gauss-module",
         type = "technology",
         icon = ei_graphics_tech_path.."gauss-module.png",
         icon_size = 128,
-        prerequisites = {"ei-productivity-module-6", "ei-speed-module-6", "ei-efficiency-module-6", "ei-high-tech-parts"},
+        prerequisites = {"ei-productivity-module-6", "ei-speed-module-6", "ei-efficiency-module-6"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2704,7 +2716,7 @@ data:extend({
             },
         },
         unit = {
-            count = 100,
+            count = 300,
             ingredients = ei_data.science["both-quantum-age"],
             time = 20
         },
@@ -2868,22 +2880,3 @@ data:extend({
         take_result = "ei-personal-reactor",
     },
 })
-
-table.insert(data.raw["technology"]["ei-exotic-age"].effects, {
-    type = "unlock-recipe",
-    recipe = "ei-exotic-age-tech"
-})
-
-table.insert(data.raw["technology"]["ei-exotic-age"].effects, {
-    type = "unlock-recipe",
-    recipe = "ei-exotic-matter"
-})
-
-table.insert(data.raw["technology"]["ei-exotic-age"].effects, {
-    type = "unlock-recipe",
-    recipe = "ei-crushed-promethium-asteroid-chunk"
-})
-
-data.raw["technology"]["ei-exotic-age"].prerequisites = {
-    "ei-high-tech-parts", "ei-cavity"
-}
