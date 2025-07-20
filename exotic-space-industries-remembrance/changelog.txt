@@ -1,9 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.00
+Date: 7-19-2025
+  Bugfixes:
+    - Laser turret damage_multiplier -1.2 -> 1.2, does damage again.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.99
 Date: 7-19-2025
   Features:
     - Added empty diesel fuel unit as the burnt result for diesel fuel unit. 
-    - Added recipe to railway allowing refilling empty disel fuel unit.
+    - Added recipe to railway allowing refilling empty diesel fuel unit.
   Changes:
     - Diesel fuel unit recipe input: Additionally requires 1 insulated wire, time required 1 -> 1.5s.
     - Diesel fluid fuel value 50 -> 200 kJ.
