@@ -269,6 +269,15 @@ data:extend({
         order = "a-f",
     },
     {
+        name = "ei-diesel-fuel-unit-empty",
+        type = "item",
+        icon = ei_path.."graphics/item/diesel-fuel-unit-empty.png",
+        icon_size = 80,
+        stack_size = 10,
+        subgroup = "raw-material",
+        order = "c[solid-fuel]-a[diesel-fuel-unit]",
+    },
+    {
         name = "ei-diesel-fuel-unit",
         type = "item",
         icon = ei_graphics_item_path.."diesel-fuel-unit.png",
@@ -280,6 +289,7 @@ data:extend({
         fuel_value = "20MJ",
         fuel_acceleration_multiplier = 1.0,
         fuel_top_speed_multiplier = 1.0,
+        burnt_result = "ei-diesel-fuel-unit-empty"
     },
     {
         name = "ei-computer-age-tech",
@@ -398,16 +408,33 @@ data:extend({
         main_product = "ei-personal-solar-2",
     },
     {
+        name = "ei-diesel-fuel-unit-empty",
+        type = "recipe",
+        category = "chemistry",
+        energy_required = 0.5,
+        ingredients = {
+            {type = "fluid", name = "ei-diesel", amount = 100},
+            {type = "item", name = "ei-diesel-fuel-unit-empty", amount = 1},
+        },
+        results = {
+            {type = "item", name = "ei-diesel-fuel-unit", amount = 1},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-diesel-fuel-unit",
+    },
+    {
         name = "ei-diesel-fuel-unit",
         type = "recipe",
         category = "chemistry",
-        energy_required = 1,
+        energy_required = 1.5,
         ingredients = {
             {type = "fluid", name = "ei-diesel", amount = 100},
             {type = "item", name = "barrel", amount = 1},
+            {type = "item", name = "ei-insulated-wire", amount = 1},
         },
         results = {
-            {type = "item", name = "ei-diesel-fuel-unit", amount = 10},
+            {type = "item", name = "ei-diesel-fuel-unit", amount = 1},
         },
         always_show_made_in = true,
         enabled = false,
@@ -1337,9 +1364,18 @@ table.insert(data.raw["technology"]["ei-electricity-power"].effects, {
 --     recipe = "ei-electric-stone-quarry"
 -- })
 
+ei_lib.add_prerequisite("railway","plastics")
+
+ei_lib.add_prerequisite("railway","advanced-circuit")
+
 table.insert(data.raw["technology"]["railway"].effects, {
     type = "unlock-recipe",
     recipe = "ei-diesel-fuel-unit"
+})
+
+table.insert(data.raw["technology"]["railway"].effects, {
+    type = "unlock-recipe",
+    recipe = "ei-diesel-fuel-unit-empty"
 })
 
 table.insert(data.raw["technology"]["concrete"].effects, {

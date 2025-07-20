@@ -43,7 +43,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."black-hole.png",
         icon_size = 256,
-        prerequisites = {"ei-exotic-age","ei-black-hole-exploration"},
+        prerequisites = {"ei-exotic-age","ei-black-hole-exploration","ei-gauss-module"},
         effects = {
             {
                 type = "unlock-recipe",

@@ -1,7 +1,22 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.99
+Date: 7-19-2025
+  Features:
+    - Added empty diesel fuel unit as the burnt result for diesel fuel unit. 
+    - Added recipe to railway allowing refilling empty disel fuel unit.
+  Changes:
+    - Diesel fuel unit recipe input: Additionally requires 1 insulated wire, time required 1 -> 1.5s.
+    - Diesel fluid fuel value 50 -> 200 kJ.
+    - Kerosene fluid fuel value 200 -> 140 kJ.
+    - Diesel fuel unit recipe output: 10 diesel fuel unit -> 1. No longer net gain in energy from putting diesel into fuel unit.
+    - Diesel locomotive technology prerequisites now: Logistics 2, Plastic, Advanced circuit, Electric engine unit.
+    - Diesel locomotive recipe inputs: 10 circuits -> 5 advanced circuits, additionally requires 10 steel mechanical parts, 8 Electric engine units.
+    - Removed superfluous pump unlock from fluid wagon.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.98
 Date: 7-19-2025
   Changes:
+    - Black hole exotic age tech prerequisites: additionally requires Gauss module.
     - Black hole exotic age tech recipe input: additionally requires 1 Gauss module.
     - Exotic age tech recipe input: 2 Photon cavity -> 1 Speed module 6, 2 Gluon cavity -> 1 Efficiency module 6, 2 Z-boson cavity -> 1 Productivity module 6.
     - Swapped hydrofluoric for nitric acid in the Tier 2 slag chunk extraction recipe and moved unlock to Nitric Acid.
@@ -16,6 +31,7 @@ Date: 7-19-2025
     - Computer, Simulation and Alien Age technology icons updated with high fidelity 512x512 versions.
     - Simulation and Alien Computer Age technology descriptions inscribed.
     - Exotic Age technology prerequisites additionally include Efficiency 6, Productivity 6, Speed 6 and Matter Stabilizer.
+    - Exotic Age technology recipe output 2 Exotic tech -> 1.
     - Exotic Age technology recipe inputs: High tech parts 8 -> 25. Additionally requires 2 Photon cavity, 2 Gluon cavity and 2 Z-boson cavity.
     - Advanced steam fluid wagon capacity 10000 -> 25000.
     - Burner heater and Fluid heater max heat transfer rate: 1800 -> 5400 kW.

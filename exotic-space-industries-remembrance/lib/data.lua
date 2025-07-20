@@ -532,7 +532,6 @@ ei_data.tech_structure["steam-age"] = {
 
 ei_data.tech_structure["electricity-age"] = {
     "oil-processing",
-    "railway",
 --    "fluid-wagon",
     "fluid-handling",
     "automation",

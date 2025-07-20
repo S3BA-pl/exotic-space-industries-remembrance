@@ -507,6 +507,13 @@ local new_ingredients_table = {
         {type="item",name="cannon-shell", amount=1},
         {type="item",name="explosives", amount=2},
     },
+    ["locomotive"] = {
+        {type="item",name="advanced-circuit", amount=5},
+        {type="item",name="ei-steel-mechanical-parts", amount=10},
+        {type="item",name="engine-unit", amount=20},
+        {type="item",name="electric-engine-unit", amount=8},
+        {type="item",name="steel-plate", amount=30},
+    },
 }
 
 --[[
@@ -875,8 +882,6 @@ ei_lib.raw.technology["fluid-handling"] = {
     icon = ei_graphics_tech_path.."barreling.png",
     icon_size = 256,
 }
-
-ei_lib.add_unlock_recipe("fluid-wagon","pump")
 
 ei_lib.add_unlock_recipe("automation-2", "ei-ceramic")
 

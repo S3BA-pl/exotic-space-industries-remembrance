@@ -258,6 +258,14 @@ data.raw.recipe["ei-solid-fuel-residual-oil"].crafting_machine_tint =
     quaternary = {r=0.4, g=0.24, b=0.06, a = 1.000}
 }
 
+data.raw.recipe["ei-diesel-fuel-unit-empty"].crafting_machine_tint =
+{
+	primary = {r=0.64, g=0.59, b=0.49, a = 1.000},
+	secondary = {r=0.90, g=0.83, b=0.67, a = 1.000},
+	tertiary = {r=0.64, g=0.59, b=0.49, a = 1.000},
+	quaternary = {r=0.90, g=0.83, b=0.67, a = 1.000}
+}
+
 data.raw.recipe["ei-diesel-fuel-unit"].crafting_machine_tint =
 {
 	primary = {r=0.64, g=0.59, b=0.49, a = 1.000},
