@@ -1368,7 +1368,7 @@ ei_lib.raw["container"]["steel-chest"].inventory_size = 16
 ei_lib.raw["electric-turret"]["laser-turret"] = {
     attack_parameters = {
         range = 30,
-        damage_modifier = -1.2,
+        damage_modifier = 1.2,
     }
 }
 

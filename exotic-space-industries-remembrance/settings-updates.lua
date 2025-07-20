@@ -92,7 +92,7 @@ set_bool("rp_steam_roboports","rp_steam_roboports_bot_die_when_out_of_energy",tr
 set_float("rp_steam_roboports","rp_steam_roboports_chests_power_low_kw",100)
 set_float("rp_steam_roboports","rp_steam_roboports_chests_power_medium_kw",200)
 set_float("rp_steam_roboports","rp_steam_roboports_chests_power_high_kw",400)
-set_bool("atan-ash","atan-ash-entities-burn",true)
+set_bool("atan-ash","atan-ash-entities-burn",false)
 set_int("Flare Stack", "flare-stack-fluid-rate",5)
 set_int("Flare Stack","flare-stack-item-rate",1)
 set_float("Flammable_Oils_QUICKFIX","flo-radius-mult",0.5)

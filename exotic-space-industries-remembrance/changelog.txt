@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.01
+Date: 7-20-2025
+  Bugfixes:
+    - Temporarily disabled Atan Ash startup setting causing burnt entities to drop ash, this should allow new maps to be MP compatible. Due to Atan Ash not yet hooking on_configuration_changed changing the setting after starting a map is ineffectual, and due to not yet hooking on_load the on_entity_died hook does not yet sync for MP.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.00
 Date: 7-19-2025
   Bugfixes:
