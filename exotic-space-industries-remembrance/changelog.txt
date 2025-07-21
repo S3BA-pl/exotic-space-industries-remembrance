@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.04
+Date: 7-21-2025
+  Bugfixes:
+    - Restored Quantum Age tech icon after overwriting it with Exotic Age icon during re-exporting.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.03
 Date: 7-21-2025
   Bugfixes:
