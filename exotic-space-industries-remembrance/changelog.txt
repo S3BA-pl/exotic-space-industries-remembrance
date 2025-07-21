@@ -1,4 +1,22 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.03
+Date: 7-21-2025
+  Bugfixes:
+    - Don't call random before variable initialized.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.02
+Date: 7-21-2025
+  Features:
+    - Created items for some of the anomalies necessary for forthcoming Space & Black Hole Data recipes.
+  Changes:
+    - Re-exported recently introduced graphics with higher-quality nohalo scaling and superior compression ratios.
+    - Restored crystal_echo line by line color randomization.
+    - Excavator surface conditions now include gravity.
+    - Small simulator energy usage 500kW -> 3MW.
+    - Simulation data recipe input: 2 Computer power -> 4.
+    - Computing power recipe input: 5 Electronic parts -> 10.
+    - Computing power recipe output: 1000 Computing power -> 100. Time required 100 -> 60s.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.01
 Date: 7-20-2025
   Bugfixes:

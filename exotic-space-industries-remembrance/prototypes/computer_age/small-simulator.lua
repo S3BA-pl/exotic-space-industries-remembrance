@@ -121,7 +121,7 @@ data:extend({
             usage_priority = 'secondary-input',
         },
         fixed_recipe = "ei-simulation-data",
-        energy_usage = "500kW",
+        energy_usage = "3MW",
         graphics_set = {
             animation = {
                 filename = ei_graphics_entity_path.."small-simulator.png",
@@ -182,7 +182,7 @@ data:extend({
         category = "ei-small-simulator",
         energy_required = 5,
         ingredients = {
-            {type = "fluid", name = "ei-computing-power", amount = 2},
+            {type = "fluid", name = "ei-computing-power", amount = 4},
         },
         results = {
             {type = "item", name = "ei-simulation-data", amount = 3},

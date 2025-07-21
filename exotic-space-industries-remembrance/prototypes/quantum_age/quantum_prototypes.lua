@@ -213,6 +213,63 @@ data:extend({
         subgroup = "intermediate-product",
         order = "b8-a",
     },
+--Space anomalies for Space/Black hole data
+    --chemical
+    {
+        name = "ei-neuro-reactive-residue",
+        type = "item",
+        icon = ei_path.."graphics/item/neuro-reactive-residue.png",
+        icon_size = 512,
+        stack_size = 100,
+        weight = 20*kg,
+        subgroup = "ei-refining-raw",
+        order = "z1",
+    },
+    --organic
+    {
+        name = "ei-sporeglass-heart",
+        type = "item",
+        icon = ei_path.."graphics/item/sporeglass-heart.png",
+        icon_size = 512,
+        stack_size = 100,
+        weight = 20*kg,
+        subgroup = "ei-refining-raw",
+        order = "z2",
+    },
+    --stone
+    {
+        name = "ei-gravity-braided-ore",
+        type = "item",
+        icon = ei_path.."graphics/item/gravity-braided-ore.png",
+        icon_size = 512,
+        stack_size = 100,
+        weight = 20*kg,
+        subgroup = "ei-refining-raw",
+        order = "z3",
+    },
+    --uranium
+    {
+        name = "ei-isotopic-ghost-shell",
+        type = "item",
+        icon = ei_path.."graphics/item/isotopic-ghost-shell.png",
+        icon_size = 512,
+        stack_size = 100,
+        weight = 20*kg,
+        subgroup = "ei-refining-raw",
+        order = "z4",
+    },
+    --petrified
+    {
+        name = "ei-chrono-fossil-shard",
+        type = "item",
+        icon = ei_path.."graphics/item/chrono-fossil-shard.png",
+        icon_size = 512,
+        stack_size = 100,
+        weight = 20*kg,
+        subgroup = "ei-refining-raw",
+        order = "z5",
+    },
+    --pending: scrap "worm-torn relay core"
     {
         name = "ei-crushed-neodym",
         type = "item",

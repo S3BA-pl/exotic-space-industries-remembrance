@@ -40,12 +40,12 @@ data:extend({
         name = "ei-computing-power",
         type = "recipe",
         category = "ei-computer-core",
-        energy_required = 100,
+        energy_required = 60,
         ingredients = {
-            {type = "item", name = "ei-electronic-parts", amount = 5},
+            {type = "item", name = "ei-electronic-parts", amount = 10},
         },
         results = {
-            {type = "fluid", name = "ei-computing-power", amount = 1000},
+            {type = "fluid", name = "ei-computing-power", amount = 100},
         },
         always_show_made_in = true,
         enabled = false,

@@ -242,10 +242,10 @@ function model.check_battery(unit, entity, event)
     if storage.ei.black_hole[unit].battery < 8 then
         storage.ei.black_hole[unit].stage = 0
         storage.ei.black_hole[unit].stage_progress = 0
-        ei_lib.crystal_echo_floating("WARNING: Black hole containment failure!",entity,6000,nil,entity.position.x,entity.position.y,unit,event.tick)
+        ei_lib.crystal_echo_floating("WARNING: Black hole containment failure!",entity,6000,nil)
 
         -- also print chat message
-        ei_lib.crystal_echo("WARNING: Black hole containment failure at "..entity.position.x..", "..entity.position.y.."!","default-bold",game.players,nil,nil,nil,nil,nil,entity.position.x,entity.position.y,unit,event.tick)
+        ei_lib.crystal_echo("WARNING: Black hole containment failure at "..entity.position.x..", "..entity.position.y.."!","default-bold",game.players,nil,nil,nil,nil,nil)
     end
 
 end

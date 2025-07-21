@@ -68,6 +68,14 @@ data:extend({
             result = "ei-excavator"
         },
         max_health = 1000,
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 1,
+              max = 100
+            }
+        },
         fixed_recipe = "ei-excavator-running",
         corpse = "big-remnants",
         dying_explosion = "medium-explosion",

@@ -1561,7 +1561,7 @@ tint.display = tint.adj:gsub("^%l", string.upper) .. " " .. tint.name
     end
 function ei_lib.pick_tint_from_intent(intent)
   local pool = intent_tint_map[intent or ""] or {}
-  return #pool > 0 and pool[ei_rng.int("picktint",1,#pool,intent)] or nil
+  return #pool > 0 and pool[math.random(1,#pool)] or nil
 end
 
 -- Controlled variation (+/- 15)
@@ -1572,7 +1572,7 @@ end
 
 function ei_lib.generate_crystal_gradient_stops(min_stops, max_stops,msg)
   local stops = {}
-  local count = ei_rng.int("trainglowscale",min_stops or 2, max_stops or 4, min_stops*2, max_stops*3)
+  local count = math.random(min_stops,max_stops)
 
   for var = 1, count do
     -- Pick a base color
@@ -1588,7 +1588,7 @@ function ei_lib.generate_crystal_gradient_stops(min_stops, max_stops,msg)
 end
 
 function ei_lib.pick_gradient_stops(msg)
-  return ei_lib.generate_crystal_gradient_stops(2, ei_rng.int("pickgradientstops",2,#crystal_colors),msg)
+  return ei_lib.generate_crystal_gradient_stops(2, math.random(2,#crystal_colors),msg)
 end
 --[[]
 ei_lib.crystal_echo(
@@ -1611,7 +1611,7 @@ ei_lib.crystal_echo(
     - Can display messages as floating text above the player.
 --]]
 
-function ei_lib.crystal_echo(msg, font, player, tint, force_full_tint, intent, as_floating_text, floating_timetolive, entropy1, entropy2, entropy3, entropy4)
+function ei_lib.crystal_echo(msg, font, player, tint, force_full_tint, intent, as_floating_text, floating_timetolive)
   -- === INTENT→TINT FALLBACK SYSTEM ===
   -- If no tint is specified, try to select one based on declared emotional "intent".
   -- These two tables should be defined externally and kept updated at runtime:
@@ -1620,7 +1620,7 @@ function ei_lib.crystal_echo(msg, font, player, tint, force_full_tint, intent, a
 
   if not tint and intent and intent_tint_map[intent] then
     local pool = intent_tint_map[intent]
-    tint = pool[ei_rng.int("trainglowscale",1,#pool)]
+    tint = pool[math.random(1,#pool)]
   end
 
   -- === EXTRACT TINT DATA FROM PALETTE ===
@@ -1649,7 +1649,7 @@ function ei_lib.crystal_echo(msg, font, player, tint, force_full_tint, intent, a
 
   -- === PREPARE COLOR GRADIENT ===
   -- If not using force_full_tint, generate a multi-color gradient for text
-  local gradient = not force_full_tint and ei_lib.pick_gradient_stops(msg, entropy1, entropy2, entropy3, entropy4) or nil
+  local gradient = not force_full_tint and ei_lib.pick_gradient_stops(msg) or nil
   local segments = gradient and (ei_lib.getn(gradient) - 1) or nil
 
   -- === BUILD COLORED MESSAGE, CHARACTER BY CHARACTER ===
@@ -1720,8 +1720,8 @@ function ei_lib.crystal_echo(msg, font, player, tint, force_full_tint, intent, a
   end
 end
 
-function ei_lib.crystal_echo_floating(msg, target, floating_timetolive, tint, entropy1, entropy2, entropy3, entropy4)
-    ei_lib.crystal_echo(msg, nil, target, tint or nil, nil, nil, true, floating_timetolive, entropy1, entropy2, entropy3, entropy4)
+function ei_lib.crystal_echo_floating(msg, target, floating_timetolive, intent, tint)
+    ei_lib.crystal_echo(msg, nil, target, tint or nil, nil, intent or nil, true, floating_timetolive)
 end
 
 

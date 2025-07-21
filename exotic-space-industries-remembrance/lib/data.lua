@@ -935,7 +935,10 @@ local entities = {
 
 --priority order: category > pullfrom > explicit > default but only 1 "needs" to be present
 for rawCatName,rawCat in pairs(entities) do
-    for _,entity in pairs(rawCat) do
+    for entity,_ in pairs(rawCat) do
+        if entity == "default" then
+            goto skip
+        end
         local set = nil
         --category
         if entity.category then
@@ -984,6 +987,7 @@ for rawCatName,rawCat in pairs(entities) do
         else
             ei_data.heating_energy[entity] = tostring(set).."W"
         end
+        ::skip::
     end
 end
 

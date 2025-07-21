@@ -405,10 +405,9 @@ function echo_codex.youHaveArrived(player, event)
   }
 
   -- Echoed warnings
-  ei_lib.crystal_echo("Fragments of GAIA's lament ripple across space-time...", "default-semibold",
-    player, ei_lib.tint_palette[math.random(1,ei_lib.getn(ei_lib.tint_palette))], false, nil,  false, 0, math.random(0,6553600))
-  ei_lib.crystal_echo("⟬ THE SYSTEM STIRS ⟭","default-bold") --swap with individual flying text
-  ei_lib.crystal_echo_floating("⚠️ YOU HAVE BEEN SEEN ⚠️",player,600,ei_lib.tint_palette[math.random(1,ei_lib.getn(ei_lib.tint_palette))], math.random(0,6553600))
+  ei_lib.crystal_echo("Fragments of GAIA's lament ripple across space-time...", "default-semibold",player)
+  ei_lib.crystal_echo("⟬ THE SYSTEM STIRS ⟭","default-bold")
+  ei_lib.crystal_echo_floating("⚠️ YOU HAVE BEEN SEEN ⚠️",player,600,"wrath")
 end
 
 function echo_codex.arrival_waves(e)

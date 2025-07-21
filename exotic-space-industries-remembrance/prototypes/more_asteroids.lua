@@ -541,7 +541,7 @@ data:extend(
         {type = "item", name = "uranium-ore", amount_min = 2,amount_max=10,probability=0.70},
         {type = "item", name = "uranium-235", amount_min = 1,amount_max=2, probability = 0.005},
         {type = "item", name = "uranium-238", amount_min = 1,amount_max=2, probability = 0.04},
-		{type = "item", name = "ei-pure-lead", amount_min = 1,amount_max=4,probability=0.6},
+	    	{type = "item", name = "ei-pure-lead", amount_min = 1,amount_max=4,probability=0.6},
         {type = "item", name = "ei-uranium-asteroid-chunk", amount = 1, probability = 0.01}
         },
         allow_productivity = true,
@@ -567,7 +567,7 @@ data:extend(
         {type = "item", name = "uranium-ore", amount_min=4,amount_max = 14,probability=0.95},
         {type = "item", name = "uranium-235", amount_min = 1,amount_max=2, probability = 0.05},
         {type = "item", name = "uranium-238", amount = 1,amount_max=2, probability = 0.16},
-		{type = "item", name = "ei-pure-lead", amount_min = 1,amount_max=4,probability=0.85},
+    		{type = "item", name = "ei-pure-lead", amount_min = 1,amount_max=4,probability=0.85},
         {type = "item", name = "ei-uranium-asteroid-chunk", amount = 1, probability = 0.02}
         },
         allow_productivity = true,
@@ -613,7 +613,7 @@ data:extend(
         {
         {type = "item", name = "stone", amount_min = 5,amount_max=10},
         {type = "item", name = "tungsten-ore", amount_min = 1,amount_max=5,probability=0.08},
-		{type = "item", name = "ei-pure-gold", amount_min = 1,amount_max=2,probability=0.12},
+    		{type = "item", name = "ei-pure-gold", amount_min = 1,amount_max=2,probability=0.12},
         {type = "item", name = "ei-rock-asteroid-chunk", amount = 1, probability = 0.05}
         },
         allow_productivity = true,
