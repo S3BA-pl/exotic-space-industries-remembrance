@@ -175,7 +175,7 @@ data:extend({
 			fuel_categories = {"chemical"},
 			effectivity = 0.70,
 			fuel_inventory_size = 3,
-			burnt_inventory_size = 2,
+			burnt_inventory_size = 3,
 			emissions_per_minute = { pollution = 10 },
 			smoke =
 			{
@@ -991,7 +991,7 @@ data:extend({
 			fuel_categories = {"chemical"},
 			effectivity = 0.85,
 			fuel_inventory_size = 2,
-			burnt_inventory_size = 1,
+			burnt_inventory_size = 2,
 			emissions_per_minute = { pollution = 5 },
 			smoke = {
 				{

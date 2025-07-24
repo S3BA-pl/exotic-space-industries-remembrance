@@ -166,15 +166,7 @@ data:extend({
         effects = {
             {
                 type = "unlock-recipe",
-                recipe = "ei-exotic-matter"
-            },
-            {
-                type = "unlock-recipe",
                 recipe = "ei-exotic-age-tech"
-            },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-crushed-promethium-asteroid-chunk"
             }
         },
         unit = {

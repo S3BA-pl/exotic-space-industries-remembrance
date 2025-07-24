@@ -152,13 +152,15 @@ data:extend({
     {
         name = "ei-advanced-bot-engine",
         type = "recipe",
-        category = "crafting-with-fluid",
+        category = "ei-nano-factory",
         energy_required = 20,
         ingredients = {
-            {type = "item", name = "flying-robot-frame", amount = 2},
-            {type = "item", name = "battery", amount = 4},
-            {type = "item", name = "electric-engine-unit", amount = 6},
-            {type = "fluid", name = "lubricant", amount = 50},
+            {type="item", name="flying-robot-frame", amount=2},
+            {type="item", name="ei-carbon-structure", amount=3},
+            {type="item", name="ei-advanced-motor", amount=2},
+            {type="item", name="ei-superior-data", amount=1},
+            {type="item", name="battery",amount=8},
+            {type="fluid", name="lubricant", amount=50},
         },
         results = {
             {type = "item", name = "ei-advanced-bot-engine", amount = 1}
@@ -181,7 +183,7 @@ data:extend({
             {type = "item", name = "ei-steel-beam", amount=40},
             {type = "item", name = "processing-unit", amount = 40},
             {type = "item", name = "ei-electronic-parts", amount = 50},        
-            {type = "item", name = "electric-engine-unit", amount = 40},
+            {type = "item", name = "ei-advanced-motor", amount = 40},
         },
         results = {
             {type = "item", name = "ei-advanced-port", amount = 1}
@@ -206,7 +208,7 @@ data:extend({
         type = "technology",
         icon = ei_robots_tech_path.."advanced-bots.png",
         icon_size = 128,
-        prerequisites = {"space-science-pack"},
+        prerequisites = {"space-science-pack","ei-quantum-computer","ei-nano-factory"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -398,7 +400,7 @@ data:extend({
         speed = 0.1,
         transfer_distance = 0.5,
         max_energy = "100MJ",
-        energy_per_tick = "17kJ",
+        energy_per_tick = "9kJ",
         speed_multiplier_when_out_of_energy = 0.2,
         energy_per_move = "25kJ",
         min_to_charge = 0.2,
@@ -849,22 +851,3 @@ data.raw.technology["ei-advanced-port"].prerequisites = {
     "ei-nano-factory",
 }
 
-data.raw.technology["ei-advanced-bots"].prerequisites = {
-    "ei-quantum-computer",
-    "ei-nano-factory",
-}
-
-data.raw.recipe["ei-advanced-bot-engine"].ingredients = {
-    {type="item", name="flying-robot-frame", amount=2},
-    {type="item", name="ei-carbon-structure", amount=3},
-    {type="item", name="ei-advanced-motor", amount=2},
-    {type="item", name="ei-superior-data", amount=1},
-    {type="fluid", name="lubricant", amount=50},
-}
-
-data.raw.recipe["ei-advanced-port"].ingredients = {
-    {type="item", name="roboport", amount=4},
-    {type="item", name="processing-unit", amount=25},
-    {type="item", name="ei-advanced-motor", amount=15},
-    {type="item", name="ei-magnet", amount=6},
-}

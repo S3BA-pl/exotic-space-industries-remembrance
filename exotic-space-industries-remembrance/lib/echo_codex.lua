@@ -329,12 +329,13 @@ function echo_codex.handle_global_settings(event)
     end
 end
 
-function echo_codex.youHaveArrived(player, event)
-  if not (player and player.valid) then
-    log("youHaveArrived: invalid player")
+function echo_codex.youHaveArrived(event)
+  if not event or not event.tick or not event.player_index then --SP load? Maybe call this from updater, save warped-in players to a global list, reset it on load so updater calls it again? get access to event.tick that way
     return
   end
-  if not event or not event.tick then --SP load? Maybe call this from updater, save warped-in players to a global list, reset it on load so updater calls it again? get access to event.tick that way
+  local player = game.get_player(event.player_index)
+  if not (player and player.valid and player.character) then
+    log("youHaveArrived: invalid player")
     return
   end
   local setTick = event.tick
@@ -403,11 +404,11 @@ function echo_codex.youHaveArrived(player, event)
     scale = 5.0,
     time_to_live = 300
   }
-
+  log(">> EI Arrival event triggered for player: " .. player.name)
   -- Echoed warnings
   ei_lib.crystal_echo("Fragments of GAIA's lament ripple across space-time...", "default-semibold",player)
   ei_lib.crystal_echo("⟬ THE SYSTEM STIRS ⟭","default-bold")
-  ei_lib.crystal_echo_floating("⚠️ YOU HAVE BEEN SEEN ⚠️",player,600,"wrath")
+  ei_lib.crystal_echo_floating("⚠️ YOU HAVE BEEN SEEN ⚠️",player.character,600,"wrath")
 end
 
 function echo_codex.arrival_waves(e)

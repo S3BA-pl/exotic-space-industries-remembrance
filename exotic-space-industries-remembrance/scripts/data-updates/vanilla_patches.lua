@@ -973,10 +973,12 @@ ei_lib.raw["fluid"]["light-oil"].fuel_value = "500kJ"
 -- add burnt fuel slot
 ei_lib.raw.locomotive.locomotive = {
     localised_name = {"entity-name.ei-locomotive"},
+    
     energy_source = {
         emissions_per_minute = { pollution = 1.75 },
         fuel_categories = {"ei-diesel-fuel", "ei-rocket-fuel"},
-        burnt_inventory_size = 1,
+        fuel_inventory_size = 3,
+        burnt_inventory_size = 3,
     }
 }
 
@@ -1358,6 +1360,8 @@ for _, animation in ipairs(data.raw["character"]["character"]["animations"]) do
         end
     end
 end
+
+ei_lib.raw.roboport.roboport.charging_energy = "1MW"
 
 --bring in line with ei-containers
 ei_lib.raw["container"]["wooden-chest"].inventory_size = 8

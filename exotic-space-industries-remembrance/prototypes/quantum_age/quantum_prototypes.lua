@@ -220,8 +220,8 @@ data:extend({
         type = "item",
         icon = ei_path.."graphics/item/neuro-reactive-residue.png",
         icon_size = 512,
+        icon_mipmaps = 5,
         stack_size = 100,
-        weight = 20*kg,
         subgroup = "ei-refining-raw",
         order = "z1",
     },
@@ -231,19 +231,19 @@ data:extend({
         type = "item",
         icon = ei_path.."graphics/item/sporeglass-heart.png",
         icon_size = 512,
+        icon_mipmaps = 5,
         stack_size = 100,
-        weight = 20*kg,
         subgroup = "ei-refining-raw",
         order = "z2",
     },
-    --stone
+    --rock
     {
         name = "ei-gravity-braided-ore",
         type = "item",
         icon = ei_path.."graphics/item/gravity-braided-ore.png",
         icon_size = 512,
+        icon_mipmaps = 5,
         stack_size = 100,
-        weight = 20*kg,
         subgroup = "ei-refining-raw",
         order = "z3",
     },
@@ -253,8 +253,8 @@ data:extend({
         type = "item",
         icon = ei_path.."graphics/item/isotopic-ghost-shell.png",
         icon_size = 512,
+        icon_mipmaps = 5,
         stack_size = 100,
-        weight = 20*kg,
         subgroup = "ei-refining-raw",
         order = "z4",
     },
@@ -264,12 +264,22 @@ data:extend({
         type = "item",
         icon = ei_path.."graphics/item/chrono-fossil-shard.png",
         icon_size = 512,
+        icon_mipmaps = 5,
         stack_size = 100,
-        weight = 20*kg,
         subgroup = "ei-refining-raw",
         order = "z5",
     },
-    --pending: scrap "worm-torn relay core"
+    --scrap
+    {
+        name = "ei-worm-torn-relay-core",
+        type = "item",
+        icon = ei_path.."graphics/item/worm-torn-relay-core.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
+        stack_size = 100,
+        subgroup = "ei-refining-raw",
+        order = "z6",
+    },
     {
         name = "ei-crushed-neodym",
         type = "item",
@@ -2840,6 +2850,29 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = "ei-processing-unit-circuit-board"
             },
+        },
+        unit = {
+            count = 100,
+            ingredients = ei_data.science["quantum-age"],
+            time = 20
+        },
+        age = "quantum-age",
+    },
+    {
+        name = "ei-exotic-matter-seperation",
+        type = "technology",
+        icon = ei_path.."graphics/tech/exotic-matter-seperation.png",
+        icon_size = 512,
+        prerequisites = {"ei-eu-circuit","promethium-science-pack"},
+        effects = {
+            {
+                type = "unlock-recipe",
+                recipe = "ei-exotic-matter"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-crushed-promethium-asteroid-chunk"
+            }
         },
         unit = {
             count = 100,

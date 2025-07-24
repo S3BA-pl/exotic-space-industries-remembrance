@@ -12,6 +12,8 @@ ei_lib.set_age_packs("rp-steam-logistics-chests","steam-age")
 ei_lib.set_prerequisites("rp-steam-soul",{"rp-steam-calculator","rp-steam-piston"})
 ei_lib.set_prerequisites("rp-steam-calculator",{"ei-steam-assembler"})
 
+ei_lib.recipe_add("rp-steam-roboport","ei-iron-beam",20)
+
 local chests = {
     ["rp-steam-logistic-chest-active-provider"] = 32,
     ["rp-steam-logistic-chest-passive-provider"] = 32,

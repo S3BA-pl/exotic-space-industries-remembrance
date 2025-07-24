@@ -532,17 +532,15 @@ data:extend(
         enabled = false,
         ingredients =
         {
-        {type = "item", name = "ei-uranium-asteroid-chunk", amount = 1},
-        {type = "fluid", name = "sulfuric-acid", amount = 20}
+          {type = "item", name = "ei-uranium-asteroid-chunk", amount = 1},
+          {type = "fluid", name = "sulfuric-acid", amount = 20}
         },
         energy_required = 2,
         results =
         {
-        {type = "item", name = "uranium-ore", amount_min = 2,amount_max=10,probability=0.70},
-        {type = "item", name = "uranium-235", amount_min = 1,amount_max=2, probability = 0.005},
-        {type = "item", name = "uranium-238", amount_min = 1,amount_max=2, probability = 0.04},
-	    	{type = "item", name = "ei-pure-lead", amount_min = 1,amount_max=4,probability=0.6},
-        {type = "item", name = "ei-uranium-asteroid-chunk", amount = 1, probability = 0.01}
+          {type = "item", name = "ei-uranium-chunk", amount_min = 2,amount_max=10,probability=0.70},
+          {type = "item", name = "ei-uranium-asteroid-chunk", amount = 1, probability = 0.15},
+          {type = "item", name = "ei-isotopic-ghost-shell", amount = 1, probability = 0.02},
         },
         allow_productivity = true,
         allow_decomposition = false
@@ -558,17 +556,18 @@ data:extend(
         enabled = false,
         ingredients =
         {
-        {type = "item", name = "ei-uranium-asteroid-chunk", amount = 1},
-        {type = "fluid", name = "sulfuric-acid", amount = 20}
+          {type = "item", name = "ei-uranium-asteroid-chunk", amount = 1},
+          {type = "fluid", name = "sulfuric-acid", amount = 20}
         },
         energy_required = 2,
         results =
         {
-        {type = "item", name = "uranium-ore", amount_min=4,amount_max = 14,probability=0.95},
+        {type = "item", name = "ei-uranium-chunk", amount_min=4,amount_max = 14,probability=0.95},
         {type = "item", name = "uranium-235", amount_min = 1,amount_max=2, probability = 0.05},
         {type = "item", name = "uranium-238", amount = 1,amount_max=2, probability = 0.16},
     		{type = "item", name = "ei-pure-lead", amount_min = 1,amount_max=4,probability=0.85},
-        {type = "item", name = "ei-uranium-asteroid-chunk", amount = 1, probability = 0.02}
+        {type = "item", name = "ei-uranium-asteroid-chunk", amount = 1, probability = 0.02},
+        {type = "item", name = "ei-isotopic-ghost-shell", amount = 1, probability = 0.04}
         },
         allow_productivity = true,
         allow_decomposition = false
@@ -584,13 +583,14 @@ data:extend(
         enabled = false,
         ingredients =
         {
-        {type = "item", name = "ei-rock-asteroid-chunk", amount = 1},
+         {type = "item", name = "ei-rock-asteroid-chunk", amount = 1},
         },
         energy_required = 2,
         results =
         {
-        {type = "item", name = "stone", amount_min = 10,amount_max=20},
-        {type = "item", name = "ei-rock-asteroid-chunk", amount = 1, probability = 0.2}
+          {type = "item", name = "stone", amount_min = 10,amount_max=20},
+          {type = "item", name = "ei-rock-asteroid-chunk", amount = 1, probability = 0.2},
+          {type = "item", name = "ei-gravity-braided-ore", amount = 1, probability = 0.02},
         },
         allow_productivity = true,
         allow_decomposition = false
@@ -606,7 +606,7 @@ data:extend(
         enabled = false,
         ingredients =
         {
-        {type = "item", name = "ei-rock-asteroid-chunk", amount = 1},
+         {type = "item", name = "ei-rock-asteroid-chunk", amount = 1},
         },
         energy_required = 2,
         results =
@@ -614,7 +614,8 @@ data:extend(
         {type = "item", name = "stone", amount_min = 5,amount_max=10},
         {type = "item", name = "tungsten-ore", amount_min = 1,amount_max=5,probability=0.08},
     		{type = "item", name = "ei-pure-gold", amount_min = 1,amount_max=2,probability=0.12},
-        {type = "item", name = "ei-rock-asteroid-chunk", amount = 1, probability = 0.05}
+        {type = "item", name = "ei-rock-asteroid-chunk", amount = 1, probability = 0.05},
+        {type = "item", name = "ei-gravity-braided-ore", amount = 1, probability = 0.04}
         },
         allow_productivity = true,
         allow_decomposition = false
@@ -630,15 +631,16 @@ data:extend(
         enabled = false,
         ingredients =
         {
-        {type = "item", name = "ei-chemical-asteroid-chunk", amount = 1},
+          {type = "item", name = "ei-chemical-asteroid-chunk", amount = 1},
         },
         energy_required = 2,
         results =
         {
-        {type = "fluid", name = "ammonia", amount_min = 5, amount_max=20,probability=0.5},
+        {type = "fluid", name = "ammonia", amount_min = 5, amount_max=10,probability=0.5},
         {type = "item", name = "ei-fluorite", amount_min = 1,amount_max=5, probability=0.06},
         {type = "fluid", name = "fluorine", amount_min = 1,amount_max=5, probability=0.06},
-        {type = "item", name = "ei-chemical-asteroid-chunk", amount = 1, probability = 0.2}
+        {type = "item", name = "ei-chemical-asteroid-chunk", amount = 1, probability = 0.2},
+        {type = "item", name = "ei-neuro-reactive-residue", amount = 1, probability = 0.02}
         },
         allow_productivity = true,
         allow_decomposition = false
@@ -654,7 +656,7 @@ data:extend(
         enabled = false,
         ingredients =
         {
-        {type = "item", name = "ei-chemical-asteroid-chunk", amount = 1},
+          {type = "item", name = "ei-chemical-asteroid-chunk", amount = 1},
         },
         energy_required = 2,
         results =
@@ -663,7 +665,8 @@ data:extend(
         {type = "item", name = "ei-fluorite", amount_min = 1,amount_max=5, probability=0.33},
         {type = "fluid", name = "fluorine", amount_min = 1,amount_max=5, probability=0.33},
         {type = "fluid", name = "lithium-brine", amount_min = 1,amount_max=5,probability=0.08},
-        {type = "item", name = "ei-chemical-asteroid-chunk", amount = 1, probability = 0.05}
+        {type = "item", name = "ei-chemical-asteroid-chunk", amount = 1, probability = 0.05},
+        {type = "item", name = "ei-neuro-reactive-residue", amount = 1, probability = 0.04}
         },
         allow_productivity = true,
         allow_decomposition = false
@@ -679,14 +682,15 @@ data:extend(
         enabled = false,
         ingredients =
         {
-        {type = "item", name = "ei-scrap-asteroid-chunk", amount = 1},
+          {type = "item", name = "ei-scrap-asteroid-chunk", amount = 1},
         },
         energy_required = 2,
         results =
         {
         {type = "item", name = "scrap", amount_min = 5,amount_max=20},
-		{type = "item", name = "ei-crushed-neodym", amount = 1, probability=0.001},
-        {type = "item", name = "ei-scrap-asteroid-chunk", amount = 1, probability = 0.2}
+		    {type = "item", name = "ei-crushed-neodym", amount = 1, probability=0.001},
+        {type = "item", name = "ei-scrap-asteroid-chunk", amount = 1, probability = 0.2},
+        {type = "item", name = "ei-worm-torn-relay-core", amount = 1, probability = 0.02}
         },
         allow_productivity = true,
         allow_decomposition = false
@@ -702,14 +706,15 @@ data:extend(
         enabled = false,
         ingredients =
         {
-        {type = "item", name = "ei-scrap-asteroid-chunk", amount = 1},
+          {type = "item", name = "ei-scrap-asteroid-chunk", amount = 1},
         },
         energy_required = 2,
         results =
         {
         {type = "item", name = "scrap", amount_min = 10, amount_max = 20},
-		{type = "item", name = "ei-crushed-neodym", amount = 1, probability=0.004},
-        {type = "item", name = "ei-scrap-asteroid-chunk", amount = 1, probability = 0.05}
+    		{type = "item", name = "ei-crushed-neodym", amount = 1, probability=0.004},
+        {type = "item", name = "ei-scrap-asteroid-chunk", amount = 1, probability = 0.05},
+        {type = "item", name = "ei-worm-torn-relay-core", amount = 1, probability = 0.04}
         },
         allow_productivity = true,
         allow_decomposition = false
@@ -725,16 +730,17 @@ data:extend(
         enabled = false,
         ingredients =
         {
-        {type = "item", name = "ei-organic-asteroid-chunk", amount = 1},
-        {type = "fluid", name = "water", amount = 50},
+          {type = "item", name = "ei-organic-asteroid-chunk", amount = 1},
+          {type = "fluid", name = "water", amount = 50},
         },
         energy_required = 2,
         results =
         {
         {type = "item", name = "spoilage", amount_min = 5, amount_max = 50},
         {type = "fluid", name = "ei-bio-sludge", amount_min = 1,amount_max=4, probability=0.35},
-		{type = "fluid", name = "ei-ammonia-gas", amount_min = 1,amount_max=5,probability=0.5},
-        {type = "item", name = "ei-organic-asteroid-chunk", amount = 1, probability = 0.2}
+	    	{type = "fluid", name = "ei-ammonia-gas", amount_min = 1,amount_max=5,probability=0.5},
+        {type = "item", name = "ei-organic-asteroid-chunk", amount = 1, probability = 0.2},
+        {type = "item", name = "ei-sporeglass-heart", amount = 1, probability = 0.02}
         },
         allow_productivity = true,
         allow_decomposition = false
@@ -750,10 +756,9 @@ data:extend(
         enabled = false,
         ingredients =
         {
-        {type = "item", name = "ei-organic-asteroid-chunk", amount = 1},
-        {type = "item", name = "nutrients", amount = 5},
-        {type = "fluid", name = "water", amount = 50},
-    
+          {type = "item", name = "ei-organic-asteroid-chunk", amount = 1},
+          {type = "item", name = "nutrients", amount = 5},
+          {type = "fluid", name = "water", amount = 50},
         },
         energy_required = 2,
         results =
@@ -761,10 +766,11 @@ data:extend(
         {type = "item", name = "pentapod-egg", amount = 1, probability = 0.001},
         {type = "item", name = "yumako", amount = 5, probability = 0.13},
         {type = "item", name = "jellynut", amount = 10, probability = 0.125},
-		{type = "item", name = "ei-bio-matter", amount_min=2,amount_max = 12, probability=0.25},
+	    	{type = "item", name = "ei-bio-matter", amount_min=2,amount_max = 12, probability=0.25},
         {type = "fluid", name = "ei-bio-sludge", amount_min = 1,amount_max=8, probability=0.25},
-		{type = "fluid", name = "ei-ammonia-gas", amount_min = 5,amount_max=10,probability=0.8},
-        {type = "item", name = "ei-organic-asteroid-chunk", amount = 1, probability = 0.05}
+    		{type = "fluid", name = "ei-ammonia-gas", amount_min = 5,amount_max=10,probability=0.8},
+        {type = "item", name = "ei-organic-asteroid-chunk", amount = 1, probability = 0.05},
+        {type = "item", name = "ei-sporeglass-heart", amount = 1, probability = 0.04}
         },
         allow_productivity = true,
         allow_decomposition = false
@@ -780,15 +786,16 @@ data:extend(
         enabled = false,
         ingredients =
         {
-        {type = "item", name = "ei-petrified-asteroid-chunk", amount = 1},
+         {type = "item", name = "ei-petrified-asteroid-chunk", amount = 1},
         },
         energy_required = 2,
         results =
         {
         {type = "item", name = "wood", amount_min = 5, amount_max = 20},
         {type = "item", name = "raw-fish", amount = 1, probability = 0.4},
-		{type = "fluid", name = "ei-phythogas", amount_min = 5,amount_max=10,probability=0.5},
-        {type = "item", name = "ei-petrified-asteroid-chunk", amount = 1, probability = 0.2}
+    		{type = "fluid", name = "ei-phythogas", amount_min = 5,amount_max=10,probability=0.5},
+        {type = "item", name = "ei-petrified-asteroid-chunk", amount = 1, probability = 0.2},
+        {type = "item", name = "ei-chrono-fossil-shard", amount = 1, probability = 0.02}
         },
         allow_productivity = true,
         allow_decomposition = false
@@ -804,9 +811,9 @@ data:extend(
         enabled = false,
         ingredients =
         {
-        {type = "item", name = "ei-petrified-asteroid-chunk", amount = 1},
-        {type = "item", name = "bioflux", amount = 5},
-        {type = "fluid", name = "fluoroketone-cold", amount = 10},
+          {type = "item", name = "ei-petrified-asteroid-chunk", amount = 1},
+          {type = "item", name = "bioflux", amount = 5},
+          {type = "fluid", name = "fluoroketone-cold", amount = 10},
         },
         energy_required = 2,
         results =
@@ -814,8 +821,9 @@ data:extend(
         {type = "item", name = "wood", amount_min = 10, amount_max = 20},
         {type = "item", name = "raw-fish", amount = 1, probability = 0.6},
         {type = "item", name = "biter-egg", amount = 1,probability=0.05},
-		{type = "fluid", name = "ei-phythogas", amount_min = 10,amount_max=20,probability=0.65},
-        {type = "item", name = "ei-petrified-asteroid-chunk", amount = 1, probability = 0.05}
+	    	{type = "fluid", name = "ei-phythogas", amount_min = 10,amount_max=20,probability=0.65},
+        {type = "item", name = "ei-petrified-asteroid-chunk", amount = 1, probability = 0.05},
+        {type = "item", name = "ei-chrono-fossil-shard", amount = 1, probability = 0.02}
         },
         allow_productivity = true,
         allow_decomposition = false

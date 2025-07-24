@@ -99,6 +99,7 @@ script.on_init(function(event)
     ei_lib.crystal_echo("✧ [Awakened Triumph] — Gaias shell stands firm, yet the dreams murmur endures…")
     ei_lib.crystal_echo("✧ [Gaias Heart] — The crystalline veins of Gaia pulse with life, awaiting the touch of her children…") 
     reforge_gaia_surface()  --fixes the occassionally invalid surface by regenerating
+    ei_echo_codex.youHaveArrived(event)
 end)
 
 --ENTITY RELATED
@@ -538,15 +539,9 @@ script.on_event(
     defines.events.on_cutscene_cancelled,
     defines.events.on_cutscene_finished
   },
-  function(event)
-    local player = game.get_player(event.player_index)
-    if player and player.valid and player.character then
-        ei_echo_codex.youHaveArrived(player.character, event)
-        if player.name then
-            log(">> Arrival event triggered for player: " .. player.name)
-        end
+    function(event)
+        ei_echo_codex.youHaveArrived(event)
     end
-  end
 )
 
 --====================================================================================================
