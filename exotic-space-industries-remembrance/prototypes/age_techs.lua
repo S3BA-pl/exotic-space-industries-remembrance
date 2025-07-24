@@ -32,8 +32,8 @@ data:extend({
     {
         name = "ei-dark-age",
         type = "technology",
-        icon = ei_graphics_tech_path.."dark-age.png",
-        icon_size = 128,
+        icon = ei_path.."graphics/tech/dark-age.png",
+        icon_size = 512,
         prerequisites = {
 
         },
@@ -58,8 +58,8 @@ data:extend({
     {
         name = "ei-steam-age",
         type = "technology",
-        icon = ei_graphics_tech_path.."steam-age.png",
-        icon_size = 128,
+        icon = ei_path.."graphics/tech/steam-age.png",
+        icon_size = 512,
         prerequisites = {
         "ei-burner-assembler","military","stone-wall","gun-turret","ei-mechanical-inserter"
         },
@@ -88,8 +88,8 @@ data:extend({
     {
         name = "ei-electricity-age",
         type = "technology",
-        icon = ei_graphics_tech_path.."electricity-age.png",
-        icon_size = 128,
+        icon = ei_path.."graphics/tech/electricity-age.png",
+        icon_size = 512,
         prerequisites = {
             "engine","electronics","ei-steam-inserter","logistics","ei-steam-assembler","ei-tank-silo","ei-steam-advanced-train","rp-steam-logistics-chests","ei-fluid-boiler"
         },
@@ -162,7 +162,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/exotic-age.png",
         icon_size = 512,
-        prerequisites = {"ei-cavity","ei-efficiency-module-6","ei-productivity-module-6","ei-speed-module-6","ei-matter-stabilizer"},
+        prerequisites = {"ei-cavity","ei-efficiency-module-6","ei-productivity-module-6","ei-speed-module-6","ei-plasma-turret","zeus-wrath-zeus-wrath","ei-induction-matrix-superior-converter","ei-induction-matrix-superior-coil"},
         effects = {
             {
                 type = "unlock-recipe",

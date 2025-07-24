@@ -268,7 +268,7 @@ data:extend({
         type = "technology",
         icon = ei_trains_tech_path.."em-locomotive.png",
         icon_size = 256,
-        prerequisites = {"ei-clean-plating", "energy-shield-mk2-equipment", "fluid-wagon", "ei-copper-beacon"},
+        prerequisites = {"ei-eu-magnet", "energy-shield-mk2-equipment", "fluid-wagon", "ei-copper-beacon"},
         effects = {
             {
                 type = "unlock-recipe",

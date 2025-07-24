@@ -96,7 +96,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."induction-matrix-core.png",
         icon_size = 256,
-        prerequisites = {"ei-advanced-induction-matrix", "ei-odd-plating","ei-high-tech-parts"},
+        prerequisites = {"ei-advanced-induction-matrix", "ei-odd-plating","ei-exotic-assembler"},
         effects = {
             { 
                 type = "nothing",
@@ -135,7 +135,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."induction-matrix-superior-coil.png",
         icon_size = 256,
-        prerequisites = {"ei-superior-induction-matrix", "ei-magnet-data","ei-high-tech-parts"},
+        prerequisites = {"ei-superior-induction-matrix", "ei-magnet-data","ei-clean-plating"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -224,7 +224,7 @@ data:extend({
             {type="item", name="ei-induction-matrix-advanced-coil", amount=2},
             {type="item", name="ei-magnet", amount=6},
             {type="item", name="ei-magnet-data", amount=4},
-            {type="item", name="ei-odd-plating", amount=12},
+            {type="item", name="ei-clean-plating", amount=12},
             {type="item", name="ei-cryo-container-nitrogen", amount=1}
         },
         results = {{type="item", name="ei-induction-matrix-superior-coil", amount=1}},
@@ -443,7 +443,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."induction-matrix-superior-converter.png",
         icon_size = 256,
-        prerequisites = {"ei-superior-induction-matrix"},
+        prerequisites = {"ei-superior-induction-matrix","ei-clean-plating"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -531,9 +531,9 @@ data:extend({
         {
             {type="item", name="ei-induction-matrix-advanced-converter", amount=4},
             {type="item", name="ei-superior-data", amount=20},
-            {type="item", name="ei-odd-plating", amount=100},
+            {type="item", name="ei-clean-plating", amount=100},
             {type="item", name="ei-carbon-structure", amount=40},
-            {type="item", name="ei-rocket-control-unit", amount=10},
+            {type="item", name="ei-computing-unit", amount=10},
         },
         results = {{type="item", name="ei-induction-matrix-superior-converter", amount=1}},
         enabled = false,

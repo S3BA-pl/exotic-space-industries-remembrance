@@ -41,7 +41,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."matter-stabilizer.png",
         icon_size = 256,
-        prerequisites = {"ei-high-tech-parts"},
+        prerequisites = {"ei-exotic-matter-separation"},
         effects = {
             {
                 type = "unlock-recipe",

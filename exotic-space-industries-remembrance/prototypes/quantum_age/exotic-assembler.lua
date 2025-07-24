@@ -38,16 +38,31 @@ data:extend({
         main_product = "ei-exotic-assembler",
     },
     {
-        name = "ei-high-tech-parts",
+        name = "ei-exotic-assembler",
         type = "technology",
-        icon = ei_graphics_tech_path.."high-tech-parts.png",
+        icon = ei_graphics_tech_path.."exotic-assembler.png",
         icon_size = 128,
-        prerequisites = {"ei-exotic-matter-seperation"},
+        prerequisites = {,"ei-matter-stabilizer"},
         effects = {
             {
                 type = "unlock-recipe",
                 recipe = "ei-exotic-assembler"
             },
+        },
+        unit = {
+            count = 100,
+            ingredients = ei_data.science["both-quantum-age"],
+            time = 20
+        },
+        age = "both-quantum-age",
+    },
+    {
+        name = "ei-high-tech-parts",
+        type = "technology",
+        icon = ei_graphics_tech_path.."high-tech-parts.png",
+        icon_size = 128,
+        prerequisites = {"ei-accelerator","ei-eu-magnet","ei-exotic-assembler","ei-plasma-cube"},
+        effects = {
             {
                 type = "unlock-recipe",
                 recipe = "ei-high-tech-parts"
@@ -60,6 +75,7 @@ data:extend({
         },
         age = "both-quantum-age",
     },
+
     {
         name = "ei-matter-explosion",
         type = "explosion",

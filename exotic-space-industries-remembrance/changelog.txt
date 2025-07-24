@@ -1,9 +1,54 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.2.05
+Version: 1.2.08
+Date: 7-24-2025
+  Changes:
+    - Exotic assembler technology prerequisites: Removed Particle accelerator.
+    - High tech parts technology prerequisites: Requires Particle accelerator.
+  Bugfixes:
+    - Corrected Black hole Arc smelting productivity prerequisite to Exotic Age Arc smelting productivity.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.07
 Date: 7-24-2025
   Features:
+    - Added infinite productivity technology for Arc furnace & Plasma heater pure ore -> molten ore smelting—unique icon pending.
+  Changes:
+    - Arc furnace / Plasma heater smelting buffed: Pure:Molten 1:15 now -> 1:40.
+    - Superior induction matrix technology prerequisites High tech parts -> Exotic assembler. 
+    - Induction matrix superior coil technology prerequisites High tech parts -> Reflux plating.
+    - Induction matrix superior coil recipe inputs 12 Odd plating -> 12 Reflux plating.
+    - Induction matrix superior converter technology prerequisites High tech parts -> Reflux plating.
+    - Induction matrix superior converter recipe inputs 100 Odd plating -> 100 Reflux plating, 10 Rocket control units -> 10 Computing units.
+    - Efficiency, Speed, Productivity Module 6 technologies' prerequisites High tech parts -> Exotic assembler.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.06
+Date: 7-24-2025
+  Features:
+    - Created Exotic assembler technology.
+    - Created EU magnet technology—unique icon pending.
+  Changes:
+    - Separated Exotic assembler recipe from High tech parts into Exotic assembler technology—prerequisites are Particle accelerator and Exotic matter stabilizer.
+    - Separated EU magnet recipe from Reflux plating into EU magnet technology.
+    - Particle cavity technology prerequisite now EU magnet.
+    - High tech parts prerequisites now: Particle accelerator, EU magnet,Exotic Assembler, Plasma cube.
+    - Electromagnetic Train technology prerequisites: Reflux plating -> EU magnet.
+    - Matter stabilizer technology prerequisite now Exotic matter separation.
+    - Plasma turret technology prerequisites additionally include High tech parts.
+    - Switched Electricity, Steam and Dark age technology icons with high fidelity 512x512 versions.
+    - Moved Gauss module to Exotic age.
+    - Added Gauss module to Black hole exploration prerequisites.
+    - Removed Gauss module from Black hole machine prerequisites.
+    - Moved Particle accelerator technology inbetween High tech parts and Exotic matter separation.
+    - Particle accelerator recipe inputs: 20 High tech parts -> 100 Computing units.
+    - Exotic age prerequisites: Matter stabilizer -> Plasma turret. Additionally requires Thalassic Ascension, Superior induction matrix coil, Superior induction matrix converter.
+    - EI Productivity technologies' formula revised from 1.5^L*500 -> 100*(1+0.15*L).
+  Bugfixes:
+    - Corrected EI spellings of Seperated -> Separated.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.05
+Date: 7-23-2025
+  Features:
     - Added Worm-torn relay core item & mipmapped it and the other anomalies.
-    - Created Exotic matter seperation technology, prerequisites Promethium science and EU circuit.
+    - Created Exotic matter separation technology, prerequisites Promethium science and EU circuit.
   Changes:
     - Uranium asteroid crushing recipes outputs: Uranium ore -> Uranium chunks, can additionally yield Isotopic ghost shell.
     - Rock asteroid crushing recipes outputs: Can additionally yield Gravity braided ore.
@@ -20,8 +65,8 @@ Date: 7-24-2025
     - Basic steam locomotive burnt inventory size 2 -> 3.
     - Advanced steam locomotive burnt inventory size 1 -> 2.
     - Diesel locomotive burnt inventory size 1 -> 3.
-    - Moved exotic matter seperation recipes into Exotic matter seperation tech.
-    - High tech part technology's prerequisite now Exotic matter seperation.
+    - Moved exotic matter separation recipes into Exotic matter separation tech.
+    - High tech part technology's prerequisite now Exotic matter separation.
     - Basic Uranium asteroid crushing recipe outputs: Removed 235, 238 and Pure lead. Increased probability of Uranium chunk.
     - Added More Asteroid Reprocessing to incompatible list.
   Bugfixes:
@@ -126,8 +171,8 @@ Date: 7-19-2025
     - Age base research ingredient costs adjusted from 100: Steam—200, Electricity—300, Computer—400, Simulation—500, Alien—500, Quantum—600, Fusion—700, Exotic—800, Black-hole—900.
     - Quantum Age and Exotic Age technology icons updated with high fidelity 512x512 versions.
     - Advanced centrifuge, Advanced chemical plant, Advanced deep drill, Excavator, Electrified oil production, Petroleum reforming, and Dirty water production moved to Simulation Computer Age in concordance with prerequisites.
-    - Moved Ash seperation recipe unlock from Automation 3 -> Coal coke processing.
-    - Ash seperation recipe output: iron ore -> poor iron chunk, probability 5 -> 4%. Additionally can yield slag @ 1% chance.
+    - Moved Ash separation recipe unlock from Automation 3 -> Coal coke processing.
+    - Ash separation recipe output: iron ore -> poor iron chunk, probability 5 -> 4%. Additionally can yield slag @ 1% chance.
     - Nano material factory renamed Nanotecture fabrication complex and description updated.
     - Removed Eliont's "easter egg" cheat_mode activator. FFS...
 ---------------------------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 --===========================================================================================
 --Productivity technology
-local formula = "1.5^L*500"
+local formula = "100 * (1 + 0.15 * L)" --1.5&L*500 fucklot
 data:extend({
 {
 	type = "technology",
@@ -164,6 +164,201 @@ data:extend({
     max_level = "infinite",
     upgrade = true,
     age = "alien-computer-age",
+	},
+{
+	type = "technology",
+	name = "ei-productivity-pure-ore-smelting",
+	icon = ei_path.."graphics/tech/ore-purification-productivity.png",
+    icon_size = 256,
+    effects =
+    {
+      {
+        type = "change-recipe-productivity",
+        recipe = "ei-molten-copper-pure-ore",
+        change = 0.1
+      },
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-molten-iron-pure-ore",
+        change = 0.1
+		},
+      {
+        type = "change-recipe-productivity",
+        recipe = "ei-molten-gold-pure-ore",
+        change = 0.1
+      },
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-molten-lead-pure-ore",
+        change = 0.1
+		},
+    },
+    prerequisites = {"ei-arc-furnace"},
+    unit =
+    {
+      count_formula = formula,
+      ingredients = ei_data.science["computer-age"],
+      time = 20
+    },
+    max_level = 2,
+    upgrade = true,
+    age = "computer-age",
+	},
+{
+	type = "technology",
+	name = "ei-productivity-pure-ore-smelting-advanced",
+	icon = ei_path.."graphics/tech/ore-purification-productivity.png",
+    icon_size = 256,
+    effects =
+    {
+      {
+        type = "change-recipe-productivity",
+        recipe = "ei-molten-copper-pure-ore",
+        change = 0.1
+      },
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-molten-iron-pure-ore",
+        change = 0.1
+		},
+      {
+        type = "change-recipe-productivity",
+        recipe = "ei-molten-gold-pure-ore",
+        change = 0.1
+      },
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-molten-lead-pure-ore",
+        change = 0.1
+		},
+    },
+    prerequisites = {"ei-advanced-computer-age-tech","ei-productivity-pure-ore-smelting"},
+    unit =
+    {
+      count_formula = formula,
+      ingredients = ei_data.science["advanced-computer-age"],
+      time = 20
+    },
+    max_level = 2,
+    upgrade = true,
+    age = "advanced-computer-age",
+	},
+{
+	type = "technology",
+	name = "ei-productivity-pure-ore-smelting-quantum",
+	icon = ei_path.."graphics/tech/ore-purification-productivity.png",
+    icon_size = 256,
+    effects =
+    {
+      {
+        type = "change-recipe-productivity",
+        recipe = "ei-molten-copper-pure-ore",
+        change = 0.1
+      },
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-molten-iron-pure-ore",
+        change = 0.1
+		},
+      {
+        type = "change-recipe-productivity",
+        recipe = "ei-molten-gold-pure-ore",
+        change = 0.1
+      },
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-molten-lead-pure-ore",
+        change = 0.1
+		},
+    },
+    prerequisites = {"ei-advanced-computer-age-tech","ei-productivity-pure-ore-smelting-advanced"},
+    unit =
+    {
+      count_formula = formula,
+      ingredients = ei_data.science["quantum-age"],
+      time = 20
+    },
+    max_level = 2,
+    upgrade = true,
+    age = "quantum-age",
+	},
+{
+	type = "technology",
+	name = "ei-productivity-pure-ore-smelting-exotic",
+	icon = ei_path.."graphics/tech/ore-purification-productivity.png",
+    icon_size = 256,
+    effects =
+    {
+      {
+        type = "change-recipe-productivity",
+        recipe = "ei-molten-copper-pure-ore",
+        change = 0.1
+      },
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-molten-iron-pure-ore",
+        change = 0.1
+		},
+      {
+        type = "change-recipe-productivity",
+        recipe = "ei-molten-gold-pure-ore",
+        change = 0.1
+      },
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-molten-lead-pure-ore",
+        change = 0.1
+		},
+    },
+    prerequisites = {"ei-exotic-age","ei-productivity-pure-ore-smelting-quantum"},
+    unit =
+    {
+      count_formula = formula,
+      ingredients = ei_data.science["exotic-age"],
+      time = 20
+    },
+    max_level = 2,
+    upgrade = true,
+    age = "exotic-age",
+	},
+{
+	type = "technology",
+	name = "ei-productivity-pure-ore-smelting-black-hole",
+	icon = ei_path.."graphics/tech/ore-purification-productivity.png",
+    icon_size = 256,
+    effects =
+    {
+      {
+        type = "change-recipe-productivity",
+        recipe = "ei-molten-copper-pure-ore",
+        change = 0.1
+      },
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-molten-iron-pure-ore",
+        change = 0.1
+		},
+      {
+        type = "change-recipe-productivity",
+        recipe = "ei-molten-gold-pure-ore",
+        change = 0.1
+      },
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-molten-lead-pure-ore",
+        change = 0.1
+		},
+    },
+    prerequisites = {"ei-black-hole","ei-productivity-pure-ore-smelting-exotic"},
+    unit =
+    {
+      count_formula = formula,
+      ingredients = ei_data.science["black-hole-exotic-age"],
+      time = 20
+    },
+    max_level = "infinite",
+    upgrade = true,
+    age = "black-hole-exotic-age",
 	},
 {
 	type = "technology",

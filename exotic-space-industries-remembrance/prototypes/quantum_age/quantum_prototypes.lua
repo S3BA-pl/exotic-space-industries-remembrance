@@ -1523,7 +1523,7 @@ data:extend({
         main_product = "ei-lithium-crystal",
     },
     {
-        name = "ei-lithium-seperation",
+        name = "ei-lithium-separation",
         type = "recipe",
         category = "oil-processing",
         energy_required = 2,
@@ -2258,7 +2258,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."cavity.png",
         icon_size = 128,
-        prerequisites = {"ei-clean-plating"},
+        prerequisites = {"ei-eu-magnet"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2283,6 +2283,21 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = "ei-clean-plating"
             },
+        },
+        unit = {
+            count = 100,
+            ingredients = ei_data.science["quantum-age"],
+            time = 20
+        },
+        age = "quantum-age",
+    },
+    {
+        name = "ei-eu-magnet",
+        type = "technology",
+        icon = ei_graphics_item_path.."eu-magnet.png",
+        icon_size = 64,
+        prerequisites = {"ei-clean-plating"},
+        effects = {
             {
                 type = "unlock-recipe",
                 recipe = "ei-eu-magnet"
@@ -2455,7 +2470,7 @@ data:extend({
             },
             {
                 type = "unlock-recipe",
-                recipe = "ei-lithium-seperation"
+                recipe = "ei-lithium-separation"
             },
             {
                 type = "unlock-recipe",
@@ -2704,7 +2719,7 @@ data:extend({
         icon = ei_graphics_tech_path.."speed-module-6.png",
         icon_size = 256,
         icon_mipmaps = 4,
-        prerequisites = {"ei-speed-module-5", "ei-cavity","ei-high-tech-parts"},
+        prerequisites = {"ei-speed-module-5", "ei-cavity","ei-exotic-assembler"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2728,7 +2743,7 @@ data:extend({
         icon = ei_graphics_tech_path.."effectivity-module-6.png",
         icon_size = 256,
         icon_mipmaps = 4,
-        prerequisites = {"ei-efficiency-module-5", "ei-cavity","ei-high-tech-parts"},
+        prerequisites = {"ei-efficiency-module-5", "ei-cavity","ei-exotic-assembler"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2752,7 +2767,7 @@ data:extend({
         icon = ei_graphics_tech_path.."productivity-module-6.png",
         icon_size = 256,
         icon_mipmaps = 4,
-        prerequisites = {"ei-productivity-module-5", "ei-cavity","ei-high-tech-parts"},
+        prerequisites = {"ei-productivity-module-5", "ei-cavity","ei-exotic-assembler"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2775,7 +2790,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."gauss-module.png",
         icon_size = 128,
-        prerequisites = {"ei-productivity-module-6", "ei-speed-module-6", "ei-efficiency-module-6"},
+        prerequisites = {"ei-productivity-module-6", "ei-speed-module-6", "ei-efficiency-module-6","ei-exotic-age"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2784,10 +2799,10 @@ data:extend({
         },
         unit = {
             count = 300,
-            ingredients = ei_data.science["both-quantum-age"],
+            ingredients = ei_data.science["exotic-age"],
             time = 20
         },
-        age = "both-quantum-age",
+        age = "exotic-age",
     },
     {
         name = "ei-enriched-cryodust",
@@ -2859,9 +2874,9 @@ data:extend({
         age = "quantum-age",
     },
     {
-        name = "ei-exotic-matter-seperation",
+        name = "ei-exotic-matter-separation",
         type = "technology",
-        icon = ei_path.."graphics/tech/exotic-matter-seperation.png",
+        icon = ei_path.."graphics/tech/exotic-matter-separation.png",
         icon_size = 512,
         prerequisites = {"ei-eu-circuit","promethium-science-pack"},
         effects = {

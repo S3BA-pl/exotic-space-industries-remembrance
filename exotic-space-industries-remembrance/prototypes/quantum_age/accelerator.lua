@@ -26,7 +26,7 @@ data:extend({
         energy_required = 20,
         ingredients =
         {
-            {type="item", name="ei-high-tech-parts", amount=20},
+            {type="item", name="ei-computing-unit", amount=100},
             {type="item", name="ei-plasma-heater", amount=2},
             {type="item", name="refined-concrete", amount=200},
             {type="item", name="ei-carbon-structure", amount=40},
@@ -42,7 +42,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_2_path.."accelerator.png",
         icon_size = 256,
-        prerequisites = {"ei-high-tech-parts","ei-exotic-age"},
+        prerequisites = {"ei-exotic-matter-separation"},
         effects = {
             {
                 type = "unlock-recipe",
