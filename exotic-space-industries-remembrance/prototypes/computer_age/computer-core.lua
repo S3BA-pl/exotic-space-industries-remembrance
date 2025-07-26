@@ -51,6 +51,146 @@ data:extend({
         enabled = false,
         main_product = "ei-computing-power",
     },
+    --anomaly processing
+    {
+        name = "ei-computing-power-chemical",
+        type = "recipe",
+        category = "ei-computer-core",
+        energy_required = 60,
+        ingredients = {
+            {type = "item", name = "ei-neuro-reactive-residue", amount = 10},
+        },
+        results = {
+            {type = "fluid", name = "ei-computing-power-chemical", amount = 100},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-computing-power-chemical",
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+    },
+    {
+        name = "ei-computing-power-organic",
+        type = "recipe",
+        category = "ei-computer-core",
+        energy_required = 60,
+        ingredients = {
+            {type = "item", name = "ei-sporeglass-heart", amount = 10},
+        },
+        results = {
+            {type = "fluid", name = "ei-computing-power-organic", amount = 100},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-computing-power-organic",
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+    },
+    {
+        name = "ei-computing-power-stone",
+        type = "recipe",
+        category = "ei-computer-core",
+        energy_required = 60,
+        ingredients = {
+            {type = "item", name = "ei-gravity-braided-ore", amount = 10},
+        },
+        results = {
+            {type = "fluid", name = "ei-computing-power-stone", amount = 100},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-computing-power-stone",
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+    },
+    {
+        name = "ei-computing-power-uranium",
+        type = "recipe",
+        category = "ei-computer-core",
+        energy_required = 60,
+        ingredients = {
+            {type = "item", name = "ei-isotopic-ghost-shell", amount = 10},
+        },
+        results = {
+            {type = "fluid", name = "ei-computing-power-uranium", amount = 100},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-computing-power-uranium",
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+    },
+    {
+        name = "ei-computing-power-petrified",
+        type = "recipe",
+        category = "ei-computer-core",
+        energy_required = 60,
+        ingredients = {
+            {type = "item", name = "ei-chrono-fossil-shard", amount = 10},
+        },
+        results = {
+            {type = "fluid", name = "ei-computing-power-petrified", amount = 100},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-computing-power-petrified",
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+    },
+    {
+        name = "ei-computing-power-scrap",
+        type = "recipe",
+        category = "ei-computer-core",
+        energy_required = 60,
+        ingredients = {
+            {type = "item", name = "ei-worm-torn-relay-core", amount = 10},
+        },
+        results = {
+            {type = "fluid", name = "ei-computing-power-scrap", amount = 100},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-computing-power-scrap",
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+    },
+
     {
         name = "ei-computer-core",
         type = "technology",

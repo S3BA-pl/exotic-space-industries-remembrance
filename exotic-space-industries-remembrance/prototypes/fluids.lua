@@ -524,6 +524,104 @@ data:extend({
         order = "a-a-a",
         auto_barrel = false,
     },
+--anomalies
+    {
+        name = "ei-computing-power-chemical",
+        type = "fluid",
+        icon = ei_graphics_fluid_path.."computing-power.png",
+        icon_size = 64,
+        default_temperature = 15,
+        max_temperature = 1000,
+        gas_temperature = 15,
+        base_color = { r=0.67, g=0.13, b=0.89 }, -- iridescent violet/purple
+        flow_color = { r=0.98, g=0.35, b=1.0 }, -- psychotropic magenta-glow
+		pressure_to_speed_ratio = 0.400, 
+		flow_to_energy_ratio = 0,
+        subgroup = "ei-refining-tech",
+        order = "a-a-b",
+        auto_barrel = false,
+    },
+    {
+        name = "ei-computing-power-organic",
+        type = "fluid",
+        icon = ei_graphics_fluid_path.."computing-power.png",
+        icon_size = 64,
+        default_temperature = 15,
+        max_temperature = 1000,
+        gas_temperature = 15,
+        base_color = { r=0.42, g=0.93, b=0.66 }, -- vibrant bio-emerald
+        flow_color = { r=0.19, g=1.0, b=0.84 },  -- wet, sporing turquoise
+		pressure_to_speed_ratio = 0.400, 
+		flow_to_energy_ratio = 0,
+        subgroup = "ei-refining-tech",
+        order = "a-a-c",
+        auto_barrel = false,
+    },
+    {
+        name = "ei-computing-power-stone",
+        type = "fluid",
+        icon = ei_graphics_fluid_path.."computing-power.png",
+        icon_size = 64,
+        default_temperature = 15,
+        max_temperature = 1000,
+        gas_temperature = 15,
+        base_color = { r=0.11, g=0.11, b=0.25 }, -- black-blue gravitational shadow
+        flow_color = { r=0.42, g=0.49, b=0.80 }, -- lensing shimmer
+		pressure_to_speed_ratio = 0.400, 
+		flow_to_energy_ratio = 0,
+        subgroup = "ei-refining-tech",
+        order = "a-a-d",
+        auto_barrel = false,
+    },
+    {
+        name = "ei-computing-power-uranium",
+        type = "fluid",
+        icon = ei_graphics_fluid_path.."computing-power.png",
+        icon_size = 64,
+        default_temperature = 15,
+        max_temperature = 1000,
+        gas_temperature = 15,
+        base_color = { r=0.76, g=0.85, b=1.0 }, -- frosty radiation blue
+        flow_color = { r=0.89, g=0.97, b=1.0 }, -- ghost-white neutrino flux
+		pressure_to_speed_ratio = 0.400, 
+		flow_to_energy_ratio = 0,
+        subgroup = "ei-refining-tech",
+        order = "a-a-e",
+        auto_barrel = false,
+    },
+    {
+        name = "ei-computing-power-petrified",
+        type = "fluid",
+        icon = ei_graphics_fluid_path.."computing-power.png",
+        icon_size = 64,
+        default_temperature = 15,
+        max_temperature = 1000,
+        gas_temperature = 15,
+        base_color = { r=1.0, g=0.63, b=0.23 }, -- scorched amber
+        flow_color = { r=1.0, g=0.88, b=0.54 }, -- dusty chronoline gold
+		pressure_to_speed_ratio = 0.400, 
+		flow_to_energy_ratio = 0,
+        subgroup = "ei-refining-tech",
+        order = "a-a-f",
+        auto_barrel = false,
+    },
+    {
+        name = "ei-computing-power-scrap",
+        type = "fluid",
+        icon = ei_graphics_fluid_path.."computing-power.png",
+        icon_size = 64,
+        default_temperature = 15,
+        max_temperature = 1000,
+        gas_temperature = 15,
+        base_color = { r=0.88, g=0.1, b=0.2 }, -- corrupted comms red
+        flow_color = { r=1.0, g=0.45, b=0.6 }, -- screaming data-pink pulse
+		pressure_to_speed_ratio = 0.400, 
+		flow_to_energy_ratio = 0,
+        subgroup = "ei-refining-tech",
+        order = "a-a-g",
+        auto_barrel = false,
+    },
+
     {
         name = "ei-crystal-solution",
         type = "fluid",

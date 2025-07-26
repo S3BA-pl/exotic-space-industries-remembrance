@@ -1,10 +1,14 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.08
-Date: 7-24-2025
+Date: 7-25-2025
+  Features:
+    - The 6 anomalies found in the differentiated asteroids can now be processed into individual data substrates in the Computer core, then turned into individual data cards in the Simulator, and then processed into Space data in the Quantum research computer. All recipes required to be performed in zero-gravity. Recipes unlocked with Quantum research computer.
   Changes:
+    - Renamed Computing power -> Simulation substrate.
     - Exotic assembler technology prerequisites: Removed Particle accelerator.
     - High tech parts technology prerequisites: Requires Particle accelerator.
   Bugfixes:
+    - Brought changelog into compliance with Factorio's internal parser. Undying adoration goes to @Assasin_Asha.
     - Corrected Black hole Arc smelting productivity prerequisite to Exotic Age Arc smelting productivity.
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.07
@@ -71,11 +75,6 @@ Date: 7-23-2025
     - Added More Asteroid Reprocessing to incompatible list.
   Bugfixes:
     - Removed extraneous data.raw call which was simplifying Advanced roboport engine and Advanced robot engine recipes.
----------------------------------------------------------------------------------------------------
-Version: 1.2.04
-Date: 7-21-2025
-  Bugfixes:
-    - Restored Quantum Age tech icon after overwriting it with Exotic Age icon during re-exporting.
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.04
 Date: 7-21-2025
@@ -296,7 +295,7 @@ Date: 7-14-2025
     - Moved carbon manipulation recipes introduced in 1.1.5 into new technology: Carbon Manipulation—prerequisites are Space Platform and High Energy Crystal Production.
     - Added recipe to turn molten carbon into raw carbon.
     - Added recipe to turn coal coke into molten carbon.
-   Changes:
+  Changes:
     - Carbon -> Molten carbon slag output -> ash.
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.83
@@ -833,21 +832,21 @@ Date: 4-17-2025
 Version: 0.5.4
 Date: 4-16-2025
   Changes:
-     - K2 import related errors will log errors instead of preventing game from loading at all
+    - K2 import related errors will log errors instead of preventing game from loading at all
   Bugfixes:
-     - Duplicate map gen preset name removed from RU locale
+    - Duplicate map gen preset name removed from RU locale
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.3
 Date: 4-15-2025
   Features:
-     - Custom sound effects for EM trains & cargo wagons
+    - Custom sound effects for EM trains & cargo wagons
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.2
 Date: 4-15-2025
   Bugfixes:
-     - Commented out a naughty line related to inhibitor lamp
-     - Removed errant deregister call from update charger.
-     - Removed register charger debug output.
+    - Commented out a naughty line related to inhibitor lamp
+    - Removed errant deregister call from update charger.
+    - Removed register charger debug output.
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.1
 Date: 4-15-2025

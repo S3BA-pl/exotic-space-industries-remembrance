@@ -236,7 +236,7 @@ data:extend({
         subgroup = "ei-refining-raw",
         order = "z2",
     },
-    --rock
+    --stone
     {
         name = "ei-gravity-braided-ore",
         type = "item",

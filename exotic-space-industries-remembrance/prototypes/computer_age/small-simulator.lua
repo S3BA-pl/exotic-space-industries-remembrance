@@ -46,6 +46,162 @@ data:extend({
           },
     },
     {
+        name = "ei-simulation-data-chemical",
+        type = "item",
+        icon = ei_path.."graphics/item/simulation-data-chemical.png",
+        icon_size = 128,
+        subgroup = "ei-refining-tech",
+        order = "a-a-c",
+        stack_size = 200,
+        pictures = {
+            layers =
+            {
+              {
+                size = 128,
+                filename = ei_path.."graphics/item/simulation-data-chemical.png",
+                scale = 0.25/2
+              },
+              {
+                draw_as_light = true,
+                flags = {"light"},
+                size = 128,
+                filename = ei_graphics_item_path.."simulation-data_light.png",
+                scale = 0.25/2
+              }
+            }
+          },
+    },
+    {
+        name = "ei-simulation-data-organic",
+        type = "item",
+        icon = ei_path.."graphics/item/simulation-data-organic.png",
+        icon_size = 128,
+        subgroup = "ei-refining-tech",
+        order = "a-a-d",
+        stack_size = 200,
+        pictures = {
+            layers =
+            {
+              {
+                size = 128,
+                filename = ei_path.."graphics/item/simulation-data-organic.png",
+                scale = 0.25/2
+              },
+              {
+                draw_as_light = true,
+                flags = {"light"},
+                size = 128,
+                filename = ei_graphics_item_path.."simulation-data_light.png",
+                scale = 0.25/2
+              }
+            }
+          },
+    },
+    {
+        name = "ei-simulation-data-stone",
+        type = "item",
+        icon = ei_path.."graphics/item/simulation-data-stone.png",
+        icon_size = 128,
+        subgroup = "ei-refining-tech",
+        order = "a-a-e",
+        stack_size = 200,
+        pictures = {
+            layers =
+            {
+              {
+                size = 128,
+                filename = ei_path.."graphics/item/simulation-data-stone.png",
+                scale = 0.25/2
+              },
+              {
+                draw_as_light = true,
+                flags = {"light"},
+                size = 128,
+                filename = ei_graphics_item_path.."simulation-data_light.png",
+                scale = 0.25/2
+              }
+            }
+          },
+    },
+    {
+        name = "ei-simulation-data-uranium",
+        type = "item",
+        icon = ei_path.."graphics/item/simulation-data-uranium.png",
+        icon_size = 128,
+        subgroup = "ei-refining-tech",
+        order = "a-a-f",
+        stack_size = 200,
+        pictures = {
+            layers =
+            {
+              {
+                size = 128,
+                filename = ei_path.."graphics/item/simulation-data-uranium.png",
+                scale = 0.25/2
+              },
+              {
+                draw_as_light = true,
+                flags = {"light"},
+                size = 128,
+                filename = ei_graphics_item_path.."simulation-data_light.png",
+                scale = 0.25/2
+              }
+            }
+          },
+    },
+    {
+        name = "ei-simulation-data-petrified",
+        type = "item",
+        icon = ei_path.."graphics/item/simulation-data-petrified.png",
+        icon_size = 128,
+        subgroup = "ei-refining-tech",
+        order = "a-a-g",
+        stack_size = 200,
+        pictures = {
+            layers =
+            {
+              {
+                size = 128,
+                filename = ei_path.."graphics/item/simulation-data-petrified.png",
+                scale = 0.25/2
+              },
+              {
+                draw_as_light = true,
+                flags = {"light"},
+                size = 128,
+                filename = ei_graphics_item_path.."simulation-data_light.png",
+                scale = 0.25/2
+              }
+            }
+          },
+    },
+    {
+        name = "ei-simulation-data-scrap",
+        type = "item",
+        icon = ei_path.."graphics/item/simulation-data-scrap.png",
+        icon_size = 128,
+        subgroup = "ei-refining-tech",
+        order = "a-a-h",
+        stack_size = 200,
+        pictures = {
+            layers =
+            {
+              {
+                size = 128,
+                filename = ei_path.."graphics/item/simulation-data-scrap.png",
+                scale = 0.25/2
+              },
+              {
+                draw_as_light = true,
+                flags = {"light"},
+                size = 128,
+                filename = ei_graphics_item_path.."simulation-data_light.png",
+                scale = 0.25/2
+              }
+            }
+          },
+    },
+    {
         name = "ei-space-data",
         type = "item",
         icon = ei_graphics_item_path.."space-data.png",
@@ -191,4 +347,144 @@ data:extend({
         enabled = false,
         main_product = "ei-simulation-data",
     },
+    --anomalies
+    {
+        name = "ei-simulation-data-chemical",
+        type = "recipe",
+        category = "ei-small-simulator",
+        energy_required = 5,
+        ingredients = {
+            {type = "fluid", name = "ei-computing-power-chemical", amount = 4},
+        },
+        results = {
+            {type = "item", name = "ei-simulation-data-chemical", amount = 3},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-simulation-data-chemical",
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+    },
+    {
+        name = "ei-simulation-data-organic",
+        type = "recipe",
+        category = "ei-small-simulator",
+        energy_required = 5,
+        ingredients = {
+            {type = "fluid", name = "ei-computing-power-organic", amount = 4},
+        },
+        results = {
+            {type = "item", name = "ei-simulation-data-organic", amount = 3},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-simulation-data-organic",
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+    },
+    {
+        name = "ei-simulation-data-stone",
+        type = "recipe",
+        category = "ei-small-simulator",
+        energy_required = 5,
+        ingredients = {
+            {type = "fluid", name = "ei-computing-power-stone", amount = 4},
+        },
+        results = {
+            {type = "item", name = "ei-simulation-data-stone", amount = 3},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-simulation-data-stone",
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+    },
+    {
+        name = "ei-simulation-data-uranium",
+        type = "recipe",
+        category = "ei-small-simulator",
+        energy_required = 5,
+        ingredients = {
+            {type = "fluid", name = "ei-computing-power-uranium", amount = 4},
+        },
+        results = {
+            {type = "item", name = "ei-simulation-data-uranium", amount = 3},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-simulation-data-uranium",
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+    },
+    {
+        name = "ei-simulation-data-petrified",
+        type = "recipe",
+        category = "ei-small-simulator",
+        energy_required = 5,
+        ingredients = {
+            {type = "fluid", name = "ei-computing-power-petrified", amount = 4},
+        },
+        results = {
+            {type = "item", name = "ei-simulation-data-petrified", amount = 3},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-simulation-data-petrified",
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+    },
+    {
+        name = "ei-simulation-data-scrap",
+        type = "recipe",
+        category = "ei-small-simulator",
+        energy_required = 5,
+        ingredients = {
+            {type = "fluid", name = "ei-computing-power-scrap", amount = 4},
+        },
+        results = {
+            {type = "item", name = "ei-simulation-data-scrap", amount = 3},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-simulation-data-scrap",
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+    },
+
 })

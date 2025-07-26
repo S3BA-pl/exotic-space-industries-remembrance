@@ -51,6 +51,67 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = "ei-superior-data"
             },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-space-data"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-space-data-double"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-space-data-triple"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-simulation-data-chemical"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-simulation-data-organic"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-simulation-data-stone"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-simulation-data-uranium"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-simulation-data-petrified"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-simulation-data-scrap"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-computing-power-chemical"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-computing-power-organic"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-computing-power-stone"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-computing-power-uranium"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-computing-power-petrified"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-computing-power-scrap"
+            },
+
         },
         unit = {
             count = 100,
@@ -226,13 +287,13 @@ data:extend({
 {
         name = "ei-space-science-data",
         type = "recipe",
-        category = "crafting",
+        category = "ei-quantum-computer",
         energy_required = 10,
         ingredients = {
             {type = "item", name = "ei-space-data", amount = 1},
         },
         results = {
-            {type = "item", name = "space-science-pack", amount = 10},
+            {type = "item", name = "space-science-pack", amount = 25},
         },
 		surface_conditions =
         {
@@ -250,13 +311,74 @@ data:extend({
 {
         name = "ei-space-data",
         type = "recipe",
-        category = "crafting",
-        energy_required = 10,
+        category = "ei-quantum-computer",
+        energy_required = 60,
         ingredients = {
-            --?
+            {type = "item", name = "ei-simulation-data-chemical", amount = 2},
+            {type = "item", name = "ei-simulation-data-organic", amount = 2},
+            {type = "item", name = "ei-simulation-data-stone", amount = 2},
+            {type = "item", name = "ei-simulation-data-uranium", amount = 2},
+            {type = "item", name = "ei-simulation-data-petrified", amount = 2},
+            {type = "item", name = "ei-simulation-data-scrap", amount = 2},
         },
         results = {
-            {type = "item", name = "ei-space-data", amount = 1},
+            {type = "item", name = "ei-space-data", amount_min = 1,amount_max=6,probability=0.9},
+        },
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+        always_show_made_in = false,
+        enabled = false,
+        main_product = "ei-space-data",
+    },
+{
+        name = "ei-space-data-double",
+        type = "recipe",
+        category = "ei-quantum-computer",
+        energy_required = 60,
+        ingredients = {
+            {type = "item", name = "ei-simulation-data-chemical", amount = 4},
+            {type = "item", name = "ei-simulation-data-organic", amount = 4},
+            {type = "item", name = "ei-simulation-data-stone", amount = 4},
+            {type = "item", name = "ei-simulation-data-uranium", amount = 4},
+            {type = "item", name = "ei-simulation-data-petrified", amount = 4},
+            {type = "item", name = "ei-simulation-data-scrap", amount = 4},
+        },
+        results = {
+            {type = "item", name = "ei-space-data", amount_min = 2,amount_max=12,probability=0.7},
+        },
+		surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 0,
+              max = 0
+            }
+        },
+        always_show_made_in = false,
+        enabled = false,
+        main_product = "ei-space-data",
+    },
+{
+        name = "ei-space-data-triple",
+        type = "recipe",
+        category = "ei-quantum-computer",
+        energy_required = 60,
+        ingredients = {
+            {type = "item", name = "ei-simulation-data-chemical", amount = 6},
+            {type = "item", name = "ei-simulation-data-organic", amount = 6},
+            {type = "item", name = "ei-simulation-data-stone", amount = 6},
+            {type = "item", name = "ei-simulation-data-uranium", amount = 6},
+            {type = "item", name = "ei-simulation-data-petrified", amount = 6},
+            {type = "item", name = "ei-simulation-data-scrap", amount = 6},
+        },
+        results = {
+            {type = "item", name = "ei-space-data", amount_min = 4,amount_max=24,probability=0.50},
         },
 		surface_conditions =
         {
@@ -273,7 +395,7 @@ data:extend({
 {
         name = "ei-black-hole-data",
         type = "recipe",
-        category = "crafting",
+        category = "ei-quantum-computer",
         energy_required = 10,
         ingredients = {
             --?

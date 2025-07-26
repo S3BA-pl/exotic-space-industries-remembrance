@@ -42,7 +42,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."exotic-assembler.png",
         icon_size = 128,
-        prerequisites = {,"ei-matter-stabilizer"},
+        prerequisites = {"ei-matter-stabilizer"},
         effects = {
             {
                 type = "unlock-recipe",

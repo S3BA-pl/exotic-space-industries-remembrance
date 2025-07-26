@@ -1,6 +1,14 @@
 
 local model = {}
+local ei_data = require("lib/data")
+function checkdatacount(fluid_entity)
 
+    local data_count = 0
+    for _,current_type in pairs(ei_data.computing_types) do
+        data_count = data_count+storage.ei.fluid_entity[fluid_entity].get_fluid_count(current_type)
+    end
+    return data_count
+end
 function model.update_fluid_storages()
     if not storage.ei.fluid_entity then
         return false
@@ -20,7 +28,7 @@ function model.update_fluid_storages()
     -- for hot coolant let pipe explode, liquid-nitrogen turns into nitrogen-gas
     if storage.ei.fluid_entity[i] and storage.ei.fluid_entity[i].valid then
         local nitrogen_count = storage.ei.fluid_entity[i].get_fluid_count("ei-liquid-nitrogen")
-        local data_count = storage.ei.fluid_entity[i].get_fluid_count("ei-computing-power")
+        local data_count = checkdatacount(i)
         local oxygen_count = storage.ei.fluid_entity[i].get_fluid_count("ei-liquid-oxygen")
 
         -- is this an insulated pipe?

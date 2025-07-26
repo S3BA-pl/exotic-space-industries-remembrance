@@ -38,7 +38,7 @@ data:extend({
 local pipe = util.table.deepcopy(data.raw.pipe.pipe)
 pipe.name = "ei-data-pipe"
 pipe.minable.result = "ei-data-pipe"
-pipe.fluid_box.filter = "ei-computing-power"
+--pipe.fluid_box.filter = "ei-computing-power"
 
 -- loop over pictures and swap first part of filename with ei_graphics_insulated_path
 -- if filename has pipe in it, without the path part:

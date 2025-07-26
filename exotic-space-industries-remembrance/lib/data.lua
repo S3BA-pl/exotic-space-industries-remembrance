@@ -991,4 +991,17 @@ for rawCatName,rawCat in pairs(entities) do
     end
 end
 
+--====================================================================================================
+-- computing power types
+ei_data.computing_types = {
+    "ei-computing-power",
+    "ei-computing-power-chemical",
+    "ei-computing-power-organic",
+    "ei-computing-power-stone",
+    "ei-computing-power-uranium",
+    "ei-computing-power-petrified",
+    "ei-computing-power-scrap",
+
+}
+
 return ei_data
