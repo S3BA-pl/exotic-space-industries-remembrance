@@ -4,10 +4,26 @@ if mods["lignumis"] then
 
   local lignumis_dark_age = table.deepcopy(data.raw.recipe["ei-dark-age-tech"])
   lignumis_dark_age.ingredients = data.raw.recipe["wood-science-pack"].ingredients
+  lignumis_dark_age.surface_conditions =
+      {
+          {
+            property = "gravity",
+            min = 4,
+            max = 4
+          }
+      }
   lignumis_dark_age.name = "lignumis-dark-age"
 
   local lignumis_steam_age = table.deepcopy(data.raw.recipe["ei-steam-age-tech"])
   lignumis_steam_age.ingredients = data.raw.recipe["steam-science-pack"].ingredients
+  lignumis_steam_age.surface_conditions =
+        {
+           {
+              property = "gravity",
+              min = 4,
+              max = 4
+            }
+        }
   lignumis_steam_age.name = "lignumis-steam-age"
 
   data:extend({lignumis_dark_age,lignumis_steam_age})

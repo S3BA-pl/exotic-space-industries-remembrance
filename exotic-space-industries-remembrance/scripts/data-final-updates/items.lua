@@ -23,12 +23,13 @@ ei_lib.disable("military-science-pack")
 ei_lib.disable("production-science-pack")
 ei_lib.disable("utility-science-pack")
 
+--[[
 for _, item in pairs(data.raw.item) do
 --  if endswith(item.name,"-barrel") then item.stack_size = 100 end
   if item.type == "gun" then item.stack_size = 1 end
   if item.subgroup == "gun" then item.stack_size = 1 end
 end
-
+]]
 local cap_size = {
     "logistic-container",
     "container"
@@ -37,6 +38,49 @@ for _,entity_class in pairs(cap_size) do
     for _,entity in pairs(data.raw[entity_class]) do
         if entity and entity.inventory_size > 64 then
             entity.inventory_size = 64
+        end
+    end
+end
+
+--rocket stack size adjustments
+--from Rockets Launch Stacks @hopefuldecay
+-- Minimum amount of stacks a rocket should carry.
+local weightmultiplier = 5
+-- Set of possible flags
+local possibleFlags = { "draw-logistic-overlay", "hidden", "always-show", "hide-from-bonus-gui", "hide-from-fuel-tooltip", "not-stackable", "can-extend-inventory", "primary-place-result", "mod-openable", "only-in-cursor", "spawnable" }
+-- Set for item types
+local itemTypes = {"item", "ammo", "capsule", "module", "tool", "repair-tool", "item-with-entity-data", "rail-planner", "rail-signal", "rail-chain-signal", "gun"}
+-- Check set return true/false
+function table.contains(table, element)
+	for _, value in ipairs(table) do
+		if value == element then
+			return true
+		end
+	end
+	return false
+end
+-- Loop through items and check flags
+for _, itemType in pairs(itemTypes) do
+    for _, item in pairs(data.raw[itemType]) do
+        local shouldChange = true
+        if item.flags then
+            for _, flag in ipairs(item.flags) do
+                if table.contains(possibleFlags, flag) then
+                    if flag == "not-stackable" then
+                        shouldChange = false
+                        break
+                    end
+                end
+            end
+        end
+        if shouldChange then
+			if item.weight ~= nil then
+				if item.weight > 1000/item.stack_size/weightmultiplier * kg then
+					item.weight = 1000/item.stack_size/weightmultiplier * kg
+				end
+			elseif item.stack_size ~= nil then
+				item.weight = 1000/item.stack_size/weightmultiplier * kg
+			end
         end
     end
 end

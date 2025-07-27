@@ -1,4 +1,20 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.10
+Date: 7-27-2025
+  Changes:
+  - Steam roboport steam buffer 12000 -> 18000 kJ.
+  - Steam roboport electric buffer 5000 -> 7500 kJ.
+  - Steam robot per tick energy usage 0.055 -> 0.05 kJ.
+  - Steam robot per movement energy usage 6 -> 5.5 kJ.
+  - Computer Age tech recipe inputs: 1 Electronic parts -> 2, 1 Energy crystal -> 8.
+  - Restricted Lignumis versions of Dark and Steam age technology recipes to Lignumis itself.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.09
+Date: 7-27-2025
+  Changes:
+    - Algorithmically adjusted all items to fit 5 stacks per rocket.
+    - All guns no longer overriden to stack size 1.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.08
 Date: 7-25-2025
   Features:
