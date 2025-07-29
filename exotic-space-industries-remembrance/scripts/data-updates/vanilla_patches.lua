@@ -1095,10 +1095,21 @@ ei_lib.raw["item"]["nuclear-reactor"].subgroup = "ei-nuclear-buildings"
 ei_lib.raw["item"]["nuclear-reactor"].order = "b-a"
 
 ei_lib.raw["mining-drill"]["big-mining-drill"].energy_usage = "2MW"
-local sf = ei_lib.raw["furnace"]["steel-furnace"] --or ei_lib.raw["assembling-machine"]["steel-furnace"] --K2SO is setting it to 200, even better
+--adjust furnaces energy usage
+local stf = ei_lib.raw["furnace"]["stone-furnace"]
 if sf then
     sf.energy_usage = "135kW"
 end
+local sf = ei_lib.raw["furnace"]["steel-furnace"]
+if sf then
+    sf.energy_usage = "260kW"
+end
+local ef = ei_lib.raw["furnace"]["electric-furnace"]
+if ef then
+    ef.energy_usage = "558kW"
+end
+ei_lib.raw["storage-tank"]["storage-tank"].fluid_box.volume = 5000
+
 
 --electric chem plant uses same energy but is slower than heat chem plant 1 vs 1.5
 ei_lib.raw["assembling-machine"]["chemical-plant"].energy_usage = "1MW"

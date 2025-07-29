@@ -43,7 +43,7 @@ furnace.icon = ei_graphics_item_path.."coke-furnace.png"
 furnace.icon_size = 64
 furnace.minable.result = "ei-coke-furnace"
 furnace.crafting_categories = {"ei-coke-furnace"}
-
+furnace.energy_usage = "135kW"
 furnace.graphics_set = {
     animation = {
         layers = {

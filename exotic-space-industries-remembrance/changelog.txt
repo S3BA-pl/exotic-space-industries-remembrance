@@ -1,4 +1,25 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.12
+Date: 7-27-2025
+  Changes:
+
+---------------------------------------------------------------------------------------------------
+Version: 1.2.11
+Date: 7-27-2025
+  Features:
+    - Added high-speed heat powered version of Electric furnace "Thermal furnace". Prerequisites are Nuclear power and Advanced Materials Processing 2. Artwork & Concept from Heated Fabrication by @MrLumme
+  Changes:
+    - Deep drill module slots 1 -> 2.
+    - Steel/heat steel furnace energy usage 135 -> 260 kW.
+    - Electric furnace energy usage 186 -> 558 kW.
+    - Stone furnace energy usage 90 -> 135 kW.
+    - Coke furnace energy usage 90 -> 135 kW.
+    - Storage tank fluid volume 25000 -> 5000. Excessive fluid is not deleted but more will not be allowed in.
+    - Storage tank column fluid volume 75000 -> 25000.
+    - Spherical storage tank fluid volume 150000 -> 50000.
+    - Silo storage tank fluid volume 300000 -> 100000.
+    - Restricted Lignumis burner and steam assembling machine recipe to Lignumis itself.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.10
 Date: 7-27-2025
   Changes:

@@ -244,7 +244,7 @@ data:extend({
         map_color = data.raw["storage-tank"]["storage-tank"].map_color,
         window_bounding_box = {{0,0},{1,1}},
         fluid_box = {
-            volume = 75000,
+            volume = 25000,
             pipe_covers = pipecoverspictures(),
             pipe_picture = ei_tank_1,
             base_level = 0,
@@ -316,7 +316,7 @@ data:extend({
         map_color = data.raw["storage-tank"]["storage-tank"].map_color,
         window_bounding_box = {{0,0},{1,1}},
         fluid_box = {
-            volume = 300000,
+            volume = 100000,
             pipe_covers = pipecoverspictures(),
             pipe_picture = ei_tank_2,
             base_level = 0,
@@ -395,7 +395,7 @@ data:extend({
         map_color = data.raw["storage-tank"]["storage-tank"].map_color,
         window_bounding_box = {{0,0},{1,1}},
         fluid_box = {
-            volume = 150000,
+            volume = 50000,
             pipe_covers = pipecoverspictures(),
             pipe_picture = ei_tank_1,
             base_level = 0,

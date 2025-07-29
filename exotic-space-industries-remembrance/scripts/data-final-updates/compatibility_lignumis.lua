@@ -110,6 +110,23 @@ if mods["lignumis"] then
         main_product = "burner-inserter",
     },
   })
+
+  ei_lib.raw.recipe["burner-assembling-machine"].surface_conditions =
+  {
+      {
+        property = "gravity",
+        min = 4,
+        max = 4
+      }
+  }
+  ei_lib.raw.recipe["steam-assembling-machine"].surface_conditions =
+  {
+      {
+        property = "gravity",
+        min = 4,
+        max = 4
+      }
+  }
   ei_lib.add_unlock_recipe("ei-mechanical-inserter","ei-mechanical-inserter-lignumis")
 
   ei_lib.recipe_swap("steam-assembling-machine", "ei-burner-assembler", "burner-assembling-machine")
