@@ -3,6 +3,7 @@ local icon_dir = ei_path.."graphics/item/"
 local sprite_dir = ei_path.."graphics/entity/thermal-furnace/"
 --From Heated Fabrication by @MrLumme
 ei_lib = require("lib/lib")
+ei_data = require("lib/data")
 data:extend({
     {
     type = "corpse",
@@ -70,7 +71,7 @@ data:extend({
       type = 'heat',
       max_temperature = 900,
       min_working_temperature = 500,
-      specific_heat = ei_data.specific_heat,
+      specific_heat = ei_data.high_specific_heat,
       minimum_glow_temperature = 550,
       max_transfer = '1GW',
       emissions_per_minute = { pollution = 0.5 },

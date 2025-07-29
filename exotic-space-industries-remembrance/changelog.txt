@@ -1,8 +1,14 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.12
-Date: 7-27-2025
+Date: 7-29-2025
   Changes:
-
+    - Thermal furnace specific heat 0.1 -> 1 MJ.
+    - Silo tank physical size increased 27%.
+    - Spherical storage tank physical size increased 50%.
+  Bugfixes:
+    - Spherical tank health corrected 2000 -> 1500.
+    - Silo tank health corrected 1500 -> 2000.
+    - Spherical storage tank connections now functional in all directions.
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.11
 Date: 7-27-2025
@@ -23,12 +29,12 @@ Date: 7-27-2025
 Version: 1.2.10
 Date: 7-27-2025
   Changes:
-  - Steam roboport steam buffer 12000 -> 18000 kJ.
-  - Steam roboport electric buffer 5000 -> 7500 kJ.
-  - Steam robot per tick energy usage 0.055 -> 0.05 kJ.
-  - Steam robot per movement energy usage 6 -> 5.5 kJ.
-  - Computer Age tech recipe inputs: 1 Electronic parts -> 2, 1 Energy crystal -> 8.
-  - Restricted Lignumis versions of Dark and Steam age technology recipes to Lignumis itself.
+    - Steam roboport steam buffer 12000 -> 18000 kJ.
+    - Steam roboport electric buffer 5000 -> 7500 kJ.
+    - Steam robot per tick energy usage 0.055 -> 0.05 kJ.
+    - Steam robot per movement energy usage 6 -> 5.5 kJ.
+    - Computer Age tech recipe inputs: 1 Electronic parts -> 2, 1 Energy crystal -> 8.
+    - Restricted Lignumis versions of Dark and Steam age technology recipes to Lignumis itself.
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.09
 Date: 7-27-2025

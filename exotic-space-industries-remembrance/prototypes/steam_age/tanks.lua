@@ -300,15 +300,15 @@ data:extend({
         icon_size = 64,
         flags = {"placeable-neutral", "player-creation"},
         minable = {mining_time = 0.5, result = "ei-tank-2"},
-        max_health = 1500,
+        max_health = 2000,
         resistances = {
           { type = "physical", percent = 40 },
           { type = "fire",     percent = 70 },
           { type = "impact",   percent = 70 },
         },
         corpse = "big-remnants",
-        collision_box = {{-3.4, -3.4}, {3.4, 3.4}},
-        selection_box = {{-3.5, -3.5}, {3.5, 3.5}},
+        collision_box = {{-4.253, -4.253}, {4.253, 4.253}},
+        selection_box = {{-4.285, -4.285}, {4.285, 4.285}},
         circuit_wire_connection_points = circuit_connector_definitions["storage-tank"].points,
 		circuit_connector_sprites = circuit_connector_definitions["storage-tank"].sprites,
 		circuit_wire_max_distance = 20,
@@ -322,17 +322,17 @@ data:extend({
             base_level = 0,
             pipe_connections =
             {
-                { flow_direction = "input-output", direction = defines.direction.north, position = {1, -3} },  
-                { flow_direction = "input-output", direction = defines.direction.north, position = {-1, -3} },
+                { flow_direction = "input-output", direction = defines.direction.north, position = {1.0, -3.963} },  
+                { flow_direction = "input-output", direction = defines.direction.north, position = {-1.0, -3.963} },
 
-                { flow_direction = "input-output", direction = defines.direction.south, position = {1, 3} },
-                { flow_direction = "input-output", direction = defines.direction.south, position = {-1, 3} },
+                { flow_direction = "input-output", direction = defines.direction.south, position = {1.0, 3.963} },
+                { flow_direction = "input-output", direction = defines.direction.south, position = {-1.0, 3.963} },
 
-                { flow_direction = "input-output", direction = defines.direction.west, position = {-3, 1} },
-                { flow_direction = "input-output", direction = defines.direction.west, position = {-3, -1} },
+                { flow_direction = "input-output", direction = defines.direction.west, position = {-3.963, 1.0} },
+                { flow_direction = "input-output", direction = defines.direction.west, position = {-3.963, -1.0} },
 
-                { flow_direction = "input-output", direction = defines.direction.east, position = {3, 1} },
-                { flow_direction = "input-output", direction = defines.direction.east, position = {3, -1} },
+                { flow_direction = "input-output", direction = defines.direction.east, position = {3.963, 1.0} },
+                { flow_direction = "input-output", direction = defines.direction.east, position = {3.963, -1.0} },
             },
             production_type = "input-output",
         },
@@ -341,7 +341,7 @@ data:extend({
                 filename = ei_tanks_entity_path.."tank-2.png",
                 size = {512*2,512*2},
                 shift = {0, 0},
-	            scale = 0.52,
+	            scale = 0.66066,
             },
             window_background = {
                 filename = ei_tanks_entity_path.."64_empty.png",
@@ -379,15 +379,15 @@ data:extend({
         icon_size = 64,
         flags = {"placeable-neutral", "player-creation"},
         minable = {mining_time = 0.5, result = "ei-tank-3"},
-        max_health = 2000,
+        max_health = 1500,
         resistances = {
           { type = "physical", percent = 60 },
           { type = "fire",     percent = 80 },
           { type = "impact",   percent = 80 },
         },
         corpse = "big-remnants",
-        collision_box = {{-2.4, -2.4}, {2.4, 2.4}},
-        selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
+        collision_box = {{-3.42144, -3.42144}, {3.42144, 3.42144}},
+        selection_box = {{-3.564, -3.564}, {3.564, 3.564}},
         circuit_wire_connection_points = circuit_connector_definitions["storage-tank"].points,
 		circuit_connector_sprites = circuit_connector_definitions["storage-tank"].sprites,
 		circuit_wire_max_distance = 20,
@@ -401,10 +401,13 @@ data:extend({
             base_level = 0,
             pipe_connections =
             {
-                { flow_direction = "input-output", direction = defines.direction.north, position = {0, -2} },
-                { flow_direction = "input-output", direction = defines.direction.south, position = {0, 2} },
-                { flow_direction = "input-output", direction = defines.direction.east, position = {-2, 0} },
-                { flow_direction = "input-output", direction = defines.direction.west, position = {2, 0} },
+                { flow_direction = "input-output", direction = defines.direction.north, position = {0, -2.9912} },
+
+                { flow_direction = "input-output", direction = defines.direction.south, position = {0, 2.9912} },
+
+                { flow_direction = "input-output", direction = defines.direction.west, position = {-2.9912, 0} },
+
+                { flow_direction = "input-output", direction = defines.direction.east, position = {2.9912, 0} },
             },
             production_type = "input-output",
         },
@@ -413,7 +416,7 @@ data:extend({
                 filename = ei_tanks_entity_path.."tank-3.png",
                 size = {512,512},
                 shift = {0, 0},
-	            scale = 0.35*2,
+	            scale = 1,
             },
             window_background = {
                 filename = ei_tanks_entity_path.."64_empty.png",
