@@ -84,3 +84,17 @@ for _, itemType in pairs(itemTypes) do
         end
     end
 end
+
+--don't make ash from rocket nuclear fusion
+local removeash = {
+    "ei-nuclear-fuel",
+    "ei-rocket-fuel",
+    "ei-fusion-fuel"
+}
+for _,item in pairs(data.raw.item) do
+    if item.fuel_category then
+        if item.burnt_result == "atan-ash" and ei_lib.table_contains_value(removeash,item.fuel_category) then
+            item.burnt_result = nil
+        end
+    end
+end

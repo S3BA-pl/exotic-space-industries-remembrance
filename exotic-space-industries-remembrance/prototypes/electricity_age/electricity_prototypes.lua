@@ -1365,7 +1365,7 @@ table.insert(data.raw["technology"]["ei-electricity-power"].effects, {
 -- })
 
 ei_lib.add_prerequisite("railway","plastics")
-
+ei_lib.add_prerequisite("railway","electric-engine")
 ei_lib.add_prerequisite("railway","advanced-circuit")
 
 table.insert(data.raw["technology"]["railway"].effects, {

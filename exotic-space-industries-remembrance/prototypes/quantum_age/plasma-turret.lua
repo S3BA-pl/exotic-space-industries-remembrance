@@ -33,7 +33,7 @@ data:extend({
             {type="item", name="laser-turret", amount=4},
             {type="item", name="ei-high-energy-crystal", amount=80},
             {type="item", name="ei-high-tech-parts", amount=100},
-            {type="item", name="ei-magnet", amount=100},
+            {type="item", name="ei-eu-magnet", amount=15},
             {type="item", name="ei-superior-data", amount=100},
             {type="item", name="ei-plasma-data", amount=100},
         },

@@ -237,6 +237,10 @@ data:extend({
             },
             {
                 type = "unlock-recipe",
+                recipe = "ei-dirty-water-vent"
+            },
+            {
+                type = "unlock-recipe",
                 recipe = "ei-dirty-water-landfill"
             },
             {

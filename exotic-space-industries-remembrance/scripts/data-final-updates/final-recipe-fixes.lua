@@ -23,9 +23,6 @@ for i,v in pairs(data.raw.recipe) do
     end
 end
 
-local rocket_part_recipe = data.raw["recipe"]["rocket-part"]
-rocket_part_recipe.ingredients = {{type = "item", name = "ei-rocket-parts", amount = 1}}
-
 -- error(serpent.block(data.raw.technology['planet-discovery-gleba']))
 
 --====================================================================================================

@@ -866,6 +866,26 @@ data:extend({
         name = "ei-oxygen-difluoride",
         type = "recipe",
         category = "chemistry",
+        energy_required = 9,
+        ingredients = {
+            {type = "fluid", name = "water", amount = 50},
+            {type = "fluid", name = "ei-oxygen-gas", amount = 50},
+            {type = "item", name = modprefix.."sand", amount = 6},
+            {type = "item", name = "atan-ash", amount = 50},
+            {type = "item", name = "ei-fluorite", amount = 1},
+        },
+        results = {
+            {type = "fluid", name = "ei-oxygen-difluoride", amount_min = 15,amount_max=35},
+            {type = "fluid", name = "ei-dirty-water", amount_min=5,amount_max=25},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-oxygen-difluoride",
+    },
+    {
+        name = "ei-oxygen-difluoride-alien",
+        type = "recipe",
+        category = "chemistry",
         energy_required = 3,
         ingredients = {
             {type = "fluid", name = "ei-oxygen-gas", amount = 50},
@@ -2176,7 +2196,7 @@ data:extend({
         {
         name = "ei-oxygen-difluoride",
         type = "technology",
-        icon = ei_graphics_tech_path.."oxygen-difluoride.png",
+        icon = ei_path.."graphics/tech/oxygen-difluoride.png",
         icon_size = 128,
         prerequisites = {"ei-bio-chamber","ei-oxygen-gas"},
         effects = {
@@ -2210,6 +2230,24 @@ data:extend({
             time = 20
         },
         age = "alien-computer-age",
+    },
+    {
+        name = "ei-oxygen-difluoride-alien",
+        type = "technology",
+        icon = ei_graphics_tech_path.."oxygen-difluoride.png",
+        icon_size = 128,
+        prerequisites = {"ei-oxygen-difluoride", "ei-alien-computer-age-tech"},
+        effects = {
+            {
+                type = "unlock-recipe",
+                recipe = "ei-oxygen-difluoride-alien"
+            },
+        },
+        unit = {
+            count = 100,
+            ingredients = ei_data.science["alien-computer-age"],
+            time = 20
+        },
     },
     -- bio variantes for insulted-wire, energy-crystal, high-energy-crystal, nitric acid and hydrofluoric-acid
     {
@@ -2687,6 +2725,29 @@ data:extend({
         age = "advanced-computer-age",
     },
     {
+        name = "ei-advanced-rocket-fuel",
+        type = "technology",
+        icon = ei_graphics_item_path.."advanced-rocket-fuel.png",
+        icon_size = 64,
+        prerequisites = {"ei-rocket-parts","ei-advanced-chem-plant"},
+        effects = {
+            {
+                type = "unlock-recipe",
+                recipe = "ei-advanced-rocket-fuel"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-rocket-assembly-high-energy"
+            },
+        },
+        unit = {
+            count = 100,
+            ingredients = ei_data.science["advanced-computer-age"],
+            time = 20
+        },
+        age = "advanced-computer-age",
+    },
+    {
         name = "ei-silicon",
         type = "technology",
         icon = ei_graphics_tech_path.."silicon.png",
@@ -3076,8 +3137,25 @@ data:extend({
             time = 20
         },
         age = "computer-age"
-    }
+    },
+    {
+    type = "recipe",
+    name = "ei-rocket-assembly-high-energy",
+    energy_required = 3,
+    enabled = false,
+    hide_from_player_crafting = true,
+    auto_recycle = false,
+    category = "rocket-building",
+    ingredients =
+    {
+	{type = "item", name = "ei-rocket-parts", amount = 1},
+	{type = "item", name = "ei-advanced-rocket-fuel", amount = 5}
+    },
+    results = {{type="item", name="rocket-part", amount=1}},
+    allow_productivity = true
+    },
 })
+
 
 table.insert(data.raw["technology"]["processing-unit"].effects, {
     type = "unlock-recipe",

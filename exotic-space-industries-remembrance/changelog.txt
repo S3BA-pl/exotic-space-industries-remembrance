@@ -1,4 +1,43 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.15
+Date: 7-30-2025
+  Features:
+    - Added Armoured biters to required dependencies—Snip snap.
+  Changes:
+    - Advanced steam locomotive additionally requires 10 Engine units and 10 Copper mechanical parts.
+    - Diesel locomotive recipe inputs: 20 Engine units -> 8. Additionally requires 1 Advanced steam locomotive.
+    - EM locomotive additionally requires 8 Computing units.
+    - Added Electric engine to Railway technology prerequisites.
+    - Plasma turret recipe inputs: 100 Neodymium magnets -> 15 EU magnets.
+    - Rewrote descriptions for Beacon item and entity.
+    - Rewrote description for Effect transmission technology.
+    - Subzero phase array beacon recipe inputs: 12 Steel mechanical parts -> 1 Beacon.
+    - Beacon recipe inputs: 10 copper cable -> 10 Data cable. 20 Electronic circuit / 20 Advanced circuit -> 10 Electronic parts, 10 Steel ingots -> 8. Additionally requires 15 Energy crystal, 4 Electric engine unit, 8 Gold ingot.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.14
+Date: 7-29-2025
+  Features:
+    - Created High energy rocket fuel production technology, prerequisites Rocket parts and Advanced chem lab.
+    - Created additional recipe for Rocket assembly using High energy rocket fuel.
+    - Created alternate Oxygen difluoride recipe substituting Ash and Water for Alien resin, attached to Computer Age Oxygen difluoride technology.
+    - Created Oxygen difluoride from alien resin technology, prerequisites Alien Age and Oxygen difluoride.
+  Changes:
+    - Moved existing Oxygen difluoride recipe involving alien resin to Oxygen difluoride from Alien resin technology.
+    - Rocket assembly now requires 20 Rocket fuel or 5 High energy rocket fuel.
+    - Renamed in-silo rocket part recipe to Rocket assembly.
+    - Rocket, Fusion, Nuclear fuel no longer produces ash when burnt.
+    - Steam trains, Spidertron, Car, and Tank can now burn Rocket, Nuclear and Fusion fuel.
+    - Rocket, Nuclear, and Fusion per quality acceleration bonus increased 45 -> 49.5%.
+    - Rocket, Nuclear, and Fusion per quality top speed improvement increased 4.5 -> 10%.
+  Bugfixes:
+    - Ensured furnace energy usage changes apply even if furnace is internally an assembling machine.
+    - Added missing lang fuel group for ei-burning.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.13
+Date: 7-29-2025
+  Bugfixes:
+    - Restored Purifier technology unlocks Vent dirty water recipe.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.12
 Date: 7-29-2025
   Changes:

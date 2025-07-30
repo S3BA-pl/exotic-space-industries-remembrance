@@ -172,7 +172,7 @@ data:extend({
 		energy_source =
 		{
 			type = "burner",
-			fuel_categories = {"chemical"},
+			fuel_categories = {"chemical","ei-rocket-fuel","ei-nuclear-fuel","ei-fusion-fuel"},
 			effectivity = 0.70,
 			fuel_inventory_size = 3,
 			burnt_inventory_size = 3,
@@ -682,6 +682,8 @@ data:extend({
         {
             {type="item", name="ei-steam-basic-locomotive", amount=1},
             {type="item", name="ei-steel-mechanical-parts", amount=10},
+			{type="item", name="ei-copper-mechanical-parts", amount=10},
+			{type="item", name="engine-unit", amount=10},
             {type="item", name="steel-plate", amount=30},
         },
         results = {{type="item", name="ei-steam-advanced-locomotive", amount=1}},
@@ -988,7 +990,7 @@ data:extend({
 		},
 		energy_source = {
 			type = "burner",
-			fuel_categories = {"chemical"},
+			fuel_categories = {"chemical","ei-rocket-fuel","ei-nuclear-fuel","ei-fusion-fuel"},
 			effectivity = 0.85,
 			fuel_inventory_size = 2,
 			burnt_inventory_size = 2,

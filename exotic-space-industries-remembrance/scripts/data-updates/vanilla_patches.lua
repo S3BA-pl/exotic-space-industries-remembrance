@@ -122,6 +122,14 @@ local new_ingredients_table = {
     {type="item",name="tungsten-plate", amount=4},
     {type="item",name="radar", amount=1},
     },
+    ["beacon"] = {
+    {type="item",name="ei-data-pipe", amount=10},
+    {type="item",name="ei-electronic-parts", amount=10},
+    {type="item",name="ei-gold-ingot", amount=8},
+    {type="item",name="steel-plate", amount=8},
+    {type="item",name="ei-energy-crystal", amount=15},
+    {type="item",name="electric-engine-unit", amount=4},
+    },
     ["transport-belt"] = {
         {type="item",name="iron-plate", amount=1},
         {type="item",name="ei-iron-mechanical-parts", amount=2}
@@ -508,9 +516,10 @@ local new_ingredients_table = {
         {type="item",name="explosives", amount=2},
     },
     ["locomotive"] = {
+        {type="item",name="ei-steam-advanced-locomotive",amount=1},
         {type="item",name="advanced-circuit", amount=5},
         {type="item",name="ei-steel-mechanical-parts", amount=10},
-        {type="item",name="engine-unit", amount=20},
+        {type="item",name="engine-unit", amount=8},
         {type="item",name="electric-engine-unit", amount=8},
         {type="item",name="steel-plate", amount=30},
     },
@@ -872,10 +881,17 @@ function make_numbered_buff_prerequisite(tech)
 end
 --Nerf the beacon to promote the EI specific varieties
 ei_lib.raw.beacon["beacon"] = {
+    localised_description = {"entity-description.ei-beacon"},
     distribution_effectivity = 0.375,
     distribution_effectivity_bonus_per_quality_level = 0.125,
     module_slots = 1,
     energy_usage = "900kW",
+}
+ei_lib.raw.item["beacon"] = {
+    localised_description = {"item-description.ei-beacon"},
+}
+ei_lib.raw.technology["effect-transmission"] = {
+    localised_description = {"technology-description.ei-effect-transmission"},
 }
 ei_lib.raw.technology["steel-processing"].icon = ei_graphics_tech_path.."steel-processing.png"
 ei_lib.raw.technology["fluid-handling"] = {
@@ -922,14 +938,9 @@ table.insert(ei_lib.raw.technology["inserter-capacity-bonus-1"].effects,
 --FUEL CATEGORIES
 ------------------------------------------------------------------------------------------------------
 
-ei_lib.raw.item["rocket-fuel"] = {
-    fuel_categories = {"ei-rocket-fuel"},
-    force_insert = true
-}
-ei_lib.raw.item["nuclear-fuel"] = {
-    fuel_categories = {"ei-rocket-fuel"},
-    force_insert = true
-}
+ei_lib.raw.item["rocket-fuel"].fuel_category = "ei-rocket-fuel"
+
+ei_lib.raw.item["nuclear-fuel"].fuel_category = "ei-nuclear-fuel"
 
 --ITEM SUBGROUPS
 ------------------------------------------------------------------------------------------------------
@@ -969,19 +980,37 @@ ei_lib.raw["fluid"]["heavy-oil"].fuel_value = "250kJ"
 ei_lib.raw["fluid"]["petroleum-gas"].fuel_value = "400kJ"
 ei_lib.raw["fluid"]["light-oil"].fuel_value = "500kJ"
 
--- make locomotive use diesel and rocket fuel
+-- make locomotive use diesel
 -- add burnt fuel slot
 ei_lib.raw.locomotive.locomotive = {
     localised_name = {"entity-name.ei-locomotive"},
     
     energy_source = {
         emissions_per_minute = { pollution = 1.75 },
-        fuel_categories = {"ei-diesel-fuel", "ei-rocket-fuel"},
+        fuel_categories = {"ei-diesel-fuel"},
         fuel_inventory_size = 3,
         burnt_inventory_size = 3,
     }
 }
 
+-- let car and tank use alternative fuels
+local t_extra_fuels = {
+    "ei-rocket-fuel",
+    "ei-nuclear-fuel",
+    "ei-fusion-fuel"
+}
+local t = {
+    "tank",
+    "car"
+}
+for _,ent in pairs(t) do
+    local target = ei_lib.raw.car.ent
+    if target and target.energy_source and target.energy_source.fuel_categories then
+        for _,f in pairs(t_extra_fuels) do
+            table.insert(target.energy_source.fuel_categories,f)
+        end 
+    end
+end
 -- make oil-refinery heat based
 data.raw["assembling-machine"]["oil-refinery"].energy_usage = "1.5MW"
 data.raw["assembling-machine"]["oil-refinery"].energy_source = {
@@ -1096,15 +1125,15 @@ ei_lib.raw["item"]["nuclear-reactor"].order = "b-a"
 
 ei_lib.raw["mining-drill"]["big-mining-drill"].energy_usage = "2MW"
 --adjust furnaces energy usage
-local stf = ei_lib.raw["furnace"]["stone-furnace"]
+local stf = ei_lib.raw["furnace"]["stone-furnace"] or ei_lib.raw["assembling-machine"]["stone-furnace"]
 if sf then
     sf.energy_usage = "135kW"
 end
-local sf = ei_lib.raw["furnace"]["steel-furnace"]
+local sf = ei_lib.raw["furnace"]["steel-furnace"] or ei_lib.raw["assembling-machine"]["steel-furnace"]
 if sf then
     sf.energy_usage = "260kW"
 end
-local ef = ei_lib.raw["furnace"]["electric-furnace"]
+local ef = ei_lib.raw["furnace"]["electric-furnace"] or ei_lib.raw["assembling-machine"]["electric-furnace"]
 if ef then
     ef.energy_usage = "558kW"
 end
@@ -1133,7 +1162,7 @@ for _, spider in pairs(data.raw["spider-vehicle"]) do
         spider.energy_source =
     {
             type = "burner",
-            fuel_categories = {"chemical", "ei-nuclear-fuel", "ei-fusion-fuel"},
+            fuel_categories = {"chemical", "ei-rocket-fuel","ei-nuclear-fuel", "ei-fusion-fuel"},
             effectivity = 1,
             fuel_inventory_size = 3,
             burnt_inventory_size = 3,
@@ -1160,18 +1189,25 @@ for _, spider in pairs(data.raw["spider-vehicle"]) do
     end
 end
 
--- get all of EIs items with ei_nuclear-fuel as fuel category
-local nuclear_fuel_items = {}
+-- apply quality scaling bonuses to EI fuels
+local buff_fuels = {
+    "ei-rocket-fuel",
+    "ei-nuclear-fuel",
+    "ei-fusion-fuel"
+}
 for _,item in pairs(data.raw["item"]) do
-    if item.fuel_category == "ei-nuclear-fuel" then
-        table.insert(nuclear_fuel_items, item.name)
+    if item.fuel_category and ei_lib.table_contains_value(buff_fuels,item.fuel_category) then
+        if not item.fuel_acceleration_multiplier_quality_bonus then
+            item.fuel_acceleration_multiplier_quality_bonus = 0.495
+        else
+            item.fuel_acceleration_multiplier_quality_bonus = math.max(49.5,item.fuel_acceleration_multiplier_quality_bonus*1.1)
+        end
+        if not item.fuel_top_speed_multiplier_quality_bonus then 
+            item.fuel_top_speed_multiplier_quality_bonus = 0.1
+        else
+            item.fuel_top_speed_multiplier_quality_bonus = math.max(0.1,item.fuel_top_speed_multiplier_quality_bonus*1.1)
+        end
     end
-end
-
--- add a movement and acceleration bonus
-for _, item in ipairs(nuclear_fuel_items) do
-    data.raw["item"][item].fuel_acceleration_multiplier = 1.5
-    data.raw["item"][item].fuel_top_speed_multiplier = 1.5
 end
 
 -- improve movement speed bonus on stone-bricks, concrete and refined-concrete
@@ -1356,6 +1392,14 @@ ei_lib.raw.technology["logistics-3"].prerequisites = {"ei-advanced-computer-age-
 
 -- add 2 more module slots to rocket silo
 ei_lib.raw["rocket-silo"]["rocket-silo"].module_slots = 4
+
+--adjust vanilla rocket part recipe
+local rocket_part_recipe = ei_lib.raw["recipe"]["rocket-part"]
+rocket_part_recipe.ingredients = {
+	{type = "item", name = "ei-rocket-parts", amount = 1},
+	{type = "item", name = "rocket-fuel", amount = 20}
+}
+rocket_part_recipe.localised_name = {"recipe-name.ei-rocket-assembly"}
 
 ei_lib.raw["recipe"]["heavy-oil-cracking"].localised_name = {"recipe-name.ei-heavy-oil-cracking"}
 

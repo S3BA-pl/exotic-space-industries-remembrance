@@ -201,6 +201,7 @@ data:extend({
           {type="item", name="ei-clean-plating", amount=25},
           {type="item", name="ei-advanced-motor", amount=20},
           {type="item", name="ei_em-fielder", amount=14},
+		  {type="item",name="ei-computing-unit",amount=8}
 		},
         results = {{type="item", name="ei_em-locomotive", amount=1}},
         enabled = false,

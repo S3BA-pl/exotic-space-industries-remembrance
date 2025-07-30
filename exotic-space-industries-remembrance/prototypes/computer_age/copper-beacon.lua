@@ -36,7 +36,7 @@ data:extend({
             {type="item", name="steel-plate", amount=16},
             {type="item", name="ei-gold-ingot", amount=16},
             {type="item", name="ei-simulation-data", amount=20},
-            {type="item", name="ei-steel-mechanical-parts", amount=12}
+            {type="item", name="beacon", amount=1}
         },
         results = {{type="item", name="ei-copper-beacon", amount=1}},
         enabled = false,
