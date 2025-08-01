@@ -136,9 +136,12 @@ for i,v in pairs(crafting_categories) do
     end
 end
 
+ei_lib.recipe_swap("concrete", "iron-ore", "ei-iron-beam")
+ei_lib.recipe_swap("refined-concrete", "ei-copper-mechanical-parts", "ei-steel-beam")
 
 -- fix recipes that need vanilla iron-ore, copper-ore or iron-gear-wheel/iron-stick
 -- loop over all recipes
+--[[
 for name,recipe in pairs(data.raw.recipe) do
     --ei_lib.recipe_swap(name, "iron-ore", "ei-poor-iron-chunk")
     --ei_lib.recipe_swap(name, "copper-ore", "ei-poor-copper-chunk")
@@ -148,9 +151,18 @@ for name,recipe in pairs(data.raw.recipe) do
     ei_lib.recipe_swap(name, "nuclear-fuel", "ei-uranium-235-fuel")
     ei_lib.recipe_swap(name, "burner-assembling-machine", "ei-burner-assembler")
 end
+]]
+--recipes and placeables + simple entities ie vulcanus rocks bacteria
+ei_lib.merge_item("ei-iron-chunk","iron-ore",false,true)
+ei_lib.merge_item("ei-copper-chunk","copper-ore",false,true)
+ei_lib.merge_item("ei-iron-mechanical-parts","iron-gear-wheel",false,true)
+ei_lib.merge_item("ei-iron-beam","iron-stick",false,true)
+ei_lib.merge_item("ei-uranium-235-fuel","nuclear-fuel",false,true)
+ei_lib.merge_item("ei-burner-assembler","burner-assembling-machine",false,true)
 
-ei_lib.recipe_swap("concrete", "iron-ore", "ei-iron-beam")
-ei_lib.recipe_swap("refined-concrete", "ei-copper-mechanical-parts", "ei-steel-beam")
+
+
+
 
 --ei_lib.enable_from_start("iron-stick")
 --ei_lib.enable_from_start("iron-gear-wheel")

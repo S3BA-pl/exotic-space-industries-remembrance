@@ -352,6 +352,7 @@ commands.add_command("goto-fulgora", "Teleport to Fulgoras's surface", function(
     player.teleport(position, surface)
     ei_lib.crystal_echo("✈ [Astral Transit] — " .. player.name .. " arrives upon Fulgora's crust.")
 end)
+]]
 commands.add_command("goto-vulcanus", "Teleport to Vulcanus's surface", function(cmd)
     local player = game.get_player(cmd.player_index)
     if not player then return end
@@ -366,6 +367,7 @@ commands.add_command("goto-vulcanus", "Teleport to Vulcanus's surface", function
     player.teleport(position, surface)
     ei_lib.crystal_echo("✈ [Astral Transit] — " .. player.name .. " arrives upon Vulcanus' crust.")
 end)
+--[[
 commands.add_command("goto-gleba", "Teleport to Gleba's surface", function(cmd)
     local player = game.get_player(cmd.player_index)
     if not player then return end

@@ -33,7 +33,7 @@ data:extend({
         {
             {type="item", name="processing-unit", amount=20},
             {type="item", name="ei-advanced-motor", amount=8},
-            {type="item", name="steel-plate", amount=16},
+            {type="item", name="ei-steel-beam", amount=8},
             {type="item", name="ei-gold-ingot", amount=16},
             {type="item", name="ei-simulation-data", amount=20},
             {type="item", name="beacon", amount=1}

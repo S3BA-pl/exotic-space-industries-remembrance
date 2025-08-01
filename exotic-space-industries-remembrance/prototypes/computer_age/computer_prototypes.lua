@@ -3154,6 +3154,81 @@ data:extend({
     results = {{type="item", name="rocket-part", amount=1}},
     allow_productivity = true
     },
+
+  {
+    type = "recipe",
+    name = "ei-thruster-oxidizer",
+    category = "chemistry",
+    subgroup="space-processing",
+    order = "c[thruster-oxidizer]",
+    auto_recycle = false,
+    enabled = false,
+    ingredients =
+    {
+      {type = "item", name = "ei-poor-iron-chunk", amount = 6},
+      {type = "fluid", name = "water", amount = 10}
+    },
+    surface_conditions =
+    {
+      {
+        property = "gravity",
+        min = 0,
+        max = 0
+      }
+    },
+    energy_required = 2.5,
+    results = {{type = "fluid", name = "thruster-oxidizer", amount = 75}},
+    allow_productivity = true,
+    show_amount_in_title = false,
+    always_show_products = true,
+    crafting_machine_tint =
+    {
+      primary = {r = 0.082, g = 0.396, b = 0.792, a = 0.502}, -- #1565ca80
+      secondary = {r = 0.161, g = 0.553, b = 0.796, a = 0.502}, -- #298dcb80
+      tertiary = {r = 0.059, g = 0.376, b = 0.545, a = 0.502}, -- #0f5f8a80
+      quaternary = {r = 0.683, g = 0.915, b = 1.000, a = 0.502}, -- #aee9ff80
+    }
+  },
+  {
+    type = "recipe",
+    name = "ei-advanced-thruster-oxidizer",
+    icon = "__space-age__/graphics/icons/advanced-thruster-oxidizer.png",
+    category = "chemistry",
+    subgroup = "space-processing",
+    order = "d[advanced-thruster-oxydizer]",
+    auto_recycle = false,
+    enabled = false,
+    ingredients =
+    {
+      {type = "item", name = "ei-poor-iron-chunk", amount = 6},
+      {type = "item", name = "calcite", amount = 1},
+      {type = "fluid", name = "water", amount = 100}
+    },
+    surface_conditions =
+    {
+      {
+        property = "gravity",
+        min = 0,
+        max = 0
+      }
+    },
+    energy_required = 12.5,
+    results =
+    {
+      {type = "fluid", name = "thruster-oxidizer", amount = 1500},
+    },
+    allow_productivity = true,
+    always_show_products = true,
+    show_amount_in_title = false,
+    allow_decomposition = false,
+    crafting_machine_tint =
+    {
+      primary = {r = 0.082, g = 0.396, b = 0.792, a = 0.502}, -- #1565ca80
+      secondary = {r = 0.161, g = 0.553, b = 0.796, a = 0.502}, -- #298dcb80
+      tertiary = {r = 0.059, g = 0.376, b = 0.545, a = 0.502}, -- #0f5f8a80
+      quaternary = {r = 0.683, g = 0.915, b = 1.000, a = 0.502}, -- #aee9ff80
+    }
+  },
 })
 
 
@@ -3183,7 +3258,7 @@ table.insert(data.raw["technology"]["military-4"].effects, {
     recipe = "ei-compound-ammo"
 })
 --steam all the way in space :v Sassxolotl
-table.insert
-	(data.raw["technology"]["space-platform"].effects, {type = "unlock-recipe", recipe = "ei-space-steam-1"})
-table.insert
-	(data.raw["technology"]["space-platform-thruster"].effects, {type = "unlock-recipe", recipe = "ei-space-steam-2"})
+table.insert(data.raw["technology"]["space-platform"].effects, {type = "unlock-recipe", recipe = "ei-space-steam-1"})
+table.insert(data.raw["technology"]["space-platform-thruster"].effects, {type = "unlock-recipe", recipe = "ei-space-steam-2"})
+table.insert(data.raw["technology"]["space-platform-thruster"].effects, {type = "unlock-recipe", recipe = "ei-thruster-oxidizer"})
+table.insert(data.raw["technology"]["advanced-asteroid-processing"].effects, {type = "unlock-recipe", recipe = "ei-advanced-thruster-oxidizer"})

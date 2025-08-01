@@ -97,13 +97,14 @@ end
 -- =======================================================================================
 
 -- List of base machine types to modify
+--[[
 local base_machine_types = {
   "assembling-machine",
   "furnace",
   "mining-drill"
 }
 
---[[
+
 -- Loop through each base machine type and set match_animation_speed_to_activity to false
 for _, machine_type in pairs(base_machine_types) do
   if data.raw[machine_type] then

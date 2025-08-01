@@ -19,14 +19,37 @@ end
 
 --MINING
 ------------------------------------------------------------------------------------------------------
-
+local oreswaps = {
+    ["iron-ore"] = "ei-poor-iron-chunk",
+    ["copper-ore"] = "ei-poor-copper-chunk"
+}
 -- set output of copper and iron ore to ore chunks
-ei_lib.raw["resource"]["iron-ore"].minable.result = "ei-poor-iron-chunk"
-ei_lib.raw["resource"]["copper-ore"].minable.result = "ei-poor-copper-chunk"
+for _,patch in pairs(data.raw.resource) do
+    if patch and patch.minable then
+        if patch.minable.result then
+            if oreswaps[patch.minable.result] then
+                log("ei oreswap: swapping: "..patch.minable.result.." for: "..oreswaps[patch.minable.result].." in patch: "..patch.name)
+                patch.minable.result = oreswaps[patch.minable.result]
+            end
+        elseif patch.minable.results then
+            for _,resource in pairs(patch.minable.results) do
+                if oreswaps[resource] then
+                    log("ei oreswap: swapping: "..resource.." for: "..oreswaps[resource].." in patch: "..patch)
+                    resource = oreswaps[resource]
+                end
+            end
+        end
+    end
+end
 
---Fulgora ruins, scrap recycling
+--ei_lib.raw["resource"]["iron-ore"].minable.result = "ei-poor-iron-chunk"
+--ei_lib.raw["resource"]["copper-ore"].minable.result = "ei-poor-copper-chunk"
+
+
+--Fulgora ruins, scrap recycling, previously below, can now be handled with merge_item
 -----------------------------------------------------------------------------------------------------
-local replaced = {
+--[[
+replaced = {
     ["iron-gear-wheel"] = "ei-iron-mechanical-parts",
     ["iron-stick"] = "ei-iron-beam"
 }
@@ -54,7 +77,7 @@ for i, result in ipairs(ei_lib.raw.recipe["scrap-recycling"].results) do
         end
     end
 end
-
+]]
 --[[
 table.insert(data.raw['simple-entity']['fulgurite'].minable.results, {
   amount_max = 1,
@@ -64,16 +87,28 @@ table.insert(data.raw['simple-entity']['fulgurite'].minable.results, {
 })
 ]]
 
---MINING
 ------------------------------------------------------------------------------------------------------
 
 -- set furnace result inv to 2, when they have the smelting crafting category
 for i,v in pairs(data.raw["furnace"]) do
     if v.crafting_categories[1] == "smelting" then
         ei_lib.raw["furnace"][i].result_inventory_size = 2
+        if v.energy_source then
+            if v.energy_source.fuel_categories then
+                table.insert(v.energy_source.fuel_categories,"ei-rocket-fuel")
+            end
+        end
     end
 end
-
+for _,reactor in pairs(data.raw.reactor) do
+    if reactor and reactor.energy_source then
+        if reactor.energy_source.type == "burner" then
+            if ei_lib.table_contains_value(reactor.energy_source.fuel_categories,"chemical") then
+                table.insert(reactor.energy_source.fuel_categories,"ei-rocket-fuel")
+            end
+        end
+    end
+end
 
 --RECIPES
 ------------------------------------------------------------------------------------------------------
@@ -1004,7 +1039,7 @@ local t = {
     "car"
 }
 for _,ent in pairs(t) do
-    local target = ei_lib.raw.car.ent
+    local target = data.raw.car[ent]
     if target and target.energy_source and target.energy_source.fuel_categories then
         for _,f in pairs(t_extra_fuels) do
             table.insert(target.energy_source.fuel_categories,f)
@@ -1423,6 +1458,12 @@ ei_lib.raw["container"]["wooden-chest"].inventory_size = 8
 ei_lib.raw["container"]["iron-chest"].inventory_size = 12
 ei_lib.raw["container"]["steel-chest"].inventory_size = 16
 
+ei_lib.patch_nested_value(
+  data.raw["electric-turret"]["laser-turret"],
+  "attack_parameters.ammo_type.action.action_delivery[1].max_length",
+  30
+)
+
 --Modify laser turrets for extended range and lowered damage
 ei_lib.raw["electric-turret"]["laser-turret"] = {
     attack_parameters = {
@@ -1431,11 +1472,6 @@ ei_lib.raw["electric-turret"]["laser-turret"] = {
     }
 }
 
-ei_lib.patch_nested_value(
-  data.raw["electric-turret"]["laser-turret"],
-  "attack_parameters.ammo_type.action.action_delivery[1].max_length",
-  30
-)
 
 
 --Note: Add individual stream types to provide visual differentiation for different fluids

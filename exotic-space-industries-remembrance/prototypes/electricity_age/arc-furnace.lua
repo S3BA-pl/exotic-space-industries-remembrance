@@ -66,6 +66,10 @@ data:extend({
             },
             {
                 type = "unlock-recipe",
+                recipe = "ei-molten-iron-ore"
+            },
+            {
+                type = "unlock-recipe",
                 recipe = "ei-molten-iron-plate"
             },
             {
@@ -79,6 +83,10 @@ data:extend({
             {
                 type = "unlock-recipe",
                 recipe = "ei-molten-copper-pure-ore"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-molten-copper-ore"
             },
             {
                 type = "unlock-recipe",
@@ -346,6 +354,22 @@ data:extend({
     },
     -- IRON
     {
+        name = "ei-molten-iron-ore",
+        type = "recipe",
+        category = "ei-arc-furnace",
+        energy_required = 0.33,
+        ingredients = {
+            {type = "item", name = "ei-poor-iron-chunk", amount = 3},
+        },
+        results = {
+            {type = "fluid", name = "ei-molten-iron", amount = 15},
+            {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.33,allow_productivity=false}
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-molten-iron",
+    },
+    {
         name = "ei-molten-iron-pure-ore",
         type = "recipe",
         category = "ei-arc-furnace",
@@ -411,6 +435,22 @@ data:extend({
     },
 
     -- copper
+    {
+        name = "ei-molten-copper-ore",
+        type = "recipe",
+        category = "ei-arc-furnace",
+        energy_required = 0.33,
+        ingredients = {
+            {type = "item", name = "ei-poor-copper-chunk", amount = 3},
+        },
+        results = {
+            {type = "fluid", name = "ei-molten-copper", amount = 15},
+            {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.33,allow_productivity=false}
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-molten-copper",
+    },
     {
         name = "ei-molten-copper-pure-ore",
         type = "recipe",

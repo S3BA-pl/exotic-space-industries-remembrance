@@ -1238,6 +1238,14 @@ function ei_lib.merge_item(target, item, icon_transfer, placeables)
       
       ei_lib.do_item_merge(recipe, target, item)
   end
+
+  for _,spoiler in pairs(data.raw.item) do
+    if spoiler and spoiler.spoil_result then
+      if spoiler.spoil_result == item then
+        spoiler.spoil_result = target
+      end
+    end
+  end
   --also iterate iover placeables?
   if placeables then
     local ps = {

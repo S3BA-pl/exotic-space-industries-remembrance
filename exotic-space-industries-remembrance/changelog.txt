@@ -1,4 +1,35 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.18
+Date: 8-1-2025
+  Bugfixes:
+    - Re-added rocket fuel to fuels burnable by furnaces and reactors.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.17
+Date: 8-1-2025
+  Features:
+    - Arc furnace now has recipes for turning Poor iron and copper chunks into molten equivalents, 50% increase in output over regular smelter.
+    - Added thruster oxidizer recipes using poor chunks.
+  Changes:
+    - Metalworks recipe creator will point at pre-existing localised names/descriptions if they exist.
+    - Iron gear wheels merged into iron mechanical parts.
+    - Iron sticks merged into iron beams.
+    - Surface copper and iron ores within any patch modded or otherwise now converted to poor chunks.
+    - Advanced rock asteroid crushing recipe output: Pure gold -> Gold chunks.
+    - Advanced uranium asteroid crushing recipe inputs: Sulfuric acid 20 -> 25.
+    - Advanced uranium asteroid crushing recipe outputs: Pure lead -> Lead chunks, uranium 235 5 -> 2.5% probability, uranium 238 16 -> 6% probability.
+  Bugfixes:
+    - ei_lib.merge_item now loops over bacteria items spoil_results ie Gleba bacteria will spoil into usable chunks.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.16
+Date: 7-31-2025
+  Changes:
+    - Set expanded crafting GUI startup toggle default to off.
+    - Concentrated solar tower energy production 60 -> 120 MW.
+    - Replaced iron and copper ore with chunks in all entities and recipes.
+    - Subzero phase array beacon recipe inputs: 16 Steel ingot -> 8 Steel beam.
+  Bugfixes:
+    - Fixed car/tank fusion/nuclear/rocket energy category addition.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.15
 Date: 7-30-2025
   Features:

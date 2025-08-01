@@ -297,8 +297,8 @@ table.insert(
 -- add the new recipe category to
 local recipes_to_add = {
     ["iron-plate"] = "none",
-    ["iron-gear-wheel"] = "none",
-    ["iron-stick"] = "none",
+--    ["iron-gear-wheel"] = "none",
+--    ["iron-stick"] = "none",
     ["barrel"] = "none",
     ["copper-plate"] = "none",
     ["ei-gold-ingot"] = "ei-deep-mining",
@@ -326,6 +326,12 @@ for recipe_name, tech in pairs(recipes_to_add) do
     new_recipe.name = new_recipe.name.."-metalworks"
     new_recipe.category = "ei-metalworks"
     new_recipe.hide_from_player_crafting = true
+    if recipe.localised_name then
+        new_recipe.localised_name = recipe.localised_name
+    end
+    if recipe.localised_description then
+        new_recipe.localised_description = recipe.localised_description
+    end
 
     if tech ~= "none" then
       -- add the new recipe to the tech

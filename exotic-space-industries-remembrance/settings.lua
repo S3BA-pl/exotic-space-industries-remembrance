@@ -169,7 +169,7 @@ data:extend({
       name = "ei-expanded-gui",
       type = "bool-setting",
       setting_type = "startup",
-      default_value = true,
+      default_value = false,
       order  = "c1a",
   },
   {
