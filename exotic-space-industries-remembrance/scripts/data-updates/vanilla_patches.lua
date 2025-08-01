@@ -957,6 +957,9 @@ ei_lib.raw.technology.electronics.effects = {
     },
 }
 
+ei_lib.remove_unlock_recipe("oil-processing", "basic-oil-processing")
+ei_lib.remove_unlock_recipe("oil-processing", "solid-fuel-from-petroleum-gas")
+ei_lib.remove_unlock_recipe("advanced-oil-processing", "advanced-oil-processing")
 
 -- edit electric enigne tech to use only steam age science for progression
 --ei_lib.set_age_packs("electric-engine","steam-age")

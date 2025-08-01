@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.19
+Date: 8-1-2025
+  Changes:
+    - Restored removal of Advanced oil processing.
+    - Allowed productivity for oxygen difluoride with alien resin, advanced motor from cryo dust, ei artillery shell, and fluorite from dirty water.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.18
 Date: 8-1-2025
   Bugfixes:
