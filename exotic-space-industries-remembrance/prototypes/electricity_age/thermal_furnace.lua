@@ -1,4 +1,3 @@
-local hit_effects = require("__base__.prototypes.entity.hit-effects")
 local icon_dir = ei_path.."graphics/item/"
 local sprite_dir = ei_path.."graphics/entity/thermal-furnace/"
 --From Heated Fabrication by @MrLumme

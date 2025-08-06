@@ -559,7 +559,7 @@ script.on_event(
 --60/9=x6.66 (rounded up to 7) executions/handler/second, ie 7 rounds of 10 updates per entity per 60ticks (default, customizable update length 9-6000 ticks)
 ei_update_step = 1  -- Tracks which entity type is updated next, skips first tick
 ei_update_functions = {
-    function() ei_powered_beacon.update() end,
+    function() ei_powered_beacon.update() end, --depreciated
     function() ei_powered_beacon.update_fluid_storages() end,
     function() ei_neutron_collector.update() end,
     function() ei_matter_stabilizer.update() end,
@@ -579,6 +579,8 @@ function updater(event)
        if ei_update_step == 1 then
            --Check global once per entity updater cycle
            ei_global.check_init(event)
+           --[[
+           --now handled by Nonstandard beacons
            if storage.ei and storage.ei.spaced_updates and storage.ei.spaced_updates > 0 then
                updates_needed = math.max(1,math.min(math.ceil(storage.ei.spaced_updates / divisor), ei_maxEntityUpdates))
                end
@@ -591,7 +593,7 @@ function updater(event)
                if not ei_powered_beacon.update() then
                 goto skip
                end
-           end
+            ]]
 
        elseif ei_update_step == 2 then
            if storage.ei and storage.ei.fluid_entity and storage.ei.fluid_entity_count and storage.ei.fluid_entity_count > 0 then
@@ -736,12 +738,11 @@ function on_built_entity(e)
       return
     end
 
+    --entities which can be affected by custom fluids
     if ei_powered_beacon.counts_for_fluid_handling(e["entity"]) then
         ei_register.register_fluid_entity(e["entity"])
-    end
-
     --steam pump jump-start steam
-    if e["entity"].name == "rp-steam-pump" then
+    elseif e["entity"].name == "rp-steam-pump" then
         local startsteam = {
             name="steam",
             amount=3,
@@ -753,22 +754,25 @@ function on_built_entity(e)
         end
         startsteam["amount"] = math.min(100,math.max(3,startsteam["amount"]*multi))
         e["entity"].set_fluid(2,startsteam)
-    end
-
-    if e["entity"].name == "ei-copper-beacon" then
-        local master_unit = ei_register.register_master_entity("copper_beacon", e["entity"])
-        local slave_entity = ei_register.make_slave("copper_beacon", master_unit, "ei-copper-beacon_slave", {x = 0,y = 0})
-        ei_register.link_slave("copper_beacon", master_unit, slave_entity, "slave_assembler")
-        ei_register.init_beacon("copper_beacon", master_unit)
-        ei_register.add_spaced_update()
-    end
-
-    if e["entity"].name == "ei-iron-beacon" then
-        local master_unit = ei_register.register_master_entity("copper_beacon", e["entity"])
-        local slave_entity = ei_register.make_slave("copper_beacon", master_unit, "ei-iron-beacon_slave", {x = 0,y = 0})
-        ei_register.link_slave("copper_beacon", master_unit, slave_entity, "slave_assembler")
-        ei_register.init_beacon("copper_beacon", master_unit)
-        ei_register.add_spaced_update()
+    --powered beacons
+    --[[
+    elseif e["entity"].name == "ei-copper-beacon" then
+        local master_unit, slave_entity = ei_register.setup_master_slave(
+            "copper_beacon",
+            e["entity"],
+            "ei-copper-beacon_slave",
+            "slave_assembler",
+            {x = 0, y = 0}
+        )
+    elseif e["entity"].name == "ei-iron-beacon" then
+        local master_unit, slave_entity = ei_register.setup_master_slave(
+            "copper_beacon",
+            e["entity"],
+            "ei-iron-beacon_slave",
+            "slave_assembler",
+            {x = 0, y = 0}
+        )
+    ]]
     end
 
     ei_beacon_overload.on_built_entity(e["entity"])
@@ -807,30 +811,10 @@ function on_destroyed_entity(e)
 
     if ei_powered_beacon.counts_for_fluid_handling(e["entity"]) then
         ei_register.deregister_fluid_entity(e["entity"])
-    end
-
-    if e["entity"].name == "ei-copper-beacon" then
-        local master_unit = e["entity"].unit_number
-        if not storage.ei.copper_beacon.master[master_unit] then
-            goto continue
-        end
-        local slave_entity = storage.ei.copper_beacon.master[master_unit].slaves.slave_assembler
-        ei_register.unregister_slave_entity("copper_beacon", slave_entity ,e["entity"], true)
-        ei_register.unregister_master_entity("copper_beacon", master_unit)
-        ei_register.subtract_spaced_update()
-        ::continue::
-    end
-
-    if e["entity"].name == "ei-iron-beacon" then
-        local master_unit = e["entity"].unit_number
-        if not storage.ei.copper_beacon.master[master_unit] then
-            goto continue
-        end
-        local slave_entity = storage.ei.copper_beacon.master[master_unit].slaves.slave_assembler
-        ei_register.unregister_slave_entity("copper_beacon", slave_entity ,e["entity"], true)
-        ei_register.unregister_master_entity("copper_beacon", master_unit)
-        ei_register.subtract_spaced_update()
-        ::continue::
+    --[[
+    elseif e["entity"].name == "ei-copper-beacon" or e["entity"].name == "ei-iron-beacon" then
+        ei_register.teardown_master_slave("copper_beacon", e.entity, "slave_assembler")
+        ]]
     end
 
     ei_beacon_overload.on_destroyed_entity(e["entity"], e["destroy_type"])

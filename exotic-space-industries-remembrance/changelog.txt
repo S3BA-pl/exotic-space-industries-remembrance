@@ -1,8 +1,18 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.21
-Date: 8-4-2025
+Date: 8-6-2025
+  Changes:
+    - Reduced liquid nitrogen powered beacons internal fluidbox 200 -> 100.
+    - Liquid nitrogen cooled beacons no longer require electricity.
+    - Liquid nitrogen cooled beacon fluid dual input/output connections changed to Inputs-North & West, Outputs-South & East.
+    - Subzero Phase Array Beacon liquid nitrogen consumption 1 -> 5MW.
+    - Absolute Zero Phase Array Beacon liquid nitrogen consumption 2 -> 10MW.
   Bugfixes:
+    - Switched Liquid nitrogen cooled beacons internal mechanics to implementation via Nonstandard Beacons @protocol_1903—no longer causes desyncs or gobbles UPS. Internal EI slave assembler prototypes removed. All pre-existing beacons will need to be rebuilt.
+    - Liquid nitrogen/oxygen behavior in non-insulated pipes now relates to whether game is multiplayer—SP will result in Liquid -> Gaseous phase transition, while MP results in an exploded pipe, preventing a desync.
+    - Absolute Zero Phase Array Beacon's hidden slave assembler no longer counts against beacon overload.
     - Fixed long handed inserter ingredient mod was applying to the inserter itself instead of the recipe—now properly requires steel mechanical parts instead of iron mechanical parts.
+    - Elevated pipes now count as fluid handling entities as far as being affected by heated plasma, data substrates, liquid nitrogen, etc.
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.20
 Date: 8-4-2025

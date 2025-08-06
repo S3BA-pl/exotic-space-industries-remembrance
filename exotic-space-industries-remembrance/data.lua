@@ -19,6 +19,10 @@ require("lib/paths")
 ei_lib = require("lib/lib")
 ei_data = require("lib/data")
 
+-- base globals
+sounds = require("__base__.prototypes.entity.sounds")
+hit_effects = require("__base__.prototypes.entity.hit-effects")
+
 --====================================================================================================
 --MAIN CONTENT CODE
 --====================================================================================================

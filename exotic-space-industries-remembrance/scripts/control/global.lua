@@ -96,6 +96,7 @@ function ei_global.check_init(event)
     if not storage.ei.fluid_entity then
         storage.ei.fluid_entity = {}
     end
+    --int count of fluid handling entities
     if not storage.ei.fluid_entity_count then
         storage.ei.fluid_entity_count = 0
 

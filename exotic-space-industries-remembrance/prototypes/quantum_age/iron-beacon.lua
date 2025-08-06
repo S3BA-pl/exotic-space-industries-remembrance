@@ -95,11 +95,26 @@ data:extend({
         distribution_effectivity = 0.75,
          distribution_effectivity_bonus_per_quality_level = 0.5,
         energy_source = {
-            type = "electric",
-            usage_priority = "secondary-input",
-            --input_flow_limit = "400MW",
+            type = "fluid",
+            fluid_box = {
+                volume = 100,
+                pipe_covers = pipecoverspictures(),
+                pipe_picture = ei_pipe_south_basic_insulated,
+                pipe_connections =
+                {
+                  {flow_direction = "input", direction = defines.direction.west, position = {-1, 0}},
+                  {flow_direction = "output", direction = defines.direction.east, position = {1, 0}},
+                  {flow_direction = "input", direction = defines.direction.north, position = {0, -1}},
+                  {flow_direction = "output", direction = defines.direction.south, position = {0, 1}}
+                },
+                production_type = "input",
+                filter = "ei-liquid-nitrogen"
+            },
+            effectivity = 1,
+            burns_fluid = true,
+            scale_fluid_usage = true,
         },
-        energy_usage = "5MW",
+        energy_usage = "10MW",
         module_slots = 6,
         supply_area_distance = ei_data.beacon_range,
         radius_visualisation_picture =
@@ -173,6 +188,7 @@ data:extend({
             }
         }
     },
+    --[[
     {
         name = "ei-iron-beacon_slave",
         type = "assembling-machine",
@@ -190,7 +206,7 @@ data:extend({
         energy_source = {
             type = "fluid",
             fluid_box = {
-                volume = 200,
+                volume = 100,
                 pipe_covers = pipecoverspictures(),
                 pipe_picture = ei_pipe_south_basic_insulated,
                 pipe_connections =
@@ -207,7 +223,7 @@ data:extend({
             burns_fluid = true,
             scale_fluid_usage = true,
         },
-        energy_usage = "2MW",
+        energy_usage = "5MW",
         --animation
         graphics_set = {
             animation = {
@@ -221,4 +237,5 @@ data:extend({
             }
         },
     }
+    ]]
 })

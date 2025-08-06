@@ -1,4 +1,3 @@
-local hit_effects = require("__base__.prototypes.entity.hit-effects")
 ei_lib = require("lib/lib")
 
 data:extend({

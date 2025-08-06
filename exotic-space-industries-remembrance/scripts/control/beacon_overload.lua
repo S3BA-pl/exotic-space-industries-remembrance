@@ -46,7 +46,7 @@ function model.counts_for_overload(entity)
     end
 
     -- exclude slave entities
-    if entity.name == "ei-copper-beacon_slave" then
+    if entity.name == "ei-copper-beacon-source" or entity.name == "ei-iron-beacon-source" or entity.name == "nsb-internal-manager" then --_slave
         return false
     end
 
