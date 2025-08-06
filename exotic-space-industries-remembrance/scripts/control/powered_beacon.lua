@@ -1,92 +1,131 @@
 
 local model = {}
 local ei_data = require("lib/data")
-function checkdatacount(fluid_entity)
-
+local ei_lib = require("lib/lib")
+local function check_data_count(fluid_contents)
     local data_count = 0
-    for _,current_type in pairs(ei_data.computing_types) do
-        data_count = data_count+storage.ei.fluid_entity[fluid_entity].get_fluid_count(current_type)
+    if not fluid_contents then return 0 end
+
+    for name, amount in pairs(fluid_contents) do
+        if ei_lib.table_contains_value(ei_data.computing_types, name) then
+            data_count = data_count + amount
+        end
     end
+
     return data_count
 end
+
+local function remove_fluids(entity, fluid_contents)
+    if not entity or not fluid_contents then return end
+
+    for name, amount in pairs(fluid_contents) do
+        entity.remove_fluid({ name = name, amount = amount })
+    end
+end
 function model.update_fluid_storages()
-    if not storage.ei.fluid_entity then
+    local debug = false
+    local fluid_entities = storage.ei.fluid_entity
+
+    if not fluid_entities then
+        if debug then game.print("❌ No fluid entities.") end
         return false
     end
 
-    if not storage.ei.copper_beacon then
-        return false
+    -- Initialize break index if necessary
+    if not storage.ei.fluid_break_index or next(fluid_entities) == nil then
+        storage.ei.fluid_break_index = next(fluid_entities)
     end
 
-    if not storage.ei.copper_beacon.fluid_script_break_point and next(storage.ei.fluid_entity) then
-        storage.ei.copper_beacon.fluid_script_break_point,_ = next(storage.ei.fluid_entity)
+    local index = storage.ei.fluid_break_index
+    local pipe = fluid_entities[index]
+
+    if not (index and pipe and pipe.valid) then
+        -- Advance to next valid entry
+        local next_index = next(fluid_entities, index)
+        storage.ei.fluid_break_index = next_index or next(fluid_entities)
+        return
     end
 
-    local i = storage.ei.copper_beacon.fluid_script_break_point
+    local name = pipe.name
+    local fluids = pipe.get_fluid_contents()
+    local should_destroy = false
 
-    -- if this is an insulated pipe let it explode for "ei-computing-power" only
-    -- for hot coolant let pipe explode, liquid-nitrogen turns into nitrogen-gas
-    if storage.ei.fluid_entity[i] and storage.ei.fluid_entity[i].valid then
-        local nitrogen_count = storage.ei.fluid_entity[i].get_fluid_count("ei-liquid-nitrogen")
-        local data_count = checkdatacount(i)
-        local oxygen_count = storage.ei.fluid_entity[i].get_fluid_count("ei-liquid-oxygen")
+    if debug then
+        game.print("🔍 Processing fluid entity: " .. name)
+    end
 
-        -- is this an insulated pipe?
-        if string.sub(storage.ei.fluid_entity[i].name, 1, 12) == "ei-insulated" then
+    local is_data_pipe = string.sub(name, 1, 7) == "ei-data"
 
-            if data_count > 0 then
-                -- clear and boom
-                storage.ei.fluid_entity[i].remove_fluid({name = "ei-computing-power", amount = data_count})
-                storage.ei.fluid_entity[i].die(storage.ei.fluid_entity[i].force)
-            end
+    local data_count = check_data_count(fluids)
 
-            goto continue
+    -- ❌ Data in wrong pipe
+    if data_count > 0 and not is_data_pipe then
+        remove_fluids(pipe, fluids)
+        should_destroy = true
 
-        end
-
-        -- get count for plasma stuff: fluids named "ei-heated-" are considered plasma
-        local fluid_contents = storage.ei.fluid_entity[i].get_fluid_contents()
-
-        if nitrogen_count > 0 then
-            -- clear liquid-nitrogen from pipe and add nitrogen-gas to pipe with same amount
-            storage.ei.fluid_entity[i].remove_fluid({name = "ei-liquid-nitrogen", amount = nitrogen_count})
-            storage.ei.fluid_entity[i].insert_fluid({name = "ei-nitrogen-gas", amount = nitrogen_count})
-
-            -- storage.ei.fluid_entity[i].die(storage.ei.fluid_entity[i].force)
-        end
-
-        if oxygen_count > 0 then
-            -- clear liquid-nitrogen from pipe and add nitrogen-gas to pipe with same amount
-            storage.ei.fluid_entity[i].remove_fluid({name = "ei-liquid-oxygen", amount = oxygen_count})
-            storage.ei.fluid_entity[i].insert_fluid({name = "ei-oxygen-gas", amount = oxygen_count})
-
-            -- storage.ei.fluid_entity[i].die(storage.ei.fluid_entity[i].force)
-        end
-
-        if data_count > 0 then
-            -- clear and boom
-            storage.ei.fluid_entity[i].remove_fluid({name = "ei-liquid-nitrogen", amount = nitrogen_count})
-            storage.ei.fluid_entity[i].die(storage.ei.fluid_entity[i].force)
-        end
-
-        for fluid_name, fluid_amount in pairs(fluid_contents) do
-            if string.find(fluid_name, "ei-heated-") then
-                -- clear and boom
-                storage.ei.fluid_entity[i].remove_fluid({name = fluid_name, amount = fluid_amount})
-                storage.ei.fluid_entity[i].die(storage.ei.fluid_entity[i].force)
+    -- ❌ Non-data in data pipe
+    elseif is_data_pipe then
+        for fname, famount in pairs(fluids) do
+            if famount > 0 and not ei_lib.table_contains_value(ei_data.computing_types, fname) then
+                remove_fluids(pipe, fluids)
+                should_destroy = true
+                break
             end
         end
 
-        ::continue::
+    -- ✅ Insulated pipe, ignore
+    elseif string.sub(name, 1, 12) == "ei-insulated" then
+        -- No action
+
+    else
+        local fluidboxes = pipe.fluids_count
+        local i = 1
+        -- ☢️ Transform cryo-fluids and destroy heated ones
+        if fluids["ei-liquid-nitrogen"] and fluids["ei-liquid-nitrogen"] > 0 then
+            local amt = fluids["ei-liquid-nitrogen"]
+            while i<=fluidboxes do
+                pipe.remove_fluid({ name = "ei-liquid-nitrogen", amount = amt })
+                pipe.set_fluid(i,{ name = "ei-nitrogen-gas", amount = amt })
+                i=i+1
+            end
+
+        elseif fluids["ei-liquid-oxygen"] and fluids["ei-liquid-oxygen"] > 0 then
+            local amt = fluids["ei-liquid-oxygen"]
+            while i<=fluidboxes do
+                pipe.remove_fluid({ name = "ei-liquid-oxygen", amount = amt })
+                pipe.set_fluid(i,{ name = "ei-oxygen-gas", amount = amt })
+                i=i+1
+            end
+        else
+            for fname, _ in pairs(fluids) do
+                if string.sub(fname, 1, 10) == "ei-heated-" then
+                    remove_fluids(pipe, fluids)
+                    should_destroy = true
+                    break
+                end
+            end
+        end
     end
 
-    if next(storage.ei.fluid_entity, i) then
-        storage.ei.copper_beacon.fluid_script_break_point,_ = next(storage.ei.fluid_entity, i)
-    else 
-        storage.ei.copper_beacon.fluid_script_break_point,_ = next(storage.ei.fluid_entity)
+    -- 💥 Destroy pipe if marked
+    if should_destroy then
+        local is_infinite = string.sub(name, 1, 13) == "infinity-pipe"
+        if not is_infinite then
+            local pos = pipe.position
+            game.print({ "exotic-industries.incompatible-pipe", pipe.surface.name, pos.x, pos.y, name })
+            ei_lib.crystal_echo_floating("❌ Incompatible pipe", pipe, 6000, "wrath")
+            pipe.die(pipe.force)
+        end
     end
+
+    -- 🔁 Advance breakpoint
+    local next_index = next(fluid_entities, index)
+    storage.ei.fluid_break_index = next_index or next(fluid_entities)
+
     return true
 end
+
+
 
 function model.update()
     if not storage.ei.copper_beacon.master then
@@ -158,10 +197,12 @@ function model.counts_for_fluid_handling(entity)
     -- checks if given entity should be treated as fluid handling entity
     if (entity.type == "pipe" or entity.type == "storage-tank" or entity.type == "pipe-to-ground") then
         -- dont count special pipes
-        -- if (string.sub(entity.name, 1, 12) == "ei-insulated" or string.sub(entity.name, 1, 7) == "ei-data") then
-        if string.sub(entity.name, 1, 7) == "ei-data" then
-            return false
-        end
+        --may need this to return true since the additional data substrates required 
+        --removing the filter only allowing computing power meaning technically
+        --any fluid can get into the data pipe
+        --if string.sub(entity.name, 1, 7) == "ei-data" then
+        --    return false
+        --end
 
         return true
     end

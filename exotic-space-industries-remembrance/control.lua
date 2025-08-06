@@ -21,8 +21,8 @@ local ei_full_gaia_map_gen_settings = require("prototypes/alien_structures/refor
 
 local ei_tech_scaling = require("scripts/control/tech_scaling")
 local ei_global = require("scripts/control/global")
-local ei_register = require("scripts/control/register_util")
-local ei_powered_beacon = require("scripts/control/powered_beacon")
+ei_register = require("scripts/control/register_util")
+ei_powered_beacon = require("scripts/control/powered_beacon")
 local ei_beacon_overload = require("scripts/control/beacon_overload")
 local ei_spidertron_limiter = require("scripts/control/spidertron_limiter")
 
@@ -80,7 +80,7 @@ script.on_init(function(event)
     end
     -- setup storage table
     ei_global.init()
-    ei_global.check_init()
+    ei_global.check_init(event)
 
     -- init other
     ei_tech_scaling.init()
@@ -309,20 +309,22 @@ function surface_contains_any_resources(surface)
 end
 
 
---[[
+
 -- Debugs proclaim
 commands.add_command("codex_test", "Triggers a test echo message from echo_codex", function(cmd)
     ei_echo_codex.proclaim("que_width", {
         val = 6,
-        tint = "solar flare",           -- must match a key in your tint_palette
-        tint_adj = "radiant",           -- optional
+        --tint = "solar flare",           -- must match a key in your tint_palette
+        --tint_adj = "radiant",           -- optional
         player = cmd.player_index,      -- critical: sets who receives the message
         intent = "signal",              -- optional: activates fallback tint if tint=nil
         font = "default",               -- optional
         force_full_tint = false,        -- optional
-        as_floating_text = false        -- set to true for draw_text
+        as_floating_text = true,        -- set to true for draw_text
+        floating_time_to_live = 6000
     })
 end)
+--[[
 --Uncomment me to teleport to Gaia to test reforge_gaia_surface produced valid result :)
 commands.add_command("goto-gaia", "Teleport to Gaia's surface", function(cmd)
     local player = game.get_player(cmd.player_index)
@@ -338,6 +340,8 @@ commands.add_command("goto-gaia", "Teleport to Gaia's surface", function(cmd)
     player.teleport(position, surface)
     ei_lib.crystal_echo("✈ [Astral Transit] — " .. player.name .. " arrives upon Gaia’s crust.")
 end)
+]]
+--[[
 commands.add_command("goto-fulgora", "Teleport to Fulgoras's surface", function(cmd)
     local player = game.get_player(cmd.player_index)
     if not player then return end
@@ -353,6 +357,7 @@ commands.add_command("goto-fulgora", "Teleport to Fulgoras's surface", function(
     ei_lib.crystal_echo("✈ [Astral Transit] — " .. player.name .. " arrives upon Fulgora's crust.")
 end)
 ]]
+--[[
 commands.add_command("goto-vulcanus", "Teleport to Vulcanus's surface", function(cmd)
     local player = game.get_player(cmd.player_index)
     if not player then return end
@@ -367,6 +372,7 @@ commands.add_command("goto-vulcanus", "Teleport to Vulcanus's surface", function
     player.teleport(position, surface)
     ei_lib.crystal_echo("✈ [Astral Transit] — " .. player.name .. " arrives upon Vulcanus' crust.")
 end)
+]]
 --[[
 commands.add_command("goto-gleba", "Teleport to Gleba's surface", function(cmd)
     local player = game.get_player(cmd.player_index)
@@ -511,11 +517,11 @@ end
 
 
 script.on_configuration_changed(function(e)
-    ei_global.check_init() --Crystal_echo will fail without global color table
+    ei_global.check_init(e) --Crystal_echo will fail without global color table
     ei_compat.check_init(e)
     ei_echo_codex.handle_global_settings(e)
     em_trains.check_global() --no nil tables
-    em_trains.check_buffs() --updates global buff vals
+    em_trains.check_buffs(e) --updates global buff vals
     em_trains.printBuffStatus()
     em_trains.reinitialize_chargers() --applies updated buffs
     em_trains.reinitialize_trains()
@@ -572,7 +578,7 @@ function updater(event)
    if ei_update_step < 5 then -- Reduces the average number of `if` checks
        if ei_update_step == 1 then
            --Check global once per entity updater cycle
-           ei_global.check_init()
+           ei_global.check_init(event)
            if storage.ei and storage.ei.spaced_updates and storage.ei.spaced_updates > 0 then
                updates_needed = math.max(1,math.min(math.ceil(storage.ei.spaced_updates / divisor), ei_maxEntityUpdates))
                end
@@ -588,19 +594,18 @@ function updater(event)
            end
 
        elseif ei_update_step == 2 then
-           if storage.ei and storage.ei.spaced_updates and storage.ei.spaced_updates > 0 then
-               updates_needed = math.max(1,math.min(math.ceil(storage.ei.spaced_updates / divisor), ei_maxEntityUpdates))
-               end
-           updates_needed = math.min(math.ceil(storage.ei.spaced_updates / divisor), ei_maxEntityUpdates)
-           for i = 1, updates_needed do
-               if storage.ei and storage.ei.spaced_updates and
-               math.max(1,math.min(math.ceil(storage.ei.spaced_updates / divisor), ei_maxEntityUpdates)) ~= updates_needed then
-                   goto skip
-                   end
-               if not ei_powered_beacon.update_fluid_storages() then
-                goto skip
-               end
-           end
+           if storage.ei and storage.ei.fluid_entity and storage.ei.fluid_entity_count and storage.ei.fluid_entity_count > 0 then
+               updates_needed = math.max(1,math.min(math.ceil(storage.ei.fluid_entity_count / divisor), ei_maxEntityUpdates))
+               for i = 1, updates_needed do
+                    if storage.ei and storage.ei.fluid_entity and storage.ei.fluid_entity_count and
+                    math.max(1,math.min(math.ceil(storage.ei.fluid_entity_count / divisor), ei_maxEntityUpdates)) ~= updates_needed then
+                        goto skip
+                        end
+                    if not ei_powered_beacon.update_fluid_storages() then
+                        goto skip
+                    end
+                end
+            end
 
        elseif ei_update_step == 3 then
            if storage.ei and storage.ei["neutron_sources"] and ei_lib.getn(storage.ei["neutron_sources"]) then

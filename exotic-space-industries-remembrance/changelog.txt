@@ -1,8 +1,59 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.21
+Date: 8-4-2025
+  Bugfixes:
+    - Fixed long handed inserter ingredient mod was applying to the inserter itself instead of the recipe—now properly requires steel mechanical parts instead of iron mechanical parts.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.20
+Date: 8-4-2025
+  Features:
+    - Pipes exploding due to incompatible fluids now display a floating message and print to console.
+    - New icons created for Uranium-235 fuel cell (Nuclear fuel) and Depleted Uranium-235 fuel cell.
+  Changes:
+    - Externalized rocket part assembly from silo—fuel is now added during parts production, alternate recipes created for High energy fueling.
+    - Forbid productivity module in Rocket silo.
+    - Rocket part productivity technology now affects externalized Rocket parts production instead of Rocket assembly.
+    - Renamed in-silo Rocket part -> Assembled rocket section.
+    - Renamed Rocket parts -> Rocket part.
+    - Enforced 100 part requirement in Rocket silo.
+    - Rocket silo module slots: 4 -> 6.
+    - Rocket silo energy usage 250kW -> 1MW.
+    - Rocket silo launching energy usage 3990 -> 7980kW.
+    - Nuclear reactor fuel effectivity 200 -> 100%.
+    - Uranium fuel cell recipe removed.
+    - Nuclear fuel renamed Uranium-235 fuel cell.
+    - Uranium-235 fuel cell stack size 1 -> 20.
+    - Uranium-235 fuel cell top speed multiplier 115 -> 125%.
+    - Depleted uranium fuel cell renamed Depleted uranium-235 fuel cell.
+    - Depleted uranium-235 fuel cell stack size 50 -> 20.
+    - Renamed Used fuel rods -> Depleted fuel rods.
+    - Uranium-235 fuel cell now returns Depleted uranium-235 fuel cell.
+    - Removed Nuclear fuel reprocessing technology.
+    - Moved Depleted uranium-235 fuel cell reprocessing recipe to Uranium 235 recycling technology.
+    - Uranium-235 fuel cell reprocessing recipe inputs: Additionally requires 15 Nitric acid.
+    - Uranium-235 fuel cell reprocessing recipe outputs: 3 Uranium-238 - > 15 Uranium 235 fission products solution, additionally yields 1 Nuclear waste at 33% probability.
+    - Portable fission reactor recipe inputs: 4 Uranium fuel cell -> 6 Uranium-235 fuelrod.
+    - Uranium-235 fuelcell recipe inputs: Additionally requires 1 Lead ingot, 4 Ceramic and 1 Uranium 238.
+    - Renamed Advanced oil processing to Advanced oil byproduct processing and rewrote description.
+    - Removed Advanced oil processing, Iron gear wheel, and Iron stick recipes from Factoripedia.
+  Bugfixes:
+    - Charger check_buffs no longer checks against nil field loading test scenario.
+    - Steel gear wheel merges properly into Steel mechanical parts.
+    - Disallowed productivity on Advanced bots.
+    - Reverted method of swapping burner assembler for ei burner assembler in recipes which precluded Lignumis loading.
+    - Nuclear fuel recipe no longer creates Uranium 235 fuel rods.
+    - powered_beacon.update_fluid_storages() doesn't prevent itself from running without beacons.
+    - powered_beacon.update_fluid_storages() properly explodes pipes with data substrates and data cables with fluids.
+    - powered_beacon.update_fluid_storages() properly degrades liquid nitrogen/oxygen -> nitrogen/oxygen gas if it's not in an insulated pipe.
+    - powered_beacon.update_fluid_storages() properly explodes non-insulated pipes which contain heated plasma.
+    - Prevented infinity-pipe from impossible destruction attempts by powered_beacon.update_fluid_storages() preventing invalid breakpoints.
+    - Deleting KR Singularity beacon correctly counts for removing 2 beacons from nearby machines overload count.
+    - Space crusher actually able to do EI crusher recipes.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.19
 Date: 8-1-2025
   Changes:
-    - Restored removal of Advanced oil processing.
+    - Restored removal of unlock for Advanced oil processing recipe.
     - Allowed productivity for oxygen difluoride with alien resin, advanced motor from cryo dust, ei artillery shell, and fluorite from dirty water.
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.18

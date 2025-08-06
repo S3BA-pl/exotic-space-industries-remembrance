@@ -913,7 +913,7 @@ data:extend({
         results = {
             {type = "fluid", name = "ei-morphium", amount = 10},
             {type = "item", name = "ei-energy-crystal", amount = 1, probability = 0.05,allow_productivity=false},
-            {type = "fluid", name = "ei-bio-sludge", amount_min = 1,amount_max=2,amount_max=3,probability=0.002,allow_productivity=false},
+            {type = "fluid", name = "ei-bio-sludge", amount_min = 1,amount_max=3,probability=0.002,allow_productivity=false},
         },
         always_show_made_in = true,
         icon = ei_graphics_fluid_path.."diluted-morphium.png",
@@ -1333,7 +1333,27 @@ data:extend({
             {type="item", name="low-density-structure", amount=2},
             {type="item", name="ei-steel-mechanical-parts", amount=5},
             {type="item", name="ei-insulated-wire", amount=2},
-            {type="item",name="ei-copper-beam",amount=1}
+            {type="item",name="ei-copper-beam",amount=1},
+            {type = "item", name = "rocket-fuel", amount = 20}
+        },
+        results = {{type="item", name="ei-rocket-parts", amount=1}},
+        enabled = false,
+        always_show_made_in = true,
+        main_product = "ei-rocket-parts",
+    },
+    {
+        name = "ei-rocket-parts-advanced",
+        type = "recipe",
+        category = "crafting",
+        energy_required = 10,
+        ingredients =
+        {
+            {type="item", name="ei-rocket-control-unit", amount=1},
+            {type="item", name="low-density-structure", amount=2},
+            {type="item", name="ei-steel-mechanical-parts", amount=5},
+            {type="item", name="ei-insulated-wire", amount=2},
+            {type="item",name="ei-copper-beam",amount=1},
+            {type = "item", name = "ei-advanced-rocket-fuel", amount = 5}
         },
         results = {{type="item", name="ei-rocket-parts", amount=1}},
         enabled = false,
@@ -2737,7 +2757,7 @@ data:extend({
             },
             {
                 type = "unlock-recipe",
-                recipe = "ei-rocket-assembly-high-energy"
+                recipe = "ei-rocket-parts-advanced"
             },
         },
         unit = {
@@ -3138,29 +3158,13 @@ data:extend({
         },
         age = "computer-age"
     },
-    {
-    type = "recipe",
-    name = "ei-rocket-assembly-high-energy",
-    energy_required = 3,
-    enabled = false,
-    hide_from_player_crafting = true,
-    auto_recycle = false,
-    category = "rocket-building",
-    ingredients =
-    {
-	{type = "item", name = "ei-rocket-parts", amount = 1},
-	{type = "item", name = "ei-advanced-rocket-fuel", amount = 5}
-    },
-    results = {{type="item", name="rocket-part", amount=1}},
-    allow_productivity = true
-    },
 
   {
     type = "recipe",
     name = "ei-thruster-oxidizer",
     category = "chemistry",
     subgroup="space-processing",
-    order = "c[thruster-oxidizer]",
+    order = "c[thruster-oxidizer]2",
     auto_recycle = false,
     enabled = false,
     ingredients =
@@ -3195,7 +3199,7 @@ data:extend({
     icon = "__space-age__/graphics/icons/advanced-thruster-oxidizer.png",
     category = "chemistry",
     subgroup = "space-processing",
-    order = "d[advanced-thruster-oxydizer]",
+    order = "d[advanced-thruster-oxydizer]2",
     auto_recycle = false,
     enabled = false,
     ingredients =

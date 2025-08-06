@@ -45,7 +45,7 @@ function model.register_fluid_entity(entity)
     if not check_init("fluid_entity") then
         return
     end
-
+    storage.ei.fluid_entity_count = storage.ei.fluid_entity_count+1
     storage.ei["fluid_entity"][entity.unit_number] = entity
 end
 
@@ -53,7 +53,7 @@ function model.deregister_fluid_entity(entity)
     if not check_init("fluid_entity") then
         return
     end
-
+    storage.ei.fluid_entity_count = math.max(0,storage.ei.fluid_entity_count-1)
     storage.ei["fluid_entity"][entity.unit_number] = nil
 end
 
@@ -273,9 +273,7 @@ function model.add_spaced_update()
 end
 
 function model.subtract_spaced_update()
-    if storage.ei.spaced_updates >= 1 then 
-        storage.ei.spaced_updates = storage.ei.spaced_updates - 1
-    end
+    storage.ei.spaced_updates = math.max(0,storage.ei.spaced_updates - 1)
 end
 
 function model.add_limited_update()

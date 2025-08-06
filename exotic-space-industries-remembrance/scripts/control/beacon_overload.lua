@@ -364,7 +364,7 @@ function model.on_destroyed_entity(entity, destroy_type)
     if entity.type == "beacon" then
         local beacon_value = 1
         
-        if entity.name == "ei-iron-beacon" then
+        if entity.name == "ei-iron-beacon" or entity.name == "kr-singularity-beacon" then
             beacon_value = 2
         end
 

@@ -1746,6 +1746,26 @@ data:extend({
             {type="item", name="ei-steel-mechanical-parts", amount=8},
             {type="item", name="ei-insulated-wire", amount=6},
             {type="item", name="ei-odd-plating", amount=4},
+            {type="item", name="rocket-fuel", amount=20},
+        },
+        results = {{type="item", name="ei-rocket-parts", amount=4}},
+        enabled = false,
+        always_show_made_in = true,
+        main_product = "ei-rocket-parts",
+    },
+    {
+        name = "ei-rocket-parts-odd-plating-advanced",
+        type = "recipe",
+        category = "crafting",
+        energy_required = 10,
+        ingredients =
+        {
+            {type="item", name="ei-rocket-control-unit", amount=1},
+            {type="item", name="ei-carbon-structure", amount=2},
+            {type="item", name="ei-steel-mechanical-parts", amount=8},
+            {type="item", name="ei-insulated-wire", amount=6},
+            {type="item", name="ei-odd-plating", amount=4},
+            {type="item", name="ei-advanced-rocket-fuel", amount=5},
         },
         results = {{type="item", name="ei-rocket-parts", amount=4}},
         enabled = false,
@@ -2324,6 +2344,10 @@ data:extend({
             {
                 type = "unlock-recipe",
                 recipe = "ei-rocket-parts-odd-plating"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-rocket-parts-odd-plating-advanced"
             },
         },
         unit = {

@@ -179,8 +179,7 @@ function echo_codex.proclaim(category, data)
         data.force_full_tint or false,
         data.intent or nil,
         data.as_floating_text or false,
-        data.floating_timetolive or nil,
-        math.random(1,6553600)
+        data.floating_timetolive or nil
     )
 end
 

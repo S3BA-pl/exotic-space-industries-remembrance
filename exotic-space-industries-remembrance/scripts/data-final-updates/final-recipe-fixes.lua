@@ -67,6 +67,7 @@ local recipes = {
     "ei-advanced-motor",
 	"ei-advanced-motor-cryo",
     "ei-rocket-parts",
+	"ei-rocket-parts-advanced",
     "ei-dark-age-tech",
     "ei-steam-age-tech",
     "ei-electricity-age-tech",
@@ -82,6 +83,7 @@ local recipes = {
     "ei-advanced-rocket-fuel",
     "ei-plastic-crushed-coke",
     "ei-rocket-parts-odd-plating",
+	"ei-rocket-parts-odd-plating-advanced",
     "ei-insulated-wire",
     "firearm-magazine",
     "piercing-rounds-magazine",
@@ -145,32 +147,35 @@ ei_lib.recipe_swap("refined-concrete", "ei-copper-mechanical-parts", "ei-steel-b
 
 -- fix recipes that need vanilla iron-ore, copper-ore or iron-gear-wheel/iron-stick
 -- loop over all recipes
---[[
+
 for name,recipe in pairs(data.raw.recipe) do
     --ei_lib.recipe_swap(name, "iron-ore", "ei-poor-iron-chunk")
     --ei_lib.recipe_swap(name, "copper-ore", "ei-poor-copper-chunk")
-    ei_lib.recipe_swap(name, "iron-gear-wheel", "ei-iron-mechanical-parts")
-    ei_lib.recipe_swap(name, "steel-gear-wheel", "ei-steel-mechanical-parts")
-    ei_lib.recipe_swap(name, "iron-stick", "ei-iron-beam")
-    ei_lib.recipe_swap(name, "nuclear-fuel", "ei-uranium-235-fuel")
+    --ei_lib.recipe_swap(name, "iron-gear-wheel", "ei-iron-mechanical-parts")
+
+    --ei_lib.recipe_swap(name, "iron-stick", "ei-iron-beam")
+    --ei_lib.recipe_swap(name, "nuclear-fuel", "ei-uranium-235-fuel")
+	ei_lib.recipe_swap(name,"uranium-fuel-cell","ei-uranium-235-fuel")
     ei_lib.recipe_swap(name, "burner-assembling-machine", "ei-burner-assembler")
 end
-]]
+
 --recipes and placeables + simple entities ie vulcanus rocks bacteria
+
 ei_lib.merge_item("ei-iron-chunk","iron-ore",false,true)
 ei_lib.merge_item("ei-copper-chunk","copper-ore",false,true)
+ei_lib.merge_item("ei-steel-mechanical-parts", "steel-gear-wheel", false)
 ei_lib.merge_item("ei-iron-mechanical-parts","iron-gear-wheel",false,true)
 ei_lib.merge_item("ei-iron-beam","iron-stick",false,true)
-ei_lib.merge_item("ei-uranium-235-fuel","nuclear-fuel",false,true)
-ei_lib.merge_item("ei-burner-assembler","burner-assembling-machine",false,true)
+--ei_lib.merge_item("ei-uranium-235-fuel","nuclear-fuel",false,true)
+--ei_lib.merge_item("ei-burner-assembler","burner-assembling-machine",false,true)
 
 
-
-
-
---ei_lib.enable_from_start("iron-stick")
---ei_lib.enable_from_start("iron-gear-wheel")
-
+ei_lib.raw.recipe["iron-gear-wheel"].hidden = true
+ei_lib.raw.recipe["iron-stick"].hidden = true
+local sg = ei_lib.raw.recipe["steel-gear-wheel"] or ei_lib.raw.recipe["kr-steel-gear-wheel"]
+if sg then
+	sg.hidden = true
+end
 if mods and mods["aai-signal-transmission"] then
     ei_lib.add_unlock_recipe("aai-signal-transmission","aai-signal-sender")
     ei_lib.remove_unlock_recipe("space-platform","aai-signal-sender")

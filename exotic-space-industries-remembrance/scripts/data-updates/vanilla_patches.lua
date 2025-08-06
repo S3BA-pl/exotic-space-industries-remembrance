@@ -626,7 +626,7 @@ table.insert(ei_lib.raw.recipe["iron-plate"].results,{type = "item", name = "ei-
 table.insert(ei_lib.raw.recipe["copper-plate"].results,{type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.1})
 table.insert(ei_lib.raw.recipe["steel-plate"].results,{type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.05})
 ]]
-ei_lib.raw.inserter["long-handed-inserter"].ingredients = {
+ei_lib.raw.recipe["long-handed-inserter"].ingredients = {
     {type="item", name="inserter", amount=1},
     {type="item", name="iron-plate", amount=1},
     {type="item", name="ei-steel-mechanical-parts", amount=1}
@@ -767,8 +767,21 @@ ei_lib.recipe_new("rocket-fuel",
 --TECHS
 ------------------------------------------------------------------------------------------------------
 ---
+local removerecipes = {
+    "iron-stick",
+    "iron-gear-wheel"
+}
+for _,technology in pairs(data.raw.technology) do
+    if technology and technology.effects then
+        for _,unlock in pairs(technology.effects) do
+            if ei_lib.table_contains_value(removerecipes,unlock) then
+                table.remove(technology.effects,unlock)
+            end
+        end
+    end
+end
 ei_lib.remove_unlock_recipe("kovarex-enrichment-process", "kovarex-enrichment-process")
-ei_lib.raw.recipe["kovarex-enrichment-process"].hidden = true
+data.raw.recipe["kovarex-enrichment-process"].hidden = true
 ei_lib.raw["technology"]["kovarex-enrichment-process"].localised_name = {"technology-name.ei-kovarex-fuel-enrichment"}
 ei_lib.raw["technology"]["kovarex-enrichment-process"].localised_description = {"technology-description.ei-kovarex-fuel-enrichment"}
 
@@ -956,10 +969,17 @@ ei_lib.raw.technology.electronics.effects = {
         recipe = "ei-ceramic-steam-assembler"
     },
 }
-
+--remove doubled up unlocks
 ei_lib.remove_unlock_recipe("oil-processing", "basic-oil-processing")
 ei_lib.remove_unlock_recipe("oil-processing", "solid-fuel-from-petroleum-gas")
+--remove advanced oil processing
 ei_lib.remove_unlock_recipe("advanced-oil-processing", "advanced-oil-processing")
+ei_lib.raw.technology["advanced-oil-processing"] = {
+    localised_name = {"technology-name.ei-advanced-oil-processing"},
+    localised_description = {"technology-description.ei-advanced-oil-processing"}
+}
+--delete it outright to prevent misunderstandings of whether removal is intentional
+ei_lib.raw.recipe["advanced-oil-processing"].hidden = true
 
 -- edit electric enigne tech to use only steam age science for progression
 --ei_lib.set_age_packs("electric-engine","steam-age")
@@ -973,6 +993,62 @@ table.insert(ei_lib.raw.technology["inserter-capacity-bonus-1"].effects,
     }
 )
 
+--Remove vanilla nuclear fuel reprocessing
+ei_lib.remove_unlock_recipe("nuclear-fuel-reprocessing","nuclear-fuel-reprocessing")
+ei_lib.raw.technology["nuclear-fuel-reprocessing"].hidden = true
+--Move the recipe to 235 recycling
+ei_lib.add_unlock_recipe("ei-uranium-235-recycling","nuclear-fuel-reprocessing")
+
+--Bring nuclear fuel aka Uranium-235 fuel cell recipe in line with fuel rods
+ei_lib.recipe_add("nuclear-fuel","ei-lead-ingot",1)
+ei_lib.recipe_add("nuclear-fuel","ei-ceramic",4)
+ei_lib.recipe_add("nuclear-fuel","uranium-238",1)
+--Move fuel cell and depleted cell into Nuclear category
+ei_lib.raw.recipe["nuclear-fuel"] = {
+    subgroup = "ei-nuclear-fission-fuel",
+}
+--Update names and descriptions, set spent result
+ei_lib.raw.item["nuclear-fuel"] = {
+    localised_name = {"item-name.ei-nuclear-fuel"},
+    localised_description = {"item-description.ei-nuclear-fuel"},
+    subgroup = "ei-nuclear-fission-fuel",
+    burnt_result = "depleted-uranium-fuel-cell",
+    icon = ei_path.."graphics/item/uranium-fuel-cell.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
+    stack_size=20,
+    fuel_top_speed_multiplier=1.25
+}
+ei_lib.raw.recipe["nuclear-fuel-reprocessing"] = {
+    localised_name = {"recipe-name.ei-depleted-uranium-fuel-cell"},
+    subgroup = "ei-nuclear-processing",
+    
+}
+ei_lib.raw.item["depleted-uranium-fuel-cell"] = {
+    localised_name = {"item-name.ei-depleted-uranium-fuel-cell"},
+    localised_description = {"item-description.ei-depleted-uranium-fuel-cell"},
+    subgroup = "ei-nuclear-fission-fuel",
+    icon = ei_path.."graphics/item/depleted-uranium-fuel-cell.png",
+    icon_size = 256,
+    icon_mipmaps = 4,
+    stack_size=20,
+}
+--Remove vanilla uranium fuel cell
+ei_lib.remove_unlock_recipe("nuclear-power","uranium-fuel-cell")
+--Swap fission reactor recipe input
+ei_lib.recipe_swap("fission-reactor-equipment","uranium-fuel-cell","ei-uranium-235-fuel",6)
+--set fuel cell recycling to use fuel aka 235 fuel cell, etc
+ei_lib.raw.recipe["nuclear-fuel-reprocessing"] = {
+    ingredients = {
+        {type="item",name="depleted-uranium-fuel-cell",amount=1},
+        {type="fluid",name="ei-nitric-acid",amount=15}
+    },
+    results = {
+        {type="item",name="ei-nuclear-waste",amount=1,probability=0.33},
+        {type="fluid",name="ei-nitric-acid-uranium-235",amount=15}
+    },
+    main_product = "ei-nitric-acid-uranium-235",
+}
 --FUEL CATEGORIES
 ------------------------------------------------------------------------------------------------------
 
@@ -1137,7 +1213,7 @@ ei_lib.raw["assembling-machine"]["centrifuge"].fluid_boxes_off_when_no_fluid_rec
 -- also set energy output to 100MW (setting)
 
 ei_lib.raw["reactor"]["nuclear-reactor"].energy_source.fuel_categories = {"ei-nuclear-fuel"}
-ei_lib.raw["reactor"]["nuclear-reactor"].energy_source.effectivity = 2
+ei_lib.raw["reactor"]["nuclear-reactor"].energy_source.effectivity = 1
 if ei_lib.config("nuclear-reactor-remove-bonus") then
     ei_lib.raw["reactor"]["nuclear-reactor"].neighbour_bonus = 0
 end
@@ -1426,18 +1502,49 @@ data.raw.module["ei-productivity-module-5"].limitation = data.raw.module["produc
 data.raw.module["ei-productivity-module-6"].limitation = data.raw.module["productivity-module"].limitation
 -- properly set logistics 3 age and prere 
 ei_lib.raw.technology["logistics-3"].age = "advanced-computer-age"
-ei_lib.raw.technology["logistics-3"].prerequisites = {"ei-advanced-computer-age-tech","logistics-2"}
+ei_lib.set_prerequisites("logistics-3",{"ei-advanced-computer-age-tech","logistics-2"})
 
--- add 2 more module slots to rocket silo
-ei_lib.raw["rocket-silo"]["rocket-silo"].module_slots = 4
+--increase silo energy draw, enforce modules
+ei_lib.raw["rocket-silo"]["rocket-silo"] = {
+    module_slots = 6,
+    rocket_parts_required = 100,
+    energy_usage = "1MW",
+    active_energy_usage = "7980kW",
+    allowed_effects = {"speed", "consumption", "pollution"}
+}
 
 --adjust vanilla rocket part recipe
 local rocket_part_recipe = ei_lib.raw["recipe"]["rocket-part"]
 rocket_part_recipe.ingredients = {
-	{type = "item", name = "ei-rocket-parts", amount = 1},
-	{type = "item", name = "rocket-fuel", amount = 20}
+	{type = "item", name = "ei-rocket-parts", amount = 1}
 }
 rocket_part_recipe.localised_name = {"recipe-name.ei-rocket-assembly"}
+--adjust Rocket part name display
+local rocket_part = ei_lib.raw["item"]["rocket-part"]
+rocket_part_recipe.localised_name = {"recipe-name.ei-rocket-assembled"}
+
+ei_lib.raw.technology["rocket-part-productivity"].effects = {
+    {
+        type = "change-recipe-productivity",
+        recipe = "ei-rocket-parts",
+        change = 0.1
+    },
+    {
+        type = "change-recipe-productivity",
+        recipe = "ei-rocket-parts-advanced",
+        change = 0.1
+    },
+    {
+        type = "change-recipe-productivity",
+        recipe = "ei-rocket-parts-odd-plating",
+        change = 0.1
+    },
+    {
+        type = "change-recipe-productivity",
+        recipe = "ei-rocket-parts-odd-plating-advanced",
+        change = 0.1
+    },
+}
 
 ei_lib.raw["recipe"]["heavy-oil-cracking"].localised_name = {"recipe-name.ei-heavy-oil-cracking"}
 
@@ -1453,7 +1560,7 @@ for _, animation in ipairs(data.raw["character"]["character"]["animations"]) do
         end
     end
 end
-
+--Double roboport charge energy
 ei_lib.raw.roboport.roboport.charging_energy = "1MW"
 
 --bring in line with ei-containers
@@ -1572,12 +1679,9 @@ end
 
 --allow space crusher to do ground based crusher recipes
 local space_crusher = ei_lib.raw["assembling-machine"]["crusher"]
-if space_crusher.additional_categories then
-    table.insert(space_crusher.additional_categories,"ei-crushing")
-else
-    space_crusher.additional_categories = {"ei-crushing"}
+if space_crusher and space_crusher.crafting_categories then
+    table.insert(space_crusher.crafting_categories,"ei-crushing")
 end
-
 --====================================================================================================
 --FUNCTION STUFF
 --====================================================================================================

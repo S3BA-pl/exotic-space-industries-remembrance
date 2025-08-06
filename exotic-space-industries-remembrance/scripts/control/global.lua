@@ -22,6 +22,8 @@ function ei_global.init()
     storage.ei["spawner_queue"] = {}
     storage.ei["orbital_combinators"] = {}
     storage.ei.spaced_updates = 0
+    storage.ei.fluid_entity = {}
+    storage.ei.fluid_entity_count = 0
     storage.ei.arrival_waves = {}
     storage.ei.alien = {}
     storage.ei.locomotives = {}
@@ -31,7 +33,7 @@ function ei_global.init()
     ei_lib.crystal_echo(">> Integrating chronometric lattices... Binding entropy to mass... Stand by.","default-semibold")
 end
 
-function ei_global.check_init()
+function ei_global.check_init(event)
     -- TODO: dont hardcode this
     if not storage.ei then
 	    storage.ei = {}
@@ -86,9 +88,25 @@ function ei_global.check_init()
     if not storage.ei["orbital_combinators"] then
         storage.ei["orbital_combinators"] = {}
     end
-
+    --powered beacons
     if not storage.ei.spaced_updates then
         storage.ei.spaced_updates = 0
+    end
+    --powered beacon and etc fluid handlers
+    if not storage.ei.fluid_entity then
+        storage.ei.fluid_entity = {}
+    end
+    if not storage.ei.fluid_entity_count then
+        storage.ei.fluid_entity_count = 0
+
+        --1.2.20 migration
+        for _,surface in pairs(game.surfaces) do
+            for _,entity in pairs(surface.find_entities()) do
+                if entity and entity.valid and entity.force and ei_powered_beacon.counts_for_fluid_handling(entity) then
+                    ei_register.register_fluid_entity(entity)
+                end
+            end
+        end
     end
 
     if not storage.ei.alien then

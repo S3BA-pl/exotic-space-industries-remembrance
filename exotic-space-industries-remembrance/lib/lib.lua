@@ -1235,7 +1235,6 @@ function ei_lib.merge_item(target, item, icon_transfer, placeables)
   -- loop over all recipes and swap
   for recipe_name,_ in pairs(data.raw.recipe) do
       local recipe = data.raw.recipe[recipe_name]
-      
       ei_lib.do_item_merge(recipe, target, item)
   end
 

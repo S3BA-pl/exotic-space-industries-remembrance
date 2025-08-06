@@ -156,33 +156,81 @@ function model.printBuffStatus()
 end
 
 --Get buffs
-function model.check_buffs()
+function model.check_buffs(event)
     local got1 = false
     local got2 = false
     local got3 = false
     local output = output or false
+    --method 1
     if not game.players then
         log("check_buffs detected no game.players")
-        return
+    elseif not game.players[1] then
+        log("check_buffs detected no game.players[1]")
     elseif not game.players[1].force then
         log("check_buffs detected no game.players[1].force")
-        return
     elseif not game.players[1].force.technologies then
         log("check_buffs detected no game.players[1].force.technologies")
+    else
+        for tier=20,1, -1 do --reverse so we stop checking that buff when we find its highest value
+            if not got1 and game.players[1].force.technologies["ei_acc_"..tier] and game.players[1].force.technologies["ei_acc_"..tier].researched then
+                local accBuff = tonumber(tier)
+                storage.ei_emt.buffs.acc_level = math.max(storage.ei_emt.buffs.acc_level,accBuff)
+                got1 = true
+            end
+            if not got2 and game.players[1].force.technologies["ei_spd_"..tier] and game.players[1].force.technologies["ei_spd_"..tier].researched then
+                local spdBuff = tonumber(tier)
+                storage.ei_emt.buffs.speed_level = math.max(storage.ei_emt.buffs.speed_level,spdBuff)
+                got2 = true
+            end
+            if not got3 and game.players[1].force.technologies["ei_eff_"..tier] and game.players[1].force.technologies["ei_eff_"..tier].researched then
+                local effBuff = tonumber(tier)
+
+                local actual = model.effBuffMultipliers[effBuff] or 0
+                storage.ei_emt.buffs.charger_efficiency = actual
+                got3 = true
+            end
+            if got1 and got2 and got3 then
+                return
+            end
+        end
+    end
+
+    --method 2
+    if not event then 
+        log("check_buffs detected no event")
+        return
+    elseif not event.player_index then 
+        log("check_buffs detected no event.player_index")
         return
     end
+    local player = game.get_player(event.player_index)
+    if not player then
+        log("check_buffs got invalid player")
+        return
+    end
+    local force = player.force
+    if not force then
+        log("check_buffs got invalid player.force")
+        return
+    end
+    local technologies = force.technologies
+    if not technologies then
+        log("check_buffs got invalid player.force.technologies")
+        return
+    end
+
     for tier=20,1, -1 do --reverse so we stop checking that buff when we find its highest value
-        if not got1 and game.players[1].force.technologies["ei_acc_"..tier] and game.players[1].force.technologies["ei_acc_"..tier].researched then
+        if not got1 and technologies["ei_acc_"..tier] and technologies["ei_acc_"..tier].researched then
             local accBuff = tonumber(tier)
             storage.ei_emt.buffs.acc_level = math.max(storage.ei_emt.buffs.acc_level,accBuff)
             got1 = true
         end
-        if not got2 and game.players[1].force.technologies["ei_spd_"..tier] and game.players[1].force.technologies["ei_spd_"..tier].researched then
+        if not got2 and technologies["ei_spd_"..tier] and technologies["ei_spd_"..tier].researched then
             local spdBuff = tonumber(tier)
             storage.ei_emt.buffs.speed_level = math.max(storage.ei_emt.buffs.speed_level,spdBuff)
             got2 = true
         end
-        if not got3 and game.players[1].force.technologies["ei_eff_"..tier] and game.players[1].force.technologies["ei_eff_"..tier].researched then
+        if not got3 and technologies["ei_eff_"..tier] and technologies["ei_eff_"..tier].researched then
             local effBuff = tonumber(tier)
 
             local actual = model.effBuffMultipliers[effBuff] or 0
@@ -193,6 +241,7 @@ function model.check_buffs()
             return
         end
     end
+
 end
 --UPDATE
 ------------------------------------------------------------------------------------------------------
