@@ -7,6 +7,7 @@ function model.remove_nonfuel_requests(event)
     if event.entity and event.section and event.slot_index then
         local name = event.section.get_slot(event.slot_index)
         if name and name.value and name.value.name then
+            --this needs updated to look at fuel category not name
             if not ei_lib.endswith(name.value.name,"fuel") then
                event.section.clear_slot(event.slot_index)
                game.print("Only fuel items can be requested for this spidertron.")

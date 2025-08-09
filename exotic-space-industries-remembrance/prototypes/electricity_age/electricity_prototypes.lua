@@ -758,6 +758,7 @@ data:extend({
         enabled = false,
         main_product = "ei-crushed-gold",
     },
+    --[[
     {
         name = "ei-crushed-gold-plate",
         type = "recipe",
@@ -774,6 +775,7 @@ data:extend({
         main_product = "ei-crushed-gold",
         hide_from_player_crafting = true,
     },
+    ]]
     {
         name = "ei-lead-ingot",
         type = "recipe",
@@ -1206,10 +1208,12 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = "ei-crushed-gold"
             },
+            --[[
             {
                 type = "unlock-recipe",
                 recipe = "ei-crushed-gold-plate"
             },
+            ]]
             {
                 type = "unlock-recipe",
                 recipe = "ei-lead-ingot"
@@ -1243,7 +1247,7 @@ data:extend({
                 recipe = "ei-drill-fluid"
             },
             {
-                type="mining-with-fluid", 
+                type="mining-with-fluid",
                 modifier=true
             },
         },

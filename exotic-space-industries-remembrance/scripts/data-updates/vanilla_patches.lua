@@ -748,7 +748,7 @@ ei_lib.recipe_new("flying-robot-frame",
 })
 
 -- recipes for modules
-ei_lib.raw["recipe"]["speed-module"].category = "crafting-with-fluid"
+ei_lib.raw["recipe"]["speed-module"].category = "electronics-with-fluid"
 ei_lib.recipe_new("speed-module",
 {
     {type="item", name="ei-module-base", amount=1},
@@ -969,7 +969,13 @@ ei_lib.raw.technology.electronics.effects = {
         recipe = "ei-ceramic-steam-assembler"
     },
 }
+--rename to Electric chemical plant
+ei_lib.raw.technology["oil-processing"] = {
+    localised_name = {"technology-name.ei-oil-processing"},
+    localised_description = {"technology-description.ei-oil-processing"}
+}
 --remove doubled up unlocks
+ei_lib.remove_unlock_recipe("oil-processing", "oil-refinery")
 ei_lib.remove_unlock_recipe("oil-processing", "basic-oil-processing")
 ei_lib.remove_unlock_recipe("oil-processing", "solid-fuel-from-petroleum-gas")
 --remove advanced oil processing
@@ -980,7 +986,12 @@ ei_lib.raw.technology["advanced-oil-processing"] = {
 }
 --delete it outright to prevent misunderstandings of whether removal is intentional
 ei_lib.raw.recipe["advanced-oil-processing"].hidden = true
+--Rewrite basic oil processing -> Oil processing
 
+ei_lib.raw.technology["oil-processing"] = {
+    localised_name = {"technology-name.ei-oil-processing"},
+    localised_description = {"technology-description.ei-oil-processing"}
+}
 -- edit electric enigne tech to use only steam age science for progression
 --ei_lib.set_age_packs("electric-engine","steam-age")
 
@@ -1022,6 +1033,7 @@ ei_lib.raw.item["nuclear-fuel"] = {
 ei_lib.raw.recipe["nuclear-fuel-reprocessing"] = {
     localised_name = {"recipe-name.ei-depleted-uranium-fuel-cell"},
     subgroup = "ei-nuclear-processing",
+    category="chemistry"
     
 }
 ei_lib.raw.item["depleted-uranium-fuel-cell"] = {
@@ -1523,6 +1535,16 @@ rocket_part_recipe.localised_name = {"recipe-name.ei-rocket-assembly"}
 local rocket_part = ei_lib.raw["item"]["rocket-part"]
 rocket_part_recipe.localised_name = {"recipe-name.ei-rocket-assembled"}
 
+local rfp = ei_lib.raw.technology["rocket-fuel-productivity"]
+if rfp and rfp.effects then
+    table.insert(rfp.effects,
+    {
+        type = "change-recipe-productivity",
+        recipe = "ei-bio-rocket-fuel",
+        change = 0.1
+    })
+end
+
 ei_lib.raw.technology["rocket-part-productivity"].effects = {
     {
         type = "change-recipe-productivity",
@@ -1682,6 +1704,77 @@ local space_crusher = ei_lib.raw["assembling-machine"]["crusher"]
 if space_crusher and space_crusher.crafting_categories then
     table.insert(space_crusher.crafting_categories,"ei-crushing")
 end
+
+ei_lib.raw.technology["space-science-pack"] = {
+    localised_name = {"technology-name.ei-space-science-pack"},
+    localised_description = {"technology-description.ei-space-science-pack"},
+    icon = ei_path.."graphics/item/cosmic-criticality-pack.png",
+    icon_size = 512,
+    icon_mipmaps = 5,
+}
+
+--Increase space science pack difficulty, make alt recipes with different fuels
+ei_lib.raw.tool["space-science-pack"] = {
+    icon = ei_path.."graphics/item/cosmic-criticality-pack.png",
+    icon_size = 512,
+    icon_mipmaps = 5,
+    localised_name = {"item-name.ei-space-science-pack"},
+    localised_description = {"item-description.ei-space-science-pack"}
+}
+ei_lib.raw.recipe["space-science-pack"] = {
+    category = "centrifuging",
+    icon = ei_path.."graphics/item/cosmic-criticality-pack.png",
+    icon_size = 512,
+    icon_mipmaps = 5,
+}
+ei_lib.recipe_swap("space-science-pack","iron-plate","ei-steel-beam")
+ei_lib.recipe_add("space-science-pack","ei-liquid-nitrogen",50,true)
+ei_lib.recipe_add("space-science-pack","ei-liquid-oxygen",50,true)
+local ssp = table.deepcopy(ei_lib.raw.recipe["space-science-pack"])
+
+local two_three_nine = table.deepcopy(ssp)
+--239
+table.insert(two_three_nine.ingredients,{type="item",name="ei-plutonium-239-fuel",amount=1})
+two_three_nine.name = "ei-space-science-pack-239"
+
+--original science pack is 235
+ei_lib.recipe_add("space-science-pack","ei-uranium-235-fuel",2)
+ei_lib.raw.recipe["space-science-pack"].localised_name = {"recipe-name.ei-space-science-pack-235"}
+
+--233
+local two_three_three = table.deepcopy(ssp)
+two_three_three.name = "ei-space-science-pack-233"
+table.insert(two_three_three.ingredients,{type="item",name="ei-uranium-233-fuel",amount=3})
+
+--232
+local two_three_two = table.deepcopy(ssp)
+two_three_two.name = "ei-space-science-pack-232"
+table.insert(two_three_two.ingredients,{type="item",name="ei-thorium-232-fuel",amount=4})
+
+data:extend({
+    two_three_nine,
+    two_three_three,
+    two_three_two
+})
+ei_lib.add_unlock_recipe("space-science-pack","ei-space-science-pack-239")
+ei_lib.add_unlock_recipe("space-science-pack","ei-space-science-pack-233")
+ei_lib.add_unlock_recipe("space-science-pack","ei-space-science-pack-232")
+
+--double centrifuge fluidboxes
+local cent = ei_lib.raw["assembling-machine"].centrifuge
+if cent then
+    local i2 = table.deepcopy(cent.fluid_boxes[1])
+    local o2 = table.deepcopy(cent.fluid_boxes[2])
+    if i2 then
+        i2.pipe_connections = {{ flow_direction="input", direction = defines.direction.north, position = {0, -1} }}
+        table.insert(cent.fluid_boxes,i2)
+    end
+    if o2 then
+        o2.pipe_connections = {{ flow_direction="output", direction = defines.direction.south, position = {0, 1} }}
+        table.insert(cent.fluid_boxes,o2)
+    end
+end
+
 --====================================================================================================
 --FUNCTION STUFF
 --====================================================================================================
@@ -1706,3 +1799,19 @@ end
 for i,v in ipairs(prereqs_to_remove) do
     ei_lib.remove_prerequisite(v[1], v[2])
 end
+
+--====================================================================================================
+--Recycling
+--====================================================================================================
+--Swap superior data for simulation else nobody will ever do the space crafting chain
+
+ei_lib.raw.recipe["processing-unit-recycling"].results = {
+    {type="item",name="ei-electronic-parts", amount_min=0,amount_max=1,probability=0.21},
+    {type="item",name="ei-advanced-semiconductor", amount_min=0,amount=1,probability=0.06},
+    {type="item",name="ei-simulation-data", amount_min=0,amount=1,probability=0.01},
+    {type="item",name="ei-crushed-gold", amount_min=0,amount_max=1,probability=0.16},
+}
+ei_lib.raw.recipe["ei-energy-crystal-recycling"].results = {
+    {type="item",name="ei-sand", amount_min=0,amount_max=1,probability=0.18},
+    {type="item",name="ei-crushed-sulfur", amount_min=0,amount=1,probability=0.11},
+}

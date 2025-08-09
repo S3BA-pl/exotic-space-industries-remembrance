@@ -538,7 +538,8 @@ data:extend(
         energy_required = 2,
         results =
         {
-          {type = "item", name = "ei-uranium-chunk", amount_min = 2,amount_max=10,probability=0.70},
+          {type = "item", name = "ei-uranium-chunk", amount_min = 2,amount_max=10,probability=0.95},
+    	  	{type = "item", name = "ei-lead-chunk", amount_min = 2,amount_max=4,probability=0.55},
           {type = "item", name = "ei-uranium-asteroid-chunk", amount = 1, probability = 0.15},
           {type = "item", name = "ei-isotopic-ghost-shell", amount = 1, probability = 0.02},
         },
@@ -562,7 +563,7 @@ data:extend(
         energy_required = 2,
         results =
         {
-        {type = "item", name = "ei-uranium-chunk", amount_min=4,amount_max = 14,probability=0.95},
+        {type = "item", name = "ei-uranium-chunk", amount_min=1,amount_max = 8,probability=0.75},
         {type = "item", name = "uranium-235", amount_min = 1,amount_max=2, probability = 0.025},
         {type = "item", name = "uranium-238", amount = 1,amount_max=2, probability = 0.06},
     		{type = "item", name = "ei-lead-chunk", amount_min = 1,amount_max=4,probability=0.85},
@@ -687,7 +688,7 @@ data:extend(
         energy_required = 2,
         results =
         {
-        {type = "item", name = "scrap", amount_min = 5,amount_max=20},
+        --{type = "item", name = "scrap", amount_min = 5,amount_max=20},
 		    {type = "item", name = "ei-crushed-neodym", amount = 1, probability=0.001},
         {type = "item", name = "ei-scrap-asteroid-chunk", amount = 1, probability = 0.2},
         {type = "item", name = "ei-worm-torn-relay-core", amount = 1, probability = 0.02}
@@ -711,7 +712,7 @@ data:extend(
         energy_required = 2,
         results =
         {
-        {type = "item", name = "scrap", amount_min = 10, amount_max = 20},
+        --{type = "item", name = "scrap", amount_min = 10, amount_max = 20},
     		{type = "item", name = "ei-crushed-neodym", amount = 1, probability=0.004},
         {type = "item", name = "ei-scrap-asteroid-chunk", amount = 1, probability = 0.05},
         {type = "item", name = "ei-worm-torn-relay-core", amount = 1, probability = 0.04}
@@ -793,7 +794,8 @@ data:extend(
         {
         {type = "item", name = "wood", amount_min = 5, amount_max = 20},
         {type = "item", name = "raw-fish", amount = 1, probability = 0.4},
-    		{type = "fluid", name = "ei-phythogas", amount_min = 5,amount_max=10,probability=0.5},
+    		{type = "fluid", name = "ei-liquid-nitrogen", amount_min = 5,amount_max=10,probability=0.5},
+        {type = "fluid", name = "ei-liquid-oxygen", amount_min = 5,amount_max=10,probability=0.5}, 
         {type = "item", name = "ei-petrified-asteroid-chunk", amount = 1, probability = 0.2},
         {type = "item", name = "ei-chrono-fossil-shard", amount = 1, probability = 0.02}
         },
@@ -818,10 +820,11 @@ data:extend(
         energy_required = 2,
         results =
         {
-        {type = "item", name = "wood", amount_min = 10, amount_max = 20},
+        {type = "item", name = "wood", amount_min = 1, amount_max = 5},
         {type = "item", name = "raw-fish", amount = 1, probability = 0.6},
         {type = "item", name = "biter-egg", amount = 1,probability=0.05},
-	    	{type = "fluid", name = "ei-phythogas", amount_min = 10,amount_max=20,probability=0.65},
+	    	{type = "fluid", name = "ei-liquid-nitrogen", amount_min = 10,amount_max=20,probability=0.5},
+	    	{type = "fluid", name = "ei-liquid-oxygen", amount_min = 10,amount_max=20,probability=0.5},
         {type = "item", name = "ei-petrified-asteroid-chunk", amount = 1, probability = 0.05},
         {type = "item", name = "ei-chrono-fossil-shard", amount = 1, probability = 0.02}
         },
@@ -829,3 +832,28 @@ data:extend(
         allow_decomposition = false
     }
   })
+local sac = ei_lib.raw.recipe["ei-scrap-asteroid-crushing"]
+local sac_exclude = {
+  "processing-unit",
+  "holmium-ore",
+  "low-density-structure"
+}
+local saca = ei_lib.raw.recipe["ei-advanced-scrap-asteroid-crushing"]
+local saca_exclude = {
+  "stone",
+  "advanced-circuit",
+  "ice"
+}
+for _,output in pairs(data.raw.recipe["scrap-recycling"].results) do
+  local output_bak = table.deepcopy(output)
+  if sac and not ei_lib.table_contains_value(sac_exclude,output.name) then
+    output.amount_min = output.amount
+    output.amount_max = output.amount*4
+    table.insert(sac.results,output)
+  end
+  if saca and not ei_lib.table_contains_value(saca_exclude,output.name) then
+    output_bak.amount_min = output_bak.amount
+    output_bak.amount_max = output_bak.amount*2
+    table.insert(saca.results,output_bak)
+  end
+end

@@ -30,7 +30,7 @@ data:extend({
             {type="item", name="ei-fission-tech", amount=100},
             {type="item", name="ei-electronic-parts", amount=50},
             {type="item", name="ei-steel-mechanical-parts", amount=80},
-            {type="item", name="ei-simulation-data", amount=100}
+            {type="item", name="ei-simulation-data", amount=100},
         },
         results = {{type="item", name="ei-high-temperature-reactor", amount=1}},
         enabled = false,
@@ -42,7 +42,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."high-temperature-reactor.png",
         icon_size = 256,
-        prerequisites = {"ei-computer-core", "ei-plutonium-239-recycling", "nuclear-power"},
+        prerequisites = {"ei-computer-core", "ei-plutonium-239-recycling", "nuclear-power","low-density-structure","ei-nitric-acid","uranium-processing"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -71,6 +71,18 @@ data:extend({
             {
                 type = "unlock-recipe",
                 recipe = "ei-thorium-232-fuel"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-cold-coolant"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-exchanger"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-big-turbine"
             },
         },
         unit = {
@@ -130,27 +142,27 @@ data:extend({
         source_inventory_size = 1,
         fluid_boxes = {
             {   
-                volume = 120000,
+                volume = 5000,
                 pipe_covers = pipecoverspictures(),
                 pipe_picture = ei_pipe_reactor,
                 pipe_connections = {
                     {flow_direction = "input", direction = defines.direction.south, position = {0, 2}},
                 },
                 production_type = "input",
-                filter = "water",
+                filter = "ei-cold-coolant",
             },
             {   
-                volume = 1200000,
+                volume = 5000,
                 pipe_covers = pipecoverspictures(),
                 pipe_picture = ei_pipe_reactor,
                 pipe_connections = {
                     {flow_direction = "output", direction = defines.direction.north, position = {0, -2}},
                 },
                 production_type = "output",
-                filter = "steam",
+                filter = "ei-hot-coolant",
             }
         },
-        fluid_boxes_off_when_no_fluid_recipe = true,
+        fluid_boxes_off_when_no_fluid_recipe = false,
         graphics_set = {
             animation = {
                 filename = ei_graphics_entity_path.."high-temperature-reactor.png",
@@ -200,7 +212,7 @@ data:extend({
     -- 10k steam at 500dec = 1GJ
 
     -- 1000dec steam = 0,2MJ
-    -- 500dec steam = 0,1MJ
+    -- 500dec ei-hot-coolant = 0,1MJ
     -- U235 = 25GJ -> 250k steam
     -- U233 = 15GJ -> 150k steam
     -- Pu239 = 30GJ -> 300k steam
@@ -208,7 +220,26 @@ data:extend({
 
     -- + 50k each as HTR is more efficient
     -- * 2 since effeciency is 200% for nuclear
-
+    {
+        name = "ei-cold-coolant",
+        type = "recipe",
+        category = "chemistry",
+        energy_required = 10,
+        ingredients = {
+            {type = "fluid", name = "ei-nitric-acid", amount = 65},
+            {type = "fluid", name = "ei-molten-lead", amount = 100},
+            {type = "item", name = "ei-fluorite", amount = 10},
+        },
+        results = {
+            {type = "fluid", name = "ei-cold-coolant", amount_min = 8,amount_max=12},
+            {type = "fluid", name = "ei-acidic-water", amount_min = 25,amount_max=50},
+            {type = "item", name = "ei-slag", amount_min = 1,amount_max=2,probability=0.25},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-cold-coolant",
+    },
+--steam to coolant conversion factor 384.6153846153846
     {
         name = "ei-htr-uranium-235",
         type = "recipe",
@@ -216,15 +247,15 @@ data:extend({
         energy_required = 120,
         ingredients = {
             {type = "item", name = "ei-uranium-235-fuel", amount = 1},
-            {type = "fluid", name = "water", amount = 2*30000},
+            {type = "fluid", name = "ei-cold-coolant", amount = 1560},
         },
         results = {
             {type = "item", name = "ei-used-uranium-235-fuel", amount = 1},
-            {type = "fluid", name = "steam", amount = 2*300000, temperature = 500},
+            {type = "fluid", name = "ei-hot-coolant", amount = 1560, temperature = 1000},
         },
         always_show_made_in = true,
         enabled = false,
-        main_product = "steam",
+        main_product = "ei-hot-coolant",
         subgroup = "ei-htr-recipes",
         order = "a",
         --hide_from_player_crafting = true,
@@ -236,15 +267,15 @@ data:extend({
         energy_required = 120,
         ingredients = {
             {type = "item", name = "ei-uranium-233-fuel", amount = 1},
-            {type = "fluid", name = "water", amount = 2*20000},
+            {type = "fluid", name = "ei-cold-coolant", amount = 1040},
         },
         results = {
             {type = "item", name = "ei-used-uranium-233-fuel", amount = 1},
-            {type = "fluid", name = "steam", amount = 2*200000, temperature = 500},
+            {type = "fluid", name = "ei-hot-coolant", amount = 1040, temperature = 1000},
         },
         always_show_made_in = true,
         enabled = false,
-        main_product = "steam",
+        main_product = "ei-hot-coolant",
         subgroup = "ei-htr-recipes",
         order = "b",
         --hide_from_player_crafting = true,
@@ -256,15 +287,15 @@ data:extend({
         energy_required = 120,
         ingredients = {
             {type = "item", name = "ei-plutonium-239-fuel", amount = 1},
-            {type = "fluid", name = "water", amount = 2*35000},
+            {type = "fluid", name = "ei-cold-coolant", amount = 1820},
         },
         results = {
             {type = "item", name = "ei-used-plutonium-239-fuel", amount = 1},
-            {type = "fluid", name = "steam", amount = 2*350000, temperature = 500},
+            {type = "fluid", name = "ei-hot-coolant", amount = 1820, temperature = 1000},
         },
         always_show_made_in = true,
         enabled = false,
-        main_product = "steam",
+        main_product = "ei-hot-coolant",
         subgroup = "ei-htr-recipes",
         order = "c",
         --hide_from_player_crafting = true,
@@ -276,15 +307,15 @@ data:extend({
         energy_required = 120,
         ingredients = {
             {type = "item", name = "ei-thorium-232-fuel", amount = 1},
-            {type = "fluid", name = "water", amount = 2*15000},
+            {type = "fluid", name = "ei-cold-coolant", amount = 780},
         },
         results = {
             {type = "item", name = "ei-used-thorium-232-fuel", amount = 1},
-            {type = "fluid", name = "steam", amount = 2*150000, temperature = 500},
+            {type = "fluid", name = "ei-hot-coolant", amount = 780, temperature = 1000},
         },
         always_show_made_in = true,
         enabled = false,
-        main_product = "steam",
+        main_product = "ei-hot-coolant",
         subgroup = "ei-htr-recipes",
         order = "d",
         --hide_from_player_crafting = true,

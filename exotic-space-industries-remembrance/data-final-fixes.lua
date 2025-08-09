@@ -76,15 +76,15 @@ ei_lib.raw.lab.biolab.energy_source.emissions_per_minute = originalEnergySource.
 
 -- =======================================================================================
 
-ei_lib.raw["assembling-machine"]["ei-steam-assembler"].crafting_categories = table.deepcopy(data.raw["assembling-machine"]["assembling-machine-1"].crafting_categories)
-
-for _, crafting_category in pairs({"ei-steam-assembler", "crafting", "crafting-with-fluid", "electronics"}) do 
-  if not ei_lib.table_contains_value(data.raw["assembling-machine"]["ei-steam-assembler"].crafting_categories,crafting_category) then 
-    table.insert(data.raw["assembling-machine"]["ei-steam-assembler"].crafting_categories,crafting_category)
+local esa = ei_lib.raw["assembling-machine"]["ei-steam-assembler"]
+local am2 = ei_lib.raw["assembling-machine"]["assembling-machine-2"]
+if esa and am2 then
+  for _,mergefrom in pairs(am2.crafting_categories) do
+    if not ei_lib.table_contains_value(esa.crafting_categories, mergefrom) then
+      table.insert(esa.crafting_categories,mergefrom)
+    end
   end
 end
-
-
 
 -- =======================================================================================
 

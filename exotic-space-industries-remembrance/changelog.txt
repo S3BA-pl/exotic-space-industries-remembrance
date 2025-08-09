@@ -1,4 +1,68 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.24
+Date: 8-9-2025
+  Features:
+    - Created alternate Computer Age recipe for High capacity turbine, unlocked with High temperature reactor.
+  Changes:
+    - Air filter extraction recipes now require atmosphere.
+    - Speed module 1 now craftable in Electromagnetic plant.
+    - Depleted Uranium-235 fuelcell reprocessing moved to chemical lab.
+    - Steam assembler can now craft anything Assembling Machine 2 can.
+    - Advanced petrified asteroid chunk processing outputs: 10-20 Wood -> 1-5.
+    - Advanced chemical lab now crafts all recipes Chemical lab can.
+    - Processing unit recycling recipe no longer guarantees a yield of the entire T1 recipe input ingredients.
+    - Energy crystal recycling outputs: High energy crystal -> 18% Sand, 11% Crushed sulfur.
+    - Moved Liquid lead coolant, Liquid lead heat exchanger from Fusion reactor to High temperature reactor technology.
+    - Added High temperature reactor and Nanotecture fabrication complex to Fusion generator technology prerequisites.
+    - Added Nitric acid, Low density structure and Uranium processing to High temperature reactor technology prerequisites.
+    - Fusion reactor recipe inputs: 100 Processing units -> 100 Computing units.
+    - High temperature reactor i/o water/steam -> cold/hot liquid lead coolant.
+    - Updated High temperature reactor entity and technology info.
+    - Converted all High temperature reactor recipes from water/steam to hot/cold liquid lead.
+    - Liquid lead heat exchanger Critical steam recipe inputs: Water 100 -> 250.
+    - Cold liquid lead coolant recipe inputs: Nitric acid 25 -> 65, Molten lead 30 -> 100, additionally requires 10 Fluorite.
+    - Cold liquid lead coolant recipe outputs: Cold liquid lead coolant 25 -> 8-12, 25 Dirty water -> 25-50 Acidic water, can additionally yield 1-2 Slag 25% probability.
+    - Cold liquid lead coolant recipe crafting time 2 -> 10 seconds.
+    Bugfixes:
+    - Corrected K2 container size patcher wasn't taking effect.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.23
+Date: 8-8-2025
+  Features:
+    - Created additional Cosmic criticality pack recipes for each type of Fission fuel rod.
+  Changes:
+    - *Breaking* Doubled number of Centrifuge fluidboxes.
+    - Scrap asteroid chunk crushing now yields Scrap recycling outputs directly instead of Scrap itself—Basic & Advanced both have an individual 3 outputs removed.
+    - Renamed Space Science Pack -> Cosmic criticality pack and updated technology & item icons.
+    - Cosmic Criticality Pack moved from Assembler to Centrifuge.
+    - Cosmic Criticality Pack recipe inputs: 2 Iron ingot -> 2 Steel beam, additionally requires fissile fuelrod(s), 50 Liquid nitrogen and 50 Liquid oxygen.
+    - Petrified asteroid chunk processing Phytogas -> Liquid nitrogen, additionally yields Liquid oxygen.
+    - Advanced petrified asteroid chunk processing Phytogas -> Liquid nitrogen, additionally yields Liquid oxygen.
+    - Uranium asteroid chunk crushing recipe outputs: Uranium chunk probability 70 -> 95%, additionally yields 2-4 Lead chunks with 55% probability.
+    - Advanced uranium asteroid chunk crushing recipe outputs: 95% 4-14 Uranium chunks -> 75% 1-8.
+    - Removed Space science from data recipe.
+    - Renamed Oil processing Electrified chemical plant.
+  Bugfixes:
+    - Removed extra oil refinery unlock from Oil processing.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.22
+Date: 8-7-2025
+  Changes:
+    - Obelisk heavy cargo bot energy consumption, energy capacity, and cargo capacity reduced to 25% of previous values.
+    - Rewrote Obelisk heavy cargo bot description to account for iteration.
+    - ei_lib.change_recipe & fix_recipe refactored to allow affecting output results.
+    - Renamed Advanced oil byproduct processing technology -> Oil byproduct processing.
+    - Renamed Basic oil processing technology & recipe -> Oil processing, rewrote description.
+    - Rocket fuel productivity technology now also affects Bio rocket fuel recipe.
+    - Space science pack recipe additionally requires 1 Uranium 235 and 6 Uranium 238.
+  Bugfixes:
+    - Corrected typo in effect transmission technology description.
+    - Processing unit recycling yields T1 recipe ingredients instead of T2.
+    - Removed superfluous gold & iron plate crushing recipes.
+    - Protected gate GUI data checker from nil exit value.
+    - Protected gate GUI update_gui from nil exit value.
+    - Protected gate choose_position from nil exit value.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.21
 Date: 8-6-2025
   Changes:

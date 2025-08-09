@@ -995,10 +995,15 @@ function model.update_gui(player, data, ontick)
     }
 
     -- Position button
-    position.caption = {"exotic-industries.gate-gui-control-position-button", string.format("%.1f", data.target_pos.x), string.format("%.1f", data.target_pos.y)}
-
+    if data.target_pos and data.target_pos.x and data.target_pos.y then
+        position.caption = {"exotic-industries.gate-gui-control-position-button", string.format("%.1f", data.target_pos.x), string.format("%.1f", data.target_pos.y)}
+        camera.position = {data.target_pos.x, data.target_pos.y}
+    else
+        position.caption = {"exotic-industries.gate-gui-control-position-button", string.format("%.1f", 0), string.format("%.1f", 0)}
+        camera.position = {0, 0}
+    end
     -- Camera
-    camera.position = {data.target_pos.x, data.target_pos.y}
+
 
     if not data.target_surface then return end
     if not game.get_surface(data.target_surface) then return end
@@ -1049,7 +1054,9 @@ function model.update_surface(player)
     local gate = model.find_gate(entity)
 
     if not gate then return end
-
+    if not storage.ei.gate.gate[gate.unit_number].exit then
+        storage.ei.gate.gate[gate.unit_number].exit = {}
+    end
     storage.ei.gate.gate[gate.unit_number].exit.surface = selected_surface
 
     local data = model.get_data(gate)
@@ -1105,7 +1112,7 @@ function model.choose_position(player)
 
     local target = {
         surface = storage.ei.gate.gate[gate.unit_number].exit.surface,
-        position = {storage.ei.gate.gate[gate.unit_number].exit.x, storage.ei.gate.gate[gate.unit_number].exit.y}
+        position = {storage.ei.gate.gate[gate.unit_number].exit.x or 0, storage.ei.gate.gate[gate.unit_number].exit.y or 0}
     }
 
     -- make player "op"
@@ -1172,9 +1179,14 @@ function model.get_data(gate)
     if not gate then return end
 
     local data = {}
-
-    data.max_energy = gate.electric_buffer_size
-    data.energy = gate.energy
+    if gate.electric_buffer_size then
+        data.max_energy = gate.electric_buffer_size
+    end
+    if gate.energy then
+        data.energy = gate.energy
+    else
+        data.energy = 0
+    end
 
     -- get list of all surfaces
     local surfaces = {}
@@ -1184,9 +1196,13 @@ function model.get_data(gate)
     data.surfaces = surfaces
 
     local exit = storage.ei.gate.gate[gate.unit_number].exit
-    data.target_surface = exit.surface
-    data.target_pos = {x = exit.x, y = exit.y}
-    data.state = storage.ei.gate.gate[gate.unit_number].state
+    if exit then
+        if exit.surface then data.target_surface = exit.surface end
+        if exit.x and exit.y then data.target_pos = {x = exit.x, y = exit.y} end
+    end
+    if storage.ei.gate.gate[gate.unit_number].state then
+        data.state = storage.ei.gate.gate[gate.unit_number].state
+    end
 
     return data
 

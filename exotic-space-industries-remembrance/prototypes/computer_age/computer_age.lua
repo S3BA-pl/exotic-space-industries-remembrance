@@ -1,4 +1,6 @@
 require("high-temperature-reactor")
+require("exchanger")
+require("big-turbine")
 require("copper-beacon")
 require("insulated-pipe")
 require("cooler")

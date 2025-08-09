@@ -29,7 +29,7 @@ data:extend({
             {type="item", name="ei-plasma-heater", amount=2},
             {type="item", name="ei-magnet", amount=40},
             {type="item", name="refined-concrete", amount=200},
-            {type="item", name="processing-unit", amount=100},
+            {type="item", name="ei-computing-unit", amount=100},
             {type="item", name="ei-fusion-data", amount=200},
             {type="item", name="ei-lead-ingot", amount=100},
         },
@@ -43,30 +43,17 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."fusion-reactor.png",
         icon_size = 256,
-        prerequisites = {"ei-lithium-processing"},
+        prerequisites = {"ei-lithium-processing","ei-high-temperature-reactor","ei-nano-factory"},
         effects = {
             {
                 type = "unlock-recipe",
                 recipe = "ei-fusion-reactor"
             },
-            --[[
             {
                 type = "unlock-recipe",
-                recipe = "ei_dt-fusion"
+                recipe = "ei-big-turbine-quantum"
             },
-            ]]
-            {
-                type = "unlock-recipe",
-                recipe = "ei-cold-coolant"
-            },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-exchanger"
-            },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-big-turbine"
-            },
+
         },
         unit = {
             count = 100,
@@ -194,23 +181,6 @@ data:extend({
             apparent_volume = 0.3,
         },
     },
-    {
-        name = "ei-cold-coolant",
-        type = "recipe",
-        category = "chemistry",
-        energy_required = 2,
-        ingredients = {
-            {type = "fluid", name = "ei-nitric-acid", amount = 5},
-            {type = "fluid", name = "ei-molten-lead", amount = 30},
-        },
-        results = {
-            {type = "fluid", name = "ei-cold-coolant", amount = 25},
-            {type = "fluid", name = "ei-dirty-water", amount = 5},
-        },
-        always_show_made_in = true,
-        enabled = false,
-        main_product = "ei-cold-coolant",
-    },
 })
 
 --RECIPES FOR FUSION
@@ -256,7 +226,7 @@ local base_recipe = {
 
 
 -- [Base values for fuel combinations]
-
+-- not entirely sure these base values are correct
 -- 1 protium + 1 protium <=> nope
 -- 1 protium + 1 deuterium <=> nope
 -- 1 protium + 1 tritium <=> nope
@@ -273,8 +243,8 @@ local base_recipe = {
 -- 1 tritium + 1 lithium-6 <=> nope
 
 -- always 1 cold coolant -> 1 hot coolant
--- 1 hot coolant transports 20MJ
---> 1 GJ = 50 hot coolant
+-- 1 hot coolant transports 20MJ <-- was updated to 40 at some point
+--> 1 GJ = 25 hot coolant
 
 
 -- get data from ei_data.fusion

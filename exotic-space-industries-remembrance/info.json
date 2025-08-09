@@ -1,6 +1,6 @@
 {
     "name": "exotic-space-industries-remembrance",
-    "version": "1.2.21",
+    "version": "1.2.24",
     "title": "Exotic Space Industries: Remembrance",
     "author": "aRighteousGod",
     "factorio_version": "2.0",
@@ -27,6 +27,8 @@
         "extinguisher",
         "Flammable_Oils_QUICKFIX",
         "zzz-nonstandard-beacons",
+
+        "? FluidMustFlow",
         "? WaterTurret-revived",
         "? more-quality-scaling",
         "? DiscoScience",
@@ -43,7 +45,6 @@
         "? Flare Stack",
         "? Redrawn-Space-Connections",
         "? Placeables",
-        "? FluidMustFlow",
         "? auto-barrel",
         "? textplates",
 

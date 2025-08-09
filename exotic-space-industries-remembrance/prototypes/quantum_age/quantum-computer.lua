@@ -283,6 +283,7 @@ data:extend({
             }
           },
     },
+    --[[
     --late game recipe, evaluate ratios, add unlock
 {
         name = "ei-space-science-data",
@@ -307,7 +308,7 @@ data:extend({
         enabled = false,
         main_product = "space-science-pack",
     },
-
+]]
 {
         name = "ei-space-data",
         type = "recipe",

@@ -48,10 +48,12 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = "ei-steam-crusher"
             },
+            --[[
             {
                 type = "unlock-recipe",
                 recipe = "ei-crushed-iron-plate"
             },
+            ]]
             {
                 type = "unlock-recipe",
                 recipe = "ei-crushed-iron-mechanical-parts"

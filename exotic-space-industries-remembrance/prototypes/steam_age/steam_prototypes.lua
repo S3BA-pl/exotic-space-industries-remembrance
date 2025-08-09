@@ -326,6 +326,7 @@ data:extend({
         enabled = false,
         main_product = "ei-crushed-iron",
     },
+    --[[
     {
         name = "ei-crushed-iron-plate",
         type = "recipe",
@@ -342,6 +343,7 @@ data:extend({
         main_product = "ei-crushed-iron",
         hide_from_player_crafting = true,
     },
+    ]]
     {
         name = "ei-crushed-iron-mechanical-parts",
         type = "recipe",

@@ -371,7 +371,7 @@ end
 ------------------------------------------------------------------------------------------------------
 
 -- change ingredient in a recipe for another
-function ei_lib.recipe_swap(recipe, old_ingredient, new_ingredient, amount)
+function ei_lib.recipe_swap(recipe, old_ingredient, new_ingredient, amount, results)
     -- return if recipe or old_ingredient or new_ingredient is not given
     if not recipe or not old_ingredient or not new_ingredient then
         return
@@ -382,13 +382,24 @@ function ei_lib.recipe_swap(recipe, old_ingredient, new_ingredient, amount)
         log("recipe "..recipe.." does not exist in data.raw.recipe")
         return
     end
-
+    --input or output
+    local target = "ingredients"
+    if results then
+      target = "results"
+    end
+    target = data.raw.recipe[recipe][target]
+    --validate
+    if not target then
+      log("recipe "..recipe.." had invalid target")
+      return
+    end
+  
     -- check if amount is given
     if not amount then
         
         -- if we got an amount of old_ingredient in the recipe
         -- set amount to that amount
-        for i,v in pairs(data.raw.recipe[recipe].ingredients or {}) do
+        for i,v in pairs(target or {}) do
             local item_amount = v[2] or v["amount"]
             local item_name = v[1] or v["name"]
             if item_name == old_ingredient then
@@ -403,7 +414,7 @@ function ei_lib.recipe_swap(recipe, old_ingredient, new_ingredient, amount)
     end
 
     -- loop over all ingredients of the recipe
-    for i,v in pairs(data.raw.recipe[recipe].ingredients or {}) do
+    for i,v in pairs(target or {}) do
 
         local item_amount = v[2] or v["amount"]
         local item_name = v[1] or v["name"]
@@ -412,36 +423,41 @@ function ei_lib.recipe_swap(recipe, old_ingredient, new_ingredient, amount)
         -- here first index is ingredient name, second index is amount
         if item_name == old_ingredient then
             if v["name"] then
-                data.raw.recipe[recipe].ingredients[i]["name"] = new_ingredient
-                data.raw.recipe[recipe].ingredients[i]["amount"] = amount
+                target[i]["name"] = new_ingredient
+                target[i]["amount"] = amount
             else
-                data.raw.recipe[recipe].ingredients[i][1] = new_ingredient
-                data.raw.recipe[recipe].ingredients[i][2] = amount
+                target[i][1] = new_ingredient
+                target[i][2] = amount
             end
         end
 
-        ei_lib.fix_recipe(recipe)
+        ei_lib.fix_recipe(recipe, results)
     end
 end
 
 
 -- fix recipes for multiple ingredients
-function ei_lib.fix_recipe(recipe)
+function ei_lib.fix_recipe(recipe,results)
     -- look if an ingredient is multiple times in the recipe, if so, add the amounts
     local ingredients = {}
-    if not data.raw.recipe[recipe].ingredients then
-        return
+    local target = "ingredients"
+    if results then
+      target = "results"
+    end
+    target = data.raw.recipe[recipe][target]
+    if not target then
+      log("fix recipe got invalid target for "..recipe)
+      return
     end
 
-    if not data.raw.recipe[recipe].ingredients[1] then
+    if not target[1] then
         return
     end
-    ingredients = data.raw.recipe[recipe].ingredients
 
     -- loop over all ingredients
-    for i,v in ipairs(ingredients) do
+    for i,v in ipairs(target) do
         local total_amount = v[2] or v["amount"] or 1
-        for j,x in ipairs(ingredients) do
+        for j,x in ipairs(target) do
             -- exclude same index
             if i ~= j then
 
@@ -453,7 +469,7 @@ function ei_lib.fix_recipe(recipe)
                         total_amount = total_amount + x[2]
                     end
                     
-                    table.remove(data.raw.recipe[recipe].ingredients, j)
+                    table.remove(target, j)
                 end
             end
         end

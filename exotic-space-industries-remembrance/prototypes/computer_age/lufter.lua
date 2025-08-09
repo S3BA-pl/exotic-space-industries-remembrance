@@ -149,6 +149,9 @@ data:extend({
         always_show_made_in = true,
         enabled = false,
         main_product = "ei-nitrogen-gas",
+        surface_conditions = {
+            {property = "pressure",    min = 33, max = 100000},
+        },
     },
     {
         name = "ei-nitrogen-gas-vent",
@@ -178,6 +181,9 @@ data:extend({
         always_show_made_in = true,
         enabled = false,
         main_product = "ei-oxygen-gas",
+        surface_conditions = {
+            {property = "pressure",    min = 33, max = 100000},
+        },
     },
     {
         name = "ei-oxygen-gas-vent",
@@ -208,7 +214,10 @@ data:extend({
         enabled = false,
         main_product = "water",
         subgroup = "fluid-recipes",
-        order = "b[fluid-chemistry]-j[water]"
+        order = "b[fluid-chemistry]-j[water]",
+        surface_conditions = {
+            {property = "pressure",    min = 33, max = 100000},
+        },
     },
     {
         name = "ei-steam-vent",

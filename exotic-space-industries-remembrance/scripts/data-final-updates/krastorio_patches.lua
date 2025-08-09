@@ -6,6 +6,7 @@
 if not mods["krastorio2-spaced-out"] then
     return
 end
+local ei_lib = require("lib.lib")
 local containers = {
 ["warehouse"] = 48,
 ["active-provider-warehouse"] = 48,
@@ -21,7 +22,10 @@ local containers = {
 ["storage-strongbox"] = 24,
 }
 for entity,size in pairs(containers) do
-    entity.inventory_size = size
+    local target = ei_lib.raw.container.entity
+    if target then
+        target.inventory_size = size
+    end
 end
 
 goto skip_rest
@@ -29,7 +33,7 @@ goto skip_rest
 local k2path = "__krastorio2-spaced-out__/"
 -- changes to K2 mod
 
-local ei_lib = require("lib.lib")
+
 local ei_data = require("lib.data")
 local matter = require(k2path.."lib.public.data-stages.matter-util")
 local variations_util = require(k2path.."lib.public.data-stages.create-roboport-states")

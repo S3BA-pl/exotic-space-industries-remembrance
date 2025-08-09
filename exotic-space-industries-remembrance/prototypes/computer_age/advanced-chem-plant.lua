@@ -99,7 +99,7 @@ data:extend({
     {
         name = "ei-advanced-chem-plant",
         type = "assembling-machine",
-        crafting_categories = {"chemistry", "ei-advanced-chem-plant"},
+        crafting_categories = {"chemistry", "ei-advanced-chem-plant","chemistry-or-cryogenics","organic-or-chemistry"},
         icon = ei_graphics_item_path.."advanced-chem-plant.png",
         icon_size = 64,
         circuit_connector =  circuit_connector_definitions.create_vector(
