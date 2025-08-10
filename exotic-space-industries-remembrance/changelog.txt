@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.25
+Date: 8-9-2025
+  Changes:
+    - Added Advanced motor to High temperature reactor technology prerequisites.
+    - Pipe recipe inputs: Iron plate 1 -> 2.
+    - Tweaked oil/byproduct manipulation recipes to have slightly inconsistent outputs.
+    - Heavy oil -> lubricant recipe inputs: Additionally requires 10 Coal gas.
+    - Heavy oil -> lubricant recipe outputs: 10 Lubricant -> 6-10, additionally yields 3-7 Steam.
+    - Simple coal liquefaction recipe inputs: 10 Coal -> 15 Coal coke.
+    - Simple coal liquefaction recipe outputs: 50 Heavy oil -> 48-52 Residual oil, additionally yields 33-37 Coal gas.
+    - Coal liquefaction recipe inputs: 10 Coal -> 30 Crushed coke, Heavy oil 25 -> 35.
+    - Coal liquefaction recipe outputs: 90 Heavy oil -> 88-92 Residual oil, 20 Light oil -> 3-7, 10 Petroleum gas -> 38-42 Benzol.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.24
 Date: 8-9-2025
   Features:

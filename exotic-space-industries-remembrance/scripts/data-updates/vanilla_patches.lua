@@ -558,8 +558,82 @@ local new_ingredients_table = {
         {type="item",name="electric-engine-unit", amount=8},
         {type="item",name="steel-plate", amount=30},
     },
+    ["long-handed-inserter"] = {
+        {type="item", name="inserter", amount=1},
+        {type="item", name="iron-plate", amount=1},
+        {type="item", name="ei-steel-mechanical-parts", amount=1}
+    },
+    ["burner-mining-drill"] = {
+        {type="item", name="iron-plate", amount=3},
+        {type="item", name="ei-iron-mechanical-parts", amount=3},
+        {type="item", name="stone-furnace", amount=1}
+    },
+    ["pipe"] = {
+        {type="item", name="iron-plate", amount=2},
+    },
+    ["electronic-circuit"] = {
+        {type="item", name="ei-electron-tube", amount=1},
+        {type="item", name="copper-cable", amount=2},
+        {type="item", name="iron-plate", amount=1}
+    },
+-- treat red belts with plastic
+    ["fast-transport-belt"] = {
+        {type="item", name="transport-belt", amount=1},
+        {type="item", name="ei-iron-mechanical-parts", amount=5},
+        {type="item", name="plastic-bar", amount=1}
+    },
+    ["fast-underground-belt"] = {
+        {type="item", name="underground-belt", amount=2},
+        {type="item", name="ei-iron-mechanical-parts", amount=30},
+        {type="item", name="plastic-bar", amount=4}
+    },
+    ["fast-splitter"]= {
+        {type="item", name="splitter", amount=1},
+        {type="item", name="ei-iron-mechanical-parts", amount=12},
+        {type="item", name="electronic-circuit", amount=8},
+        {type="item", name="plastic-bar", amount=4}
+    },
+-- red circuits need sulfuric acid
+    ["advanced-circuit"] = {
+        {type="item", name="electronic-circuit", amount=2},
+        {type="item", name="ei-insulated-wire", amount=4},
+        {type="item", name="ei-electron-tube", amount=2},
+        {type="fluid", name="sulfuric-acid", amount=5}
+    },
+-- batteries
+    ["battery"] = {
+        {type="item", name="ei-crushed-iron", amount=4},
+        {type="item", name="ei-crushed-copper", amount=4},
+        {type="item", name="ei-ceramic", amount=1},
+        {type="fluid", name="sulfuric-acid", amount=25}
+    },
+-- robo frames
+    ["flying-robot-frame"] = {
+        {type="item", name="electric-engine-unit", amount=4},
+        {type="item", name="battery", amount=2},
+        {type="item", name="advanced-circuit", amount=5},
+        {type="item", name="ei-steel-mechanical-parts", amount=10},
+        {type="item", name="ei-electronic-parts", amount=5},
+        {type="item", name="ei-energy-crystal", amount=1},
+        {type="fluid", name="lubricant", amount=100}
+    },
+-- recipes for modules
+    ["speed-module"] = {
+        {type="item", name="ei-module-base", amount=1},
+        {type="fluid", name="ei-liquid-nitrogen", amount=25}
+    },
+-- treat rocket fuel
+    ["rocket-fuel"] = {
+        {type="item", name="solid-fuel", amount=10},
+        {type="fluid", name="ei-kerosene", amount=15},
+        {type="fluid", name="ei-liquid-oxygen", amount=25},
+    },
 }
-
+--adjust categories to allow above changes
+ei_lib.raw["recipe"]["advanced-circuit"].category = "crafting-with-fluid"
+ei_lib.raw["recipe"]["flying-robot-frame"].category = "crafting-with-fluid"
+ei_lib.raw["recipe"]["speed-module"].category = "electronics-with-fluid"
+ei_lib.raw["recipe"]["rocket-fuel"].category = "chemistry"
 --[[
 local copperSlag = {
     recipe = "copper-plate",
@@ -626,45 +700,72 @@ table.insert(ei_lib.raw.recipe["iron-plate"].results,{type = "item", name = "ei-
 table.insert(ei_lib.raw.recipe["copper-plate"].results,{type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.1})
 table.insert(ei_lib.raw.recipe["steel-plate"].results,{type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.05})
 ]]
-ei_lib.raw.recipe["long-handed-inserter"].ingredients = {
-    {type="item", name="inserter", amount=1},
-    {type="item", name="iron-plate", amount=1},
-    {type="item", name="ei-steel-mechanical-parts", amount=1}
-}
 
-ei_lib.raw["recipe"]["burner-mining-drill"].ingredients = {
-    {type="item", name="iron-plate", amount=3},
-    {type="item", name="ei-iron-mechanical-parts", amount=3},
-    {type="item", name="stone-furnace", amount=1}
-}
-
-ei_lib.raw["recipe"]["pipe"].ingredients = {
-    {type="item", name="iron-plate", amount=1},
-}
-
-ei_lib.raw["recipe"]["basic-oil-processing"].ingredients =
+-- treat cracking
+ei_lib.raw["basic-oil-processing"].ingredients =
 {
     {type="fluid", name="crude-oil", amount=50},
     {type="fluid", name="water", amount=20},
 }
-
 ei_lib.raw["recipe"]["basic-oil-processing"].results = 
 {
-    {type="fluid", name="ei-residual-oil", amount=50},
-    {type="fluid", name="petroleum-gas", amount=50},
+    {type="fluid", name="ei-residual-oil", amount_min=48,amount_max=52},
+    {type="fluid", name="petroleum-gas", amount_min=48,amount_max=52},
 }
-
--- treat cracking
-ei_lib.raw["recipe"]["heavy-oil-cracking"].icon = ei_graphics_other_path.."heavy-cracking.png"
-ei_lib.raw["recipe"]["heavy-oil-cracking"].icon_size = 64
-ei_lib.raw["recipe"]["heavy-oil-cracking"].results = {
-    {type="fluid", name="ei-kerosene", amount=40},
+ei_lib.raw["recipe"]["light-oil-cracking"].results = 
+{
+    {type="fluid", name="petroleum-gas", amount_min=18,amount_max=22},
 }
 ei_lib.recipe_new("heavy-oil-cracking",
 {
     {type="fluid", name="heavy-oil", amount=50},
     {type="fluid", name="water", amount=50}
 })
+ei_lib.raw["recipe"]["heavy-oil-cracking"].icon = ei_graphics_other_path.."heavy-cracking.png"
+ei_lib.raw["recipe"]["heavy-oil-cracking"].icon_size = 64
+ei_lib.raw["recipe"]["heavy-oil-cracking"].results = {
+    {type="fluid", name="ei-kerosene", amount_min=38,amount_max=42},
+}
+
+ei_lib.recipe_new("lubricant",
+{
+    {type="fluid", name="heavy-oil", amount=10},
+    {type="fluid", name="ei-coal-gas", amount=10}
+})
+ei_lib.raw["recipe"]["lubricant"].results = {
+    {type="fluid", name="lubricant", amount_min=6,amount_max=10},
+    {type="fluid", name="steam", amount_min=3,amount_max=7},
+}
+local l_icon = ei_lib.raw.fluid["lubricant"].icon
+local l_icon_size = ei_lib.raw.fluid["lubricant"].icon_size
+ei_lib.raw.recipe["lubricant"].icon = l_icon
+ei_lib.raw.recipe["lubricant"].icon_size = l_icon_size
+ei_lib.raw["recipe"]["sulfuric-acid"].ingredients = {
+    {type="fluid", name="water", amount=25},
+    {type="item", name="ei-crushed-iron", amount=1},
+    {type="item", name="sulfur", amount=3}
+}
+ei_lib.recipe_new("simple-coal-liquefaction",
+{
+    {type="item", name="ei-coke", amount=15},
+    {type="item", name="calcite", amount=2},
+    {type="fluid", name="sulfuric-acid", amount=25}
+})
+ei_lib.raw["recipe"]["simple-coal-liquefaction"].results = {
+    {type="fluid", name="ei-residual-oil", amount_min=48,amount_max=52},
+    {type="fluid", name="ei-coal-gas", amount_min=33,amount_max=37},
+}
+ei_lib.recipe_new("coal-liquefaction",
+{
+    {type="item", name="ei-crushed-coke", amount=30},
+    {type="fluid", name="heavy-oil", amount=35},
+    {type="fluid", name="steam", amount=50}
+})
+ei_lib.raw["recipe"]["coal-liquefaction"].results = {
+    {type="fluid", name="ei-residual-oil", amount_min=88,amount_max=92},
+    {type="fluid", name="light-oil", amount_min=3,amount_max=7},
+    {type="fluid", name="ei-benzol", amount_min=38,amount_max=42},
+}
 
 -- make engine recipe in recipe-category crafting
 ei_lib.raw["recipe"]["engine-unit"].category = "crafting"
@@ -672,98 +773,6 @@ ei_lib.raw["recipe"]["engine-unit"].category = "crafting"
 -- reduce craft time of engines and electric engines
 ei_lib.raw["recipe"]["engine-unit"].energy_required = 4
 ei_lib.raw["recipe"]["electric-engine-unit"].energy_required = 6
-
-
-ei_lib.raw["recipe"]["burner-mining-drill"].ingredients = {
-    {type="item", name="iron-plate", amount=3},
-    {type="item", name="ei-iron-mechanical-parts", amount=3},
-    {type="item", name="stone-furnace", amount=1}
-}
-
-ei_lib.raw["recipe"]["pipe"].ingredients = {
-    {type="item", name="iron-plate", amount=1},
-    {type="item", name="ei-iron-mechanical-parts", amount=1}
-}
-
-ei_lib.raw["recipe"]["electronic-circuit"].ingredients = {
-    {type="item", name="ei-electron-tube", amount=1},
-    {type="item", name="copper-cable", amount=2},
-    {type="item", name="iron-plate", amount=1}
-}
-
-ei_lib.raw["recipe"]["sulfuric-acid"].ingredients = {
-    {type="fluid", name="water", amount=25},
-    {type="item", name="ei-crushed-iron", amount=1},
-    {type="item", name="sulfur", amount=3}
-}
-
--- treat red belts with plastic
-ei_lib.raw["recipe"]["fast-transport-belt"].ingredients = {
-    {type="item", name="transport-belt", amount=1},
-    {type="item", name="ei-iron-mechanical-parts", amount=5},
-    {type="item", name="plastic-bar", amount=1}
-}
-ei_lib.raw["recipe"]["fast-underground-belt"].ingredients = {
-    {type="item", name="underground-belt", amount=2},
-    {type="item", name="ei-iron-mechanical-parts", amount=30},
-    {type="item", name="plastic-bar", amount=4}
-}
-ei_lib.raw["recipe"]["fast-splitter"].ingredients = {
-    {type="item", name="splitter", amount=1},
-    {type="item", name="ei-iron-mechanical-parts", amount=12},
-    {type="item", name="electronic-circuit", amount=8},
-    {type="item", name="plastic-bar", amount=4}
-}
-
--- red circuits need sulfuric acid
-ei_lib.recipe_new("advanced-circuit",
-{
-    {type="item", name="electronic-circuit", amount=2},
-    {type="item", name="ei-insulated-wire", amount=4},
-    {type="item", name="ei-electron-tube", amount=2},
-    {type="fluid", name="sulfuric-acid", amount=5}
-})
-ei_lib.raw["recipe"]["advanced-circuit"].category = "crafting-with-fluid"
-
--- batteries
-ei_lib.recipe_new("battery",
-{
-    {type="item", name="ei-crushed-iron", amount=4},
-    {type="item", name="ei-crushed-copper", amount=4},
-    {type="item", name="ei-ceramic", amount=1},
-    {type="fluid", name="sulfuric-acid", amount=25}
-})
-
--- robo frames
-ei_lib.raw["recipe"]["flying-robot-frame"].category = "crafting-with-fluid"
-ei_lib.recipe_new("flying-robot-frame",
-{
-    {type="item", name="electric-engine-unit", amount=4},
-    {type="item", name="battery", amount=2},
-    {type="item", name="advanced-circuit", amount=5},
-    {type="item", name="ei-steel-mechanical-parts", amount=10},
-    {type="item", name="ei-electronic-parts", amount=5},
-    {type="item", name="ei-energy-crystal", amount=1},
-    {type="fluid", name="lubricant", amount=100}
-})
-
--- recipes for modules
-ei_lib.raw["recipe"]["speed-module"].category = "electronics-with-fluid"
-ei_lib.recipe_new("speed-module",
-{
-    {type="item", name="ei-module-base", amount=1},
-    {type="fluid", name="ei-liquid-nitrogen", amount=25}
-})
-
--- treat rocket fuel
-ei_lib.raw["recipe"]["rocket-fuel"].category = "chemistry"
-ei_lib.recipe_new("rocket-fuel",
-{
-    {type="item", name="solid-fuel", amount=10},
-    {type="fluid", name="ei-kerosene", amount=15},
-    {type="fluid", name="ei-liquid-oxygen", amount=25},
-})
-
 --TECHS
 ------------------------------------------------------------------------------------------------------
 ---
@@ -987,11 +996,10 @@ ei_lib.raw.technology["advanced-oil-processing"] = {
 --delete it outright to prevent misunderstandings of whether removal is intentional
 ei_lib.raw.recipe["advanced-oil-processing"].hidden = true
 --Rewrite basic oil processing -> Oil processing
-
-ei_lib.raw.technology["oil-processing"] = {
-    localised_name = {"technology-name.ei-oil-processing"},
-    localised_description = {"technology-description.ei-oil-processing"}
+ei_lib.raw.recipe["basic-oil-processing"] = {
+    localised_name = {"recipe-name.ei-basic-oil-processing"},
 }
+
 -- edit electric enigne tech to use only steam age science for progression
 --ei_lib.set_age_packs("electric-engine","steam-age")
 

@@ -2075,8 +2075,8 @@ data:extend({
             {type = "fluid", name = "ei-hydrogen-gas", amount = 10},
         },
         results = {
-            {type = "fluid", name = "water", amount = 5},
-            {type = "fluid", name = "heavy-oil", amount = 5},
+            {type = "fluid", name = "water", amount_min = 3,amount_max=7},
+            {type = "fluid", name = "heavy-oil", amount_min = 3,amount_max=7},
         },
         always_show_made_in = true,
         enabled = false,

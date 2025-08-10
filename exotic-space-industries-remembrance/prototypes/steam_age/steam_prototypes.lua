@@ -259,7 +259,7 @@ data:extend({
         },
         results = {
             {type = "item", name = "ei-coke", amount = 6},
-            {type = "fluid", name = "ei-coal-gas", amount = 25},
+            {type = "fluid", name = "ei-coal-gas", amount_min = 23,amount_max=27},
         },
         always_show_made_in = true,
         enabled = false,
@@ -275,7 +275,7 @@ data:extend({
         },
         results = {
             {type = "item", name = "ei-coke", amount = 6},
-            {type = "fluid", name = "ei-coal-gas", amount = 25},
+            {type = "fluid", name = "ei-coal-gas", amount_min = 23,amount_max=27},
         },
         always_show_made_in = true,
         enabled = false,

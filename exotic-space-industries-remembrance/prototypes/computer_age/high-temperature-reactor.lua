@@ -42,7 +42,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."high-temperature-reactor.png",
         icon_size = 256,
-        prerequisites = {"ei-computer-core", "ei-plutonium-239-recycling", "nuclear-power","low-density-structure","ei-nitric-acid","uranium-processing"},
+        prerequisites = {"ei-computer-core", "ei-plutonium-239-recycling", "nuclear-power","low-density-structure","ei-nitric-acid","uranium-processing","ei-advanced-motor"},
         effects = {
             {
                 type = "unlock-recipe",

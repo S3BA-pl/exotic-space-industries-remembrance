@@ -449,9 +449,9 @@ data:extend({
             {type = "fluid", name = "ei-coal-gas", amount = 25},
         },
         results = {
-            {type = "fluid", name = "ei-benzol", amount = 10},
-            {type = "fluid", name = "petroleum-gas", amount = 10},
-            {type = "fluid", name = "ei-residual-oil", amount = 5},
+            {type = "fluid", name = "ei-benzol", amount_min = 8,amount_max=12},
+            {type = "fluid", name = "petroleum-gas", amount_min = 8,amount_max=12},
+            {type = "fluid", name = "ei-residual-oil", amount_min = 3,amount_max=7},
         },
         always_show_made_in = true,
         enabled = false,
@@ -553,8 +553,8 @@ data:extend({
             {type = "item", name = "ei-coke", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-kerosene", amount = 20},
-            {type = "fluid", name = "ei-coal-gas", amount = 35},
+            {type = "fluid", name = "ei-kerosene", amount_min = 18,amount_max=22},
+            {type = "fluid", name = "ei-coal-gas", amount_min = 33,amount_max=37},
         },
         always_show_made_in = true,
         enabled = false,
@@ -572,8 +572,8 @@ data:extend({
             {type = "fluid", name = "steam", amount = 10},
         },
         results = {
-            {type = "fluid", name = "ei-benzol", amount = 30},
-            {type = "fluid", name = "petroleum-gas", amount = 15},
+            {type = "fluid", name = "ei-benzol", amount_min = 28,amount_max=32},
+            {type = "fluid", name = "petroleum-gas", amount_min = 13,amount_max=17},
         },
         always_show_made_in = true,
         enabled = false,
@@ -590,7 +590,7 @@ data:extend({
             {type = "fluid", name = "ei-benzol", amount = 30},
         },
         results = {
-            {type = "fluid", name = "petroleum-gas", amount = 15},
+            {type = "fluid", name = "petroleum-gas", amount_min = 13,amount_max=17},
         },
         always_show_made_in = true,
         enabled = false,
@@ -664,7 +664,7 @@ data:extend({
             {type = "fluid", name = "water", amount = 30},
         },
         results = {
-            {type = "fluid", name = "light-oil", amount = 30},
+            {type = "fluid", name = "light-oil", amount_min = 28,amount_max=32},
         },
         always_show_made_in = true,
         enabled = false,
@@ -915,7 +915,7 @@ data:extend({
             {type = "fluid", name = "lubricant", amount = 20},
         },
         results = {
-            {type = "fluid", name = "heavy-oil", amount = 15},
+            {type = "fluid", name = "heavy-oil", amount_min = 13,amount_max=17},
             {type = "item", name = "coal", amount = 1},
         },
         always_show_made_in = true,

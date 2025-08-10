@@ -210,8 +210,8 @@ data:extend({
             {type = "fluid", name = "ei-residual-oil", amount = 55},
         },
         results = {
-            {type = "fluid", name = "ei-medium-destilate", amount = 45},
-            {type = "fluid", name = "light-oil", amount = 45},
+            {type = "fluid", name = "ei-medium-destilate", amount_min = 43,amount_max=47},
+            {type = "fluid", name = "light-oil", amount_min = 43,amount_max=47},
         },
         always_show_made_in = true,
         enabled = false,
@@ -228,8 +228,8 @@ data:extend({
             {type = "fluid", name = "ei-medium-destilate", amount = 45},
         },
         results = {
-            {type = "fluid", name = "ei-heavy-destilate", amount = 35},
-            {type = "fluid", name = "ei-kerosene", amount = 35},
+            {type = "fluid", name = "ei-heavy-destilate", amount_min = 33,amount_max=37},
+            {type = "fluid", name = "ei-kerosene", amount_min = 33,amount_max=37},
         },
         always_show_made_in = true,
         enabled = false,
@@ -246,8 +246,8 @@ data:extend({
             {type = "fluid", name = "ei-heavy-destilate", amount = 35},
         },
         results = {
-            {type = "fluid", name = "ei-lube-destilate", amount = 25},
-            {type = "fluid", name = "heavy-oil", amount = 25},
+            {type = "fluid", name = "ei-lube-destilate", amount_min = 23,amount_max=27},
+            {type = "fluid", name = "heavy-oil", amount_min = 23,amount_max=27},
         },
         always_show_made_in = true,
         enabled = false,
@@ -264,7 +264,7 @@ data:extend({
             {type = "fluid", name = "ei-lube-destilate", amount = 25},
         },
         results = {
-            {type = "fluid", name = "lubricant", amount = 10},
+            {type = "fluid", name = "lubricant", amount_min = 8,amount_max=12},
             {type = "item", name = "ei-coke", amount = 1},
         },
         always_show_made_in = true,
