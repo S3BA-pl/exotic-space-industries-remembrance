@@ -29,7 +29,7 @@ ei_lib.set_age_packs("ei-gaia","computer-age-space")
 ei_lib.set_age_packs("ei-induction-matrix","computer-age-space")
 ei_lib.set_age_packs("advanced-wood-gas-processing","computer-age-space")
 ei_lib.set_age_packs("wood-gas-processing-to-crude-oil","computer-age-space")
-
+ei_lib.set_age_packs("radar","electricity-age")
 ei_lib.set_science_packs("interstellar-science-pack",ei_data.science["interstellar"])
 
 ei_lib.copy_science_packs("uranium-processing","ei-computer-core")

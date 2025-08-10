@@ -165,7 +165,6 @@ ei_lib.set_prerequisites("burner-mechanics",{"ei-dark-age"})
 ei_lib.set_prerequisites("kr-automation-core",{"ei-dark-age"})
 ei_lib.set_prerequisites("kr-iron-pickaxe",{"ei-dark-age"})
 
-ei_lib.set_prerequisites("radar",{"ei-electricity-power"})
 ei_lib.set_prerequisites("electric-energy-accumulators",{"ei-electricity-power"})
 ei_lib.set_prerequisites("electric-energy-distribution-1",{"ei-electricity-power"})
 
@@ -185,6 +184,7 @@ ei_lib.set_prerequisites("nuclear-power",{"uranium-mining"})
 ei_lib.set_prerequisites("kr-fusion-energy",{"lithium-processing","nuclear-power"})
 ei_lib.set_prerequisites("captive-biter-spawner",{"cryogenic-science-pack","biter-egg-handling"})
 
+ei_lib.set_prerequisites("ei-electricity-age",{"engine","electronics","ei-steam-inserter","logistics","ei-steam-assembler","ei-tank-silo","ei-steam-advanced-train","rp-steam-logistics-chests","ei-fluid-boiler"})
 -- ======================================================================================
 
 if mods["planet-muluna"] then ei_lib.set_prerequisites("space-science-pack",{"planet-discovery-muluna"})
@@ -199,7 +199,6 @@ if mods["lignumis"] then
   ei_lib.set_prerequisites("gun-turret",{"basic-gun-turret"})
   ei_lib.set_prerequisites("logistics",{"wood-logistics"})
 
-  ei_lib.add_prerequisite("radar", "ei-steam-age")
   ei_lib.add_prerequisite("military", "ei-steam-age")
   ei_lib.add_prerequisite("repair-pack", "ei-steam-age")
   ei_lib.add_prerequisite("gun-turret", "ei-steam-age")

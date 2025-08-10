@@ -622,4 +622,3 @@ ei_lib.remove_tech("ei-electricity-age-dummy")
 ei_lib.remove_tech("ei-computer-age-dummy")
 ei_lib.remove_tech("ei-quantum-age-dummy")
 ei_lib.remove_tech("ei-exotic-age-dummy")
-

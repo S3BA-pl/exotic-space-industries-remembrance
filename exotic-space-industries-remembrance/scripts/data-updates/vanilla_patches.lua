@@ -569,7 +569,8 @@ local new_ingredients_table = {
         {type="item", name="stone-furnace", amount=1}
     },
     ["pipe"] = {
-        {type="item", name="iron-plate", amount=2},
+        {type="item", name="iron-plate", amount=1},
+        {type="item", name="ei-iron-mechanical-parts", amount=1},
     },
     ["electronic-circuit"] = {
         {type="item", name="ei-electron-tube", amount=1},
@@ -776,6 +777,9 @@ ei_lib.raw["recipe"]["electric-engine-unit"].energy_required = 6
 --TECHS
 ------------------------------------------------------------------------------------------------------
 ---
+---
+
+ei_lib.raw.technology["radar"].age = "electricity-age"
 local removerecipes = {
     "iron-stick",
     "iron-gear-wheel"
@@ -820,7 +824,8 @@ new_prerequisites_table["steam-age"] = {
     {"engine", "ei-steam-oil-processing"},
     {"electronics", "ei-glass"},
     {"flamethrower","flammables"},
-    {"concrete","advanced-material-processing"}
+    {"concrete","advanced-material-processing"},
+    {"automobilism","engine"}
 }
 
 new_prerequisites_table["electricity-age"] = {
@@ -840,7 +845,9 @@ new_prerequisites_table["electricity-age"] = {
     {"uranium-processing", "ei-deep-mining"},
     {"uranium-processing", "advanced-circuit"},
     {"uranium-processing", "ei-grower"},
-    {"nuclear-power", "uranium-processing"},    
+    {"nuclear-power", "uranium-processing"},
+    {"portable-solar-equipment", "solar-energy"},
+    {"radar", "ei-electricity-power"}
 }
 
 new_prerequisites_table["computer-age"] = {

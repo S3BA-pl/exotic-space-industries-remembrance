@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.26
+Date: 8-10-2025
+  Changes:
+    - Reverted pipe recipe: 2 Iron plates -> 1 Iron plate & 1 Iron mechanical part.
+    - Portable solar equipment technology now requires Solar energy as prerequisite.
+    - Automobilism technology now requires Engine as prerequisite.
+  Bugfixes:
+    - Radar technology research ingredients corrected to require Steam & Electricity age packs as well.
+    - Electricity Age technology prerequisites exist again.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.25
 Date: 8-9-2025
   Changes:
