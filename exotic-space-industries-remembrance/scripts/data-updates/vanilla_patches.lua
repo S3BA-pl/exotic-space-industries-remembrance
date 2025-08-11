@@ -1876,6 +1876,8 @@ ei_lib.raw.recipe["scrap-recycling"].results = {
     {type="item",name="ei-steel-beam", amount_min=0,amount_max=1,probability=0.02},
     {type="item",name="steel-plate", amount_min=0,amount=1,probability=0.02},
     {type="item",name="iron-plate", amount_min=0,amount=1,probability=0.025},
+    {type="item",name="concrete", amount_min=0,amount=1,probability=0.05},
+    {type="item",name="ice", amount_min=0,amount=1,probability=0.06},
     {type="item",name="battery", amount_min=0,amount=1,probability=0.04},
     {type="item",name="stone", amount_min=0,amount=1,probability=0.025},
     {type="item",name="ei-slag", amount_min=0,amount=1,probability=0.02},
