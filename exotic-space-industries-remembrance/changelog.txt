@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.27
+Date: 8-10-2025
+  Notice:
+    - Instantiated a discord for Remembrance: https://discord.gg/hEmNYcvg7G
+  Bugfixes:
+    - Steam / Electricity Age technology unlocks no longer require their own Age packs to unlock preventing progression.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.26
 Date: 8-10-2025
   Changes:

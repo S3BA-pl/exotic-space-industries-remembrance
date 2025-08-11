@@ -79,7 +79,7 @@ data:extend({
         },
         unit = {
             count = 200,
-            ingredients = science["steam-age"],
+            ingredients = science["dark-age"],
             time = 20
         },
         enabled = true,
@@ -105,7 +105,7 @@ data:extend({
         },
         unit = {
             count = 300,
-            ingredients = science["electricity-age"],
+            ingredients = science["steam-age"],
             time = 30
         },
         enabled = true,
