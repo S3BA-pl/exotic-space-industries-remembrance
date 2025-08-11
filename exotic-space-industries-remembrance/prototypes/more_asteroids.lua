@@ -834,7 +834,7 @@ data:extend(
   })
 local sac = ei_lib.raw.recipe["ei-scrap-asteroid-crushing"]
 local sac_exclude = {
-  "processing-unit",
+  "ei-electronic-parts",
   "holmium-ore",
   "low-density-structure"
 }

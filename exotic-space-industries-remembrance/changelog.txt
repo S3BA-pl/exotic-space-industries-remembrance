@@ -1,4 +1,44 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.28
+Date: 8-11-2025
+  Features:
+    - Created new scrap recycling recipe with 22 potential outputs.
+  Changes:
+    - Removed superfluous Electric mining drill recipe from Electric power.
+    - Moved Inserter and Long handed inserter recipes from Electric power -> Electric automation.
+    - Elevated pipes require heating not to freeze.
+    - Restricted Elevated pipes span distance to 12 tiles.
+    - Burner quarry base mining speed 1 -> 1.5.
+    - Electric quarry base mining speed 1 -> 1.5.
+    - Burner quarry resource drain rate 100 -> 90%.
+    - Electric quarry resource drain rate 100 -> 90%.
+    - Burner quarry resource searching area 10x10 -> 15x15.
+    - Electric quarry resource searching area 20x20 -> 15x15.
+    - Added tooltip detailing quarries idiosyncrasies.
+    - Moved Lignumis from optional to hidden dependencies.
+    - Cargo wagon recipe inputs: Iron ingot 20 -> 10, Steel ingot 20 -> 10, 10 Iron mechanical parts -> 10 Steel mechanical parts, additionally requires 5 Iron beams, 2 Steel beams, 1 Advanced steam cargo wagon.
+    - Fluid wagon recipe inputs: Pipes 8 -> 4, Steel ingot 20 -> 8, 10 Iron mechanical parts -> 10 Steel mechanical parts, additionally requires 4 Steel beams, 1 Advanced steam fluid wagon.
+    - Logistic bot recipe inputs: 4 Advanced circuits -> 2 Electronic parts. Additionally requires 1 Steam logistic bot.
+    - Construction bot recipe inputs: 4 Electronic circuits -> 1 Electronic part. Additionally requires 1 Steam construction bot.
+    - Roboport recipe inputs: 45 Advanced circuits -> 15 Electronic parts. Additionally requires 1 Steam roboport.
+    - Assembling machine 1 recipe inputs: 2 Electronic circuits -> 2 Advanced circuits. Additionally requires 1 Burner assembler.
+    - Assembling machine 2 recipe inputs: 2 Iron beams -> 2 Steel beams, 3 Electronic circuits -> 2 Electronic parts. Additionally requires 1 Steam assembler.
+    - Assembling machine 3 recipe inputs: 6 Electronic parts -> 6 Processing units, Additionally requires 20 Lubricant.
+    - Added Computer Core to Automation 3 technology prerequisites.
+    - Added Steam roboport to Construction robotics technology prerequisites.
+    - Added Steam logistic chests to Logistic robots technology prerequisites.
+    - Added Electronic parts to Automation 2 technology prerequisites.
+    - Simulation computer age technology recipe inputs: 48 Simulation data -> 12 Processing units.
+    - Added Processing unit to Simulation computer age technolgy prerequisites.
+    - Fast inserter recipe inputs: 2 Electronic circuit -> 1 Advanced circuit, 2 Iron ingot -> 2 Electric engine unit, additionally requires 1 Energy Crystal.
+    - Inserter recipe inputs: Electronic circuits 2 -> 4, 1 Burner inserter -> 1 Steam inserter.
+    - Fast inserter technology prerequisite changed from Electricity power -> Automation, additionally requires Crystal grower.
+    - High capacity crane recipe inputs: Additionally requires 4 Electronic parts, 15 Lubricant.
+    - Electronic parts added to High capacity crane technology prerequisites.
+    - Superlative capacity crane recipe inputs: Additionally requires 6 Processing units, 4 Advanced motors, 15 Liquid nitrogen.
+    - Superlative capacity crane moved from Alien to Simulation computer age.
+    - Hypercooler and Processing unit added to Superlative capacity crane technology.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.27
 Date: 8-10-2025
   Notice:

@@ -33,7 +33,7 @@ ei_lib.set_age_packs("radar","electricity-age")
 ei_lib.set_science_packs("interstellar-science-pack",ei_data.science["interstellar"])
 
 ei_lib.copy_science_packs("uranium-processing","ei-computer-core")
-ei_lib.copy_science_packs("processing-unit","advanced-circuit")
+ei_lib.copy_science_packs("processing-unit","ei-computer-core")
 ei_lib.copy_science_packs("ei-advanced-computer-age-tech","ei-big-lab")
 ei_lib.copy_science_packs("ei-alien-computer-age-tech","ei-big-lab")
 ei_lib.copy_science_packs("science-pack-productivity","promethium-science-pack") 

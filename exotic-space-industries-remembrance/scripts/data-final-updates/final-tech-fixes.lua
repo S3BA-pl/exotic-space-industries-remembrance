@@ -611,6 +611,7 @@ table.insert(data.raw["technology"]["ei-computer-age"].effects, {
   quality = "legendary"
 })
 
+
 -- =================================================================================================
 
 ei_lib.remove_tech("steam-power")

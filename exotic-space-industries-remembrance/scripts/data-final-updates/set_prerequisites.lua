@@ -100,10 +100,10 @@ end
 -- error(serpent.block(data.raw.technology["repair-pack"].prerequisites))
 
 -- ======================================================================================
-ei_lib.set_prerequisites("automation-3",{"ei-advanced-motor","ei-advanced-computer-age-tech"})
+ei_lib.set_prerequisites("automation-3",{"ei-advanced-motor","ei-computer-core","ei-advanced-computer-age-tech"})
 ei_lib.set_prerequisites("kovarex-enrichment-process",{"uranium-processing"})
-ei_lib.set_prerequisites("processing-unit",{"advanced-circuit"})
-ei_lib.set_prerequisites("ei-electronic-parts",{"processing-unit"})
+ei_lib.set_prerequisites("processing-unit",{"ei-computer-core"})
+ei_lib.set_prerequisites("ei-electronic-parts",{"advanced-circuit"})
 ei_lib.set_prerequisites("ei-lithium-battery",{"lithium-processing"})
 ei_lib.set_prerequisites("ei-lithium-processing",{"lithium-processing"})
 ei_lib.set_prerequisites("space-platform-thruster",{"rocket-silo"})
@@ -119,8 +119,8 @@ ei_lib.set_prerequisites("heating-tower",{"planet-discovery-gleba"})
 ei_lib.set_prerequisites("lithium-processing",{"planet-discovery-aquilo"})
 ei_lib.set_prerequisites("tungsten-carbide",{"planet-discovery-vulcanus"})
 
-ei_lib.set_prerequisites("logistic-robotics",{"robotics"})
-ei_lib.set_prerequisites("construction-robotics",{"robotics"})
+ei_lib.set_prerequisites("logistic-robotics",{"robotics","rp-steam-logistics-chests"})
+ei_lib.set_prerequisites("construction-robotics",{"robotics","rp-steam-roboports"})
 
 ei_lib.set_prerequisites("worker-robots-storage-1",{"logistic-robotics","construction-robotics"})
 ei_lib.set_prerequisites("worker-robots-speed-1",{"logistic-robotics","construction-robotics"})
@@ -151,7 +151,7 @@ ei_lib.set_prerequisites("wdm_home_planet",{})
 
 
 
-ei_lib.set_prerequisites("automation-2",{"automation","ei-electricity-age"})
+ei_lib.set_prerequisites("automation-2",{"automation","ei-electricity-age","ei-electronic-parts"})
 ei_lib.set_prerequisites("ei_fueler",{"ei-electricity-age"})
 
 ei_lib.add_prerequisite("laser-shooting-speed-1","laser")

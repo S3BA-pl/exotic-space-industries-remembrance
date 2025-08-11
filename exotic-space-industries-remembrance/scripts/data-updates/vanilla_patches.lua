@@ -257,11 +257,6 @@ local new_ingredients_table = {
         {type="item",name="ei-steam-engine", amount=4},
         {type="item",name="ei-iron-beam", amount=2}
     },
-    ["inserter"] = {
-        {type="item",name="electric-engine-unit", amount=1},
-        {type="item",name="burner-inserter", amount=1},
-        {type="item",name="electronic-circuit", amount=2}
-    },
     ["medium-electric-pole"] = {
         {type="item",name="ei-copper-beam", amount=4},
         {type="item",name="ei-iron-mechanical-parts", amount=2},
@@ -281,10 +276,24 @@ local new_ingredients_table = {
         {type="item",name="concrete", amount=25}
     },
     ["assembling-machine-1"] = {
-        {type="item",name="electronic-circuit", amount=2},
+        {type="item",name="advanced-circuit", amount=2},
         {type="item",name="electric-engine-unit", amount=2},
         {type="item",name="ei-iron-beam", amount=2},
-        {type="item",name="ei-copper-mechanical-parts", amount=4}
+        {type="item",name="ei-copper-mechanical-parts", amount=4},
+        {type="item",name="ei-burner-assembler", amount=1}
+    },
+    ["assembling-machine-2"] = {
+        {type="item",name="ei-electronic-parts", amount=2},
+        {type="item",name="electric-engine-unit", amount=2},
+        {type="item",name="ei-steel-beam", amount=2},
+        {type="item",name="ei-copper-mechanical-parts", amount=4},
+        {type="item",name="ei-steam-assembler", amount=1}
+    },
+    ["assembling-machine-3"] = {
+        {type="item",name="assembling-machine-2", amount=2},
+        {type="item",name="ei-advanced-motor", amount=10},
+        {type="item",name="processing-unit", amount=6},
+        {type="fluid",name="lubricant", amount=25},
     },
     ["chemical-plant"] = {
         {type="item",name="ei-heat-chemical-plant", amount=1},
@@ -292,24 +301,25 @@ local new_ingredients_table = {
         {type="item",name="electric-engine-unit", amount=2},
     },
     ["roboport"] = {
-        {type="item",name="advanced-circuit", amount=45},
+        {type="item",name="ei-electronic-parts", amount=15},
         {type="item",name="concrete", amount=50},
         {type="item",name="ei-steel-mechanical-parts", amount=45},
         {type="item",name="ei-steel-beam",amount=20},
-        {type="item",name="steel-plate", amount=25}
+        {type="item",name="steel-plate", amount=25},
+        {type="item",name="rp-steam-roboport", amount=1}
     },
-
     ["logistic-robot"] = {
-        {type="item",name="advanced-circuit", amount=4},
+        {type="item",name="ei-electronic-parts", amount=2},
         {type="item",name="steel-plate", amount=4},
-        {type="item",name="flying-robot-frame", amount=1}
+        {type="item",name="flying-robot-frame", amount=1},
+        {type="item",name="rp-steam-logistic-bot", amount=1} 
     },
     ["construction-robot"] = {
-        {type="item",name="electronic-circuit", amount=4},
+        {type="item",name="ei-electronic-parts", amount=1},
         {type="item",name="steel-plate", amount=4},
-        {type="item",name="flying-robot-frame", amount=1}
+        {type="item",name="flying-robot-frame", amount=1},
+        {type="item",name="rp-steam-construction-bot", amount=1} 
     },
-
     ["modular-armor"] = {
         {type="item",name="advanced-circuit", amount=25},
         {type="item",name="heavy-armor", amount=1},
@@ -426,6 +436,17 @@ local new_ingredients_table = {
         {type="item",name="fast-inserter", amount=1},
         {type="item",name="ei-energy-crystal", amount=2},
     },
+    ["fast-inserter"] = {
+        {type="item",name="advanced-circuit", amount=1},
+        {type="item",name="electric-engine-unit", amount=2},
+        {type="item",name="ei-energy-crystal", amount=1},
+        {type="item",name="inserter", amount=1},
+    },
+    ["inserter"] = {
+        {type="item",name="electronic-circuit", amount=4},
+        {type="item",name="electric-engine-unit", amount=1},
+        {type="item",name="ei-steam-inserter", amount=1},
+    },
     ["effectivity-module"] = {
         {type="item",name="ei-module-base", amount=1},
         {type="item",name="ei-energy-crystal", amount=4},
@@ -449,11 +470,7 @@ local new_ingredients_table = {
         {type="item",name="ei-module-base", amount=1},
         {type="item",name="speed-module", amount=2},
     },
-    ["assembling-machine-3"] = {
-        {type="item",name="assembling-machine-2", amount=2},
-        {type="item",name="ei-advanced-motor", amount=10},
-        {type="item",name="ei-electronic-parts", amount=6},
-    },
+
     ["processing-unit"] = {
         {type="item",name="ei-electronic-parts", amount=1},
         {type="item",name="ei-advanced-semiconductor", amount=1},
@@ -558,6 +575,22 @@ local new_ingredients_table = {
         {type="item",name="electric-engine-unit", amount=8},
         {type="item",name="steel-plate", amount=30},
     },
+    ["cargo-wagon"] = {
+        {type="item",name="iron-plate",amount=10},
+        {type="item",name="ei-iron-beam", amount=5},
+        {type="item",name="steel-plate", amount=10},
+        {type="item",name="ei-steel-beam", amount=2},
+        {type="item",name="ei-steel-mechanical-parts", amount=10},
+        {type="item",name="ei-steam-advanced-wagon", amount=1},
+    },
+    ["fluid-wagon"] = {
+        {type="item",name="storage-tank",amount=1},
+        {type="item",name="pipe", amount=4},
+        {type="item",name="steel-plate", amount=8},
+        {type="item",name="ei-steel-beam", amount=4},
+        {type="item",name="ei-steel-mechanical-parts", amount=10},
+        {type="item",name="ei-steam-advanced-fluid-wagon", amount=1},
+    },
     ["long-handed-inserter"] = {
         {type="item", name="inserter", amount=1},
         {type="item", name="iron-plate", amount=1},
@@ -634,6 +667,7 @@ local new_ingredients_table = {
 ei_lib.raw["recipe"]["advanced-circuit"].category = "crafting-with-fluid"
 ei_lib.raw["recipe"]["flying-robot-frame"].category = "crafting-with-fluid"
 ei_lib.raw["recipe"]["speed-module"].category = "electronics-with-fluid"
+ei_lib.raw["recipe"]["assembling-machine-3"].category = "crafting-with-fluid"
 ei_lib.raw["recipe"]["rocket-fuel"].category = "chemistry"
 --[[
 local copperSlag = {
@@ -830,7 +864,9 @@ new_prerequisites_table["steam-age"] = {
 
 new_prerequisites_table["electricity-age"] = {
     {"automation", "ei-electricity-power"},
-    {"fast-inserter", "ei-electricity-power"},
+    {"automation", "advanced-circuit"},
+    {"fast-inserter", "automation"},
+        {"fast-inserter", "ei-grower"},
     {"circuit-network", "ei-electricity-power"},
     {"lamp", "ei-electricity-power"},
     {"robotics", "ei-electronic-parts"},
@@ -1829,4 +1865,29 @@ ei_lib.raw.recipe["processing-unit-recycling"].results = {
 ei_lib.raw.recipe["ei-energy-crystal-recycling"].results = {
     {type="item",name="ei-sand", amount_min=0,amount_max=1,probability=0.18},
     {type="item",name="ei-crushed-sulfur", amount_min=0,amount=1,probability=0.11},
+}
+
+ei_lib.raw.recipe["scrap-recycling"].results = {
+    {type="item",name="ei-iron-mechanical-parts", amount_min=0,amount_max=1,probability=0.07},
+    {type="item",name="ei-copper-mechanical-parts", amount_min=0,amount_max=1,probability=0.07},
+    {type="item",name="ei-steel-mechanical-parts", amount_min=0,amount_max=1,probability=0.07},
+    {type="item",name="ei-iron-beam", amount_min=0,amount_max=1,probability=0.04},
+    {type="item",name="ei-copper-beam", amount_min=0,amount_max=1,probability=0.03},
+    {type="item",name="ei-steel-beam", amount_min=0,amount_max=1,probability=0.02},
+    {type="item",name="steel-plate", amount_min=0,amount=1,probability=0.02},
+    {type="item",name="iron-plate", amount_min=0,amount=1,probability=0.025},
+    {type="item",name="battery", amount_min=0,amount=1,probability=0.04},
+    {type="item",name="stone", amount_min=0,amount=1,probability=0.025},
+    {type="item",name="ei-slag", amount_min=0,amount=1,probability=0.02},
+    {type="item",name="electronic-circuit", amount_min=0,amount=1,probability=0.04},
+    {type="item",name="advanced-circuit", amount_min=0,amount=1,probability=0.03},
+    {type="item",name="ei-electronic-parts", amount_min=0,amount=1,probability=0.03},
+    {type="item",name="copper-cable", amount_min=0,amount=1,probability=0.02},
+    {type="item",name="ei-electron-tube", amount_min=0,amount=1,probability=0.02},
+    {type="item",name="ei-insulated-wire", amount_min=0,amount=1,probability=0.02},
+    {type="item",name="low-density-structure", amount_min=0,amount=1,probability=0.01},
+    {type="item",name="holmium-ore", amount_min=0,amount=1,probability=0.01},
+    {type="item",name="rp-steam-soul", amount_min=0,amount=1,probability=0.005},
+    {type="item",name="rp-steam-calculator", amount_min=0,amount=1,probability=0.005},
+    {type="item",name="ei-module-part", amount_min=0,amount=1,probability=0.02}
 }

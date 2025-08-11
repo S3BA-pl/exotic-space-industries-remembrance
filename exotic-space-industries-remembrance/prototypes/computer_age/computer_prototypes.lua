@@ -1701,7 +1701,7 @@ data:extend({
         category = "advanced-crafting",
         energy_required = 56,
         ingredients = {
-            {type = "item", name = "ei-simulation-data", amount = 48},
+            {type = "item", name = "processing-unit", amount = 12},
             {type = "item", name = "ei-data-pipe", amount = 4},
             {type = "fluid", name = "ei-ammonia-gas", amount = 100},
         },
@@ -3025,7 +3025,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/simulation-age.png",
         icon_size = 512,
-        prerequisites = {"ei-big-lab", "ei-ammonia"},
+        prerequisites = {"ei-big-lab", "ei-ammonia","processing-unit"},
         effects = {
             {
                 type = "unlock-recipe",

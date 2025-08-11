@@ -21,13 +21,15 @@ data:extend({
     {
         name = "ei-small-inserter-normal",
         type = "recipe",
-        category = "crafting",
+        category = "crafting-with-fluid",
         energy_required = 2,
         ingredients =
         {
             {type="item", name="fast-inserter", amount=4},
             {type="item", name="ei-steel-mechanical-parts", amount=20},
+            {type="item", name="ei-electronic-parts", amount=4},
             {type="item", name="electric-engine-unit", amount=8},
+            {type="fluid", name="lubricant", amount=15},
         },
         results = {{type="item", name="ei-small-inserter-normal", amount=1}},
         enabled = false,
@@ -39,7 +41,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."small-inserter.png",
         icon_size = 128,
-        prerequisites = {"fast-inserter", "lubricant"},
+        prerequisites = {"fast-inserter", "lubricant","ei-electronic-parts"},
         effects = {
             {
                 type = "unlock-recipe",

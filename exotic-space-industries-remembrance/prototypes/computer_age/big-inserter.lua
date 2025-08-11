@@ -21,13 +21,16 @@ data:extend({
     {
         name = "ei-big-inserter-normal",
         type = "recipe",
-        category = "crafting",
+        category = "crafting-with-fluid",
         energy_required = 4,
         ingredients =
         {
             {type="item", name="ei-small-inserter-normal", amount=1},
             {type="item", name="bulk-inserter", amount=4},
             {type="item", name="low-density-structure", amount=6},
+            {type="item", name="processing-unit", amount=6},
+            {type="item", name="ei-advanced-motor", amount=4},
+            {type="fluid", name="ei-liquid-nitrogen", amount=15},
         },
         results = {{type="item", name="ei-big-inserter-normal", amount=1}},
         enabled = false,
@@ -39,7 +42,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."big-inserter.png",
         icon_size = 128,
-        prerequisites = {"bulk-inserter", "low-density-structure"},
+        prerequisites = {"bulk-inserter", "low-density-structure","ei-advanced-motor","processing-unit","ei-cooler"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -48,10 +51,10 @@ data:extend({
         },
         unit = {
             count = 100,
-            ingredients = ei_data.science["computer-age"],
+            ingredients = ei_data.science["advanced-computer-age"],
             time = 20
         },
-        age = "alien-computer-age",
+        age = "advanced-computer-age",
     },
 })
 

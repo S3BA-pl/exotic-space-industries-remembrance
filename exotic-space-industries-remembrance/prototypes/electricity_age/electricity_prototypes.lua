@@ -1021,14 +1021,6 @@ data:extend({
             },
             {
                 type = "unlock-recipe",
-                recipe = "inserter"
-            },
-            {
-                type = "unlock-recipe",
-                recipe = "long-handed-inserter"
-            },
-            {
-                type = "unlock-recipe",
                 recipe = "small-electric-pole"
             },
             {
@@ -1300,13 +1292,16 @@ data:extend({
 })
 
 -- insert prereqs
-ei_lib.set_prerequisites("ei-electricity-age",{
 
-})
 
 table.insert(data.raw.technology["lubricant"].prerequisites, "automation-2")
 table.insert(data.raw.technology["power-armor"].prerequisites, "ei-grower")
 table.insert(data.raw.technology["solar-energy"].prerequisites, "ei-waver-factory")
+table.insert(data.raw.technology["automation"].effects,
+{
+    type = "unlock-recipe",
+    recipe = "inserter"
+})
 
 table.insert(data.raw.technology["plastics"].effects,  {
     type = "unlock-recipe",
@@ -1356,11 +1351,6 @@ table.insert(data.raw["technology"]["coal-liquefaction"].effects, {
 table.insert(data.raw["technology"]["coal-liquefaction"].effects, {
     type = "unlock-recipe",
     recipe = "ei-benzol-petroleum"
-})
-
-table.insert(data.raw["technology"]["ei-electricity-power"].effects, {
-    type = "unlock-recipe",
-    recipe = "electric-mining-drill"
 })
 
 -- table.insert(data.raw["technology"]["ei-electricity-power"].effects, {
