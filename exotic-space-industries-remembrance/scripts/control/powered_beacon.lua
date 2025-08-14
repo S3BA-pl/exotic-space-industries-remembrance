@@ -41,30 +41,59 @@ local function remove_fluids(entity, fluid_contents)
 --    end
 end
 
+local function next_existing_key(tbl, key)
+    -- Return the next key after `key` that has a non-nil value.
+    -- If `key` is nil or not present, return the first key.
+    if not next(tbl) then return nil end
+
+    -- If key missing or nil, just return first key
+    if not key or tbl[key] == nil then
+        return next(tbl)
+    end
+
+    -- Normal case: find the next key after `key` that still exists.
+    local nk = next(tbl, key)
+    while nk and tbl[nk] == nil do
+        nk = next(tbl, nk)
+    end
+
+    -- If we reached the end, fall back to first key (wrap)
+    if not nk then
+        nk = next(tbl)
+    end
+    return nk
+end
+
 --Checks if fluid_entity[fluid_break_index] needs exploded, degraded, etc, advances to next entry in table
 function model.update_fluid_storages()
     local debug = false
     local fluid_entities = storage.ei.fluid_entity
-
-    if not fluid_entities then
-        if debug then game.print("❌ No fluid entities.") end
+    if not fluid_entities or not next(fluid_entities) then
+        if debug then game.print("❌ No fluid entities") end
         return false
     end
 
-    -- Initialize break index if necessary
-    if not storage.ei.fluid_break_index or next(fluid_entities) == nil then
-        storage.ei.fluid_break_index = next(fluid_entities)
-    end
-
+    -- Ensure we have a sensible breakpoint that still refers to an existing entry
     local index = storage.ei.fluid_break_index
-    local pipe = fluid_entities[index]
+    if not index or not fluid_entities[index] then
+        index = next_existing_key(fluid_entities, nil)
+        storage.ei.fluid_break_index = index
+    end
+    if not index then
+        if debug then game.print("❌ No index") end
+        return false
+        end
 
-    if not (index and pipe and pipe.valid) then
-        -- Advance to next valid entry
-        local next_index = next(fluid_entities, index)
-        storage.ei.fluid_break_index = next_index or next(fluid_entities)
+    local pipe = fluid_entities[index]
+    if not (pipe and pipe.valid) then
+        -- If current pipe not valid, advance to next existing
+        index = next_existing_key(fluid_entities, index)
+        storage.ei.fluid_break_index = index
         return
     end
+
+    -- Compute the safe next breakpoint now (before we mutate table)
+    local next_index = next_existing_key(fluid_entities, index)
 
     local name = pipe.name
 
@@ -137,8 +166,7 @@ function model.update_fluid_storages()
     end
 
     -- 🔁 Advance breakpoint
-    local next_index = next(fluid_entities, index)
-    storage.ei.fluid_break_index = next_index or next(fluid_entities)
+    storage.ei.fluid_break_index = next_index
 
     return true
 end

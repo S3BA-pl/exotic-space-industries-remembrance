@@ -100,9 +100,9 @@ end
 -- error(serpent.block(data.raw.technology["repair-pack"].prerequisites))
 
 -- ======================================================================================
-ei_lib.set_prerequisites("automation-3",{"ei-advanced-motor","ei-computer-core","ei-advanced-computer-age-tech"})
+ei_lib.set_prerequisites("automation-3",{"ei-advanced-motor","ei-computer-core","ei-advanced-computer-age-tech","ei-carbon-manipulation"})
 ei_lib.set_prerequisites("kovarex-enrichment-process",{"uranium-processing"})
-ei_lib.set_prerequisites("processing-unit",{"ei-computer-core"})
+ei_lib.set_prerequisites("processing-unit",{"ei-computer-core","advanced-circuit","ei-electronic-parts","ei-grower"})
 ei_lib.set_prerequisites("ei-electronic-parts",{"advanced-circuit"})
 ei_lib.set_prerequisites("ei-lithium-battery",{"lithium-processing"})
 ei_lib.set_prerequisites("ei-lithium-processing",{"lithium-processing"})
@@ -151,7 +151,7 @@ ei_lib.set_prerequisites("wdm_home_planet",{})
 
 
 
-ei_lib.set_prerequisites("automation-2",{"automation","ei-electricity-age","ei-electronic-parts"})
+ei_lib.set_prerequisites("automation-2",{"automation","ei-computer-age","ei-electronic-parts","ei-advanced-motor"})
 ei_lib.set_prerequisites("ei_fueler",{"ei-electricity-age"})
 
 ei_lib.add_prerequisite("laser-shooting-speed-1","laser")

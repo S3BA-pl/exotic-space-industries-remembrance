@@ -1023,10 +1023,6 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = "small-electric-pole"
             },
-            {
-                type = "unlock-recipe",
-                recipe = modprefix.."electric-quarry"
-            },
         },
         unit = {
             count = 100,
@@ -1190,7 +1186,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."deep-mining.png",
         icon_size = 128,
-        prerequisites = {"automation-2", "sulfur-processing"},
+        prerequisites = {"automation", "sulfur-processing"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -1294,7 +1290,6 @@ data:extend({
 -- insert prereqs
 
 
-table.insert(data.raw.technology["lubricant"].prerequisites, "automation-2")
 table.insert(data.raw.technology["power-armor"].prerequisites, "ei-grower")
 table.insert(data.raw.technology["solar-energy"].prerequisites, "ei-waver-factory")
 table.insert(data.raw.technology["automation"].effects,
@@ -1307,7 +1302,10 @@ table.insert(data.raw.technology["plastics"].effects,  {
     type = "unlock-recipe",
     recipe = "ei-insulated-wire"
 })
-
+table.insert(data.raw.technology["electric-mining-drill"].effects,  {
+    type = "unlock-recipe",
+    recipe = modprefix.."electric-quarry"
+})
 table.insert(data.raw.technology["sulfur-processing"].effects,  {
     type = "unlock-recipe",
     recipe = "ei-desulfurize-kerosene"

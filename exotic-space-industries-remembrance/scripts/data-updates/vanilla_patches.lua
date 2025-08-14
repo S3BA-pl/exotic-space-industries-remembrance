@@ -247,6 +247,7 @@ local new_ingredients_table = {
         {type="item",name="electronic-circuit", amount=10}
     },
     ["electric-engine-unit"] = {
+        {type="item",name="electronic-circuit", amount=1},
         {type="item",name="engine-unit", amount=1},
         {type="item",name="copper-cable", amount=4},
         {type="item",name="ei-iron-mechanical-parts", amount=2}
@@ -284,16 +285,19 @@ local new_ingredients_table = {
     },
     ["assembling-machine-2"] = {
         {type="item",name="ei-electronic-parts", amount=2},
-        {type="item",name="electric-engine-unit", amount=2},
+        {type="item",name="ei-advanced-motor", amount=2},
         {type="item",name="ei-steel-beam", amount=2},
         {type="item",name="ei-copper-mechanical-parts", amount=4},
-        {type="item",name="ei-steam-assembler", amount=1}
+        {type="item",name="ei-steam-assembler", amount=1},
+        {type="fluid",name="lubricant", amount=25},
     },
     ["assembling-machine-3"] = {
         {type="item",name="assembling-machine-2", amount=2},
         {type="item",name="ei-advanced-motor", amount=10},
         {type="item",name="processing-unit", amount=6},
-        {type="fluid",name="lubricant", amount=25},
+        {type="item",name="ei-carbon", amount=5},
+        {type="item",name="ei-simulation-data", amount=15},
+        {type="fluid",name="ei-liquid-nitrogen", amount=25},
     },
     ["chemical-plant"] = {
         {type="item",name="ei-heat-chemical-plant", amount=1},
@@ -376,10 +380,19 @@ local new_ingredients_table = {
         {type="item",name="electric-engine-unit", amount=4},
     },
     ["electric-mining-drill"] = {
+        {type="item",name="ei-steam-miner", amount=1},
         {type="item",name="electric-engine-unit", amount=4},
         {type="item",name="electronic-circuit", amount=4},
         {type="item",name="ei-iron-beam", amount=3},
         {type="item",name="ei-iron-mechanical-parts", amount=5},
+    },
+    ["big-mining-drill"] = {
+        {type="item",name="electric-mining-drill", amount=4},
+        {type="item",name="ei-advanced-motor", amount=10},
+        {type="item",name="ei-electronic-parts", amount=10},
+        {type="item",name="tungsten-carbide", amount=35},
+        {type="fluid",name="ei-molten-steel", amount=250},
+        {type="item",name="ei-carbon", amount=50},
     },
     ["storage-tank"] = {
         {type="item",name="steel-plate", amount=8},
@@ -667,6 +680,7 @@ local new_ingredients_table = {
 ei_lib.raw["recipe"]["advanced-circuit"].category = "crafting-with-fluid"
 ei_lib.raw["recipe"]["flying-robot-frame"].category = "crafting-with-fluid"
 ei_lib.raw["recipe"]["speed-module"].category = "electronics-with-fluid"
+ei_lib.raw["recipe"]["assembling-machine-2"].category = "crafting-with-fluid"
 ei_lib.raw["recipe"]["assembling-machine-3"].category = "crafting-with-fluid"
 ei_lib.raw["recipe"]["rocket-fuel"].category = "chemistry"
 --[[
@@ -812,6 +826,10 @@ ei_lib.raw["recipe"]["electric-engine-unit"].energy_required = 6
 ------------------------------------------------------------------------------------------------------
 ---
 ---
+--match with recipe changes
+ei_lib.add_prerequisite("big-mining-drill","ei-advanced-motor")
+ei_lib.add_prerequisite("big-mining-drill","ei-electronic-parts")
+ei_lib.add_prerequisite("big-mining-drill","ei-carbon-manipulation")
 
 ei_lib.raw.technology["radar"].age = "electricity-age"
 local removerecipes = {
@@ -866,7 +884,7 @@ new_prerequisites_table["electricity-age"] = {
     {"automation", "ei-electricity-power"},
     {"automation", "advanced-circuit"},
     {"fast-inserter", "automation"},
-        {"fast-inserter", "ei-grower"},
+    {"fast-inserter", "ei-grower"},
     {"circuit-network", "ei-electricity-power"},
     {"lamp", "ei-electricity-power"},
     {"robotics", "ei-electronic-parts"},
@@ -883,7 +901,11 @@ new_prerequisites_table["electricity-age"] = {
     {"uranium-processing", "ei-grower"},
     {"nuclear-power", "uranium-processing"},
     {"portable-solar-equipment", "solar-energy"},
-    {"radar", "ei-electricity-power"}
+    {"radar", "ei-electricity-power"},
+    {"tank","advanced-circuit"},
+    {"tank","plastics"},
+    {"tank","explosives"},
+    {"logistics-2","plastics"}
 }
 
 new_prerequisites_table["computer-age"] = {
@@ -895,6 +917,7 @@ new_prerequisites_table["computer-age"] = {
     {"ei-rocket-parts", "rocket-fuel"},
     {"rocket-silo", "ei-rocket-parts"},
     {"rocket-silo", "ei-advanced-motor"},
+        {"rocket-silo", "processing-unit"},
     {"fission-reactor-equipment", "ei-high-temperature-reactor"},
     
 }
@@ -1565,7 +1588,7 @@ data.raw.module["ei-productivity-module-5"].limitation = data.raw.module["produc
 data.raw.module["ei-productivity-module-6"].limitation = data.raw.module["productivity-module"].limitation
 -- properly set logistics 3 age and prere 
 ei_lib.raw.technology["logistics-3"].age = "advanced-computer-age"
-ei_lib.set_prerequisites("logistics-3",{"ei-advanced-computer-age-tech","logistics-2"})
+ei_lib.set_prerequisites("logistics-3",{"ei-advanced-computer-age-tech","logistics-2","ei-carbon-manipulation"})
 
 --increase silo energy draw, enforce modules
 ei_lib.raw["rocket-silo"]["rocket-silo"] = {

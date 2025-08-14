@@ -1701,9 +1701,10 @@ data:extend({
         category = "advanced-crafting",
         energy_required = 56,
         ingredients = {
+            {type = "item", name = "ei-advanced-motor", amount = 1},
             {type = "item", name = "processing-unit", amount = 12},
-            {type = "item", name = "ei-data-pipe", amount = 4},
-            {type = "fluid", name = "ei-ammonia-gas", amount = 100},
+            {type = "item", name = "ei-data-pipe", amount = 12},
+            {type = "fluid", name = "ei-nitric-acid", amount = 100},
         },
         results = {
             {type = "item", name = "ei-advanced-computer-age-tech", amount = 2},
@@ -3025,7 +3026,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/simulation-age.png",
         icon_size = 512,
-        prerequisites = {"ei-big-lab", "ei-ammonia","processing-unit"},
+        prerequisites = {"ei-big-lab", "ei-nitric-acid","processing-unit"},
         effects = {
             {
                 type = "unlock-recipe",

@@ -196,7 +196,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."computer-core.png",
         icon_size = 256,
-        prerequisites = {"ei-advanced-motor"},
+        prerequisites = {"ei-advanced-motor","automation-2"},
         effects = {
             {
                 type = "unlock-recipe",

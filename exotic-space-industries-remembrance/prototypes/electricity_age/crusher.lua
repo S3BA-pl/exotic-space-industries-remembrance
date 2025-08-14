@@ -22,6 +22,7 @@ data:extend({
         energy_required = 1,
         ingredients =
         {
+            {type="item", name="ei-steam-crusher", amount=1},
             {type="item", name="electronic-circuit", amount=2},
             {type="item", name="electric-engine-unit", amount=4},
             {type="item", name="ei-iron-mechanical-parts", amount=2},

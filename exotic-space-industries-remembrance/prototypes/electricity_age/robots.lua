@@ -751,6 +751,9 @@ data:extend({
         robots_shrink_when_entering_and_exiting = true,
         request_to_open_door_timeout = 15,
         spawn_and_station_height = 1,
+        surface_conditions = {
+            {property = "pressure",    min = 10},
+        },
         base = {
             layers = {
                 {

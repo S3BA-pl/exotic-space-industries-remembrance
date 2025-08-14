@@ -1,4 +1,5 @@
 if not mods["rp_steam_roboports"] then return end
+
 --====================================================================================================
 --settings are also enforced in data_updates
 local ei_lib = require("lib/lib")
@@ -14,6 +15,9 @@ ei_lib.set_prerequisites("rp-steam-calculator",{"ei-steam-assembler"})
 
 ei_lib.recipe_add("rp-steam-roboport","ei-iron-beam",20)
 
+ei_lib.raw.roboport["rp-steam-roboport"].surface_conditions = {
+    {property = "pressure",    min = 10},
+}
 local chests = {
     ["rp-steam-logistic-chest-active-provider"] = 32,
     ["rp-steam-logistic-chest-passive-provider"] = 32,

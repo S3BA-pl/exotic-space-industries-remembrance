@@ -1,4 +1,40 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.31
+Date: 8-13-2025
+  Changes:
+    - Swapped Overloaded trains optional dependency mod for branch of same authored by @0wnlyme.
+    - Moved Electric quarry recipe unlock to Electric mining drill technology.
+    - Electric mining drill recipe inputs: Additionally requires 1 Steam miner.
+    - Big mining drill recipe inputs: Electric mining drill 1 -> 4, 10 Advanced circuit -> 10 Electronic parts, 10 Electric engine units -> 10 Advanced motors, Tungsten carbide 20 -> 35, 200 Molten iron -> 250 Molten steel , additionally requires 50 Carbon fiber plates.
+    - Added Advanced motor, Carbon manipulation, and Electronic parts to Big mining drill technology prerequisites.
+    - Added Carbon manipulation to Logistics 3 technology prerequisites.
+    - Added Plastics to Logistics 2 technology prerequisites.
+    - Crusher recipe inputs: Additionally requires 1 Steam crusher.
+    - Swapped Automation 2 with Explosives in Tank technology prerequisites.
+    - Moved Automation 2 technology to Computer age and added Advanced motor to prerequisites.
+    - Assembling machine 2 recipe inputs: 2 Electric engine unit -> 2 Advanced motor, additionally requires 25 lubricant.
+    - Assembling machine 3 recipe inputs: 25 Lubricant -> 25 Liquid nitrogen, additionally requires 5 Carbon plates, 15 Simulation data.
+    - Added Carbon manipulation to Automation 3 technology prerequisites.
+    - Added Automation 2 to Computer core technology prerequisites.
+    - Electric engine unit recipe inputs: Additionally requires 1 Electronic circuit.
+  Bugfixes:
+    - Corrected that the Deep drill tooltip displayed incorrect fluid requirements.
+    - Added minimum atmospheric pressure requirement to Steam and Advanced roboports.
+    - Corrected that Absolute zero phase array beacon tooltip stated it counted as 10 beacons toward beacon overload verus 2.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.30
+Date: 8-12-2025
+  Changes:
+    - Added Crystal grower, Electronic parts and Advanced circuits to Processing unit technology prerequisites.
+    - Added Advanced circuit, Automation 2, and Plastics to Tank technology prerequisites.
+    - Added Processing unit to Rocket silo technology prerequisites.
+    - Simulation computer age recipe inputs: 4 Data pipe -> 12, 100 Ammonia gas -> 100 Nitric acid, additionally requires 1 Advanced motor.
+    - Swapped Ammonia gas for Nitric acid in Simulation computer age technology prerequisites.
+  Bugfixes:
+    - update_fluid_storages() no longer chokes on invalid indexes.
+    - Fixed typo preventing changelog displaying within Factorio (again).
+    - Corrected Liquid nitrogen requirement descriptions in Liquid nitrogen powered beacons.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.29
 Date: 8-11-2025
   Bugfixes:
@@ -46,7 +82,7 @@ Date: 8-11-2025
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.27
 Date: 8-10-2025
-  Notice:
+  Features:
     - Instantiated a discord for Remembrance: https://discord.gg/hEmNYcvg7G
   Bugfixes:
     - Steam / Electricity Age technology unlocks no longer require their own Age packs to unlock preventing progression.
@@ -98,7 +134,7 @@ Date: 8-9-2025
     - Cold liquid lead coolant recipe inputs: Nitric acid 25 -> 65, Molten lead 30 -> 100, additionally requires 10 Fluorite.
     - Cold liquid lead coolant recipe outputs: Cold liquid lead coolant 25 -> 8-12, 25 Dirty water -> 25-50 Acidic water, can additionally yield 1-2 Slag 25% probability.
     - Cold liquid lead coolant recipe crafting time 2 -> 10 seconds.
-    Bugfixes:
+  Bugfixes:
     - Corrected K2 container size patcher wasn't taking effect.
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.23
