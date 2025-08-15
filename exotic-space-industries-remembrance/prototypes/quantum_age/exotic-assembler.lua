@@ -26,13 +26,18 @@ data:extend({
         energy_required = 4,
         ingredients =
         {
-            {type="item", name="assembling-machine-3", amount=2},
-            {type="item", name="ei-carbon-structure", amount=5},
-            {type="item", name="ei-superior-data", amount=5},
+            {type="item", name="ei-neo-assembler", amount=2},
+            {type="item", name="ei-clean-plating", amount=5},
+            {type="item", name="ei-superior-data", amount=10},
+            {type="item", name="ei-eu-circuit", amount=4},
             {type="item", name="ei-eu-magnet", amount=5},
-            {type = "fluid", name = "ei-liquid-oxygen", amount = 25},
+            {type="item", name="quantum-processor", amount=6},
+            {type = "fluid", name = "fluoroketone-cold", amount = 100},
         },
-        results = {{type="item", name="ei-exotic-assembler", amount=1}},
+        results = {
+            {type="item", name="ei-exotic-assembler", amount=1},
+            {type = "fluid", name = "fluoroketone-hot", amount = 33},
+        },
         enabled = false,
         always_show_made_in = true,
         main_product = "ei-exotic-assembler",

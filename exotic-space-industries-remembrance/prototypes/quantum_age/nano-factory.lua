@@ -23,7 +23,6 @@ data:extend({
         name = "ei-nano-factory",
         type = "recipe",
         category = "crafting",
-        additional_categories = {"electronics"},
         energy_required = 4,
         ingredients =
         {
@@ -101,7 +100,7 @@ data:extend({
         selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
         map_color = ei_data.colors.assembler,
         -- crafting_categories = {"ei-nano-factory", "crafting", "advanced-crafting", "crafting-with-fluid"},
-        crafting_categories = {"ei-nano-factory","electromagnetics"},
+        crafting_categories = {"ei-nano-factory","electromagnetics","cryogenics"},
         crafting_speed = 2,
         energy_source = {
             type = 'electric',

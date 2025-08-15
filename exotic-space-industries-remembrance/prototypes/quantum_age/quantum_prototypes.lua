@@ -2124,6 +2124,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/morphium-usage.png",
         icon_size = 128,
+        icon_mipmaps = 3,
         prerequisites = {"ei-neodym-refining"},
         effects = {
             {
@@ -2902,6 +2903,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/exotic-matter-separation.png",
         icon_size = 512,
+        icon_mipmaps = 5,
         prerequisites = {"ei-eu-circuit","promethium-science-pack"},
         effects = {
             {

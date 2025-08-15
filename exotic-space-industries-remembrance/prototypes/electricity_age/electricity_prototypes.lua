@@ -1036,6 +1036,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/containers.png",
         icon_size = 256,
+        icon_mipmaps = 4,
         prerequisites = {"ei-electricity-age"},
         effects = {
             {

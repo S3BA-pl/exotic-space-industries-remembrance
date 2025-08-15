@@ -291,7 +291,7 @@ data:extend({
             ingredients = ei_data.science["alien-computer-age"],
             time = 20
         },
-        -- age = "computer-age",
+         age = "alien-computer-age",
     },
 
     {
@@ -311,21 +311,62 @@ data:extend({
             ingredients = ei_data.science["alien-computer-age"],
             time = 20
         },
-        age = "computer-age",
+        age = "alien-computer-age",
     },
-
+    {
+        name = "ei-crystal-accumulator-quantum",
+        type = "technology",
+        icon = ei_path.."graphics/tech/crystal-accumulator-quantum.png",
+        icon_size = 256,
+        prerequisites = {"ei-crystal-accumulator","quantum-processor","ei-quantum-age"},
+        effects = {
+            {
+                type = "unlock-recipe",
+                recipe = "ei-crystal-accumulator-quantum"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-crystal-accumulator-repair-quantum"
+         },
+        },
+        unit = {
+            count = 100,
+            ingredients = ei_data.science["quantum-age"],
+            time = 20
+        },
+        age = "quantum-age",
+    },
     {
         name = "ei-crystal-accumulator-repair",
         type = "recipe",
         category = "crafting",
         energy_required = 20,
         ingredients = {
-            {type = "item", name = "ei-alien-resin", amount = 10},
-            {type = "item", name = "ei-electronic-parts", amount = 6},
-            {type = "item", name = "ei-energy-crystal", amount = 25},
+            {type = "item", name = "ei-sus-plating", amount = 10},
+            {type = "item", name = "processing-unit", amount = 6},
+            {type = "item", name = "ei-high-energy-crystal", amount = 25},
         },
         results = {
             {type = "item", name = "ei-crystal-accumulator-repair", amount = 1},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-crystal-accumulator-repair",
+    },
+    {
+        name = "ei-crystal-accumulator-repair-quantum",
+        type = "recipe",
+        category = "crafting",
+        energy_required = 35,
+        icon = ei_path.."graphics/tech/crystal-accumulator-quantum.png",
+        icon_size = 256,
+        ingredients = {
+            {type = "item", name = "ei-sus-plating", amount = 18},
+            {type = "item", name = "quantum-processor", amount = 6},
+            {type = "item", name = "ei-high-energy-crystal", amount = 45},
+        },
+        results = {
+            {type = "item", name = "ei-crystal-accumulator-repair", amount = 2},
         },
         always_show_made_in = true,
         enabled = false,
@@ -337,12 +378,31 @@ data:extend({
         category = "crafting",
         energy_required = 20,
         ingredients = {
-            {type = "item", name = "ei-alien-resin", amount = 10},
-            {type = "item", name = "ei-electronic-parts", amount = 6},
-            {type = "item", name = "ei-energy-crystal", amount = 25},
+            {type = "item", name = "ei-sus-plating", amount = 10},
+            {type = "item", name = "processing-unit", amount = 6},
+            {type = "item", name = "ei-high-energy-crystal", amount = 25},
         },
         results = {
             {type = "item", name = "ei-crystal-accumulator", amount = 1},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-crystal-accumulator",
+    },
+    {
+        name = "ei-crystal-accumulator-quantum",
+        type = "recipe",
+        category = "crafting",
+        icon = ei_path.."graphics/tech/crystal-accumulator-quantum.png",
+        icon_size = 256,
+        energy_required = 35,
+        ingredients = {
+            {type = "item", name = "ei-sus-plating", amount = 18},
+            {type = "item", name = "quantum-processor", amount = 6},
+            {type = "item", name = "ei-high-energy-crystal", amount = 45},
+        },
+        results = {
+            {type = "item", name = "ei-crystal-accumulator", amount = 2},
         },
         always_show_made_in = true,
         enabled = false,

@@ -695,7 +695,9 @@ data:extend({
     {
         type = "item",
         name = "ei-rocket-control-unit",
-        icons = {{icon="__base__/graphics/icons/processing-unit.png", tint={r=1.0, g=0.8, b=0.0}}},
+        icon = ei_path.."graphics/item/rocket-processing-unit.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
         subgroup = "intermediate-product",
         order = "n[ei_rocket-control-unit]",
         stack_size = 100
@@ -1735,6 +1737,9 @@ data:extend({
         name = "ei-advanced-motor",
         type = "recipe",
         category = "crafting-with-fluid",
+        icon = ei_path.."graphics/tech/advanced-motor.png",
+        icon_size = 256,
+        icon_mipmaps = 4,
         energy_required = 10,
         ingredients = {
             {type = "item", name = "electric-engine-unit", amount = 1},
@@ -1753,6 +1758,9 @@ data:extend({
         name = "ei-advanced-motor-cryo",
         type = "recipe",
         category = "crafting-with-fluid",
+        icon = ei_path.."graphics/tech/advanced-motor-cryo.png",
+        icon_size = 256,
+        icon_mipmaps = 4,
         energy_required = 8,
         ingredients = {
             {type = "item", name = "electric-engine-unit", amount = 1},
@@ -2167,6 +2175,7 @@ data:extend({
         energy_required = 30,
         enabled = false,
         category = "crafting",
+        icons = {{icon=ei_path.."graphics/item/rocket-processing-unit.png", tint={r=1.0, g=1.0, b=0.0}, icon_size = 512,icon_mipmaps = 5}},
         ingredients =
         {
             {type="item", name="advanced-circuit", amount=10},
@@ -2200,6 +2209,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/advanced-motor.png",
         icon_size = 256,
+        icon_mipmaps = 4,
         prerequisites = {"ei-computer-age"},
         effects = {
             {
@@ -2219,6 +2229,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/oxygen-difluoride.png",
         icon_size = 128,
+        icon_mipmaps = 3,
         prerequisites = {"ei-bio-chamber","ei-oxygen-gas"},
         effects = {
             {
@@ -2384,6 +2395,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/logistic-containers.png",
         icon_size = 256,
+        icon_mipmaps = 4,
         prerequisites = {"ei-computer-core","ei-containers","logistic-robotics"},
         effects = {
             {
@@ -2423,6 +2435,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/advanced-logistic-containers.png",
         icon_size = 256,
+        icon_mipmaps = 4,
         prerequisites = {"ei-logistic-containers","logistic-system"},
         effects = {
             {
@@ -2549,6 +2562,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/morphium-usage.png",
         icon_size = 128,
+        icon_mipmaps = 3,
         prerequisites = {"ei-computer-age","ei-gaia"},
         effects = {
             {
@@ -2612,6 +2626,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/morphium-usage.png",
         icon_size = 128,
+        icon_mipmaps = 3,
         prerequisites = {"ei-alien-computer-age-tech","ei-morphium-usage"},
         effects = {
             {
@@ -2674,6 +2689,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/advanced-motor-cryo.png",
         icon_size = 256,
+        icon_mipmaps = 4,
         prerequisites = {"ei-cryodust","ei-advanced-motor"},
         effects = {
             {
@@ -3026,6 +3042,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/simulation-age.png",
         icon_size = 512,
+        icon_mipmaps = 5,
         prerequisites = {"ei-big-lab", "ei-nitric-acid","processing-unit"},
         effects = {
             {
@@ -3045,6 +3062,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/alien-age.png",
         icon_size = 512,
+        icon_mipmaps = 5,
         prerequisites = {"ei-big-lab", "ei-oxygen-difluoride","ei-gaia","processing-unit","ei-high-energy-crystal"},
         effects = {
             {
@@ -3093,15 +3111,15 @@ data:extend({
     {
         type = "technology",
         name = "ei-rocket-control-unit",
-        icons = {{icon="__base__/graphics/technology/processing-unit.png", tint={r=1.0, g=1.0, b=0.0}, icon_size = 256}},
+        icons = {{icon=ei_path.."graphics/item/rocket-processing-unit.png", tint={r=1.0, g=1.0, b=0.0}, icon_size = 512,icon_mipmaps = 5}},
         effects =
         {
           {
             type = "unlock-recipe",
             recipe = "ei-rocket-control-unit"
-          }
+          },
         },
-        prerequisites = {"ei-computer-age"},
+        prerequisites = {"ei-computer-age","low-density-structure"},
         unit =
         {
             count = 100,
@@ -3109,6 +3127,29 @@ data:extend({
             time = 20
         },
         age = "computer-age",
+        order = "k-a"
+    },
+    {
+        type = "technology",
+        name = "ei-rocket-processing-unit",
+        icon = ei_path.."graphics/item/rocket-processing-unit.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
+        effects =
+        {
+            {
+                type = "unlock-recipe",
+                recipe = "ei-rocket-processing-unit"
+            }
+        },
+        prerequisites = {"ei-rocket-control-unit","processing-unit","ei-advanced-computer-age-tech"},
+        unit =
+        {
+            count = 100,
+            ingredients = ei_data.science["advanced-computer-age"],
+            time = 20
+        },
+        age = "advanced-computer-age",
         order = "k-a"
     },
 --carbon fiber plate casting pre-quantum age
@@ -3240,11 +3281,6 @@ data:extend({
 table.insert(data.raw["technology"]["processing-unit"].effects, {
     type = "unlock-recipe",
     recipe = "ei-advanced-semiconductor"
-})
-
-table.insert(data.raw["technology"]["processing-unit"].effects, {
-    type = "unlock-recipe",
-    recipe = "ei-rocket-processing-unit"
 })
 
 ei_lib.raw.technology.modules.effects = {

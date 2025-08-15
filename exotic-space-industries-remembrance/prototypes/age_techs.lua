@@ -34,6 +34,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/dark-age.png",
         icon_size = 512,
+        icon_mipmaps = 5,
         prerequisites = {
 
         },
@@ -60,6 +61,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/steam-age.png",
         icon_size = 512,
+        icon_mipmaps = 5,
         prerequisites = {
         "ei-burner-assembler","military","stone-wall","gun-turret","ei-mechanical-inserter"
         },
@@ -90,6 +92,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/electricity-age.png",
         icon_size = 512,
+        icon_mipmaps = 5,
         prerequisites = {
             "engine","electronics","ei-steam-inserter","logistics","ei-steam-assembler","ei-tank-silo","ei-steam-advanced-train","rp-steam-logistics-chests","ei-fluid-boiler"
         },
@@ -116,6 +119,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/computer-age.png",
         icon_size = 512,
+        icon_mipmaps = 5,
         prerequisites = {
             "construction-robotics","logistic-robotics","ei-circuit-waver","oil-gathering","ei-grower","logistics-2","fluid-wagon","ei-castor","ei-benzol","ei-small-inserter","ei-combustion-turbine","ei-arc-furnace"
         },
@@ -138,6 +142,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/quantum-age.png",
         icon_size = 512,
+        icon_mipmaps = 5,
         prerequisites = {"ei-crystal-accumulator","ei-high-energy-crystal-growing","ei-bio-electronic-parts","ei-bio-nitric-acid","ei-bio-high-energy-crystal","ei-copper-beacon","ei-advanced-deep-drill","ei-advanced-centrifuge","ei-excavator","ei-advanced-refinery"},
         effects = {
             {
@@ -162,6 +167,7 @@ data:extend({
         type = "technology",
         icon = ei_path.."graphics/tech/exotic-age.png",
         icon_size = 512,
+        icon_mipmaps = 5,
         prerequisites = {"ei-cavity","ei-efficiency-module-6","ei-productivity-module-6","ei-speed-module-6","ei-plasma-turret","zeus-wrath-zeus-wrath","ei-induction-matrix-superior-converter","ei-induction-matrix-superior-coil"},
         effects = {
             {

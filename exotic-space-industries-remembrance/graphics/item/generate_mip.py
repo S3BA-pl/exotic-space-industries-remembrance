@@ -23,5 +23,5 @@ def generate_mipmaps(input_path, output_path=None):
     combined.save(output_path)
     print(f"Saved mipmap strip as '{output_path}'.")
 
-generate_mipmaps('cosmic-criticality-pack.png')
+generate_mipmaps('rocket-processing-unit.png')
 

@@ -30,7 +30,8 @@ data:extend({
             {type="item", name="ei-carbon-structure", amount=5},
             {type="item", name="ei-superior-data", amount=5},
             {type="item", name="ei-magnet", amount=5},
-            {type = "fluid", name = "ei-liquid-oxygen", amount = 25},
+            {type="item", name="ei-odd-plating", amount=5},
+            {type = "fluid", name = "ei-nitric-acid", amount = 50},
         },
         results = {{type="item", name="ei-neo-assembler", amount=1}},
         enabled = false,
@@ -42,7 +43,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."neo-assembler.png",
         icon_size = 128,
-        prerequisites = {"ei-quantum-computer", "ei-nano-factory"},
+        prerequisites = {"ei-quantum-computer", "ei-nano-factory","ei-odd-plating"},
         effects = {
             {
                 type = "unlock-recipe",

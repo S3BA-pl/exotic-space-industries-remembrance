@@ -1,4 +1,49 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.32
+Date: 8-14-2025
+  Features:
+    - Created new icon for Rocket control unit.
+    - Moved Rocket processing unit recipe unlock from Processing unit to new Rocket processing unit technology, prerequisites are Rocket control unit and Processing unit, located in Simulation age.
+    - Created additional Quantum-entangled crystal accumulator technology unlocking recipes substituting Processing units for Quantum processors—requires Quantum processor technology, unlocked in Quantum age.
+  Changes:
+    - Assembling machine 1 energy usage 77.5 -> 232.5kW.
+    - Assembling machine 1 emissions per minute 4 -> 5.
+    - Assembling machine 2 energy usage 155 -> 465kW.
+    - Assembling machine 2 emissions per minute 3 -> 4.
+    - Assembling machine 2 recipe inputs: 4 Copper mechanical parts -> 8 Steel mechanical parts, Steel beams 2 -> 4.
+    - Assembling machine 3 energy usage 388 -> 1164kW.
+    - Assembling machine 3 emissions per minute 2 -> 4.
+    - Steam assembler energy usage 70 -> 214kW.
+    - Added Low density structure to Rocket control unit technology prerequisites.
+    - Metalworks power usage 150 kW * level -> 500 kW * level^1.2.
+    - Metalworks now receives 1 module slot per level.
+    - Metalworks now allows Speed and Quality modules and beacon effects.
+    - Metalworks now receives 10% base productivity per level.
+    - Metalworks pollution 0 -> 5+level^1.2.
+    - Updated Metalworks tooltips to reflect iteration.
+    - Neo assembler recipe inputs: 25 Liquid oxygen -> 50 Nitric acid, additionally requires 5 Odd plating.
+    - Added Odd plating to Neo assembler technology prerequisites.
+    - Exotic assembler recipe inputs: Superior data 5 -> 10, 5 Carbon-fiber compound -> 5 Reflux plating, 2 Assembling machine 3 -> 2 Neo assemblers, 25 Liquid oxygen -> 100 Cold fluoroketone. Additionally requires 4 EU circuits, 6 Quantum processors.
+    - Exotic assembler recipe outputs: Additionally yields 33 Hot fluoroketone.
+    - Crystal accumulator recipe inputs: 25 Energy crystal -> 25 High energy crystal, 6 Electronic parts -> 6 Processing units.
+    - Mipmapped all the added/updated technology icons.
+    - Set the Advanced motor recipes to use their individual technology icons.
+    - Cryogenic plant can additionally craft Hypercooler recipes.
+    - Cryogenic plant crafting speed 2 -> 1.5.
+    - Cryogenic plant energy usage 1.55 -> 31 MW.
+    - Cryogenic plant pollution 6 -> 18/m.
+    - Cryogenic plant module slots 8 -> 4.
+    - Electromagnetic plant can additionally craft Wafer factory recipes.
+    - Electromagnetic plant crafting speed 2 -> 1.5.
+    - Electromagnetic plant energy usage 2.07 -> 41.4 MW.
+    - Electromagnetic plant pollution 4 -> 12/m.
+    - Electromagnetic plant module slots 5 -> 3.
+    - Foundry can additionally craft Caster recipes.
+    - Electromagnetic plant can no longer craft Nanotecture fabrication complex.
+    - Nanotecture fabrication complex can additionally craft Cryogenic recipes.
+  Bugfixes:
+    - Corrected that 6 -> 18/m modification of Foundry pollution emissions wasn't applying.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.31
 Date: 8-13-2025
   Changes:

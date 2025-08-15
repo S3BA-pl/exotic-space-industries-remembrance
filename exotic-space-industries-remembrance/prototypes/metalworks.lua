@@ -135,11 +135,14 @@ local entity_base = {
     }
     ),
     circuit_wire_max_distance = default_circuit_wire_max_distance,
+    icon_draw_specification = {shift = {0, 1}},
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {
         mining_time = 0.5,
         result = "ei-metalworks-1"
     },
+    allowed_effects = {"speed", "quality"},
+    module_slots = 1,
     max_health = 300,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
@@ -151,8 +154,9 @@ local entity_base = {
     energy_source = {
         type = 'electric',
         usage_priority = 'secondary-input',
+        emissions_per_minute = { pollution = 5 }
     },
-    energy_usage = "150kW",
+    energy_usage = "400kW",
     graphics_set = {
         animation = {
             layers = {
@@ -201,7 +205,10 @@ local function make_metalworks(base, foo, level, max_level, animation, result)
         entity.minable.result = "ei-metalworks-"..level
     end
     entity.crafting_speed = 0.75 + (level-1)*0.5
-    entity.energy_usage = tostring(150*level).."kW"
+    entity.energy_usage = tostring(500*(level^1.2)).."kW"
+    entity.effect_receiver = { base_effect = { productivity = level*0.1 }}
+    entity.module_slots = level
+    entity.energy_source.emissions_per_minute = { pollution = 5+(level^1.2) }
     if animation then
         entity.graphics_set = { animation = animation }
     else

@@ -7,6 +7,7 @@ data:extend({
 	name = "ei-productivity-slag-chunk-extraction",
 	icon = ei_path.."graphics/tech/ore-purification-productivity.png", 
     icon_size = 256,
+    icon_mipmaps = 4,
     effects =
     {
       {
@@ -90,6 +91,7 @@ data:extend({
 	name = "ei-productivity-morphium-usage",
 	icon = ei_path.."graphics/tech/morphium-usage.png",
     icon_size = 128,
+    icon_mipmaps = 3,
     effects =
     {
       {
@@ -170,6 +172,7 @@ data:extend({
 	name = "ei-productivity-pure-ore-smelting",
 	icon = ei_path.."graphics/tech/ore-purification-productivity.png",
     icon_size = 256,
+    icon_mipmaps = 4,
     effects =
     {
       {
@@ -209,6 +212,7 @@ data:extend({
 	name = "ei-productivity-pure-ore-smelting-advanced",
 	icon = ei_path.."graphics/tech/ore-purification-productivity.png",
     icon_size = 256,
+    icon_mipmaps = 4,
     effects =
     {
       {
@@ -248,6 +252,7 @@ data:extend({
 	name = "ei-productivity-pure-ore-smelting-quantum",
 	icon = ei_path.."graphics/tech/ore-purification-productivity.png",
     icon_size = 256,
+    icon_mipmaps = 4,
     effects =
     {
       {
@@ -287,6 +292,7 @@ data:extend({
 	name = "ei-productivity-pure-ore-smelting-exotic",
 	icon = ei_path.."graphics/tech/ore-purification-productivity.png",
     icon_size = 256,
+      icon_mipmaps = 4,
     effects =
     {
       {
@@ -326,6 +332,7 @@ data:extend({
 	name = "ei-productivity-pure-ore-smelting-black-hole",
 	icon = ei_path.."graphics/tech/ore-purification-productivity.png",
     icon_size = 256,
+    icon_mipmaps = 4,
     effects =
     {
       {
@@ -365,6 +372,7 @@ data:extend({
 	name = "ei-productivity-ore-purification",
 	icon = ei_path.."graphics/tech/ore-purification-productivity.png",
     icon_size = 256,
+    icon_mipmaps = 4,
     effects =
     {
       {
@@ -404,6 +412,7 @@ data:extend({
 	name = "ei-productivity-ore-purification-simulation",
 	icon = ei_path.."graphics/tech/ore-purification-productivity.png",
     icon_size = 256,
+    icon_mipmaps = 4,
     effects =
     {
       {
@@ -443,6 +452,7 @@ data:extend({
 	name = "ei-productivity-ore-purification-quantum",
 	icon = ei_path.."graphics/tech/ore-purification-productivity.png",
     icon_size = 256,
+    icon_mipmaps = 4,
     effects =
     {
       {
@@ -482,6 +492,7 @@ data:extend({
 	name = "ei-productivity-ore-purification-exotic",
 	icon = ei_path.."graphics/tech/ore-purification-productivity.png",
     icon_size = 256,
+    icon_mipmaps = 4,
     effects =
     {
       {
@@ -521,6 +532,7 @@ data:extend({
 	name = "ei-productivity-ore-purification-black-hole",
 	icon = ei_path.."graphics/tech/ore-purification-productivity.png",
     icon_size = 256,
+    icon_mipmaps = 4,
     effects =
     {
       {

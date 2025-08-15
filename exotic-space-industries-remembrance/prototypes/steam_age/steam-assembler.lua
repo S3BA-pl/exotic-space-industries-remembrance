@@ -119,7 +119,7 @@ data:extend({
             },
         },
         fluid_boxes_off_when_no_fluid_recipe = true,
-        energy_usage = "50kW",
+        energy_usage = "150kW",
         graphics_set = {
             animation = {
                 filename = ei_graphics_entity_path.."steam-assembler.png",

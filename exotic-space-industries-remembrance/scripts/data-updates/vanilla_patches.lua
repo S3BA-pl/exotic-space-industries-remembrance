@@ -286,8 +286,8 @@ local new_ingredients_table = {
     ["assembling-machine-2"] = {
         {type="item",name="ei-electronic-parts", amount=2},
         {type="item",name="ei-advanced-motor", amount=2},
-        {type="item",name="ei-steel-beam", amount=2},
-        {type="item",name="ei-copper-mechanical-parts", amount=4},
+        {type="item",name="ei-steel-beam", amount=4},
+        {type="item",name="ei-steel-mechanical-parts", amount=8},
         {type="item",name="ei-steam-assembler", amount=1},
         {type="fluid",name="lubricant", amount=25},
     },
@@ -1174,6 +1174,23 @@ ei_lib.raw["fluid"]["lubricant"].order = "a[fluid]-d[lubricant]"
 --OTHER
 ------------------------------------------------------------------------------------------------------
 
+--increase assembling machine energy usage and pollution
+local a1 = ei_lib.raw["assembling-machine"]["assembling-machine-1"]
+local a2 = ei_lib.raw["assembling-machine"]["assembling-machine-2"]
+local a3 = ei_lib.raw["assembling-machine"]["assembling-machine-3"]
+if a1 then 
+    a1.energy_usage = "232.5kW" --def 77.5
+    a1.energy_source.emissions_per_minute.pollution = 5 --def 4
+end
+if a2 then
+    a2.energy_usage = "465kW" --def 155
+    a2.energy_source.emissions_per_minute.pollution = 4 --def 3
+end
+if a3 then
+    a3.energy_usage = "1164kW" --def 388
+    a3.energy_source.emissions_per_minute.pollution = 4 --def 2
+end
+
 -- set fluid burn values for crude, light, heavy - oil and petrol
 ei_lib.raw["fluid"]["crude-oil"].fuel_value = "50kJ"
 ei_lib.raw["fluid"]["heavy-oil"].fuel_value = "250kJ"
@@ -1730,12 +1747,15 @@ data.raw["resource"]["iron-ore"].localised_name = {"item-name.ei-poor-iron-chunk
 data.raw["resource"]["copper-ore"].localised_name = {"item-name.ei-poor-copper-chunk"}
 
 -- foundry
-ei_lib.raw["assembling-machine"].foundry = {
-    crafting_speed = 1.5,
-    energy_usage = "58MW",
-    module_slots = 2,
-    emissions_per_minute = {pollution=18},
-}
+local foundry = ei_lib.raw["assembling-machine"].foundry
+if foundry then
+    foundry.crafting_speed = 1.5
+    foundry.energy_usage = "58MW"
+    foundry.module_slots = 2
+    foundry.energy_source.emissions_per_minute.pollution=18
+    table.insert(foundry.crafting_categories,"ei-casting")
+end
+
 ei_lib.raw.recipe["casting-iron-gear-wheel"].results = {
     {type="item",name="ei-iron-mechanical-parts",amount=1}
 }
@@ -1849,6 +1869,22 @@ if cent then
     end
 end
 
+local cryo = ei_lib.raw["assembling-machine"]["cryogenic-plant"]
+if cryo then
+    cryo.energy_usage = "31MW"
+    cryo.energy_source.emissions_per_minute.pollution = 18 --def 6
+    cryo.crafting_speed = 1.5
+    cryo.module_slots = 4
+    table.insert(cryo.crafting_categories,"ei-cooler")
+end
+local electro = ei_lib.raw["assembling-machine"]["electromagnetic-plant"]
+if electro then
+    electro.energy_usage = "41.4MW"
+    electro.energy_source.emissions_per_minute.pollution = 12 --def 4
+    electro.crafting_speed = 1.5
+    electro.module_slots = 3
+    table.insert(electro.crafting_categories,"ei-waver-factory")
+end
 --====================================================================================================
 --FUNCTION STUFF
 --====================================================================================================
