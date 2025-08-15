@@ -60,7 +60,7 @@ function ei_tech_scaling.on_research_finished()
     end
 
     -- set multiplier
-    game.difficulty_settings.technology_price_multiplier = total_multiplier
+    game.difficulty_settings.technology_price_multiplier = math.min(1000,total_multiplier)
 end
 
 --FORMULA DERIVATION

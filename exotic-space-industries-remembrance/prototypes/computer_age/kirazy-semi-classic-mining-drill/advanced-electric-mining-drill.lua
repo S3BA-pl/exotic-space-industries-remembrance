@@ -1640,7 +1640,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."advanced-electric-mining-drill.png",
         icon_size = 256,
-        prerequisites = {"ei-advanced-computer-age-tech","logistics-3"},
+        prerequisites = {"ei-advanced-computer-age-tech","logistics-3","electric-mining-drill"},
         effects = {
             {
                 type = "unlock-recipe",

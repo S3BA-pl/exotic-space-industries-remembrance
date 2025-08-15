@@ -9,7 +9,7 @@ data:extend({
       type = "string-setting",
       setting_type = "startup",
       default_value = "Default",
-      allowed_values = {"Default", "Very Cheap", "Cheap", "Expensive", "Very Expensive"},
+      allowed_values = {"Sunday stroll", "Walk in the park", "Almost free","Very Cheap", "More Cheap", "Cheap", "Default", "Less Expensive","Expensive", "Very Expensive"},
       order  = "a1",
   },
   {

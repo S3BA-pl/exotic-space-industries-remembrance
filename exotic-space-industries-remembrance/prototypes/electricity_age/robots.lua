@@ -850,7 +850,7 @@ data.raw.recipe["ei-construction-bot"].ingredients = {
 }
 
 data.raw.technology["ei-advanced-port"].prerequisites = {
-    "ei-neodym-refining",
+    "ei-quantum-age",
     "ei-nano-factory",
 }
 

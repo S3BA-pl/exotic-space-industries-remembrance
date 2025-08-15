@@ -276,7 +276,7 @@ data:extend({
             type = 'electric',
             usage_priority = 'secondary-input',
         },
-        fixed_recipe = "ei-simulation-data",
+        --fixed_recipe = "ei-simulation-data",
         energy_usage = "3MW",
         graphics_set = {
             animation = {

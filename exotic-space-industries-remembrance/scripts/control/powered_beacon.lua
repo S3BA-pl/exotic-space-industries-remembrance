@@ -69,7 +69,9 @@ function model.update_fluid_storages()
     local debug = false
     local fluid_entities = storage.ei.fluid_entity
     if not fluid_entities or not next(fluid_entities) then
-        if debug then game.print("❌ No fluid entities") end
+        if debug then
+            game.print("❌ No fluid entities")
+        end
         return false
     end
 
@@ -80,16 +82,22 @@ function model.update_fluid_storages()
         storage.ei.fluid_break_index = index
     end
     if not index then
-        if debug then game.print("❌ No index") end
-        return false
+        if debug then
+            game.print("❌ No index")
         end
+        return false
+    end
 
     local pipe = fluid_entities[index]
     if not (pipe and pipe.valid) then
         -- If current pipe not valid, advance to next existing
         index = next_existing_key(fluid_entities, index)
         storage.ei.fluid_break_index = index
-        return
+        if index then
+            return true
+        else
+            return false
+        end
     end
 
     -- Compute the safe next breakpoint now (before we mutate table)
@@ -99,6 +107,7 @@ function model.update_fluid_storages()
 
     local fluids = pipe.get_fluid_contents()
     local should_destroy = false
+    local incompatible_name = nil
 
     if debug then
         game.print("🔍 Processing fluid entity: " .. name)
@@ -110,7 +119,9 @@ function model.update_fluid_storages()
     local data_count = check_data_count(fluids)
 
     -- ❌ Data in wrong pipe
+    -- removing the fluids stops chain reactions which makes sense for data pipes as they should be physically incompatible with the entire concept of fluids, however we simply destroy the pipes in the latter cases to ensure aesthetic chain reactions occur
     if data_count > 0 and not is_data_pipe then
+        incompatible_name = "ei-computing-power"
         remove_fluids(pipe, fluids)
         should_destroy = true
 
@@ -118,6 +129,7 @@ function model.update_fluid_storages()
     elseif is_data_pipe then
         for fname, famount in pairs(fluids) do
             if famount > 0 and not ei_lib.table_contains_value(ei_data.computing_types, fname) then
+                incompatible_name = fname
                 remove_fluids(pipe, fluids)
                 should_destroy = true
                 break
@@ -128,28 +140,37 @@ function model.update_fluid_storages()
     elseif string.sub(name, 1, 12) == "ei-insulated" then
         -- No action
     else
+        local needs_insulated = {
+            "lava",
+            "fluoroketone-cold",
+            "fluoroketone-hot",
+            "electrolyte"
+        }
         -- ☢️ Transform cryo-fluids and destroy heated ones
         if fluids["ei-liquid-nitrogen"] and fluids["ei-liquid-nitrogen"] > 0 then
             local amt = fluids["ei-liquid-nitrogen"]
-            remove_fluids(pipe,fluids)
             if not game.is_multiplayer() then
+                remove_fluids(pipe,fluids)
                 pipe.insert_fluid({ name = "ei-nitrogen-gas", amount = amt })
             else
+                incompatible_name = fname
                 should_destroy = true
             end
 
         elseif fluids["ei-liquid-oxygen"] and fluids["ei-liquid-oxygen"] > 0 then
             local amt = fluids["ei-liquid-oxygen"]
-            remove_fluids(pipe,fluids)
             if not game.is_multiplayer() then
+                remove_fluids(pipe,fluids)
                 pipe.insert_fluid({ name = "ei-oxygen-gas", amount = amt })
             else
+                incompatible_name = fname
                 should_destroy = true
             end
         else
             for fname, _ in pairs(fluids) do
-                if string.sub(fname, 1, 10) == "ei-heated-" then
-                    remove_fluids(pipe, fluids)
+                if string.sub(fname, 1, 10) == "ei-heated-" or ei_lib.table_contains_value(needs_insulated,fname) then
+                    incompatible_name = fname
+                    --remove_fluids(pipe, fluids)
                     should_destroy = true
                     break
                 end
@@ -159,8 +180,12 @@ function model.update_fluid_storages()
 
     -- 💥 Destroy pipe if marked
     if should_destroy then
+        if incompatible_name then
+            game.print({ "exotic-industries.incompatible-pipe-1", incompatible_name, pipe.name, pipe.gps_tag })
+        else
+            game.print({ "exotic-industries.incompatible-pipe-2", pipe.name, pipe.gps_tag })
+        end
         local pos = pipe.position
-        game.print({ "exotic-industries.incompatible-pipe", pipe.surface.name, pos.x, pos.y, name })
         ei_lib.crystal_echo_floating("❌ Incompatible pipe", pipe, 6000, "wrath")
         pipe.die(pipe.force)
     end

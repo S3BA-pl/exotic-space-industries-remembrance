@@ -2105,7 +2105,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."morphium-usage.png", --used to be called dirty-water-usage.png ...
         icon_size = 128,
-        prerequisites = {"ei-neodym-refining"},
+        prerequisites = {"ei-quantum-age"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2125,7 +2125,7 @@ data:extend({
         icon = ei_path.."graphics/tech/morphium-usage.png",
         icon_size = 128,
         icon_mipmaps = 3,
-        prerequisites = {"ei-neodym-refining"},
+        prerequisites = {"ei-quantum-age"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2180,7 +2180,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_other_path.."bio_magnet.png",
         icon_size = 64,
-        prerequisites = {"ei-odd-plating", "ei-neodym-refining"},
+        prerequisites = {"ei-odd-plating", "ei-quantum-age"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2189,7 +2189,7 @@ data:extend({
         },
         unit = {
             count = 100,
-            ingredients = ei_data.science["alien-computer-age"],
+            ingredients = ei_data.science["quantum-age"],
             time = 20
         },
     },
@@ -2198,7 +2198,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."neodym-refining.png",
         icon_size = 128,
-        prerequisites = {"ei-quantum-age"},
+        prerequisites = {"ei-crystal-accumulator","ei-high-energy-crystal-growing","ei-bio-electronic-parts","ei-bio-nitric-acid","ei-bio-high-energy-crystal"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2231,10 +2231,10 @@ data:extend({
         },
         unit = {
             count = 100,
-            ingredients = ei_data.science["quantum-age"],
+            ingredients = ei_data.science["both-computer-age"],
             time = 20
         },
-        age = "quantum-age",
+        age = "both-computer-age",
     },
     {
         name = "ei-magnet-data",
@@ -2456,7 +2456,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."advanced-fission-tech.png",
         icon_size = 256,
-        prerequisites = {"ei-neodym-refining"},
+        prerequisites = {"ei-quantum-age"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2624,7 +2624,7 @@ data:extend({
         icon = ei_graphics_tech_path.."speed-module-4.png",
         icon_size = 256,
         icon_mipmaps = 4,
-        prerequisites = {"ei-neodym-refining", "speed-module-3"},
+        prerequisites = {"ei-quantum-age", "speed-module-3"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2644,7 +2644,7 @@ data:extend({
         icon = ei_graphics_tech_path.."effectivity-module-4.png",
         icon_size = 256,
         icon_mipmaps = 4,
-        prerequisites = {"ei-neodym-refining", "efficiency-module-3"},
+        prerequisites = {"ei-quantum-age", "efficiency-module-3"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2664,7 +2664,7 @@ data:extend({
         icon = ei_graphics_tech_path.."productivity-module-4.png",
         icon_size = 256,
         icon_mipmaps = 4,
-        prerequisites = {"ei-neodym-refining", "productivity-module-3"},
+        prerequisites = {"ei-quantum-age", "productivity-module-3"},
         effects = {
             {
                 type = "unlock-recipe",

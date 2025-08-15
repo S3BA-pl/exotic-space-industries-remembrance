@@ -13,7 +13,7 @@ local picture = {
 
 local fire = table.deepcopy(data.raw.fire["fire-flame"])
 fire.name = "ei-small-fire"
-fire.light.size = fire.light.size * 4
+fire.light.size = fire.light.size * 5
 fire.tree_dying_factor = data.raw.fire["fire-flame-on-tree"].tree_dying_factor
 
 data:extend{
@@ -44,7 +44,7 @@ data:extend{
         crafting_speed = 1,
         crafting_categories = {"ei-burning"},
         source_inventory_size = 1,
-        result_inventory_size = 2,
+        result_inventory_size = 10,
         heating_energy = ei_data.heating_energy["ei-camp-fire"],
         surface_conditions = {
             {property = "pressure",    min = 33, max = 100000},

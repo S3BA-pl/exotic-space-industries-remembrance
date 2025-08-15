@@ -254,7 +254,9 @@ data:extend({
         map_color = ei_data.colors.assembler,
         crafting_categories = {"ei-computer-core"},
         crafting_speed = 1,
-        fixed_recipe = "ei-computing-power",
+        --fixed_recipe = "ei-computing-power",
+        allowed_effects = {"speed", "consumption", "pollution"},
+        module_slots = 1,
         energy_source = {
             type = 'electric',
             usage_priority = 'secondary-input',

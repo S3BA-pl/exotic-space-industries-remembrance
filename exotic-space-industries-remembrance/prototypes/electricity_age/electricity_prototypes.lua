@@ -991,7 +991,7 @@ data:extend({
         name = "ei-cast-glass",
         type = "recipe",
         category = "ei-casting",
-        energy_required = 0.5,
+        energy_required = 1.7,
         ingredients = {
             {type = "fluid", name = "ei-molten-glass", amount = 5},
         },

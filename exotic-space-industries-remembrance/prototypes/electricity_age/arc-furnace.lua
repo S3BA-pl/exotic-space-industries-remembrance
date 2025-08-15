@@ -362,7 +362,7 @@ data:extend({
             {type = "item", name = "ei-poor-iron-chunk", amount = 3},
         },
         results = {
-            {type = "fluid", name = "ei-molten-iron", amount = 15},
+            {type = "fluid", name = "ei-molten-iron", amount = 15, temperature=900},
             {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.33,allow_productivity=false}
         },
         always_show_made_in = true,
@@ -378,7 +378,7 @@ data:extend({
             {type = "item", name = "ei-pure-iron", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-iron", amount = 40},
+            {type = "fluid", name = "ei-molten-iron", amount = 40, temperature=900},
             {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.01,allow_productivity=false}
         },
         always_show_made_in = true,
@@ -394,7 +394,7 @@ data:extend({
             {type = "item", name = "iron-plate", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-iron", amount = 10},
+            {type = "fluid", name = "ei-molten-iron", amount = 10, temperature=900},
         },
         always_show_made_in = true,
         enabled = false,
@@ -410,7 +410,7 @@ data:extend({
             {type = "item", name = "ei-iron-beam", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-iron", amount = 20},
+            {type = "fluid", name = "ei-molten-iron", amount = 20, temperature=900},
         },
         always_show_made_in = true,
         enabled = false,
@@ -426,7 +426,7 @@ data:extend({
             {type = "item", name = "ei-iron-mechanical-parts", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-iron", amount = 5},
+            {type = "fluid", name = "ei-molten-iron", amount = 5, temperature=900},
         },
         always_show_made_in = true,
         enabled = false,
@@ -444,7 +444,7 @@ data:extend({
             {type = "item", name = "ei-poor-copper-chunk", amount = 3},
         },
         results = {
-            {type = "fluid", name = "ei-molten-copper", amount = 15},
+            {type = "fluid", name = "ei-molten-copper", amount = 15, temperature=900},
             {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.33,allow_productivity=false}
         },
         always_show_made_in = true,
@@ -460,7 +460,7 @@ data:extend({
             {type = "item", name = "ei-pure-copper", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-copper", amount = 40},
+            {type = "fluid", name = "ei-molten-copper", amount = 40, temperature=900},
             {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.01,allow_productivity=false}
         },
         always_show_made_in = true,
@@ -476,7 +476,7 @@ data:extend({
             {type = "item", name = "copper-plate", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-copper", amount = 10},
+            {type = "fluid", name = "ei-molten-copper", amount = 10, temperature=900},
         },
         always_show_made_in = true,
         enabled = false,
@@ -492,7 +492,7 @@ data:extend({
             {type = "item", name = "ei-copper-beam", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-copper", amount = 20},
+            {type = "fluid", name = "ei-molten-copper", amount = 20, temperature=900},
         },
         always_show_made_in = true,
         enabled = false,
@@ -508,7 +508,7 @@ data:extend({
             {type = "item", name = "ei-copper-mechanical-parts", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-copper", amount = 5},
+            {type = "fluid", name = "ei-molten-copper", amount = 5, temperature=900},
         },
         always_show_made_in = true,
         enabled = false,
@@ -526,7 +526,7 @@ data:extend({
             {type = "item", name = "steel-plate", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-steel", amount = 10},
+            {type = "fluid", name = "ei-molten-steel", amount = 10, temperature=900},
             {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.01,allow_productivity=false}
         },
         always_show_made_in = true,
@@ -542,7 +542,7 @@ data:extend({
             {type = "item", name = "ei-steel-beam", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-steel", amount = 20},
+            {type = "fluid", name = "ei-molten-steel", amount = 20, temperature=900},
         },
         always_show_made_in = true,
         enabled = false,
@@ -558,7 +558,7 @@ data:extend({
             {type = "item", name = "ei-steel-mechanical-parts", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-steel", amount = 5},
+            {type = "fluid", name = "ei-molten-steel", amount = 5, temperature=900},
         },
         always_show_made_in = true,
         enabled = false,
@@ -576,7 +576,7 @@ data:extend({
             {type = "item", name = "ei-pure-gold", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-gold", amount = 40},
+            {type = "fluid", name = "ei-molten-gold", amount = 40, temperature=900},
             {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.01,allow_productivity=false}
         },
         always_show_made_in = true,
@@ -592,7 +592,7 @@ data:extend({
             {type = "item", name = "ei-gold-ingot", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-gold", amount = 10},
+            {type = "fluid", name = "ei-molten-gold", amount = 10, temperature=900},
         },
         always_show_made_in = true,
         enabled = false,
@@ -626,7 +626,7 @@ data:extend({
             {type = "item", name = "ei-pure-lead", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-lead", amount = 40},
+            {type = "fluid", name = "ei-molten-lead", amount = 40, temperature=900},
             {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.01,allow_productivity=false}
         },
         always_show_made_in = true,
@@ -642,7 +642,7 @@ data:extend({
             {type = "item", name = "ei-lead-ingot", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-lead", amount = 10},
+            {type = "fluid", name = "ei-molten-lead", amount = 10, temperature=900},
         },
         always_show_made_in = true,
         enabled = false,

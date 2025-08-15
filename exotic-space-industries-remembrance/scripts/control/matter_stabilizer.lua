@@ -100,7 +100,7 @@ function model.update_matter_machine(entity)
 
     if rand < chance then
         --clickable with link
-        game.print({"exotic-industries.exotic-assembler-explode", sur.name, pos["x"], pos["y"]})
+        game.print({"exotic-industries.exotic-assembler-explode", entity.name, entity.gps_tag})
         ei_lib.crystal_echo_floating("Containment Breach: Rationality Compromised.",entity,6000,nil)
         --Sayonara
         entity.surface.create_entity{

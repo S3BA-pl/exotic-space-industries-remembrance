@@ -30,7 +30,7 @@ crusher.fluid_boxes = {
       { flow_direction="output", direction = defines.direction.east, position = {0.5, 1} }}
   }
 }
-
+crusher.result_inventory_size = 24 -- scrap recycling 24 - 3 outputs per basic/advanced recipe + 3 default scrap asteroid crushing outputs
 crusher.fluid_boxes_off_when_no_fluid_recipe = true;
 
 --adding the asteroid spawn definitions to the original data

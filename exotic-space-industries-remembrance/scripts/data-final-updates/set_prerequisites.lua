@@ -102,12 +102,12 @@ end
 -- ======================================================================================
 ei_lib.set_prerequisites("automation-3",{"ei-advanced-motor","ei-computer-core","ei-advanced-computer-age-tech","ei-carbon-manipulation"})
 ei_lib.set_prerequisites("kovarex-enrichment-process",{"uranium-processing"})
-ei_lib.set_prerequisites("processing-unit",{"ei-computer-core","advanced-circuit","ei-electronic-parts","ei-grower"})
+ei_lib.set_prerequisites("processing-unit",{"ei-computer-core","ei-electronic-parts","ei-advanced-semiconductor"})
 ei_lib.set_prerequisites("ei-electronic-parts",{"advanced-circuit"})
 ei_lib.set_prerequisites("ei-lithium-battery",{"lithium-processing"})
 ei_lib.set_prerequisites("ei-lithium-processing",{"lithium-processing"})
 ei_lib.set_prerequisites("space-platform-thruster",{"rocket-silo"})
-ei_lib.set_prerequisites("ei-superior-electric-mining-drill",{"ei-quantum-computer"})
+
 ei_lib.set_prerequisites("recycling",{"rocket-silo"})
 ei_lib.set_prerequisites("holmium-processing",{"recycling","planet-discovery-fulgora"})
 

@@ -196,8 +196,9 @@ data:extend({
     {
         name = "ei-computing-unit",
         type = "item",
-        icon = ei_graphics_item_path.."computing-unit.png",
-        icon_size = 64,
+        icon = ei_path.."graphics/item/computing-unit.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
         subgroup = "intermediate-product",
         order = "b8-1",
         stack_size = 50
@@ -1273,7 +1274,7 @@ data:extend({
     {
         name = "ei-molten-steel-mix",
         type = "recipe",
-        category = "chemistry",
+        category = "ei-arc-furnace",
         energy_required = 2,
         ingredients = {
             {type = "fluid", name = "ei-molten-iron", amount = 10},
@@ -1291,7 +1292,7 @@ data:extend({
     {
         name = "ei-molten-steel-oxygen",
         type = "recipe",
-        category = "chemistry",
+        category = "ei-arc-furnace",
         energy_required = 2,
         ingredients = {
             {type = "fluid", name = "ei-molten-iron", amount = 20},
@@ -2805,10 +2806,6 @@ data:extend({
             },
             {
                 type = "unlock-recipe",
-                recipe = "ei-crush-faulty-advanced-semiconductor"
-            },
-            {
-                type = "unlock-recipe",
                 recipe = "ei-semiconductor-monosilicon"
             },
         },
@@ -3200,7 +3197,49 @@ data:extend({
         },
         age = "computer-age"
     },
-
+    {
+        name = "ei-advanced-semiconductor",
+        type = "technology",
+        icon = ei_graphics_item_path.."advanced-waver.png",
+        icon_size = 128,
+        prerequisites = {"ei-computer-core","ei-waver-factory"},
+        effects = {
+            {
+                type = "unlock-recipe",
+                recipe = "ei-advanced-semiconductor"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-crush-faulty-advanced-semiconductor"
+            }
+        },
+        unit = {
+            count = 100,
+            ingredients = ei_data.science["computer-age"],
+            time = 20
+        },
+        age = "computer-age"
+    },
+    {
+        name = "ei-computing-unit",
+        type = "technology",
+        icon = ei_path.."graphics/item/computing-unit.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
+        prerequisites = {"ei-copper-beacon","ei-advanced-deep-drill","ei-advanced-centrifuge","ei-excavator","ei-advanced-refinery"},
+        effects = {
+            {
+                type = "unlock-recipe",
+                recipe = "ei-computing-unit"
+            },
+        },
+        unit = {
+            count = 100,
+            ingredients = ei_data.science["both-computer-age"],
+            time = 20
+        },
+        age = "both-computer-age"
+    },
   {
     type = "recipe",
     name = "ei-thruster-oxidizer",
@@ -3275,12 +3314,6 @@ data:extend({
       quaternary = {r = 0.683, g = 0.915, b = 1.000, a = 0.502}, -- #aee9ff80
     }
   },
-})
-
-
-table.insert(data.raw["technology"]["processing-unit"].effects, {
-    type = "unlock-recipe",
-    recipe = "ei-advanced-semiconductor"
 })
 
 ei_lib.raw.technology.modules.effects = {

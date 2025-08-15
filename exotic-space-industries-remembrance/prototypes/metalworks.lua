@@ -135,7 +135,7 @@ local entity_base = {
     }
     ),
     circuit_wire_max_distance = default_circuit_wire_max_distance,
-    icon_draw_specification = {shift = {0, 1}},
+    icon_draw_specification = {shift = {0, -0.5}},
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {
         mining_time = 0.5,
@@ -156,7 +156,7 @@ local entity_base = {
         usage_priority = 'secondary-input',
         emissions_per_minute = { pollution = 5 }
     },
-    energy_usage = "400kW",
+    energy_usage = tostring(500*(1^1.2)).."kW",
     graphics_set = {
         animation = {
             layers = {

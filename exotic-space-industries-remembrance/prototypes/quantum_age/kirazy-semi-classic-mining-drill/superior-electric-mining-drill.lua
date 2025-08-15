@@ -1640,7 +1640,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."superior-electric-mining-drill.png",
         icon_size = 256,
-        prerequisites = {"ei-quantum-computer"},
+        prerequisites = {"ei-quantum-computer","ei-advanced-electric-mining-drill"},
         effects = {
             {
                 type = "unlock-recipe",

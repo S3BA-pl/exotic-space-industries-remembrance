@@ -38,12 +38,15 @@ ei_data.colors.coil = {r = 0.8, g = 0.45, b = 0.1, a = 0}
 --====================================================================================================
 
 ei_data.tech_scaling.switch_table = {
-    ["Very Cheap"]      =    500,
-    ["More Cheap"]      =   1000,
-    ["Cheap"]           =   1500,
-    ["Default"]         =   2000,
-    ["Less Expensive"]  =   3500,
-    ["Expensive"]       =   5000,
+    ["Sunday stroll"]      =    207,
+    ["Walk in the park"]      =   415,
+    ["Almost free"]           =   831,
+    ["Very Cheap"]      =    1662,
+    ["More Cheap"]      =   3325,
+    ["Cheap"]           =   6750,
+    ["Default"]         =   12500,
+    ["Less Expensive"]  =   25000,
+    ["Expensive"]       =   50000,
     ["Very Expensive"]  = 100000
 }
 

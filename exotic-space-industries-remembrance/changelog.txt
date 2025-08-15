@@ -1,4 +1,63 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.34
+Date: 8-15-2025
+  Changes:
+    - Removed WaterTurret revived from optional dependencies.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.34
+Date: 8-15-2025
+  Features:
+    - Added Celestial weather by @Varaxia to optional dependencies—adds toggleable on-going weather effects including sandstorms, snowstorms, dust, fire particles and acid rain to Fulgora, Aquilo, Vulcanus, Moshine, Corrundum, Frozeta, Paracelsin, Lemures, Nix, Muluna and Lignumis.
+    - Added Blood & Gore by @OwnlyMe to optional dependencies—Adds customizable blood & gore effects to Biters, aesthetically highly synergistic with Distant misfires. NOTE: Can affect FPS/UPS with default settings, recommend reducing all "... duration" values and "Guts - particle mult" below default values to balance spectacle with performance.
+    - Added Nicer Fuel Glow by @Grillex to optional dependencies—provides differentiation of glow effects based on source and/or fuel type to Boilers, Furnaces, Burner inserters, and Refineries.
+    - Added Realistic Heat Glow by @max2344 to optional dependencies—increases heat glow saturation with heat pipes temperature.
+    - Added Vehicle Physics by @0wnlyMe to optional dependencies—allows for vehicles to drift and handle in a more weighted manner.
+    - Added Valves by @Stringweasel to optional dependencies—provides UPS performant and fully animated overflow, top-up, and one-way/check valves for pipe systems.
+    - Added Shield FX by @0wnlyMe to optional dependencies—adds visual effects when an entity's shields take damage.
+    - Added P2P-Automation : Platform to Platform Logistics by @SirPuck to optional dependencies—allows platforms at the same space location to make logistic requests to and from one another using a custom GUI in the vanilla spirit.
+    - Created Advanced semiconductor technology, moved T1 Advanced semiconductor and Advanced semiconductor crushing recipe unlocks to it from Processing unit, prerequisites are Wafer factory and Computer core.
+    - Created new high resolution icon for Computing unit.
+    - Created Computing unit technology, moved Computing unit recipe unlock to it from Quantum Age, set prerequisites to Advanced deep drill, Advanced centrifuge, Excavator, Electrified refinery, and Subzero phase array beacon.
+  Changes:
+    - Moved Neodymium refining technology to Simulation/Alien age, set prerequisites to Crystal accumulator, Bio high energy crystal growing, Bio electronic parts, Bio nitric acid.
+    - Moved Quantum computer technology to Simulation/Alien age, set prerequisites to Neodymium refining and Computing unit.
+    - Added Advanced semiconductor to Processing unit technology prerequisites.
+    - Added Advanced electric mining drill to Superior electric mining drill technology prerequisites.
+    - Electricity age science pack recipe inputs: Electronic circuit 3 -> 4, Engine unit 2 -> 3, Steel mechanical parts 3 -> 4.
+    - Electricity age science pack recipe outputs: Electricity age science pack 5 -> 2.
+    - Assembling machine 1 recipe inputs: 1 Burner assembler -> 1 Steam assembler.
+    - Assembling machine 2 recipe inputs: 1 Steam assembler -> 1 Assembling machine 1.
+    - Moved Molten steel mix recipes from Chemical lab to Arc furnace.
+    - Caster casting recipes crafting time 0.5 -> 1.7s.
+    - Lava, Fluoroketones, and Electrolytes now require Insulated pipes to prevent the pipe exploding.
+    - Updated insulated entities descriptions to note allowance of Lava, Fluoroketones, and Electrolytes.
+    - Added 1 module slot to Computer core, allows Speed & Efficiency modules / beacon effects.
+    - Camp-fire result inventory size: 2 -> 10.
+    - Camp-fire fire light maximum size 4 -> 5.
+    - Added Advanced circuits to Portable solar panel equipment technology prerequisites.
+  Bugfixes:
+    - Automation 2 no longer missing Computer age science pack requirement.
+    - Fixed typo preventing Portable solar panel equipment prerequisite from being set to Solar energy.
+    - Fixed if current index was invalid pipe with next being valid update_fluid_storages() would halt until next updater sub-cycle.
+    - Fixed that alerts for incompatible fluid in fluid containers displayed an incorrect GPS location and didn't name the container.
+    - Fixed that alerts for Exotic assembler suffering critical entropic cascade displayed an incorrect GPS location and didn't name the assembler.
+    - Recycler result_inventory_size now accounts for Scrap recycling's 24 outputs.
+    - Crusher result_inventory_size now accounts for Scrap asteroid crushing's 24 outputs.
+    - Fixed Computer core couldn't change substrate recipes.
+    - Metalworks alt mode icon adjusted not to hang off bottom edge.
+    - Corrected Metalworks-1 energy usage didn't follow algorithm previously listed.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.33
+Date: 8-15-2025
+  Features:
+    - Created informative tooltip for english Cost curve form startup setting detailing algorithms.
+    - Created additional startup tech scaling max cost multipliers and adjusted values of existing as follows: Very cheap 500 -> 1662, Cheap 1500 -> 6750, Default 2000 -> 12500, Less expensive 3500 -> 25000, Expensive 5000 -> 50000. Additional settings created: Sunday stroll — 207, Walk in the park — 415, Almost free — 831.
+  Changes:
+    - Updated the english tech scaling startup settings tooltips to indicate which should be changed when and what the max tech scaling multiplier ultimately is.
+  Bugfixes:
+    - Fixed Small simulator couldn't change substrate recipes.
+    - Fixed technology cost multiplier could go out of bounds.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.32
 Date: 8-14-2025
   Features:

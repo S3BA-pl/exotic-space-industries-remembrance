@@ -143,16 +143,12 @@ data:extend({
         icon = ei_path.."graphics/tech/quantum-age.png",
         icon_size = 512,
         icon_mipmaps = 5,
-        prerequisites = {"ei-crystal-accumulator","ei-high-energy-crystal-growing","ei-bio-electronic-parts","ei-bio-nitric-acid","ei-bio-high-energy-crystal","ei-copper-beacon","ei-advanced-deep-drill","ei-advanced-centrifuge","ei-excavator","ei-advanced-refinery"},
+        prerequisites = {"ei-quantum-computer"},
         effects = {
             {
                 type = "unlock-recipe",
                 recipe = "ei-quantum-age-tech"
             },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-computing-unit"
-            }
         },
         unit = {
             count = 600,

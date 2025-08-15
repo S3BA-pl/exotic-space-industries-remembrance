@@ -41,7 +41,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."quantum-computer.png",
         icon_size = 256,
-        prerequisites = {"ei-neodym-refining"},
+        prerequisites = {"ei-neodym-refining","ei-computing-unit"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -114,11 +114,11 @@ data:extend({
 
         },
         unit = {
-            count = 100,
-            ingredients = ei_data.science["quantum-age"],
+            count = 250,
+            ingredients = ei_data.science["both-computer-age"],
             time = 20
         },
-        age = "quantum-age",
+        age = "both-computer-age",
     },
     {
         name = "ei-quantum-computer",
