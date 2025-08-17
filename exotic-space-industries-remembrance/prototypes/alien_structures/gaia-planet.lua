@@ -12,7 +12,7 @@ gaia.icon_size = 64
 gaia.starmap_icon = ei_graphics_2_path.."graphics/icons/starmap-planet-gaia.png"
 gaia.starmap_icon_size = 2048
 gaia.lightning_properties = nil
-
+gaia.surface_properties.gravity = 15.5
 gaia.map_gen_settings.autoplace_controls["ei-phytogas-patch"] = {frequency = 5, size = 1, richness = 1}
 gaia.map_gen_settings.autoplace_controls["ei-cryoflux-patch"] = {frequency = 5, size = 1, richness = 1}
 gaia.map_gen_settings.autoplace_controls["ei-ammonia-patch"] = {frequency = 5, size = 1, richness = 1}

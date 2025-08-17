@@ -40,7 +40,7 @@ data:extend({
         {
             {type="item", name="electric-furnace", amount=1},
             {type="item", name="electric-engine-unit", amount=4},
-            {type="item", name="storage-tank", amount=2},
+            {type="item", name="ei-tank-1", amount=2},
             {type="item", name="ei-steel-mechanical-parts", amount=8},
             {type="item",name="ei-steel-beam",amount=10}
         },
@@ -527,7 +527,6 @@ data:extend({
         },
         results = {
             {type = "fluid", name = "ei-molten-steel", amount = 10, temperature=900},
-            {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.01,allow_productivity=false}
         },
         always_show_made_in = true,
         enabled = false,

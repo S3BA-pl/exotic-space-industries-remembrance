@@ -27,7 +27,7 @@ data:extend({
         ingredients =
         {
             {type="item", name="advanced-circuit", amount=5},
-            {type="item", name="storage-tank", amount=1},
+            {type="item", name="ei-tank-2", amount=1},
             {type="item", name="ei-lead-ingot", amount=50},
             {type="item", name="steel-plate", amount=12}
         },

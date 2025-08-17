@@ -1,8 +1,50 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.2.34
-Date: 8-15-2025
+Version: 1.2.36
+Date: 8-16-2025
   Changes:
-    - Removed WaterTurret revived from optional dependencies.
+    - Molten steel blend recipes outputs: Can additionally produce Ash.
+  Bugfixes:
+    - Reverted Steel blend crafting to Chemical lab.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.35
+Date: 8-16-2025
+  Changes:
+    - Removed WaterTurret revived from optional dependencies pending MP compatibility.
+    - Renamed Fusion-Quantum Age card to Fusion data.
+    - Fusion data recipe crafting time 5 -> 60s.
+    - Fusion data recipe outputs: Fusion data 10 -> 2.
+    - Wrote Plasma turret technology and entity descriptions.
+    - Wrote Exotic assembler technology and entity descriptions.
+    - Wrote High tech parts technology and item descriptions.
+    - Advanced oil refinery recipe inputs: 2 Storage tank -> 2 Storage tank column.
+    - Advanced chemical plant recipe inputs: 2 Storage tank -> 2 Storage tank column.
+    - Crystal grower recipe inputs: 2 Storage tank -> 2 Storage tank column.
+    - Purifier recipe inputs: 2 Storage tank -> 2 Storage tank column.
+    - Arc furnace recipe inputs: 2 Storage tank -> 2 Storage tank column.
+    - Hypercooler recipe inputs: 2 Storage tank -> 2 Storage tank column.
+    - Fluid wagon recipe inputs: 1 Storage tank -> 1 Storage tank column.
+    - Distillation tower recipe inputs: 1 Storage tank -> 1 Storage tank column.
+    - Nuclear waste storage recipe inputs: 1 Storage tank -> 1 Silo storage tank.
+    - Coal coke recycling recipe outputs: 1 Charcoal -> 1 Coal.
+    - Radar energy usage 300kW -> 1.2MW.
+    - T1 Steel ingot smelting now affected by Steel plate productivity.
+    - T2 Molten steel recipe inputs: 1 Coal -> 1 Crushed coal coke.
+    - Removed slag output from Steel ingot -> Molten steel recipe.
+    - Added slag output to T1 & T2 Steel blend -> Molten steel recipes.
+    - Electric furnace pollution per minute 1 -> 2.
+    - Tinted all anomaly based data substrate recipes the same color as their fluid.
+    - Pump recipe inputs: 1 Engine unit -> 1 Electric engine unit, 1 Pipe -> 1 Steam pump, 1 Steel ingot -> 1 Electronic circuit.
+    - Added Effect transmission to Subzero phase array beacon technology prerequisites.
+    - Original hidden Air filter water extraction recipe re-enabled, surface conditions require 1000-2000 hPa pressure ie Nauvis & Gleba.
+    - Forbid productivity module in Excavator.
+    - Created planet specific recipes for Excavator, all other than Nauvis unlocked with planet discovery technologies.
+    - Excavator fluid box i/o's: 1/1 -> 2/2.
+    - Gaia gravity 8 -> 15.5 m/s^2.
+  Bugfixes:
+    - Corrected typo preventing Small simulator icon displaying in Computer core entity tooltip.
+    - Fixed Vanilla plate smelting recipes weren't removed.
+    - Metalworks Copper & Iron ingot recipes corrected to chunk equivalents.
+    - Corrected typo preventing recipe overrides from applying to Efficiency modules 1-3.
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.34
 Date: 8-15-2025

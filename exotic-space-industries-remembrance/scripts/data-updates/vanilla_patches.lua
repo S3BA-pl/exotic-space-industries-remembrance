@@ -204,6 +204,11 @@ local new_ingredients_table = {
         {type="item",name="ei-iron-beam", amount=2},
         {type="item",name="pipe", amount=2}
     },
+    ["pump"] = {
+        {type="item",name="rp-steam-pump", amount=1},
+        {type="item",name="electric-engine-unit", amount=1},
+        {type="item",name="electronic-circuit", amount=1}
+    },
     ["train-stop"] = {
         {type="item",name="ei-iron-beam", amount=2},
         {type="item",name="ei-iron-mechanical-parts", amount=2},
@@ -460,50 +465,11 @@ local new_ingredients_table = {
         {type="item",name="electric-engine-unit", amount=1},
         {type="item",name="ei-steam-inserter", amount=1},
     },
-    ["effectivity-module"] = {
-        {type="item",name="ei-module-base", amount=1},
-        {type="item",name="ei-energy-crystal", amount=4},
-    },
-    ["productivity-module"] = {
-        {type="item",name="ei-module-base", amount=1},
-        {type="item",name="advanced-circuit", amount=4},
-    },
-    ["effectivity-module-2"] = {
-        {type="item",name="ei-simulation-data", amount=25},
-        {type="item",name="ei-module-base", amount=1},
-        {type="item",name="effectivity-module", amount=2},
-    },
-    ["productivity-module-2"] = {
-        {type="item",name="ei-simulation-data", amount=25},
-        {type="item",name="ei-module-base", amount=1},
-        {type="item",name="productivity-module", amount=2},
-    },
-    ["speed-module-2"] = {
-        {type="item",name="ei-simulation-data", amount=25},
-        {type="item",name="ei-module-base", amount=1},
-        {type="item",name="speed-module", amount=2},
-    },
-
     ["processing-unit"] = {
         {type="item",name="ei-electronic-parts", amount=1},
         {type="item",name="ei-advanced-semiconductor", amount=1},
         {type="item",name="ei-simulation-data", amount=4},
         {type="item",name="ei-crushed-gold", amount=8},
-    },
-    ["effectivity-module-3"] = {
-        {type="item",name="processing-unit", amount=2},
-        {type="item",name="ei-module-base", amount=1},
-        {type="item",name="effectivity-module-2", amount=2},
-    },
-    ["productivity-module-3"] = {
-        {type="item",name="processing-unit", amount=2},
-        {type="item",name="ei-module-base", amount=1},
-        {type="item",name="productivity-module-2", amount=2},
-    },
-    ["speed-module-3"] = {
-        {type="item",name="processing-unit", amount=2},
-        {type="item",name="ei-module-base", amount=1},
-        {type="item",name="speed-module-2", amount=2},
     },
     ["spidertron"] = {
         {type="item",name="tank", amount=1},
@@ -597,7 +563,7 @@ local new_ingredients_table = {
         {type="item",name="ei-steam-advanced-wagon", amount=1},
     },
     ["fluid-wagon"] = {
-        {type="item",name="storage-tank",amount=1},
+        {type="item",name="ei-tank-1",amount=1},
         {type="item",name="pipe", amount=4},
         {type="item",name="steel-plate", amount=8},
         {type="item",name="ei-steel-beam", amount=4},
@@ -669,6 +635,44 @@ local new_ingredients_table = {
         {type="item", name="ei-module-base", amount=1},
         {type="fluid", name="ei-liquid-nitrogen", amount=25}
     },
+    ["efficiency-module"] = {
+        {type="item",name="ei-module-base", amount=1},
+        {type="item",name="ei-energy-crystal", amount=8},
+    },
+    ["productivity-module"] = {
+        {type="item",name="ei-module-base", amount=1},
+        {type="item",name="advanced-circuit", amount=4},
+    },
+    ["efficiency-module-2"] = {
+        {type="item",name="ei-simulation-data", amount=25},
+        {type="item",name="ei-module-base", amount=1},
+        {type="item",name="efficiency-module", amount=2},
+    },
+    ["productivity-module-2"] = {
+        {type="item",name="ei-simulation-data", amount=25},
+        {type="item",name="ei-module-base", amount=1},
+        {type="item",name="productivity-module", amount=2},
+    },
+    ["speed-module-2"] = {
+        {type="item",name="ei-simulation-data", amount=25},
+        {type="item",name="ei-module-base", amount=1},
+        {type="item",name="speed-module", amount=2},
+    },
+    ["efficiency-module-3"] = {
+        {type="item",name="processing-unit", amount=2},
+        {type="item",name="ei-module-base", amount=1},
+        {type="item",name="efficiency-module-2", amount=2},
+    },
+    ["productivity-module-3"] = {
+        {type="item",name="processing-unit", amount=2},
+        {type="item",name="ei-module-base", amount=1},
+        {type="item",name="productivity-module-2", amount=2},
+    },
+    ["speed-module-3"] = {
+        {type="item",name="processing-unit", amount=2},
+        {type="item",name="ei-module-base", amount=1},
+        {type="item",name="speed-module-2", amount=2},
+    },
 -- treat rocket fuel
     ["rocket-fuel"] = {
         {type="item", name="solid-fuel", amount=10},
@@ -713,6 +717,11 @@ ei_lib.recipe_output_add(ironSlag)
 ei_lib.recipe_output_add(steelSlag)
 
 ]]
+--remove vanilla plate recipes in favor of varied chunk processes
+ei_lib.raw["recipe"]["iron-plate"].hidden = true
+ei_lib.raw["recipe"]["copper-plate"].hidden = true
+ei_lib.raw["recipe"]["steel-plate"].hidden = true
+--[[
 ei_lib.raw["recipe"]["iron-plate"] = {
     results = {
     {type = "item", name = "iron-plate", amount = 1},
@@ -744,6 +753,7 @@ ei_lib.raw["recipe"]["steel-plate"] = {
     subgroup = "ei-refining-plate",
     order = "a3",
 }
+]]
 --[[
 table.insert(ei_lib.raw.recipe["iron-plate"].results,{type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.1})
 table.insert(ei_lib.raw.recipe["copper-plate"].results,{type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.1})
@@ -1354,6 +1364,7 @@ end
 local ef = ei_lib.raw["furnace"]["electric-furnace"] or ei_lib.raw["assembling-machine"]["electric-furnace"]
 if ef then
     ef.energy_usage = "558kW"
+    ef.energy_source.emissions_per_minute.pollution = 2
 end
 ei_lib.raw["storage-tank"]["storage-tank"].fluid_box.volume = 5000
 
@@ -1530,6 +1541,9 @@ ei_lib.raw["ammo"]["piercing-rounds-magazine"].ammo_type = {
     category = "bullet"
 }
 
+-- increase radar energy usage
+ei_lib.raw.radar.radar.energy_usage = "1.2MW" --default 300kW
+
 -- increase power output of fission reactor equipment
 
 ei_lib.raw["generator-equipment"]["fission-reactor-equipment"] = {
@@ -1607,7 +1621,17 @@ data.raw.module["ei-productivity-module-6"].limitation = data.raw.module["produc
 -- properly set logistics 3 age and prere 
 ei_lib.raw.technology["logistics-3"].age = "advanced-computer-age"
 ei_lib.set_prerequisites("logistics-3",{"ei-advanced-computer-age-tech","logistics-2","ei-carbon-manipulation"})
+--add t1 steel ingot casting to steel productivity
 
+local spp = ei_lib.raw.technology["steel-plate-productivity"]
+if spp and spp.effects then
+    table.insert(spp.effects,
+    {
+        type = "change-recipe-productivity",
+        recipe = "ei-steel-plate",
+        change = 0.1
+    })
+end
 --increase silo energy draw, enforce modules
 ei_lib.raw["rocket-silo"]["rocket-silo"] = {
     module_slots = 6,
@@ -1928,7 +1952,9 @@ if recycler then
         {type="item",name="ei-sand", amount_min=0,amount_max=1,probability=0.18},
         {type="item",name="ei-crushed-sulfur", amount_min=0,amount=1,probability=0.11},
     }
-
+    ei_lib.raw.recipe["ei-coke-recycling"].results = {
+        {type="item",name="coal", amount_min=0,amount_max=1,probability=0.17},
+    }
     ei_lib.raw.recipe["scrap-recycling"].results = {
         {type="item",name="ei-iron-mechanical-parts", amount_min=0,amount_max=1,probability=0.07},
         {type="item",name="ei-copper-mechanical-parts", amount_min=0,amount_max=1,probability=0.07},

@@ -37,7 +37,7 @@ data:extend({
         {
             {type="item", name="chemical-plant", amount=1},
             {type="item", name="electric-engine-unit", amount=6},
-            {type="item", name="storage-tank", amount=2},
+            {type="item", name="ei-tank-1", amount=2},
             {type="item", name="ei-steel-mechanical-parts", amount=8}
         },
         results = {{type="item", name="ei-grower", amount=1}},

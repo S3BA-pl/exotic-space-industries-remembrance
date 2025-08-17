@@ -1274,14 +1274,16 @@ data:extend({
     {
         name = "ei-molten-steel-mix",
         type = "recipe",
-        category = "ei-arc-furnace",
+        category = "chemistry",
         energy_required = 2,
         ingredients = {
             {type = "fluid", name = "ei-molten-iron", amount = 10},
             {type = "item", name = "ei-crushed-coke", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-steel", amount = 10},
+            {type = "fluid", name = "ei-molten-steel", amount = 10, temperature = 900},
+            {type = "item", name = "atan-ash", amount_min = 1, amount_max = 2, probability = 0.25,allow_productivity=false},
+            {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.01,allow_productivity=false}
         },
         always_show_made_in = true,
         enabled = false,
@@ -1292,15 +1294,17 @@ data:extend({
     {
         name = "ei-molten-steel-oxygen",
         type = "recipe",
-        category = "ei-arc-furnace",
+        category = "chemistry",
         energy_required = 2,
         ingredients = {
             {type = "fluid", name = "ei-molten-iron", amount = 20},
             {type = "fluid", name = "ei-oxygen-gas", amount = 20},
-            {type = "item", name = "coal", amount = 1},
+            {type = "item", name = "ei-crushed-coke", amount = 1},
         },
         results = {
-            {type = "fluid", name = "ei-molten-steel", amount = 20},
+            {type = "fluid", name = "ei-molten-steel", amount = 20, temperature = 900},
+            {type = "item", name = "atan-ash", amount_min = 1, amount_max = 2, probability = 0.05,allow_productivity=false},
+            {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.01,allow_productivity=false}
         },
         always_show_made_in = true,
         enabled = false,

@@ -1,7 +1,7 @@
 ei_data = require("lib/data")
 
 --====================================================================================================
---LUFTER aka AIR FILTER
+--LUFTER aka AIR FILTER air filter Air filter
 --====================================================================================================
 
 data:extend({
@@ -211,13 +211,13 @@ data:extend({
             {type = "fluid", name = "water", amount = 50},
         },
         always_show_made_in = true,
+        surface_conditions = {
+            {property = "pressure",    min = 1000, max = 2000},
+        },
         enabled = false,
         main_product = "water",
         subgroup = "fluid-recipes",
         order = "b[fluid-chemistry]-j[water]",
-        surface_conditions = {
-            {property = "pressure",    min = 33, max = 100000},
-        },
     },
     {
         name = "ei-steam-vent",

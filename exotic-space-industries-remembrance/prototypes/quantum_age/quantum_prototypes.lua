@@ -1294,7 +1294,7 @@ data:extend({
         name = "ei-fusion-data",
         type = "recipe",
         category = "ei-quantum-computer",
-        energy_required = 5,
+        energy_required = 60,
         ingredients = {
             {type = "fluid", name = "ei-computing-power", amount = 100},
             {type = "fluid", name = "ei-liquid-nitrogen", amount = 100},
@@ -1303,7 +1303,7 @@ data:extend({
             {type = "item", name = "ei-magnet-data", amount = 3},
         },
         results = {
-            {type = "item", name = "ei-fusion-data", amount = 10},
+            {type = "item", name = "ei-fusion-data", amount = 2},
         },
         always_show_made_in = true,
         enabled = false,

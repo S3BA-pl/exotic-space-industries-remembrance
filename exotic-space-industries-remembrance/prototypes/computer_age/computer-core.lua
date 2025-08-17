@@ -56,6 +56,7 @@ data:extend({
         name = "ei-computing-power-chemical",
         type = "recipe",
         category = "ei-computer-core",
+        icons = {{icon = ei_graphics_fluid_path.."computing-power.png", tint={r=0.67, g=0.13, b=0.89}, icon_size = 64}},
         energy_required = 60,
         ingredients = {
             {type = "item", name = "ei-neuro-reactive-residue", amount = 10},
@@ -79,6 +80,7 @@ data:extend({
         name = "ei-computing-power-organic",
         type = "recipe",
         category = "ei-computer-core",
+        icons = {{icon = ei_graphics_fluid_path.."computing-power.png", tint={r=0.42, g=0.93, b=0.66}, icon_size = 64}},
         energy_required = 60,
         ingredients = {
             {type = "item", name = "ei-sporeglass-heart", amount = 10},
@@ -102,6 +104,7 @@ data:extend({
         name = "ei-computing-power-stone",
         type = "recipe",
         category = "ei-computer-core",
+        icons = {{icon = ei_graphics_fluid_path.."computing-power.png", tint={r=0.11, g=0.11, b=0.25}, icon_size = 64}},
         energy_required = 60,
         ingredients = {
             {type = "item", name = "ei-gravity-braided-ore", amount = 10},
@@ -125,6 +128,7 @@ data:extend({
         name = "ei-computing-power-uranium",
         type = "recipe",
         category = "ei-computer-core",
+        icons = {{icon = ei_graphics_fluid_path.."computing-power.png", tint={r=0.76, g=0.85, b=1.0}, icon_size = 64}},
         energy_required = 60,
         ingredients = {
             {type = "item", name = "ei-isotopic-ghost-shell", amount = 10},
@@ -148,6 +152,7 @@ data:extend({
         name = "ei-computing-power-petrified",
         type = "recipe",
         category = "ei-computer-core",
+        icons = {{icon = ei_graphics_fluid_path.."computing-power.png", tint={r=1.0, g=0.63, b=0.23}, icon_size = 64}},
         energy_required = 60,
         ingredients = {
             {type = "item", name = "ei-chrono-fossil-shard", amount = 10},
@@ -171,6 +176,7 @@ data:extend({
         name = "ei-computing-power-scrap",
         type = "recipe",
         category = "ei-computer-core",
+        icons = {{icon = ei_graphics_fluid_path.."computing-power.png", tint={r=0.88, g=0.1, b=0.2}, icon_size = 64}},
         energy_required = 60,
         ingredients = {
             {type = "item", name = "ei-worm-torn-relay-core", amount = 10},

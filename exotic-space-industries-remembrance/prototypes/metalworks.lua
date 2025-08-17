@@ -135,7 +135,7 @@ local entity_base = {
     }
     ),
     circuit_wire_max_distance = default_circuit_wire_max_distance,
-    icon_draw_specification = {shift = {0, -0.5}},
+    icon_draw_specification = {shift = {0, -0.6}},
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {
         mining_time = 0.5,
@@ -303,11 +303,11 @@ table.insert(
 
 -- add the new recipe category to
 local recipes_to_add = {
-    ["iron-plate"] = "none",
+    ["ei-iron-ingot-chunk-smelting"] = "none",
 --    ["iron-gear-wheel"] = "none",
 --    ["iron-stick"] = "none",
     ["barrel"] = "none",
-    ["copper-plate"] = "none",
+    ["ei-copper-ingot-chunk-smelting"] = "none",
     ["ei-gold-ingot"] = "ei-deep-mining",
     ["ei-lead-ingot"] = "ei-deep-mining",
     ["ei-neodym-ingot"] = "ei-neodym-refining",

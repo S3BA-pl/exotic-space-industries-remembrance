@@ -26,7 +26,7 @@ data:extend({
         energy_required = 2,
         ingredients =
         {
-            {type="item", name="storage-tank", amount=1},
+            {type="item", name="ei-tank-1", amount=1},
             {type="item", name="ei-steel-mechanical-parts", amount=6},
             {type="item", name="pipe", amount=4},
             {type="item", name="stone-furnace", amount=1},

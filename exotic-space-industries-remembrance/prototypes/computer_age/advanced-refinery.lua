@@ -28,7 +28,7 @@ data:extend({
         {
             {type="item", name="oil-refinery", amount=2},
             {type="item", name="ei-advanced-motor", amount=10},
-            {type="item", name="storage-tank", amount=2},
+            {type="item", name="ei-tank-1", amount=2},
             {type="item", name="ei-steel-mechanical-parts", amount=8}
         },
         results = {{type="item", name="ei-advanced-refinery", amount=1}},
