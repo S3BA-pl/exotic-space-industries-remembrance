@@ -169,9 +169,16 @@ ei_lib.merge_item("ei-iron-beam","iron-stick",false,true)
 --ei_lib.merge_item("ei-uranium-235-fuel","nuclear-fuel",false,true)
 --ei_lib.merge_item("ei-burner-assembler","burner-assembling-machine",false,true)
 
-
-ei_lib.raw.recipe["iron-gear-wheel"].hidden = true
-ei_lib.raw.recipe["iron-stick"].hidden = true
+local igw = ei_lib.raw.recipe["iron-gear-wheel"]
+if igw then
+	igw.enabled = false
+	igw.hidden = true
+end
+local is = ei_lib.raw.recipe["iron-stick"]
+if is then
+	is.enabled = false
+	is.hidden = true
+end
 local sg = ei_lib.raw.recipe["steel-gear-wheel"] or ei_lib.raw.recipe["kr-steel-gear-wheel"]
 if sg then
 	sg.hidden = true

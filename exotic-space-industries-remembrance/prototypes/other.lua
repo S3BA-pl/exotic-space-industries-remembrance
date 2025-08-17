@@ -27,6 +27,11 @@ data:extend({
     movement_slow_down_factor = 0.95
   },
     {
+        type = "recipe-category",
+        name = "ei-burning",
+        order = "zzz"
+    },
+    {
         name = "ei-refining",
         type = "item-group",
         icon = ei_graphics_other_path.."refining-group.png",

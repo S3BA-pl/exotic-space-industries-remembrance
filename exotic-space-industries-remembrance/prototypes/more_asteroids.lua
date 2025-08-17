@@ -533,12 +533,13 @@ data:extend(
         ingredients =
         {
           {type = "item", name = "ei-uranium-asteroid-chunk", amount = 1},
-          {type = "fluid", name = "sulfuric-acid", amount = 20}
+          {type = "fluid", name = "sulfuric-acid", amount = 6}
         },
         energy_required = 2,
         results =
         {
-          {type = "item", name = "ei-uranium-chunk", amount_min = 2,amount_max=10,probability=0.95},
+          {type = "item", name = "stone", amount_min = 6,amount_max=12,probability=0.95},
+          {type = "item", name = "ei-uranium-chunk", amount_min = 2,amount_max=10,probability=0.75},
     	  	{type = "item", name = "ei-lead-chunk", amount_min = 2,amount_max=4,probability=0.55},
           {type = "item", name = "ei-uranium-asteroid-chunk", amount = 1, probability = 0.15},
           {type = "item", name = "ei-isotopic-ghost-shell", amount = 1, probability = 0.02},
@@ -558,15 +559,14 @@ data:extend(
         ingredients =
         {
           {type = "item", name = "ei-uranium-asteroid-chunk", amount = 1},
-          {type = "fluid", name = "sulfuric-acid", amount = 25}
+          {type = "fluid", name = "sulfuric-acid", amount = 12}
         },
         energy_required = 2,
         results =
         {
-        {type = "item", name = "ei-uranium-chunk", amount_min=1,amount_max = 8,probability=0.75},
-        {type = "item", name = "uranium-235", amount_min = 1,amount_max=2, probability = 0.025},
-        {type = "item", name = "uranium-238", amount = 1,amount_max=2, probability = 0.06},
-    		{type = "item", name = "ei-lead-chunk", amount_min = 1,amount_max=4,probability=0.85},
+        {type = "item", name = "stone", amount_min = 3,amount_max=8,probability=0.8},
+        {type = "item", name = "ei-uranium-chunk", amount_min=6,amount_max = 12,probability=0.95},
+    		{type = "item", name = "ei-lead-chunk", amount_min = 2,amount_max=6,probability=0.9},
         {type = "item", name = "ei-uranium-asteroid-chunk", amount = 1, probability = 0.02},
         {type = "item", name = "ei-isotopic-ghost-shell", amount = 1, probability = 0.04}
         },

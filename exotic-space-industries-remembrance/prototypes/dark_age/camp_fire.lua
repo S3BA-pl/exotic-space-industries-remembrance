@@ -60,7 +60,7 @@ data:extend{
             --fuel_categories = {"chemical"},
             --effectivity = 0.4,
             --fuel_inventory_size = 1,
-            emissions_per_minute = { pollution = 3 },
+            emissions_per_minute = { pollution = 5 },
             light_flicker = {
                 color = {r=0.3, g=0, b=0},
                 maximum_intensity = 1,
@@ -114,9 +114,6 @@ data:extend{
     },
 
     -- categories
+    -- in prototypes/other.lua
 
-    {
-        type = "recipe-category",
-        name = "ei-burning",
-    },
 }

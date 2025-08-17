@@ -222,7 +222,7 @@ data:extend({
         results = {
             {type = "fluid", name = "ei-dirty-water", amount_min = 5,amount_max=20},
             {type = "fluid", name = "crude-oil", amount_min = 15, amount_max = 60, probability=0.33},
-            {type = "item", name = "stone", amount_min = 15*1, amount_max = 15*2,probability=0.6}, -- yellow belt
+            {type = "item", name = "stone", amount_min = 15*1, amount_max = 15*2,probability=0.6},
             {type = "item", name = "ei-sand", amount_min = 30, amount_max = 45, probability=0.85},
             {type = "item", name = "scrap", amount_min = 15, amount_max = 30, probability=0.9},
             {type = "item", name = "holmium-ore", amount_min = 1, amount_max = 5, probability=0.008},
@@ -251,10 +251,10 @@ data:extend({
         results = {
             {type = "fluid", name = "ei-dirty-water", amount_min = 5,amount_max = 20},
             {type = "fluid", name = "lava", amount_min = 25, amount_max= 75,probability=0.9},
-            {type = "item", name = "ei-coal-chunk", amount_min = 25, amount_max = 75,probability=0.65}, -- yellow belt
+            {type = "item", name = "ei-coal-chunk", amount_min = 25, amount_max = 75,probability=0.65},
             {type = "item", name = "calcite", amount_min = 5, amount_max = 15,probability=0.38},
             {type = "item", name = "tungsten-ore", amount_min = 5, amount_max = 30,probability=0.03},
-            {type = "item", name = "stone", amount_min = 15*3, amount_max = 15*5,probability=0.88}, -- yellow belt
+            {type = "item", name = "stone", amount_min = 15*3, amount_max = 15*5,probability=0.88},
             {type = "item", name = "atan-ash", amount_min = 15, amount_max = 60,probability=0.99},
             {type = "item", name = "ei-slag", amount_min = 5, amount_max = 30,probability=0.9}
         },
@@ -310,7 +310,7 @@ data:extend({
         results = {
             {type = "fluid", name = "ei-dirty-water", amount_min = 10,amount_max=75},
             {type = "fluid", name = "fluoroketone-cold", amount = 150},
-            {type = "item", name = "stone", amount_min = 15*1, amount_max = 15*3, probability=0.33}, -- yellow belt
+            {type = "item", name = "stone", amount_min = 15*1, amount_max = 15*3, probability=0.33},
             {type = "item", name = "ice", amount_min = 15,amount_max=15*10, probability=0.99},
         },
         always_show_made_in = true,
@@ -337,7 +337,7 @@ data:extend({
         results = {
             {type = "fluid", name = "ei-dirty-water", amount_min = 10,amount_max=20},
             {type = "fluid", name = "ei-bio-sludge", amount_min = 1,amount_max=3, probability = 0.09},
-            {type = "item", name = "stone", amount_min = 15*2, amount_max = 15*4, probability=0.95}, -- yellow belt
+            {type = "item", name = "stone", amount_min = 15*2, amount_max = 15*4, probability=0.95},
             {type = "item", name = "ei-energy-crystal", amount_min = 1, amount_max = 2,probability=0.08},
             {type = "item", name = "ei-high-energy-crystal", amount_min = 1, amount_max = 2,probability=0.04},
             {type = "item", name = "ei-neodym-chunk", amount_min = 1, amount_max = 2,probability=0.03},

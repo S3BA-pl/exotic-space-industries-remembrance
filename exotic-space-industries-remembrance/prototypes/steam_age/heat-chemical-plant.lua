@@ -45,7 +45,7 @@ plant.fast_replaceable_group = "chemical-plant"
 plant.next_upgrade = "chemical-plant"
 plant.energy_usage = "1MW"
 plant.crafting_speed = 1.5
-
+table.insert(plant.crafting_categories,"ei-burning")
 plant.graphics_set = {
   animation = ei_lib.make_4way_animation_from_spritesheet({ layers =
   {

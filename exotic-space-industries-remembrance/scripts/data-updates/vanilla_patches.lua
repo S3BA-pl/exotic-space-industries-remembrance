@@ -718,9 +718,20 @@ ei_lib.recipe_output_add(steelSlag)
 
 ]]
 --remove vanilla plate recipes in favor of varied chunk processes
-ei_lib.raw["recipe"]["iron-plate"].hidden = true
-ei_lib.raw["recipe"]["copper-plate"].hidden = true
-ei_lib.raw["recipe"]["steel-plate"].hidden = true
+local ip = ei_lib.raw["recipe"]["iron-plate"]
+local cp = ei_lib.raw["recipe"]["copper-plate"]
+local sp = ei_lib.raw["recipe"]["steel-plate"]
+if ip then
+    ip.enabled = false
+    ip.hidden = true
+end
+if cp then
+    cp.enabled = false
+    cp.hidden = true
+end
+if sp then
+    sp.hidden = true
+end
 --[[
 ei_lib.raw["recipe"]["iron-plate"] = {
     results = {
@@ -911,7 +922,7 @@ new_prerequisites_table["electricity-age"] = {
     {"uranium-processing", "ei-grower"},
     {"nuclear-power", "uranium-processing"},
     {"solar-panel-equipment", "solar-energy"},
-        {"solar-panel-equipment", "advanced-circuit"},
+    {"solar-panel-equipment", "advanced-circuit"},
     {"radar", "ei-electricity-power"},
     {"tank","advanced-circuit"},
     {"tank","plastics"},
@@ -1091,6 +1102,9 @@ table.insert(ei_lib.raw.technology["inserter-capacity-bonus-1"].effects,
 
 --Remove vanilla nuclear fuel reprocessing
 ei_lib.remove_unlock_recipe("nuclear-fuel-reprocessing","nuclear-fuel-reprocessing")
+--Remove vanilla uranium processing in favor of EI complex processing
+ei_lib.remove_unlock_recipe("uranium-processing", "uranium-processing")
+ei_lib.raw.recipe["uranium-processing"].hidden = true
 ei_lib.raw.technology["nuclear-fuel-reprocessing"].hidden = true
 --Move the recipe to 235 recycling
 ei_lib.add_unlock_recipe("ei-uranium-235-recycling","nuclear-fuel-reprocessing")
@@ -1368,12 +1382,17 @@ if ef then
 end
 ei_lib.raw["storage-tank"]["storage-tank"].fluid_box.volume = 5000
 
-
---electric chem plant uses same energy but is slower than heat chem plant 1 vs 1.5
-ei_lib.raw["assembling-machine"]["chemical-plant"].energy_usage = "1MW"
-
--- set fast replaceable group for chem plant
-ei_lib.raw["assembling-machine"]["chemical-plant"].fast_replaceable_group = "chemical-plant"
+local vcp = ei_lib.raw["assembling-machine"]["chemical-plant"]
+if vcp then
+    --electric chem plant uses same energy but is slower than heat chem plant 1 vs 1.5
+    vcp.energy_usage = "1MW"
+    -- set fast replaceable group for chem plant
+    vcp.fast_replaceable_group = "chemical-plant"
+    -- allow burning fuels for ash
+    if vcp.crafting_categories then
+        table.insert(vcp.crafting_categories,"ei-burning")
+    end
+end
 
 -- make mining radius of burner mining drill 
 ei_lib.raw["mining-drill"]["burner-mining-drill"].radius_visualisation_picture = ei_lib.raw["mining-drill"]["electric-mining-drill"].radius_visualisation_picture

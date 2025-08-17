@@ -12,7 +12,7 @@ local function add_recipe(energy,speed,name,item)
     table.insert(recipes, {
         type = "recipe",
         name = "ei-warm-fire-from-" .. name,
-        localised_name = {"ei-warm-fire"},
+        localised_name = {"recipe-name.ei-warm-fire"},
         category = "ei-burning",
         icon = "__core__/graphics/arrows/heat-exchange-indication.png",
         icon_size = 48,
@@ -26,6 +26,10 @@ local function add_recipe(energy,speed,name,item)
         results = {{
             type = "item",
             name = item['burnt_result'] or "atan-ash",
+            --Using below for amount varies ash output with energy density
+            --but is detrimental in every application other than burning
+            --in chemical labs directly for ash, so....
+            --math.min(3,math.max(1,math.floor((12.3 + energy / 1e6) * speed))),
             amount = 1,
             probability = 1,
             emissions_multiplier = item['fuel_emissions_multiplier'] or 1,

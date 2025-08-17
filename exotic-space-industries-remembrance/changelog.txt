@@ -1,4 +1,22 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.38
+Date: 8-17-2025
+  Bugfixes:
+    - Set hidden vanilla Gear wheel, Iron stick, Iron plate, and Copper plate to disabled, correcting player autocraft material consumption behavior.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.37
+Date: 8-17-2025
+  Features:
+    - Chemical labs can now burn fuels directly for ash production.
+  Changes:
+    - Camp-fire pollution per minute: 3 -> 5.
+    - Uranium asteroid chunk crushing recipe inputs: Sulfuric acid 20 -> 6.
+    - Uranium asteroid chunk crushing recipe outputs: Uranium chunk 95 -> 75% probability, additionally yields 6-12 Stone 95% probability.
+    - Advanced uranium asteroid chunk crushing recipe inputs: Sulfuric acid 25 -> 12.
+    - Advanced uranium asteroid chunk crushing recipe outputs: 75% 1-8 Uranium chunk -> 95% 6-12, 85% 1-4 Lead chunk -> 90% 2-6, additionally yields 3-8 Stone 80% probability.
+  Bugfixes:
+    - Restored removal of vanilla Uranium processing recipe.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.36
 Date: 8-16-2025
   Changes:
