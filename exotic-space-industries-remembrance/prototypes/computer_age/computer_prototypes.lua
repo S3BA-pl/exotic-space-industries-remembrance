@@ -1605,14 +1605,13 @@ data:extend({
         name = "ei-quantum-age-tech",
         type = "recipe",
         category = "crafting",
-        energy_required = 24,
+        energy_required = 48,
         ingredients =
         {
-            {type="item", name="ei-fission-tech", amount=20},
-            {type="item", name="ei-space-data", amount=8},
+            {type="item", name="ei-superior-data", amount=40},
             {type="item", name="ei-copper-beacon", amount=2},
             {type="item", name="ei-crystal-accumulator", amount=2},
-            {type="item", name="ei-high-energy-crystal", amount=2},
+            {type="item", name="ei-magnet", amount=2},
             {type="item", name="ei-computing-unit", amount=2},
         },
         results = {{type="item", name="ei-quantum-age-tech", amount=1}},

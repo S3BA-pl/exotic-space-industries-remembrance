@@ -77,7 +77,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."induction-matrix-core.png",
         icon_size = 256,
-        prerequisites = {"ei-induction-matrix", "processing-unit"},
+        prerequisites = {"ei-induction-matrix", "processing-unit","ei-advanced-computer-age-tech"},
         effects = {
             { 
                 type = "nothing",

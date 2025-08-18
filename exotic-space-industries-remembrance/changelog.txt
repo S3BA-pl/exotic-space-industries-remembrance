@@ -1,4 +1,54 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.39
+Date: 8-18-2025
+  Changes:
+    - Technology cost multiplier now updates upon changing configuration as well as completing research, should allow mid-game difficulty changes.
+    - Updated Space data tooltip to reflect new processing steps.
+    - Quantum age science pack recipe inputs: 2 High energy crystals -> 2 Neodymium magnets, 8 Space data & 20 Fission data -> 40 Superior data.
+    - Fusion-Quantum age science pack recipe inputs: Charged neutron container 1 -> 2, Fusion data 90 -> 20. Additionally requires 20 Carbon-fiber compound, 20 Odd plating.
+    - Odd plating added to Fusion-Quantum age technology prerequisites.
+    - Fusion-Quantum age science pack recipe outputs: 99% 1 Neutron container -> 96% 0-2.
+    - Fusion drive recipe inputs: 20 Steel mechanical parts -> 80 Computing units, Personal fusion reactor 1 -> 8, Energy shield MK2 2 -> 8.
+    - Fusion drive recipe outputs: 100 -> 1.
+    - Black hole exotic age science pack recipe outputs: %90 10 Neutron containers -> %96 0-10.
+    - Exotic age science pack recipe inputs: Removed Superior data.
+    - Spidertron recipe inputs: 40 Electronic parts -> 40 Processing units.
+    - Moved Spidertron to Simulation age.
+    - Moved Physical projectile damage 1 to Electricity age.
+    - Moved Weapon shooting speed 1 to Electricity age.
+    - Moved Physical projectile damage 2 to Computer age.
+    - Moved Weapon shooting speed 2 to Computer age.
+    - Moved Physical projectile damage 3 to Simulation age.
+    - Moved Weapon shooting speed 3 to Simulation age.
+    - Moved Physical projectile damage 4 to Alien age.
+    - Moved Weapon shooting speed 4 to Alien age.
+    - Moved Physical projectile damage 5 to Quantum age.
+    - Moved Weapon shooting speed 5 to Quantum age.
+    - Moved Physical projectile damage 6 to Exotic age.
+    - Moved Weapon shooting speed 6 to Exotic age.
+    - Moved Physical projectile damage 7+ Exotic age.
+    - Moved Weapon shooting speed 7+ to Exotic age.
+    - Moved Lab research speed 2 to Electricity age.
+    - Moved Lab research speed 3 to Computer age.
+    - Moved Lab research speed 4 to Alien age.
+    - Moved Lab research speed 5 to Alien & Simulation age.
+    - Added Advanced motor to Bulk inserter technology prerequisites.
+    - Added Bulk inserter to Inserter capacity bonus 1 technology prerequisites.
+    - Moved Bulk inserter to Computer age.
+    - Moved Inserter capacity bonus 1 to Computer age.
+    - Moved Inserter capacity bonus 2 to Simulation age.
+    - Moved Inserter capacity bonus 3 to Alien age.
+    - Moved Inserter capacity bonus 4 to Alien & Simulation age.
+    - Moved Inserter capacity bonus 5 to Quantum age.
+    - Moved Inserter capacity bonus 6 to Fusion-Quantum age.
+    - Moved Inserter capacity bonus 7 to Exotic age.
+    - Added Turbo transport belt to Neo transport belt technology prerequisites.
+    - Added Simulation computer age to Advanced induction matrix' technology prerequisites.
+    - Vulcanus excavator recipe outputs: Lava 25-75 -> 12-30, 25-75 Coal chunk -> 4-8.
+    - Updated Industrial combustion turbine description to indicate it doesn't produce ash.
+  Bugfixes:
+    - Fixed formatting typos in Excavator description.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.38
 Date: 8-17-2025
   Bugfixes:

@@ -59,7 +59,7 @@ local function set_packs(tech, ingredients, exclude)
 
     -- set pack for tech
     if data.raw["technology"][tech].unit then
-      data.raw["technology"][tech].unit.ingredients = ingredients
+      data.raw["technology"][tech].unit.ingredients = table.deepcopy(ingredients)
     end
 
 end
@@ -270,6 +270,7 @@ for i,v in pairs(data.raw.technology) do
                 for z,w in ipairs(data.raw.technology[i].unit.ingredients) do
                     if w[1] == ei_data.science_dict[y[1]] then
                         found = true
+                        break
                     end
                 end
 

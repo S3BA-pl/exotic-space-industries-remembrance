@@ -476,7 +476,7 @@ local new_ingredients_table = {
         {type="item",name="ei-steel-mechanical-parts", amount=100},
         {type="item",name="ei-advanced-motor", amount=100},
         {type="item",name="ei-high-energy-crystal", amount=40},
-        {type="item",name="ei-electronic-parts", amount=40},
+        {type="item",name="processing-unit", amount=40},
         {type="item",name="ei-simulation-data", amount=100},
     },
     ["power-armor-mk2"] = {
@@ -941,7 +941,12 @@ new_prerequisites_table["computer-age"] = {
     {"rocket-silo", "ei-advanced-motor"},
     {"rocket-silo", "processing-unit"},
     {"fission-reactor-equipment", "ei-high-temperature-reactor"},
-    
+    {"bulk-inserter","ei-advanced-motor"},
+    {"inserter-capacity-bonus-1","ei-advanced-motor"}
+}
+
+
+new_prerequisites_table["advanced-computer-age"] = {
 }
 
 new_prerequisites_table["quantum-age"] = {

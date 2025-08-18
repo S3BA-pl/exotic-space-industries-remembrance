@@ -103,6 +103,8 @@ end
 ei_lib.set_prerequisites("automation-3",{"ei-advanced-motor","ei-computer-core","ei-advanced-computer-age-tech","ei-carbon-manipulation"})
 ei_lib.set_prerequisites("kovarex-enrichment-process",{"uranium-processing"})
 ei_lib.set_prerequisites("processing-unit",{"ei-computer-core","ei-electronic-parts","ei-advanced-semiconductor"})
+ei_lib.set_prerequisites("spidertron",{"processing-unit","ei-high-energy-crystal","ei-advanced-computer-age-tech"})
+
 ei_lib.set_prerequisites("ei-electronic-parts",{"advanced-circuit"})
 ei_lib.set_prerequisites("ei-lithium-battery",{"lithium-processing"})
 ei_lib.set_prerequisites("ei-lithium-processing",{"lithium-processing"})

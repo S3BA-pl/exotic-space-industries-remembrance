@@ -1315,13 +1315,14 @@ data:extend({
         category = "ei-nano-factory",
         energy_required = 60,
         ingredients = {
-            {type = "item", name = "ei-charged-neutron-container", amount = 1},
-            {type = "item", name = "ei-simulation-data", amount = 20},
-            {type = "item", name = "ei-fusion-data", amount = 9},
+            {type = "item", name = "ei-charged-neutron-container", amount = 2},
+            {type = "item", name = "ei-carbon-structure", amount = 20},
+            {type = "item", name = "ei-odd-plating", amount = 20},
+            {type = "item", name = "ei-fusion-data", amount = 20},
         },
         results = {
             {type = "item", name = "ei-fusion-quantum-age-tech", amount = 1},
-            {type = "item", name = "ei-neutron-container", amount = 1, probability = 0.99},
+            {type = "item", name = "ei-neutron-container", amount_min = 0, amount_max=2, probability = 0.96},
         },
         always_show_made_in = true,
         enabled = false,
@@ -1334,7 +1335,6 @@ data:extend({
         energy_required = 240,
         ingredients = {
             {type = "item", name = "ei-high-tech-parts", amount = 25},
-            {type = "item", name = "ei-superior-data", amount = 40},
             {type = "item", name = "ei-cavity", amount = 2},
             {type = "item", name = "ei-speed-module-6", amount = 1},
             {type = "item", name = "ei-productivity-module-6", amount = 1},
@@ -1353,12 +1353,12 @@ data:extend({
         category = "ei-nano-factory",
         energy_required = 60,
         ingredients = {
-            {type = "item", name = "ei-personal-reactor", amount = 1},
-            {type = "item", name = "energy-shield-mk2-equipment", amount = 2},
-            {type = "item", name = "ei-steel-mechanical-parts", amount = 20},
+            {type = "item", name = "ei-personal-reactor", amount = 8},
+            {type = "item", name = "energy-shield-mk2-equipment", amount = 8},
+            {type = "item", name = "ei-computing-unit", amount = 80},
         },
         results = {
-            {type = "item", name = "ei-fusion-drive", amount = 100},
+            {type = "item", name = "ei-fusion-drive", amount = 1},
         },
         always_show_made_in = true,
         enabled = false,
@@ -2363,7 +2363,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."fusion.png",
         icon_size = 256,
-        prerequisites = {"ei-magnet-data", "ei-plasma-heater", "ei-nano-factory"},
+        prerequisites = {"ei-magnet-data", "ei-plasma-heater", "ei-nano-factory","ei-odd-plating"},
         effects = {
             {
                 type = "unlock-recipe",

@@ -334,20 +334,23 @@ ei_data.sub_age["alien-computer-age"] = "computer-age"
 ei_data.sub_age["both-computer-age"] = "computer-age"
 
 ei_data.add_to_sub_age["alien-computer-age"] = {
+    "weapon-shooting-speed-4",
+    "physical-projectile-damage-4",
     "braking-force-6",
     "braking-force-7",
-    "bulk-inserter",
+    "research-speed-4",
     "inserter-capacity-bonus-3",
-    "inserter-capacity-bonus-4",
 }
 
 ei_data.add_to_sub_age["advanced-computer-age"] = {
+    "weapon-shooting-speed-3",
+    "physical-projectile-damage-3",
+    "inserter-capacity-bonus-2",
     "logistics-3",
     "mining-productivity-2",
-    "research-speed-3",
-    "research-speed-4",
+
     "automation-3",
-     "spidertron",
+    "spidertron",
     "processing-unit",
     "ei-quantum-age",
     "speed-module-3",
@@ -375,7 +378,7 @@ ei_data.add_to_sub_age["advanced-computer-age"] = {
 }
 
 ei_data.add_to_sub_age["both-computer-age"] = {
-  
+    "inserter-capacity-bonus-4",
 }
 
 ei_data.sub_age["fusion-quantum-age"] = "quantum-age"
@@ -391,15 +394,16 @@ ei_data.add_to_sub_age["fusion-quantum-age"] = {
     "worker-robots-speed-5",
     "worker-robots-storage-3",
     "laser-weapons-damage-6",
-}
-
-ei_data.add_to_sub_age["both-quantum-age"] = {
+    "inserter-capacity-bonus-6",
     "mining-productivity-4",
     "worker-robots-speed-6",
     "research-speed-6",
-    "inserter-capacity-bonus-7",
     "laser-weapons-damage-7",
     "stronger-explosives-7",
+}
+
+ei_data.add_to_sub_age["both-quantum-age"] = {
+
 }
 
 ei_data.sub_age["black-hole-exotic-age"] = "exotic-age"
@@ -418,6 +422,7 @@ ei_data.ages = {
 }
 
 -- used in final fixes to fix third party mods
+-- wtf is going on here
 ei_data.ages_with_sub = {
     ["dark-age"] = 1,
     ["steam-age"] = 2,
@@ -488,8 +493,6 @@ ei_data.tech_structure["dark-age"] = {
     "gun-turret",
     "heavy-armor",
     "military",
-    "weapon-shooting-speed-1",
-    "physical-projectile-damage-1",
     "toolbelt",
     "stone-wall",
     "ei-mechanical-inserter"
@@ -515,8 +518,6 @@ ei_data.tech_structure["steam-age"] = {
     "automated-rail-transportation",
 --    "braking-force-1",
 --    "braking-force-2",
---    "weapon-shooting-speed-2",
---    "physical-projectile-damage-2",
     "automobilism",
     "engine",
     "flammables",
@@ -524,7 +525,6 @@ ei_data.tech_structure["steam-age"] = {
 --    "refined-flammables-2",
 --    "stronger-explosives-1",
     "gate",
---    "inserter-capacity-bonus-1",
     "research-speed-1",
     "landfill",
     "steel-axe",
@@ -535,6 +535,8 @@ ei_data.tech_structure["steam-age"] = {
 
 ei_data.tech_structure["electricity-age"] = {
     "oil-processing",
+    "weapon-shooting-speed-1",
+    "physical-projectile-damage-1",
 --    "fluid-wagon",
     "fluid-handling",
     "automation",
@@ -561,7 +563,7 @@ ei_data.tech_structure["electricity-age"] = {
 --    "stronger-explosives-2",
 --    "refined-flammables-3",
 --    "refined-flammables-4",
---    "physical-projectile-damage-3",
+
 --    "physical-projectile-damage-4",
     "land-mine",
     "cliff-explosives",
@@ -575,7 +577,7 @@ ei_data.tech_structure["electricity-age"] = {
     "lubricant",
     "fast-inserter",
 --    "inserter-capacity-bonus-2",
---    "research-speed-2",
+    "research-speed-2",
     "lamp",
     "laser",
     "laser-turret",
@@ -611,6 +613,9 @@ ei_data.tech_structure["electricity-age"] = {
 }
 
 ei_data.tech_structure["computer-age"] = {
+    "weapon-shooting-speed-2",
+    "physical-projectile-damage-2",
+    "research-speed-3",
     -- green circ
     "weapon-shooting-speed-3",
 --    "weapon-shooting-speed-4",
@@ -635,18 +640,12 @@ ei_data.tech_structure["computer-age"] = {
 --    "speed-module",
 --[[    "speed-module-2",
     "speed-module-3",
-    "inserter-capacity-bonus-3",
-    "inserter-capacity-bonus-4",
     "stronger-explosives-4",
     "stronger-explosives-5",
 "research-speed-3",
 "research-speed-4",
     "refined-flammables-5",
     "refined-flammables-6",
-    "weapon-shooting-speed-5",
-    "weapon-shooting-speed-6",
-    "physical-projectile-damage-5",
-    "physical-projectile-damage-6",
     "laser-shooting-speed-4",
     "laser-shooting-speed-5",
     "laser-shooting-speed-6",
@@ -663,8 +662,8 @@ ei_data.tech_structure["computer-age"] = {
     "rocket-fuel",
     "rocket-silo",
     "rocketry",
-    "spidertron",
     "bulk-inserter",
+    "inserter-capacity-bonus-1",
     "military-4",
     "artillery",
 --    "follower-robot-count-3",
@@ -675,15 +674,17 @@ ei_data.tech_structure["computer-age"] = {
 
 ei_data.tech_structure["quantum-age"] = {
     "atomic-bomb",
---[[    "inserter-capacity-bonus-5",
-    "inserter-capacity-bonus-6",
+    "research-speed-5",
+    "inserter-capacity-bonus-5",
+    "weapon-shooting-speed-5",
+    "physical-projectile-damage-5",
+--[[
     "inserter-capacity-bonus-7",
     "worker-robots-speed-5",
     "worker-robots-speed-6",
     "worker-robots-storage-3",
     "refined-flammables-7",
     "physical-projectile-damage-7",
-    "research-speed-5",
     "research-speed-6",
     "stronger-explosives-6",
     "stronger-explosives-7",
@@ -698,8 +699,17 @@ ei_data.tech_structure["quantum-age"] = {
 }
 
 ei_data.tech_structure["exotic-age"] = {
+    "weapon-shooting-speed-6",
+    "physical-projectile-damage-6",
+    "inserter-capacity-bonus-7",
+    "weapon-shooting-speed-7",
+    "physical-projectile-damage-7",
+}
+
+ei_data.tech_structure["black-hole-exotic-age"] = {
 
 }
+
 --not added to labs, amybe other stuff
 ei_data.tech_exclude_list = {
     "automation-science-pack",

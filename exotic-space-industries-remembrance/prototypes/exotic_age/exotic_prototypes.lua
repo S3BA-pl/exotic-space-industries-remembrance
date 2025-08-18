@@ -88,7 +88,7 @@ data:extend({
         },
         results = {
             {type = "item", name = "ei-black-hole-exotic-age-tech", amount = 1},
-            {type = "item", name = "ei-neutron-container", amount = 10, probability = 0.9},
+            {type = "item", name = "ei-neutron-container", amount_min = 0, amount_max=10, probability = 0.96},
         },
         always_show_made_in = true,
         enabled = false,

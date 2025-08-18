@@ -7,6 +7,45 @@ local ei_tech_scaling = {}
 --TECH SCALING
 --====================================================================================================
 
+local function update_multiplier()
+    if ei_lib.config("no-tech-scaling") then return end
+
+    local maxCost = storage.ei["tech_scaling"].maxCost
+    local startPrice = storage.ei["tech_scaling"].startPrice
+    local techCount = storage.ei["tech_scaling"].techCount
+
+    -- do this for player force -> no support for multiple forces yet
+    local force = game.forces[1]
+
+    local currentTechs = 0
+    for _, tech in pairs(force.technologies) do
+        if tech.enabled and tech.prototype.research_unit_count_formula == nil then
+            if tech.researched then
+                currentTechs = currentTechs + 1
+            end
+        end
+    end
+
+    local formulaType = ei_lib.config("tech-scaling-curveForm")
+    local multiplier = ei_tech_scaling.get_multiplier(
+        maxCost,
+        techCount,
+        startPrice,
+        currentTechs,
+        formulaType
+    )
+
+    local additional_multiplier = ei_lib.config("tech-scaling-additionalMultiplier")
+    local total_multiplier = multiplier * additional_multiplier
+
+    if total_multiplier > maxCost then
+        total_multiplier = maxCost
+    end
+
+    -- apply the multiplier
+    game.difficulty_settings.technology_price_multiplier = math.min(1000, total_multiplier)
+end
+
 function ei_tech_scaling.init()
     if ei_lib.config("no-tech-scaling") then return end
     
@@ -26,41 +65,14 @@ function ei_tech_scaling.init()
 
     -- count total number of technologies
     storage.ei["tech_scaling"].techCount = ei_lib.getn(prototypes.technology)
+
+    -- set initial multiplier
+    update_multiplier()
 end
 
 function ei_tech_scaling.on_research_finished()
     if ei_lib.config("no-tech-scaling") then return end
-    maxCost = storage.ei["tech_scaling"].maxCost
-    startPrice = storage.ei["tech_scaling"].startPrice
-    techCount = storage.ei["tech_scaling"].techCount
-
-    -- do this for player force -> no support for multiple forces yet
-    force = game.forces[1]
-
-    local currentTechs = 0
-    -- do this for each technology
-    for _,tech in pairs(force.technologies) do
-        if tech.enabled then
-            if tech.prototype.research_unit_count_formula == nil then
-                if tech.researched then
-                    currentTechs = currentTechs + 1
-                end
-            end
-        end
-    end
-    
-    local formulaType = ei_lib.config("tech-scaling-curveForm")
-    local multiplier = ei_tech_scaling.get_multiplier(maxCost, techCount, startPrice, currentTechs, formulaType)
-    local additional_multiplier = ei_lib.config("tech-scaling-additionalMultiplier")
-
-    local total_multiplier = multiplier * additional_multiplier
-
-    if total_multiplier > maxCost then
-        total_multiplier = maxCost
-    end
-
-    -- set multiplier
-    game.difficulty_settings.technology_price_multiplier = math.min(1000,total_multiplier)
+    update_multiplier()
 end
 
 --FORMULA DERIVATION

@@ -8,14 +8,13 @@ if not mods["extra-storage-tank"] then
 end
 
 local ei_lib = require("lib/lib")
-local ei_data = require("lib/data")
 
 --====================================================================================================
 --CHANGES
 --====================================================================================================
 
-data.raw.technology["steel-storage-tank"].age = "steam-age"
-data.raw.technology["steel-storage-tank"].prerequisites = {"ei-tank"}
+ei_lib.raw.technology["steel-storage-tank"].age = "steam-age"
+ei_lib.raw.technology["steel-storage-tank"].prerequisites = {"ei-tank"}
 
 ei_lib.recipe_new("steel-storage-tank", {
     {type="item", name="storage-tank", amount=3},
@@ -35,5 +34,5 @@ end
 --CHANGES
 --====================================================================================================
 
-data.raw.technology["minibuffer"].age = "steam-age"
-data.raw.technology["minibuffer"].prerequisites = {"ei-tank"}
+ei_lib.raw.technology["minibuffer"].age = "steam-age"
+ei_lib.raw.technology["minibuffer"].prerequisites = {"ei-tank"}

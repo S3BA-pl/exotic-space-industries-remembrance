@@ -250,8 +250,8 @@ data:extend({
         },
         results = {
             {type = "fluid", name = "ei-dirty-water", amount_min = 5,amount_max = 20},
-            {type = "fluid", name = "lava", amount_min = 25, amount_max= 75,probability=0.9},
-            {type = "item", name = "ei-coal-chunk", amount_min = 25, amount_max = 75,probability=0.65},
+            {type = "fluid", name = "lava", amount_min = 12, amount_max= 30,probability=0.9},
+            {type = "item", name = "ei-coal-chunk", amount_min = 4, amount_max = 8,probability=0.65},
             {type = "item", name = "calcite", amount_min = 5, amount_max = 15,probability=0.38},
             {type = "item", name = "tungsten-ore", amount_min = 5, amount_max = 30,probability=0.03},
             {type = "item", name = "stone", amount_min = 15*3, amount_max = 15*5,probability=0.88},

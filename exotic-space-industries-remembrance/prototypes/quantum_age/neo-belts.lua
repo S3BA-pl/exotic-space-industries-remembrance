@@ -10,7 +10,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."logistics-4.png",
         icon_size = 256,
-        prerequisites = {"ei-neodym-refining"},
+        prerequisites = {"ei-neodym-refining","turbo-transport-belt","ei-quantum-age"},
         effects = {
             {
                 type = "unlock-recipe",
