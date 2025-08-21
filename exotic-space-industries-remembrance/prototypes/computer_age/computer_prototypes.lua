@@ -128,14 +128,14 @@ data:extend({
               {
                 size = 64,
                 filename = ei_graphics_item_path.."advanced-computer-age-tech.png",
-                scale = 0.5
+                scale = 0.375
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 64,
                 filename = ei_graphics_item_path.."computer-age-tech_light.png",
-                scale = 0.5
+                scale = 0.375
               }
             }
         },
@@ -155,14 +155,14 @@ data:extend({
               {
                 size = 64,
                 filename = ei_graphics_item_path.."alien-computer-age-tech.png",
-                scale = 0.5
+                scale = 0.375
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 64,
                 filename = ei_graphics_item_path.."computer-age-tech_light.png",
-                scale = 0.5
+                scale = 0.375
               }
             }
         },
@@ -182,14 +182,14 @@ data:extend({
               {
                 size = 64,
                 filename = ei_graphics_item_path.."quantum-age-tech.png",
-                scale = 0.5
+                scale = 0.375
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 64,
                 filename = ei_graphics_item_path.."quantum-age-tech_light.png",
-                scale = 0.5
+                scale = 0.375
               }
             }
         },
@@ -333,7 +333,7 @@ data:extend({
               {
                 filename = ei_graphics_item_path.."compound-ammo.png",
                 mipmap_count = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
               },
               {
@@ -343,7 +343,7 @@ data:extend({
                   "light"
                 },
                 mipmap_count = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
               }
             }
@@ -405,32 +405,32 @@ data:extend({
         pictures = {
             {
                 filename = ei_graphics_item_2_path.."cryodust-1.png",
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_2_path.."cryodust-2.png",
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_2_path.."cryodust-3.png",
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_2_path.."cryodust-4.png",
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_2_path.."cryodust-5.png",
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_2_path.."cryodust-6.png",
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
         },
@@ -663,27 +663,27 @@ data:extend({
         pictures = {
             {
                 filename = ei_graphics_item_path.."silicon.png",
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."silicon-2.png",
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."silicon-3.png",
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."silicon-4.png",
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."silicon-5.png",
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
         },
@@ -699,17 +699,17 @@ data:extend({
         pictures = {
             {
                 filename = ei_graphics_item_path.."monosilicon.png",
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."monosilicon-2.png",
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."monosilicon-3.png",
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
         },

@@ -104,7 +104,7 @@ inserter.platform_picture = {
         width = 105,
         height = 79,
         shift = util.by_pixel(1.5, 7.5-1),
-        scale = 0.5
+        scale = 0.25
     }
 }
 inserter.hand_base_picture = {
@@ -112,21 +112,21 @@ inserter.hand_base_picture = {
     priority = "extra-high",
     width = 32,
     height = 136,
-    scale = 0.5
+    scale = 0.25
 }
 inserter.hand_closed_picture = {
     filename = ei_graphics_entity_path.."mechanical-inserter-hand-closed.png",
     priority = "extra-high",
     width = 72,
     height = 164,
-    scale = 0.5
+    scale = 0.25
 }
 inserter.hand_open_picture = {
     filename = ei_graphics_entity_path.."mechanical-inserter-hand-open.png",
     priority = "extra-high",
     width = 72,
     height = 164,
-    scale = 0.5
+    scale = 0.25
 }
 -- set energy source to void
 inserter.energy_source = {
@@ -158,7 +158,7 @@ long_inserter.platform_picture = {
         width = 105,
         height = 79,
         shift = util.by_pixel(1.5, 7.5-1),
-        scale = 0.5
+        scale = 0.25
     }
 }
 long_inserter.hand_base_picture = {
@@ -166,21 +166,21 @@ long_inserter.hand_base_picture = {
     priority = "extra-high",
     width = 32,
     height = 136,
-    scale = 0.5
+    scale = 0.25
 }
 long_inserter.hand_closed_picture = {
     filename = ei_graphics_entity_path.."mechanical-inserter-hand-closed.png",
     priority = "extra-high",
     width = 72,
     height = 164,
-    scale = 0.5
+    scale = 0.25
 }
 long_inserter.hand_open_picture = {
     filename = ei_graphics_entity_path.."mechanical-inserter-hand-open.png",
     priority = "extra-high",
     width = 72,
     height = 164,
-    scale = 0.5
+    scale = 0.25
 }
 -- set energy source to void
 long_inserter.energy_source = {

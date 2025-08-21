@@ -33,14 +33,14 @@ data:extend({
               {
                 size = 128,
                 filename = ei_graphics_item_path.."simulation-data.png",
-                scale = 0.5/2
+                scale = 0.375/2
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 128,
                 filename = ei_graphics_item_path.."simulation-data_light.png",
-                scale = 0.5/2
+                scale = 0.375/2
               }
             }
           },
@@ -59,14 +59,14 @@ data:extend({
               {
                 size = 128,
                 filename = ei_path.."graphics/item/simulation-data-chemical.png",
-                scale = 0.5/2
+                scale = 0.375/2
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 128,
                 filename = ei_graphics_item_path.."simulation-data_light.png",
-                scale = 0.5/2
+                scale = 0.375/2
               }
             }
           },
@@ -85,14 +85,14 @@ data:extend({
               {
                 size = 128,
                 filename = ei_path.."graphics/item/simulation-data-organic.png",
-                scale = 0.5/2
+                scale = 0.375/2
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 128,
                 filename = ei_graphics_item_path.."simulation-data_light.png",
-                scale = 0.5/2
+                scale = 0.375/2
               }
             }
           },
@@ -111,14 +111,14 @@ data:extend({
               {
                 size = 128,
                 filename = ei_path.."graphics/item/simulation-data-stone.png",
-                scale = 0.5/2
+                scale = 0.375/2
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 128,
                 filename = ei_graphics_item_path.."simulation-data_light.png",
-                scale = 0.5/2
+                scale = 0.375/2
               }
             }
           },
@@ -137,14 +137,14 @@ data:extend({
               {
                 size = 128,
                 filename = ei_path.."graphics/item/simulation-data-uranium.png",
-                scale = 0.5/2
+                scale = 0.375/2
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 128,
                 filename = ei_graphics_item_path.."simulation-data_light.png",
-                scale = 0.5/2
+                scale = 0.375/2
               }
             }
           },
@@ -163,14 +163,14 @@ data:extend({
               {
                 size = 128,
                 filename = ei_path.."graphics/item/simulation-data-petrified.png",
-                scale = 0.5/2
+                scale = 0.375/2
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 128,
                 filename = ei_graphics_item_path.."simulation-data_light.png",
-                scale = 0.5/2
+                scale = 0.375/2
               }
             }
           },
@@ -189,14 +189,14 @@ data:extend({
               {
                 size = 128,
                 filename = ei_path.."graphics/item/simulation-data-scrap.png",
-                scale = 0.5/2
+                scale = 0.375/2
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 128,
                 filename = ei_graphics_item_path.."simulation-data_light.png",
-                scale = 0.5/2
+                scale = 0.375/2
               }
             }
           },
@@ -215,14 +215,14 @@ data:extend({
               {
                 size = 128,
                 filename = ei_graphics_item_path.."space-data.png",
-                scale = 0.5/2
+                scale = 0.375/2
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 128,
                 filename = ei_graphics_item_path.."space-data_light.png",
-                scale = 0.5/2
+                scale = 0.375/2
               }
             }
           },

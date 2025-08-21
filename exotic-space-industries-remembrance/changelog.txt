@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.41
+Date: 8-21-2025
+  Features:
+    - Added "Fairly priced" tech scaling ceiling option at 12500.
+  Changes:
+    - Adjusted "Default" tech scaling ceiling 12500 -> 2500.
+    - Adjusted tech scaling ceiling tooltip and order of seletion menu to reflect above.
+    - Reverted Camp-fire result slots to 1.
+  Bugfixes:
+    - Fixed EI robots, Cranes, Loaders, EMT logo and Mechanical inserters icons were bigger than intended.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.40
 Date: 8-20-2025
   Features:

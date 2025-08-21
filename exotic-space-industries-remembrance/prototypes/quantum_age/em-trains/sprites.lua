@@ -56,7 +56,7 @@ data:extend({
         type = "sprite",
         filename = ei_trains_tech_path.."em-locomotive.png",
         size = 256,
-        scale = 0.5,
+        scale = 0.25,
     },
     {
         name = "ei_emt-range-toggle",

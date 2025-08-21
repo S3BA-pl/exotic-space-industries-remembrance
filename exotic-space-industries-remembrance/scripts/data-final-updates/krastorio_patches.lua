@@ -682,14 +682,14 @@ data:extend({
               {
                 size = 64,
                 filename = ei_graphics_item_path.."matter-quantum-age-tech.png",
-                scale = 0.5
+                scale = 0.375
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 64,
                 filename = ei_graphics_item_path.."quantum-age-tech_light.png",
-                scale = 0.5
+                scale = 0.375
               }
             }
         },
@@ -709,14 +709,14 @@ data:extend({
               {
                 size = 64,
                 filename = ei_graphics_item_path.."imersite-quantum-age-tech.png",
-                scale = 0.5
+                scale = 0.375
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 64,
                 filename = ei_graphics_item_path.."quantum-age-tech_light.png",
-                scale = 0.5
+                scale = 0.375
               }
             }
         },

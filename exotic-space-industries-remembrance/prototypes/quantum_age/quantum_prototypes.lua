@@ -293,25 +293,25 @@ data:extend({
             {
                 filename = ei_graphics_item_path.."crushed-neodym.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."crushed-neodym-1.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."crushed-neodym-2.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."crushed-neodym-3.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
         },
@@ -329,25 +329,25 @@ data:extend({
             {
                 filename = ei_graphics_item_path.."crushed-pure-neodym.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."crushed-pure-neodym-1.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."crushed-pure-neodym-2.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."crushed-pure-neodym-3.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
         },
@@ -367,19 +367,19 @@ data:extend({
             {
                 filename = ei_graphics_item_path.."crushed-coal.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."crushed-coal-1.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."crushed-coal-2.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
         },
@@ -406,25 +406,25 @@ data:extend({
             {
                 filename = ei_graphics_item_path.."carbon-nanotube.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."carbon-nanotube-1.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."carbon-nanotube-2.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."carbon-nanotube-3.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
         },
@@ -461,14 +461,14 @@ data:extend({
               {
                 size = 128,
                 filename = ei_graphics_item_path.."magnet-data.png",
-                scale = 0.5/2
+                scale = 0.375/2
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 128,
                 filename = ei_graphics_item_path.."magnet-data_light.png",
-                scale = 0.5/2
+                scale = 0.375/2
               }
             }
           },
@@ -487,14 +487,14 @@ data:extend({
               {
                 size = 128,
                 filename = ei_graphics_item_path.."fusion-data.png",
-                scale = 0.5/2
+                scale = 0.375/2
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 128,
                 filename = ei_graphics_item_path.."simulation-data_light.png",
-                scale = 0.5/2
+                scale = 0.375/2
               }
             }
           },
@@ -514,14 +514,14 @@ data:extend({
               {
                 size = 64,
                 filename = ei_graphics_item_path.."fusion-quantum-age-tech.png",
-                scale = 0.5
+                scale = 0.375
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 64,
                 filename = ei_graphics_item_path.."quantum-age-tech_light.png",
-                scale = 0.5
+                scale = 0.375
               }
             }
         },
@@ -541,14 +541,14 @@ data:extend({
     --           {
     --             size = 64,
     --             filename = ei_graphics_item_path.."exotic-quantum-age-tech.png",
-    --             scale = 0.5
+    --             scale = 0.375
     --           },
     --           {
     --             draw_as_light = true,
     --             flags = {"light"},
     --             size = 64,
     --             filename = ei_graphics_item_path.."quantum-age-tech_light.png",
-    --             scale = 0.5
+    --             scale = 0.375
     --           }
     --         }
     --     },
@@ -715,25 +715,25 @@ data:extend({
             {
                 filename = ei_graphics_item_path.."lithium-crystal.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."lithium-crystal-1.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."lithium-crystal-2.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."lithium-crystal-3.png",
                 icon_mipmaps = 4,
-                scale = 0.5,
+                scale = 0.375,
                 size = 64
             },
         },
@@ -753,14 +753,14 @@ data:extend({
               {
                 size = 64,
                 filename = ei_graphics_item_path.."exotic-age-tech.png",
-                scale = 0.5
+                scale = 0.375
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 64,
                 filename = ei_graphics_item_path.."exotic-age-tech_light.png",
-                scale = 0.5
+                scale = 0.375
               }
             }
         },
