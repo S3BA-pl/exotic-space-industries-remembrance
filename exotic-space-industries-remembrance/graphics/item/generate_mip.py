@@ -23,5 +23,6 @@ def generate_mipmaps(input_path, output_path=None):
     combined.save(output_path)
     print(f"Saved mipmap strip as '{output_path}'.")
 
-generate_mipmaps('rocket-processing-unit.png')
-
+generate_mipmaps('industrial-glass.png')
+generate_mipmaps('industrial-glass-2.png')
+generate_mipmaps('industrial-glass-3.png')

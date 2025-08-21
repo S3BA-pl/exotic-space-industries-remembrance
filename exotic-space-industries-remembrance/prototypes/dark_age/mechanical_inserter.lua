@@ -112,21 +112,21 @@ inserter.hand_base_picture = {
     priority = "extra-high",
     width = 32,
     height = 136,
-    scale = 0.25
+    scale = 0.5
 }
 inserter.hand_closed_picture = {
     filename = ei_graphics_entity_path.."mechanical-inserter-hand-closed.png",
     priority = "extra-high",
     width = 72,
     height = 164,
-    scale = 0.25
+    scale = 0.5
 }
 inserter.hand_open_picture = {
     filename = ei_graphics_entity_path.."mechanical-inserter-hand-open.png",
     priority = "extra-high",
     width = 72,
     height = 164,
-    scale = 0.25
+    scale = 0.5
 }
 -- set energy source to void
 inserter.energy_source = {
@@ -166,21 +166,21 @@ long_inserter.hand_base_picture = {
     priority = "extra-high",
     width = 32,
     height = 136,
-    scale = 0.25
+    scale = 0.5
 }
 long_inserter.hand_closed_picture = {
     filename = ei_graphics_entity_path.."mechanical-inserter-hand-closed.png",
     priority = "extra-high",
     width = 72,
     height = 164,
-    scale = 0.25
+    scale = 0.5
 }
 long_inserter.hand_open_picture = {
     filename = ei_graphics_entity_path.."mechanical-inserter-hand-open.png",
     priority = "extra-high",
     width = 72,
     height = 164,
-    scale = 0.25
+    scale = 0.5
 }
 -- set energy source to void
 long_inserter.energy_source = {

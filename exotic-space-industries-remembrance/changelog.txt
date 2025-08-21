@@ -1,4 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.40
+Date: 8-20-2025
+  Features:
+    - Created steam version of Quarry.
+    - Created new high resolution icon with 3 variations for Plasma cube item and technology.
+    - Created new high resolution icon with 3 variations for Energy crystal item.
+    - Created new high resolution icon with 3 variations for EU magnet item and technology.
+    - Created new high resolution icon with 3 variations for High energy crystal item and technology.
+    - Created new high resolution icon with 3 variations for Electronic parts item and technology.
+    - Created new high resolution icon with 3 variations for Industrial glass.
+  Changes:
+    - Prevented barreling of heated plasma gases.
+    - Icon scale for vast majority of EI items increased to allow improved visual differentiation when zoomed out.
+    - Quarries resource drain rate: 90 -> 65%.
+  Bugfixes:
+    - Steam assembler no longer prevented from crafting recipes which output a fluid.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.39
 Date: 8-18-2025
   Changes:

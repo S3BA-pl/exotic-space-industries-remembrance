@@ -271,14 +271,14 @@ data:extend({
               {
                 size = 128,
                 filename = ei_graphics_item_path.."superior-data.png",
-                scale = 0.25/2
+                scale = 0.5/2
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 128,
                 filename = ei_graphics_item_path.."superior-data_light.png",
-                scale = 0.25/2
+                scale = 0.5/2
               }
             }
           },

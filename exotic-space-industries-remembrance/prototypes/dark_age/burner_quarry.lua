@@ -24,10 +24,8 @@ data:extend({
         },
         results = {{type = "item", name = modprefix.."burner-quarry", amount = 1}},
         energy_required = 10,
-    }
-})
+    },
 
-data:extend({
     {
         name = modprefix.."electric-quarry",
         type = "item",
@@ -79,7 +77,7 @@ burner_quarry.energy_source.smoke =
     }
 burner_quarry.module_specification = {module_slots = 0}
 burner_quarry.mining_speed = 1.5
-burner_quarry.resource_drain_rate_percent = 90
+burner_quarry.resource_drain_rate_percent = 65
 burner_quarry.performance_to_activity_rate = 2.0
 data:extend({burner_quarry})
 
@@ -91,7 +89,7 @@ electric_quarry.energy_usage = "1MW"
 electric_quarry.mining_speed = 1.5
 electric_quarry.energy_source.emissions_per_minute.pollution = electric_quarry.energy_source.emissions_per_minute.pollution * 3
 electric_quarry.performance_to_activity_rate = 2.0
-electric_quarry.resource_drain_rate_percent = 90
+electric_quarry.resource_drain_rate_percent = 65
 electric_quarry.icon = ei_graphics_kirazy_path.."icon/electric-mining-drill.png"
 data:extend({electric_quarry})
 

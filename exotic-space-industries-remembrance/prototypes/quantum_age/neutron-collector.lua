@@ -158,14 +158,14 @@ data:extend({
               {
                 size = 64,
                 filename = ei_graphics_item_path.."charged-neutron-container.png",
-                scale = 0.25
+                scale = 0.5
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 64,
                 filename = ei_graphics_item_path.."charged-neutron-container_light.png",
-                scale = 0.25
+                scale = 0.5
               }
             }
         },

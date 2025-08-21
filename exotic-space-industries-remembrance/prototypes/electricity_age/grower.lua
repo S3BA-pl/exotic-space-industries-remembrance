@@ -22,8 +22,29 @@ data:extend({
     {
         name = "ei-energy-crystal",
         type = "item",
-        icon = ei_graphics_item_path.."energy-crystal.png",
-        icon_size = 64,
+        icon = ei_path.."graphics/item/energy-crystal.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
+        pictures = {
+            {
+                filename = ei_path.."graphics/item/energy-crystal.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            },
+            {
+                filename = ei_path.."graphics/item/energy-crystal-2.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            },
+            {
+                filename = ei_path.."graphics/item/energy-crystal-3.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            }
+        },
         subgroup = "raw-material",
         order = "g",
         stack_size = 100

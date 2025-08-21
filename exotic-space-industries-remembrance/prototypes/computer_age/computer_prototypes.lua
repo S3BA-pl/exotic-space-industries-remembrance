@@ -68,8 +68,29 @@ data:extend({
     {
         name = "ei-high-energy-crystal",
         type = "item",
-        icon = ei_graphics_item_path.."high-energy-crystal.png",
-        icon_size = 64,
+        icon = ei_path.."graphics/item/high-energy-crystal.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
+        pictures = {
+            {
+                filename = ei_path.."graphics/item/high-energy-crystal.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            },
+            {
+                filename = ei_path.."graphics/item/high-energy-crystal-2.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            },
+            {
+                filename = ei_path.."graphics/item/high-energy-crystal-3.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            }
+        },
         subgroup = "raw-material",
         order = "g1",
         stack_size = 100
@@ -107,14 +128,14 @@ data:extend({
               {
                 size = 64,
                 filename = ei_graphics_item_path.."advanced-computer-age-tech.png",
-                scale = 0.25
+                scale = 0.5
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 64,
                 filename = ei_graphics_item_path.."computer-age-tech_light.png",
-                scale = 0.25
+                scale = 0.5
               }
             }
         },
@@ -134,14 +155,14 @@ data:extend({
               {
                 size = 64,
                 filename = ei_graphics_item_path.."alien-computer-age-tech.png",
-                scale = 0.25
+                scale = 0.5
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 64,
                 filename = ei_graphics_item_path.."computer-age-tech_light.png",
-                scale = 0.25
+                scale = 0.5
               }
             }
         },
@@ -161,14 +182,14 @@ data:extend({
               {
                 size = 64,
                 filename = ei_graphics_item_path.."quantum-age-tech.png",
-                scale = 0.25
+                scale = 0.5
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 64,
                 filename = ei_graphics_item_path.."quantum-age-tech_light.png",
-                scale = 0.25
+                scale = 0.5
               }
             }
         },
@@ -312,7 +333,7 @@ data:extend({
               {
                 filename = ei_graphics_item_path.."compound-ammo.png",
                 mipmap_count = 4,
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
               },
               {
@@ -322,7 +343,7 @@ data:extend({
                   "light"
                 },
                 mipmap_count = 4,
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
               }
             }
@@ -384,32 +405,32 @@ data:extend({
         pictures = {
             {
                 filename = ei_graphics_item_2_path.."cryodust-1.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_2_path.."cryodust-2.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_2_path.."cryodust-3.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_2_path.."cryodust-4.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_2_path.."cryodust-5.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_2_path.."cryodust-6.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
         },
@@ -642,27 +663,27 @@ data:extend({
         pictures = {
             {
                 filename = ei_graphics_item_path.."silicon.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."silicon-2.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."silicon-3.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."silicon-4.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."silicon-5.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
         },
@@ -678,17 +699,17 @@ data:extend({
         pictures = {
             {
                 filename = ei_graphics_item_path.."monosilicon.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."monosilicon-2.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."monosilicon-3.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
         },
@@ -768,7 +789,7 @@ data:extend({
         },
         always_show_made_in = true,
         enabled = false,
-        icon = ei_graphics_other_path.."bio_energy-crystal.png",
+        icon = ei_path.."graphics/other/bio-energy-crystal.png",
         icon_size = 64,
         subgroup = "ei-alien-bio",
         order = "a-c",
@@ -790,7 +811,7 @@ data:extend({
         },
         always_show_made_in = true,
         enabled = false,
-        icon = ei_graphics_other_path.."bio_high-energy-crystal.png",
+        icon = ei_path.."graphics/other/bio-high-energy-crystal.png",
         icon_size = 64,
         subgroup = "ei-alien-bio",
         order = "a-d",
@@ -860,7 +881,7 @@ data:extend({
         },
         always_show_made_in = true,
         enabled = false,
-        icon = ei_graphics_other_path.."bio_electronic-parts.png",
+        icon = ei_path.."graphics/other/bio-electronic-parts.png",
         icon_size = 64,
         subgroup = "ei-alien-bio",
         order = "a-b",
@@ -2307,7 +2328,7 @@ data:extend({
     {
         name = "ei-bio-energy-crystal",
         type = "technology",
-        icon = ei_graphics_other_path.."bio_energy-crystal.png",
+        icon = ei_path.."graphics/other/bio-energy-crystal.png",
         icon_size = 64,
         prerequisites = {"ei-bio-reactor", "ei-grower"},
         effects = {
@@ -2325,7 +2346,7 @@ data:extend({
     {
         name = "ei-bio-high-energy-crystal",
         type = "technology",
-        icon = ei_graphics_other_path.."bio_high-energy-crystal.png",
+        icon = ei_path.."graphics/other/bio-high-energy-crystal.png",
         icon_size = 64,
         prerequisites = {"ei-bio-energy-crystal"},
         effects = {
@@ -2379,7 +2400,7 @@ data:extend({
     {
         name = "ei-bio-electronic-parts",
         type = "technology",
-        icon = ei_graphics_other_path.."bio_electronic-parts.png",
+        icon = ei_path.."graphics/other/bio-electronic-parts.png",
         icon_size = 64,
         prerequisites = {"ei-bio-insulated-wire"},
         effects = {
@@ -2906,8 +2927,9 @@ data:extend({
     {
         name = "ei-high-energy-crystal",
         type = "technology",
-        icon = ei_graphics_tech_path.."high-energy-crystal.png",
-        icon_size = 128,
+        icon = ei_path.."graphics/tech/high-energy-crystal.png",
+        icon_size = 256,
+        icon_mipmaps = 4,
         prerequisites = {"ei-bio-chamber"},
         effects = {
             {
@@ -2929,8 +2951,9 @@ data:extend({
     {
         name = "ei-high-energy-crystal-growing",
         type = "technology",
-        icon = ei_graphics_tech_path.."high-energy-crystal-growing.png",
+        icon = ei_path.."graphics/tech/high-energy-crystal-growing.png",
         icon_size = 256,
+        icon_mipmaps = 4,
         prerequisites = {"ei-high-energy-crystal"},
         effects = {
             {

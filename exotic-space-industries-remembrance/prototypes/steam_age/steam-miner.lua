@@ -33,6 +33,33 @@ data:extend({
         always_show_made_in = true,
         main_product = "ei-steam-miner",
     },
+
+    {
+        name = modprefix.."steam-quarry",
+        type = "item",
+        icon = ei_graphics_item_path.."steam-miner.png", --add overlay or something
+        icon_size = 64,
+        icon_mipmaps = 4,
+        place_result = modprefix.."steam-quarry",
+        stack_size = 20,
+        subgroup = "extraction-machine",
+        order = "a[items]-a[ei-steam-quarry]",
+    },
+    
+    {
+        name = modprefix.."steam-quarry",
+        type = "recipe",
+        enabled = false,
+        ingredients = {
+          {type = "item", name = "iron-plate", amount = 20},
+          {type = "item", name = "ei-steel-mechanical-parts", amount = 20},
+          {type="item",name="ei-copper-beam",amount=10},
+          {type = "item", name = "ei-steam-miner", amount = 10},
+          {type = "item", name = "transport-belt", amount = 10},
+        },
+        results = {{type = "item", name = modprefix.."steam-quarry", amount = 1}},
+        energy_required = 10,
+    },
 })
 
 table.insert(data.raw["technology"]["ei-steam-power"].effects, {type = "unlock-recipe", recipe = "ei-steam-miner"})
@@ -73,3 +100,36 @@ data:extend({miner})
 
 data.raw["mining-drill"]["burner-mining-drill"].next_upgrade = "ei-steam-miner"
 data.raw["mining-drill"]["burner-mining-drill"].fast_replaceable_group = "burner-mining-drill"
+
+
+local steam_quarry = table.deepcopy(data.raw["mining-drill"]["burner-mining-drill"])
+steam_quarry.icon = ei_graphics_kirazy_path.."icon/electric-mining-drill.png"
+steam_quarry.name = modprefix.."steam-quarry"
+steam_quarry.minable = {mining_time = 1, result = modprefix.."steam-quarry"}
+steam_quarry.resource_searching_radius = 15
+steam_quarry.energy_usage = "1.05MW"
+steam_quarry.energy_source = {
+    type = "fluid",
+    emissions_per_minute={pollution=32},
+    fluid_box = {   
+        filter = "steam",
+        volume = 200,
+        pipe_covers = pipecoverspictures(),
+        pipe_picture = ei_pipe_miner,
+        pipe_connections = {
+            {flow_direction = "input-output", direction = defines.direction.east, position = {0.5, -0.5}},
+            {flow_direction = "input-output", direction = defines.direction.west, position = {-0.5, -0.5}},
+        },
+        production_type = "input-output",
+    },
+    effectivity = 1.0,
+    scale_fluid_usage = true,
+}
+miner.module_slots = 2
+miner.allowed_effects = {"consumption", "speed", "productivity", "pollution","quality"}
+steam_quarry.mining_speed = 1.5
+steam_quarry.resource_drain_rate_percent = 65
+steam_quarry.performance_to_activity_rate = 2.0
+
+data:extend({steam_quarry})
+table.insert(data.raw["technology"]["ei-steam-power"].effects, {type = "unlock-recipe", recipe = "ei-steam-quarry"})

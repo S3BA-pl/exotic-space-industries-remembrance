@@ -74,12 +74,12 @@ data:extend({
         pictures = {
             {
                 filename = ei_graphics_item_path.."crushed-copper.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."crushed-copper-1.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
         },
@@ -136,8 +136,29 @@ data:extend({
     {
         name = "ei-electronic-parts",
         type = "item",
-        icon = ei_graphics_item_path.."electronic-parts.png",
-        icon_size = 64,
+        icon = ei_path.."graphics/item/electronic-parts.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
+        pictures = {
+            {
+                filename = ei_path.."graphics/item/electronic-parts.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            },
+            {
+                filename = ei_path.."graphics/item/electronic-parts-2.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            },
+            {
+                filename = ei_path.."graphics/item/electronic-parts-3.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            }
+        },
         subgroup = "intermediate-product",
         order = "b6",
         stack_size = 100
@@ -155,17 +176,17 @@ data:extend({
         pictures = {
             {
                 filename = ei_graphics_item_path.."crushed-gold.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."crushed-gold-1.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."crushed-gold-2.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
         },
@@ -181,17 +202,17 @@ data:extend({
         pictures = {
             {
                 filename = ei_graphics_item_path.."crushed-sulfur.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."crushed-sulfur-1.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."crushed-sulfur-2.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
         },
@@ -306,14 +327,14 @@ data:extend({
               {
                 size = 64,
                 filename = ei_graphics_item_path.."computer-age-tech.png",
-                scale = 0.25
+                scale = 0.5
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 64,
                 filename = ei_graphics_item_path.."computer-age-tech_light.png",
-                scale = 0.25
+                scale = 0.5
               }
             }
         },
@@ -1097,8 +1118,9 @@ data:extend({
     {
         name = "ei-electronic-parts",
         type = "technology",
-        icon = ei_graphics_tech_path.."electronic-parts.png",
-        icon_size = 128,
+        icon = ei_path.."graphics/item/electronic-parts.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
         prerequisites = {"ei-waver-factory", "battery"},
         effects = {
             {

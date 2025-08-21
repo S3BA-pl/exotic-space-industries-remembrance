@@ -86,42 +86,42 @@ inserter.hand_base_picture = {
     filename = ei_graphics_inserter_path.."big-inserter_inserter-hand-base.png",
     height = 136*2,
     priority = "extra-high",
-    scale = 0.25,
+    scale = 0.5,
     width = 32*2
 }
 inserter.hand_base_shadow = {
     filename = "__base__/graphics/entity/burner-inserter/burner-inserter-hand-base-shadow.png",
     height = 132,
     priority = "extra-high",
-    scale = 0.25*2,
+    scale = 0.5*2,
     width = 32
 }
 inserter.hand_closed_picture = {
     filename = ei_graphics_inserter_path.."big-inserter_inserter-hand-closed.png",
     height = 164,
     priority = "extra-high",
-    scale = 0.25*2,
+    scale = 0.5*2,
     width = 100
 }
 inserter.hand_closed_shadow = {
     filename = "__base__/graphics/entity/burner-inserter/burner-inserter-hand-closed-shadow.png",
     height = 164,
     priority = "extra-high",
-    scale = 0.25*2,
+    scale = 0.5*2,
     width = 72
 }
 inserter.hand_open_picture = {
     filename = ei_graphics_inserter_path.."big-inserter_inserter-hand-open.png",
     height = 164,
     priority = "extra-high",
-    scale = 0.25*2,
+    scale = 0.5*2,
     width = 100
 }
 inserter.hand_open_shadow = {
     filename = "__base__/graphics/entity/burner-inserter/burner-inserter-hand-open-shadow.png",
     height = 164,
     priority = "extra-high",
-    scale = 0.25*2,
+    scale = 0.5*2,
     width = 72
 }
 inserter.platform_picture = {

@@ -57,12 +57,12 @@ data:extend({
         pictures = {
             {
                 filename = ei_graphics_item_path.."crushed-coke.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."crushed-coke-1.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
         },
@@ -89,12 +89,12 @@ data:extend({
         pictures = {
             {
                 filename = ei_graphics_item_path.."crushed-iron.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."crushed-iron-1.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
         },
@@ -110,17 +110,17 @@ data:extend({
         pictures = {
             {
                 filename = ei_graphics_item_path.."steel-blend.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."steel-blend-1.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
             {
                 filename = ei_graphics_item_path.."steel-blend-2.png",
-                scale = 0.25,
+                scale = 0.5,
                 size = 64
             },
         },
@@ -164,8 +164,29 @@ data:extend({
     {
         name = "ei-glass",
         type = "item",
-        icon = ei_graphics_item_path.."glass.png",
-        icon_size = 64,
+        icon = ei_path.."graphics/item/industrial-glass.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
+        pictures = {
+            {
+                filename = ei_path.."graphics/item/industrial-glass.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            },
+            {
+                filename = ei_path.."graphics/item/industrial-glass-2.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            },
+            {
+                filename = ei_path.."graphics/item/industrial-glass-3.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            }
+        },
         stack_size = 100,
         subgroup = "ei-refining-secondary",
         order = "c1",
@@ -185,14 +206,14 @@ data:extend({
               {
                 size = 64,
                 filename = ei_graphics_item_path.."electric-age-tech.png",
-                scale = 0.25
+                scale = 0.5
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 64,
                 filename = ei_graphics_item_path.."electric-age-tech_light.png",
-                scale = 0.25
+                scale = 0.5
               }
             }
         },

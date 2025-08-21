@@ -117,6 +117,15 @@ data:extend({
                 },
                 production_type = "input",
             },
+            {   
+                volume = 200,
+                pipe_covers = pipecoverspictures(),
+                pipe_picture = ei_pipe_steam,
+                pipe_connections = {
+                    {flow_direction = "output", direction = defines.direction.west, position = {-1, 0}},
+                },
+                production_type = "output",
+            },
         },
         fluid_boxes_off_when_no_fluid_recipe = true,
         energy_usage = "150kW",

@@ -37,7 +37,7 @@ data:extend({
                 width = 106*2,
                 height = 85*2,
                 y = 85*2,
-                scale = 0.25
+                scale = 0.5
             }
         },
         direction_out = {
@@ -47,7 +47,7 @@ data:extend({
                 shift = {0.15625, 0.0703125},
                 width = 106*2,
                 height = 85*2,
-                scale = 0.25
+                scale = 0.5
             }
         }
     },
