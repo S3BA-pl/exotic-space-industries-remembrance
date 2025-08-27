@@ -1471,8 +1471,55 @@ data.raw["tile"]["hazard-concrete-left"].walking_speed_modifier = 1.8
 data.raw["tile"]["refined-concrete"].walking_speed_modifier = 2.2
 data.raw["tile"]["refined-hazard-concrete-left"].walking_speed_modifier = 2.2
 
--- improve damage per bullet of firearm-magazine and piercing-rounds-magazine
+--prevent cannon shells from colliding with friendly structures
+local cannon_shell_projectiles = {
+    "cannon-projectile",
+    "explosive-cannon-projectile",
+    "explosive-uranium-cannon-projectile",
+    "uranium-cannon-projectile",
+}
+for _,projectile in ipairs(cannon_shell_projectiles) do
+    data.raw["projectile"][projectile].force_condition = "not-same"
 
+    -- add the force condition to the action delivery
+    if data.raw["projectile"][projectile].action then
+        if data.raw["projectile"][projectile].action.action_delivery then
+            
+            -- loop over all trigger items and if contains damage set force
+            for _,triggeritem in ipairs(data.raw["projectile"][projectile].action.action_delivery.target_effects) do
+                if triggeritem.type == "damage" then
+                    triggeritem.force = "not-same"
+                end
+            end
+
+        end
+    end
+
+    -- do the same for final_action
+    if data.raw["projectile"][projectile].final_action then
+        if data.raw["projectile"][projectile].final_action.action_delivery then
+            
+            -- loop over all trigger items and if contains damage set force
+            for _,triggeritem in ipairs(data.raw["projectile"][projectile].final_action.action_delivery.target_effects) do
+                if triggeritem.type == "damage" then
+                    triggeritem.force = "not-same"
+                end
+
+                if triggeritem.type == "nested-result" then
+                    for _,nestedtriggeritem in ipairs(triggeritem.action.action_delivery.target_effects) do
+                        if nestedtriggeritem.type == "damage" then
+                            nestedtriggeritem.force = "not-same"
+                        end
+                    end
+                end
+
+            end
+
+        end
+    end
+end
+
+-- improve damage per bullet of firearm-magazine and piercing-rounds-magazine
 ei_lib.raw["ammo"]["firearm-magazine"].ammo_type = {
     action = {
       {
@@ -1685,7 +1732,7 @@ if rfp and rfp.effects then
     })
 end
 
-ei_lib.raw.technology["rocket-part-productivity"].effects = {
+data.raw.technology["rocket-part-productivity"].effects = {
     {
         type = "change-recipe-productivity",
         recipe = "ei-rocket-parts",

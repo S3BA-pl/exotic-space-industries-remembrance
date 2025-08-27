@@ -41,7 +41,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."quantum-computer.png",
         icon_size = 256,
-        prerequisites = {"ei-neodym-refining","ei-computing-unit"},
+        prerequisites = {"ei-neodymium-magnet","ei-computing-unit"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -313,8 +313,10 @@ data:extend({
         name = "ei-space-data",
         type = "recipe",
         category = "ei-quantum-computer",
-        energy_required = 60,
+        energy_required = 5,
         ingredients = {
+            {type = "fluid", name = "ei-liquid-oxygen", amount = 100},
+            {type = "fluid", name = "ei-liquid-nitrogen", amount = 100},
             {type = "item", name = "ei-simulation-data-chemical", amount = 2},
             {type = "item", name = "ei-simulation-data-organic", amount = 2},
             {type = "item", name = "ei-simulation-data-stone", amount = 2},
@@ -323,7 +325,7 @@ data:extend({
             {type = "item", name = "ei-simulation-data-scrap", amount = 2},
         },
         results = {
-            {type = "item", name = "ei-space-data", amount_min = 1,amount_max=6,probability=0.9},
+            {type = "item", name = "ei-space-data", amount_min = 1,amount_max=6,probability=0.95},
         },
 		surface_conditions =
         {
@@ -341,8 +343,10 @@ data:extend({
         name = "ei-space-data-double",
         type = "recipe",
         category = "ei-quantum-computer",
-        energy_required = 60,
+        energy_required = 10,
         ingredients = {
+            {type = "fluid", name = "ei-liquid-oxygen", amount = 100},
+            {type = "fluid", name = "ei-liquid-nitrogen", amount = 100},
             {type = "item", name = "ei-simulation-data-chemical", amount = 4},
             {type = "item", name = "ei-simulation-data-organic", amount = 4},
             {type = "item", name = "ei-simulation-data-stone", amount = 4},
@@ -351,7 +355,7 @@ data:extend({
             {type = "item", name = "ei-simulation-data-scrap", amount = 4},
         },
         results = {
-            {type = "item", name = "ei-space-data", amount_min = 2,amount_max=12,probability=0.7},
+            {type = "item", name = "ei-space-data", amount_min = 2,amount_max=12,probability=0.75},
         },
 		surface_conditions =
         {
@@ -369,8 +373,10 @@ data:extend({
         name = "ei-space-data-triple",
         type = "recipe",
         category = "ei-quantum-computer",
-        energy_required = 60,
+        energy_required = 15,
         ingredients = {
+            {type = "fluid", name = "ei-liquid-oxygen", amount = 100},
+            {type = "fluid", name = "ei-liquid-nitrogen", amount = 100},
             {type = "item", name = "ei-simulation-data-chemical", amount = 6},
             {type = "item", name = "ei-simulation-data-organic", amount = 6},
             {type = "item", name = "ei-simulation-data-stone", amount = 6},
@@ -379,7 +385,7 @@ data:extend({
             {type = "item", name = "ei-simulation-data-scrap", amount = 6},
         },
         results = {
-            {type = "item", name = "ei-space-data", amount_min = 4,amount_max=24,probability=0.50},
+            {type = "item", name = "ei-space-data", amount_min = 4,amount_max=24,probability=0.55},
         },
 		surface_conditions =
         {

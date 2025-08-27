@@ -1602,6 +1602,7 @@ mining_drill.fast_replaceable_group = "electric-mining-drill"
 mining_drill.mining_speed = 1.25
 mining_drill.energy_usage = "600kW"
 mining_drill.resource_searching_radius = 4.5
+mining_drill.module_slots = 6
 
 
 --====================================================================================================
@@ -1640,7 +1641,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."superior-electric-mining-drill.png",
         icon_size = 256,
-        prerequisites = {"ei-quantum-computer","ei-advanced-electric-mining-drill"},
+        prerequisites = {"ei-quantum-computer","ei-advanced-electric-mining-drill","ei-quantum-age"},
         effects = {
             {
                 type = "unlock-recipe",

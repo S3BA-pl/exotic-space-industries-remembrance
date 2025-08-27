@@ -441,8 +441,29 @@ data:extend({
     {
         name = "ei-magnet",
         type = "item",
-        icon = ei_graphics_item_path.."magnet.png",
-        icon_size = 64,
+        icon = ei_path.."graphics/item/neodymium-magnet.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
+        pictures = {
+            {
+                filename = ei_path.."graphics/item/neodymium-magnet.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            },
+            {
+                filename = ei_path.."graphics/item/neodymium-magnet-2.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            },
+            {
+                filename = ei_path.."graphics/item/neodymium-magnet-3.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            }
+        },
         stack_size = 100,
         subgroup = "intermediate-product",
         order = "b9",
@@ -683,8 +704,29 @@ data:extend({
     {
         name = "ei-high-tech-parts",
         type = "item",
-        icon = ei_graphics_item_path.."high-tech-parts.png",
-        icon_size = 64,
+        icon = ei_path.."graphics/item/high-tech-parts.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
+        pictures = {
+            {
+                filename = ei_path.."graphics/item/high-tech-parts.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            },
+            {
+                filename = ei_path.."graphics/item/high-tech-parts-2.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            },
+            {
+                filename = ei_path.."graphics/item/high-tech-parts-3.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            }
+        },
         stack_size = 100,
         subgroup = "intermediate-product",
         order = "b6-a",
@@ -1336,7 +1378,7 @@ data:extend({
         name = "ei-fusion-data",
         type = "recipe",
         category = "ei-quantum-computer",
-        energy_required = 60,
+        energy_required = 5,
         ingredients = {
             {type = "fluid", name = "ei-computing-power", amount = 100},
             {type = "fluid", name = "ei-liquid-nitrogen", amount = 100},
@@ -1355,16 +1397,16 @@ data:extend({
         name = "ei-fusion-quantum-age-tech",
         type = "recipe",
         category = "ei-nano-factory",
-        energy_required = 60,
+        energy_required = 180,
         ingredients = {
             {type = "item", name = "ei-charged-neutron-container", amount = 2},
-            {type = "item", name = "ei-carbon-structure", amount = 20},
-            {type = "item", name = "ei-odd-plating", amount = 20},
-            {type = "item", name = "ei-fusion-data", amount = 20},
+            {type = "item", name = "ei-carbon-structure", amount = 6},
+            {type = "item", name = "ei-odd-plating", amount = 6},
+            {type = "item", name = "ei-fusion-data", amount = 10},
         },
         results = {
             {type = "item", name = "ei-fusion-quantum-age-tech", amount = 1},
-            {type = "item", name = "ei-neutron-container", amount_min = 0, amount_max=2, probability = 0.96},
+            {type = "item", name = "ei-neutron-container", amount_min = 1, amount_max=2, probability = 0.96},
         },
         always_show_made_in = true,
         enabled = false,
@@ -1376,7 +1418,7 @@ data:extend({
         category = "ei-nano-factory",
         energy_required = 240,
         ingredients = {
-            {type = "item", name = "ei-high-tech-parts", amount = 25},
+            {type = "item", name = "ei-high-tech-parts", amount = 10},
             {type = "item", name = "ei-cavity", amount = 2},
             {type = "item", name = "ei-speed-module-6", amount = 1},
             {type = "item", name = "ei-productivity-module-6", amount = 1},
@@ -2279,11 +2321,32 @@ data:extend({
         age = "both-computer-age",
     },
     {
+        name = "ei-neodymium-magnet",
+        type = "technology",
+        icon = ei_path.."graphics/item/neodymium-magnet.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
+        prerequisites = {"ei-neodym-refining"},
+        effects = {
+            {
+                type = "unlock-recipe",
+                recipe = "ei-magnet"
+            },
+        },
+        unit = {
+            count = 100,
+            ingredients = ei_data.science["both-computer-age"],
+            time = 20
+        },
+        age = "both-computer-age",
+    },
+
+    {
         name = "ei-magnet-data",
         type = "technology",
         icon = ei_graphics_tech_path.."magnet-data.png",
         icon_size = 128,
-        prerequisites = {"ei-quantum-computer"},
+        prerequisites = {"ei-quantum-computer","ei-quantum-age"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -2340,7 +2403,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."clean-plating.png",
         icon_size = 128,
-        prerequisites = {"ei-odd-plating", "ei-quantum-computer", "ei-enriched-cryodust"},
+        prerequisites = {"ei-odd-plating", "ei-quantum-computer", "ei-enriched-cryodust","ei-quantum-age"},
         effects = {
             {
                 type = "unlock-recipe",

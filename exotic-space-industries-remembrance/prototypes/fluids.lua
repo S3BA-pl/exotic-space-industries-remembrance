@@ -386,7 +386,7 @@ data:extend({
     {
         name = "ei-molten-glass",
         type = "fluid",
-        icon = ei_graphics_fluid_path.."molten-glass.png",
+        icon = ei_path.."graphics/fluid/molten-glass.png",
         icon_size = 64,
         default_temperature = 15,
         max_temperature = 1000,
@@ -528,7 +528,7 @@ data:extend({
     {
         name = "ei-computing-power-chemical",
         type = "fluid",
-        icon = ei_graphics_fluid_path.."computing-power.png",
+        icon = ei_path.."graphics/fluid/computing-power-chemical.png",
         icon_size = 64,
         default_temperature = 15,
         max_temperature = 1000,
@@ -544,7 +544,7 @@ data:extend({
     {
         name = "ei-computing-power-organic",
         type = "fluid",
-        icon = ei_graphics_fluid_path.."computing-power.png",
+        icon = ei_path.."graphics/fluid/computing-power-organic.png",
         icon_size = 64,
         default_temperature = 15,
         max_temperature = 1000,
@@ -560,7 +560,7 @@ data:extend({
     {
         name = "ei-computing-power-stone",
         type = "fluid",
-        icon = ei_graphics_fluid_path.."computing-power.png",
+        icon = ei_path.."graphics/fluid/computing-power-stone.png",
         icon_size = 64,
         default_temperature = 15,
         max_temperature = 1000,
@@ -576,7 +576,7 @@ data:extend({
     {
         name = "ei-computing-power-uranium",
         type = "fluid",
-        icon = ei_graphics_fluid_path.."computing-power.png",
+        icon = ei_path.."graphics/fluid/computing-power-uranium.png",
         icon_size = 64,
         default_temperature = 15,
         max_temperature = 1000,
@@ -592,7 +592,7 @@ data:extend({
     {
         name = "ei-computing-power-petrified",
         type = "fluid",
-        icon = ei_graphics_fluid_path.."computing-power.png",
+        icon = ei_path.."graphics/fluid/computing-power-petrified.png",
         icon_size = 64,
         default_temperature = 15,
         max_temperature = 1000,
@@ -608,7 +608,7 @@ data:extend({
     {
         name = "ei-computing-power-scrap",
         type = "fluid",
-        icon = ei_graphics_fluid_path.."computing-power.png",
+        icon = ei_path.."graphics/fluid/computing-power-scrap.png",
         icon_size = 64,
         default_temperature = 15,
         max_temperature = 1000,

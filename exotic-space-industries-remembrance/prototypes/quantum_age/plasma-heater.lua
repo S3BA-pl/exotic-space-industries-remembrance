@@ -54,7 +54,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."plasma-heater.png",
         icon_size = 256,
-        prerequisites = {"ei-quantum-computer"},
+        prerequisites = {"ei-quantum-computer","ei-quantum-age"},
         effects = {
             {
                 type = "unlock-recipe",

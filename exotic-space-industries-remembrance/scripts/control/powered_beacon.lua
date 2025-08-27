@@ -180,8 +180,10 @@ function model.update_fluid_storages()
 
     -- 💥 Destroy pipe if marked
     if should_destroy then
-        if incompatible_name then
-            game.print({ "exotic-industries.incompatible-pipe-1", incompatible_name, pipe.name, pipe.gps_tag })
+        if incompatible_name and pipe.localised_name then
+            --incompatible_name = {"fluid-name."..incompatible_name..""} or incompatible_name
+            --incompatible_prototype = prototypes.fluid[incompatible_name]
+            game.print({ "exotic-industries.incompatible-pipe-1", incompatible_name, pipe.localised_name, pipe.gps_tag })
         else
             game.print({ "exotic-industries.incompatible-pipe-2", pipe.name, pipe.gps_tag })
         end

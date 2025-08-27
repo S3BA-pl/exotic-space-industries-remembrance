@@ -64,8 +64,9 @@ data:extend({
     {
         name = "ei-high-tech-parts",
         type = "technology",
-        icon = ei_graphics_tech_path.."high-tech-parts.png",
-        icon_size = 128,
+        icon = ei_path.."graphics/item/high-tech-parts.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
         prerequisites = {"ei-accelerator","ei-eu-magnet","ei-exotic-assembler","ei-plasma-cube"},
         effects = {
             {
@@ -249,6 +250,7 @@ local neo_assembler = {
         sound = {filename = "__base__/sound/electric-furnace.ogg", volume = 0.6},
         apparent_volume = 0.3,
     },
+    fluid_boxes_off_when_no_fluid_recipe = true,
     -- fast_replaceable_group = "assembling-machine",
 }
 

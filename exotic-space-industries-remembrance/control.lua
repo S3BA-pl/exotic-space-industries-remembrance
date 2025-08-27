@@ -324,7 +324,7 @@ commands.add_command("codex_test", "Triggers a test echo message from echo_codex
         floating_time_to_live = 6000
     })
 end)
---[[
+
 --Uncomment me to teleport to Gaia to test reforge_gaia_surface produced valid result :)
 commands.add_command("goto-gaia", "Teleport to Gaia's surface", function(cmd)
     local player = game.get_player(cmd.player_index)
@@ -332,15 +332,16 @@ commands.add_command("goto-gaia", "Teleport to Gaia's surface", function(cmd)
     local planet = game.planets["gaia"]
     local surface = planet and planet.surface
     if not surface then
+        game.planets["gaia"]:create_surface("gaia")
         ei_lib.crystal_echo("✈ [Astral Transit] - Gaia begins to remember why she came...")
-        reforge_gaia_surface()
+        --reforge_gaia_surface()
         return
     end
     local position = {0, 0}  -- center of the world
     player.teleport(position, surface)
     ei_lib.crystal_echo("✈ [Astral Transit] — " .. player.name .. " arrives upon Gaia’s crust.")
 end)
-]]
+
 --[[
 commands.add_command("goto-fulgora", "Teleport to Fulgoras's surface", function(cmd)
     local player = game.get_player(cmd.player_index)

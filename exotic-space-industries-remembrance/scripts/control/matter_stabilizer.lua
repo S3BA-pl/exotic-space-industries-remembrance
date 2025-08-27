@@ -31,7 +31,7 @@ function model.check_entity(entity)
 
 end
 
-
+--return amounts by quality
 function model.find_in_range(machine_type, surface, pos, range)
 
     local entities = surface.find_entities_filtered({
@@ -76,10 +76,22 @@ function model.update_matter_machine(entity)
     end
     -- get stabilizers in range
     local stabilizers = model.find_in_range("stabilizer", sur, {pos["x"],pos["y"]}, range)
-    local stabilizers_nearby_count = #stabilizers or 0
+    --multiply each quality by 3 so normal = 1, uncommon = 3, rare = 9, epic = 12, legendary = 15
+    local stabilizers_nearby_count = 0
+    for _,machine in pairs(stabilizers) do
+        if machine.quality and machine.quality.level > 1 then
+            stabilizers_nearby_count =  stabilizers_nearby_count + ((machine.quality.level-1) * 3)
+        else
+            stabilizers_nearby_count = stabilizers_nearby_count + 1
+        end
+    end
 
     local progress = entity.crafting_progress or 0
     local base_chance = 0.12 --0.12
+    --reduce volatility by 1% per quality above normal, floor at 6%
+    if entity.quality and entity.quality.level > 1 then
+        base_chance = math.max(0.06,base_chance - (0.01*(entity.quality.level-1)))
+    end
     local decay = 2.43
     -- In-range / effective ones
     -- floor at 1 to avoid div-by-zero

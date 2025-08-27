@@ -1,11 +1,60 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.42
+Date: 8-26-2025
+  Features:
+    - Alien & Warp beacons no longer consume electricity and instead require significant quantities of Bio matter be inserted to function.
+    - Matter stabilizers are now affected by quality—Each level of quality causes an individual Stabilizer to count as 3x as many stabilizers towards an Exotic assemblers volatility mitigation ie uncommon stabilizers count as 3 each, rare as 6, etc.
+    - Exotic assemblers are now affected by quality—Each level of quality reduces the base chance of experiencing volatility per second by 1% from the initial 12% ie uncommon is an 11% chance of volatility per second, rare is 10%.
+    - Created Neodymium magnet technology and moved Neodymium magnet recipe unlock to it.
+    - Created new high resolution icon with 3 variations for Neodymium magnet item and technology.
+    - Created new high resolution icon with 3 variations for High tech parts item and technology.
+    - Created new high resolution icon with 3 variations for Module part item.
+    - Created new high resolution icon for Rocket parts item and technology.
+    - Created individual fluid icons for each anomalies data substrate.
+  Changes:
+    - Allowed productivity in Alien beacon.
+    - Updated Alien & Warp beacon tooltips to indicate they aren't affected by Beacon overload and require Bio matter be inserted to function.
+    - Warp beacon no longer affected by Beacon overload.
+    - Advanced electric mining drill module slots: 3 -> 5.
+    - Superior electric mining drill module slots: 3 -> 6.
+    - Added Quantum age to Plasma heater technology prerequisites.
+    - Added Quantum age to Superior mining drill technology prerequisites.
+    - Added Suspicious plating and Cryodust to Computing unit technology prerequisites.
+    - Swapped Neodymium refining for Neodymium magnet in Quantum computer technology prerequisites.
+    - Cannon rounds no longer collide with or damage friendly structures.
+    - Updated Molten glass fluid icon with new Industrial glass icon.
+    - Gaia planet gen reliability improved.
+    - Gaia fog is now an eerie green.
+    - Exotic age science pack recipe inputs: 25 High tech parts -> 5.
+    - Black hole exotic age science pack recipe outputs: Neutron container 0-10 -> 5-10.
+    - Black hole exotic age science pack recipe inputs: Clean plating 50 -> 25, High tech parts 100 -> 20, Simulation data 50 -> 25, Superior data 50 -> 25, Fusion data 50 -> 25, Fission data 50 -> 25.
+    - Quantum age science pack recipe inputs: Superior data 40 -> 20, Subzero phase array beacon 2 -> 1, Crystal accumulator 2 -> 1.
+    - Quantum age science pack crafting time 48 -> 90s.
+    - Fusion quantum age science pack crafting time 60 -> 180s.
+    - Fusion quantum age science pack recipe inputs: Carbon structure 20 -> 6, Odd plating 20 -> 6.
+    - Fusion quantum age science pack recipe outputs: Neutron container 0-2 -> 1-2.
+    - Fusion data crafting time 60 -> 5s.
+    - Space data crafting time: 60 -> 5s, "double" 60 -> 10s, "triple" 60 -> 15s.
+    - Space data recipe inputs: Additionally requires 100 Liquid nitrogen, 100 Liquid oxygen.
+    - Space data recipes' outputs: Space data yield probability increased 5%.
+    - Updated Exotic assembler item tooltip to indicate multiple Matter stabilizers are required to reduce, not eliminate volatility.
+    - Updated Exotic assembler tooltip to reflect effect of quality.
+    - Updated Matter stabilizer tooltip to reflect effect of quality.
+    - Updated Exotic assembler Informatron page to reflect effects of quality.
+  Bugfixes:
+    - Neo assembler no longer shows fluidbox without a recipe requiring fluid.
+    - Exotic assembler no longer shows fluidbox without a recipe requiring fluid.
+    - Rocket assembly now properly prevented from benefiting from Rocket part productivity.
+    - Matter assemblers suffering critical entropic cascade now print their localised name in the GPS tag.
+    - Incompatible fluid destroying pipes now print their localised name in the GPS tag.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.41
 Date: 8-21-2025
   Features:
     - Added "Fairly priced" tech scaling ceiling option at 12500.
   Changes:
     - Adjusted "Default" tech scaling ceiling 12500 -> 2500.
-    - Adjusted tech scaling ceiling tooltip and order of seletion menu to reflect above.
+    - Adjusted tech scaling ceiling tooltip and order of selection menu to reflect above.
     - Reverted Camp-fire result slots to 1.
   Bugfixes:
     - Fixed EI robots, Cranes, Loaders, EMT logo and Mechanical inserters icons were bigger than intended.
@@ -19,7 +68,7 @@ Date: 8-20-2025
     - Created new high resolution icon with 3 variations for EU magnet item and technology.
     - Created new high resolution icon with 3 variations for High energy crystal item and technology.
     - Created new high resolution icon with 3 variations for Electronic parts item and technology.
-    - Created new high resolution icon with 3 variations for Industrial glass.
+    - Created new high resolution icon with 3 variations for Industrial glass item and technology.
   Changes:
     - Prevented barreling of heated plasma gases.
     - Icon scale for vast majority of EI items increased to allow improved visual differentiation when zoomed out.

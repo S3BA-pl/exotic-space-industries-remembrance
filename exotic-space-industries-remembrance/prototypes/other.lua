@@ -254,7 +254,10 @@ data:extend({
         name = "ei-fusion-fuel",
         type = "fuel-category",
     },
-
+    {
+        name = "ei-bio-matter",
+        type = "fuel-category",
+    },
     -- other
     {
         name = "ei-holo",

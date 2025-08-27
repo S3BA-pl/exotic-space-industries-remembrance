@@ -612,6 +612,9 @@ end
 -----------------------------------------------------------------------------------------------------
 
 function model.render_exit(gate, box)
+    if gate or box then
+        return
+    end
 
     local gate_unit = gate.unit_number
     local exit = storage.ei.gate.gate[gate_unit].exit

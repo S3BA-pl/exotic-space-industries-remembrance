@@ -1,8 +1,9 @@
 local asteroid_util = require("__space-age__.prototypes.planet.asteroid-spawn-definitions")
-
+local planet_map_gen = require("gaia_map_gen")
 local presets = require("lib/spawner_presets")
-
+local ei_lib = require("lib/lib")
 local gaia = table.deepcopy(data.raw.planet.fulgora)
+
 gaia.name = "gaia"
 gaia.order = "g[gaia]"
 gaia.distance = 10
@@ -11,42 +12,49 @@ gaia.icon = ei_graphics_2_path.."graphics/icons/gaia.png"
 gaia.icon_size = 64
 gaia.starmap_icon = ei_graphics_2_path.."graphics/icons/starmap-planet-gaia.png"
 gaia.starmap_icon_size = 2048
+
+gaia.map_gen_settings = planet_map_gen.gaia()
+
 gaia.lightning_properties = nil
 gaia.surface_properties.gravity = 15.5
-gaia.map_gen_settings.autoplace_controls["ei-phytogas-patch"] = {frequency = 5, size = 1, richness = 1}
-gaia.map_gen_settings.autoplace_controls["ei-cryoflux-patch"] = {frequency = 5, size = 1, richness = 1}
-gaia.map_gen_settings.autoplace_controls["ei-ammonia-patch"] = {frequency = 5, size = 1, richness = 1}
-gaia.map_gen_settings.autoplace_controls["ei-morphium-patch"] = {frequency = 5, size = 1, richness = 1}
-gaia.map_gen_settings.autoplace_controls["ei-coal-gas-patch"] = {frequency = 5, size = 1, richness = 1}
-gaia.map_gen_settings.autoplace_controls["scrap"] = {frequency = 0.25, richness = 0.25, size = 0.25 }
-gaia.map_gen_settings.autoplace_settings.decorative.settings["fulgoran-ruin-tiny"] = nil
-gaia.map_gen_settings.autoplace_settings.entity.settings["fulgoran-ruin-attractor"] = nil
-gaia.map_gen_settings.autoplace_settings.entity.settings["fulgoran-ruin-big"]       = nil
-gaia.map_gen_settings.autoplace_settings.entity.settings["fulgoran-ruin-colossal"]  = nil
-gaia.map_gen_settings.autoplace_settings.entity.settings["fulgoran-ruin-huge"]      = nil
-gaia.map_gen_settings.autoplace_settings.entity.settings["fulgoran-ruin-medium"]    = nil
-gaia.map_gen_settings.autoplace_settings.entity.settings["fulgoran-ruin-small"]     = nil
-gaia.map_gen_settings.autoplace_settings.entity.settings["fulgoran-ruin-stonehenge"]= nil
-gaia.map_gen_settings.autoplace_settings.entity.settings["fulgoran-ruin-vault"]     = nil
-gaia.map_gen_settings.autoplace_settings.entity.settings.fulgurite = nil
-gaia.map_gen_settings.autoplace_settings.entity.settings["ei-phytogas-patch"] = {frequency = 5, size = 1, richness = 1}
-gaia.map_gen_settings.autoplace_settings.entity.settings["ei-cryoflux-patch"] = {frequency = 5, size = 1, richness = 1}
-gaia.map_gen_settings.autoplace_settings.entity.settings["ei-ammonia-patch"] = {frequency = 5, size = 1, richness = 1}
-gaia.map_gen_settings.autoplace_settings.entity.settings["ei-morphium-patch"] = {frequency = 5, size = 1, richness = 1}
-gaia.map_gen_settings.autoplace_settings.entity.settings["ei-coal-gas-patch"] = {frequency = 5, size = 1, richness = 1}
+gaia.persistent_ambient_sounds = nil
+gaia.surface_render_parameters = 
+{
+  fog = 
+  {
+      color1 = 
+      {
+          0.18, -- dark emerald base
+          0.65, -- vivid mid-green
+          0.45, -- aqua undertone
+          1
+      },
+      color2 = 
+      {
+          0.42, -- brighter jade
+          0.95, -- glowing neon green
+          0.72, -- ethereal highlight
+          1
+      },
+      detail_noise_texture = 
+      {
+          filename = "__core__/graphics/clouds-detail-noise.png",
+          size = 2048
+      },
+      shape_noise_texture = 
+      {
+          filename = "__core__/graphics/clouds-noise.png",
+          size = 2048
+      }
+  }
+}
 
-gaia.map_gen_settings.cliff_settings.cliff_elevation_0 = 0
-gaia.map_gen_settings.cliff_settings.cliff_elevation_interval = 0
-gaia.map_gen_settings.cliff_settings.richness = 0
-
-gaia.map_gen_settings.terrain_segmentation = 0.75
-gaia.default_enable_all_autoplace_controls = false
 gaia_water = table.deepcopy(data.raw.tile["water"]);
 gaia_water.name = "ei-gaia-water"
 gaia_water.fluid = "ei-diluted-morphium";
 data:extend({gaia_water})
 gaia.water = "ei-gaia-water"
-local landfill = data.raw.item.landfill
+local landfill = ei_lib.raw.item.landfill
 
 if landfill then
 --  table.insert(landfill.place_as_tile.tile_condition, "water-shallow")
@@ -54,17 +62,6 @@ if landfill then
   table.insert(landfill.place_as_tile.tile_condition, "ei-gaia-water") 
 end
 
-gaia.map_gen_settings.autoplace_settings.tile.settings = {
-  ["ei-gaia-grass-1"] = {},
-  ["ei-gaia-grass-2"] = {},
-  ["ei-gaia-grass-1-var"] = {},
-  ["ei-gaia-grass-2-var"] = {},
-  ["ei-gaia-grass-2-var-2"] = {},
-  ["ei-gaia-rock-1"] = {},
-  ["ei-gaia-rock-2"] = {},
-  ["ei-gaia-rock-3"] = {},
-  ["ei-gaia-water"] = {},
-}
 
 -- error(serpent.block(gaia.map_gen_settings))
 

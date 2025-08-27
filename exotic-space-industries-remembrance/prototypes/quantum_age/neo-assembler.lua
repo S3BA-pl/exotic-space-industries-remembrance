@@ -107,6 +107,7 @@ local neo_assembler = {
         sound = {filename = "__base__/sound/electric-furnace.ogg", volume = 0.6},
         apparent_volume = 0.3,
     },
+    fluid_boxes_off_when_no_fluid_recipe = true,
     fast_replaceable_group = "assembling-machine",
 }
 

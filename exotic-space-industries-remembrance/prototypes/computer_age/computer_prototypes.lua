@@ -12,8 +12,29 @@ data:extend({
     {
         name = "ei-module-part",
         type = "item",
-        icon = ei_graphics_item_path.."module-part.png",
-        icon_size = 64,
+        icon = ei_path.."graphics/item/module-part.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
+        pictures = {
+            {
+                filename = ei_path.."graphics/item/module-part.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            },
+            {
+                filename = ei_path.."graphics/item/module-part-2.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            },
+            {
+                filename = ei_path.."graphics/item/module-part-3.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            }
+        },
         subgroup = "intermediate-product",
         order = "b7",
         stack_size = 50
@@ -107,8 +128,10 @@ data:extend({
     {
         name = "ei-rocket-parts",
         type = "item",
-        icon = data.raw["item"]["rocket-part"]["icon"],
-        icon_size = 64,
+        icon = ei_path.."graphics/item/rocket-parts.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
+        scale = 0.0625,
         subgroup = "intermediate-product",
         order = "p[rocket-fuel]-x-1",
         stack_size = 100
@@ -628,6 +651,8 @@ data:extend({
     {
         name = "ei-bio-matter",
         type = "item",
+        fuel_category = "ei-bio-matter",
+        fuel_value = "1MJ",
         icon = ei_graphics_item_path.."bio-matter.png",
         icon_size = 64,
         subgroup = "ei-alien-intermediates",
@@ -1626,12 +1651,12 @@ data:extend({
         name = "ei-quantum-age-tech",
         type = "recipe",
         category = "crafting",
-        energy_required = 48,
+        energy_required = 90,
         ingredients =
         {
-            {type="item", name="ei-superior-data", amount=40},
-            {type="item", name="ei-copper-beacon", amount=2},
-            {type="item", name="ei-crystal-accumulator", amount=2},
+            {type="item", name="ei-superior-data", amount=20},
+            {type="item", name="ei-copper-beacon", amount=1},
+            {type="item", name="ei-crystal-accumulator", amount=1},
             {type="item", name="ei-magnet", amount=2},
             {type="item", name="ei-computing-unit", amount=2},
         },
@@ -2908,8 +2933,9 @@ data:extend({
     {
         name = "ei-rocket-parts",
         type = "technology",
-        icon = ei_graphics_tech_path.."rocket-parts.png",
-        icon_size = 128,
+        icon = ei_path.."graphics/item/rocket-parts.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
         prerequisites = {"ei-rocket-control-unit", "low-density-structure", "rocketry"},
         effects = {
             {
@@ -3252,7 +3278,7 @@ data:extend({
         icon = ei_path.."graphics/item/computing-unit.png",
         icon_size = 512,
         icon_mipmaps = 5,
-        prerequisites = {"ei-copper-beacon","ei-advanced-deep-drill","ei-advanced-centrifuge","ei-excavator","ei-advanced-refinery"},
+        prerequisites = {"ei-copper-beacon","ei-advanced-deep-drill","ei-advanced-centrifuge","ei-excavator","ei-advanced-refinery","ei-sus-plating","ei-cryodust"},
         effects = {
             {
                 type = "unlock-recipe",
