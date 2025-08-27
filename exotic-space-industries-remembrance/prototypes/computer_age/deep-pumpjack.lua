@@ -136,6 +136,16 @@ data:extend({
             
         },
         ]]
+        circuit_connector =  circuit_connector_definitions.create_vector(
+        universal_connector_template,
+        {
+            { variation =  0, main_offset = util.by_pixel( 5,  44.625), shadow_offset = util.by_pixel( 5,  44.625), show_shadow = true },
+            { variation =  0, main_offset = util.by_pixel( 5,  44.625), shadow_offset = util.by_pixel( 5,  44.625), show_shadow = true },
+            { variation =  0, main_offset = util.by_pixel( 5,  44.625), shadow_offset = util.by_pixel( 5,  44.625), show_shadow = true },
+            { variation =  0, main_offset = util.by_pixel( 5,  44.625), shadow_offset = util.by_pixel( 5,  44.625), show_shadow = true },
+        }
+        ),
+        circuit_wire_max_distance = default_circuit_wire_max_distance,
         graphics_set = {
             animation = {
                 filename = ei_graphics_entity_2_path.."deep-pumpjack.png",

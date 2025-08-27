@@ -468,6 +468,8 @@ data:extend({
         icon_size = 64,
         subgroup = "ei-alien-items",
         order = "a-c",
-        stack_size = 1
+        stack_size = 1,
+        spoil_ticks = 0.5 * hour,
+        spoil_result = "ei-alien-seed",
     },
 })

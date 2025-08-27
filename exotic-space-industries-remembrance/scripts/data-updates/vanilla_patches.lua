@@ -1471,15 +1471,25 @@ data.raw["tile"]["hazard-concrete-left"].walking_speed_modifier = 1.8
 data.raw["tile"]["refined-concrete"].walking_speed_modifier = 2.2
 data.raw["tile"]["refined-hazard-concrete-left"].walking_speed_modifier = 2.2
 
---prevent cannon shells from colliding with friendly structures
+--prevent cannon shells from colliding with friendly structures and allow collision with asteroids
 local cannon_shell_projectiles = {
     "cannon-projectile",
     "explosive-cannon-projectile",
     "explosive-uranium-cannon-projectile",
     "uranium-cannon-projectile",
 }
+local collision_mask = {
+    layers = {
+        object = true,
+        player = true,
+        trigger_target = true,
+        train = true
+    },
+    not_colliding_with_itself = true
+}
 for _,projectile in ipairs(cannon_shell_projectiles) do
     data.raw["projectile"][projectile].force_condition = "not-same"
+    data.raw["projectile"][projectile].hit_collision_mask = collision_mask
 
     -- add the force condition to the action delivery
     if data.raw["projectile"][projectile].action then
@@ -1981,6 +1991,15 @@ if electro then
     electro.module_slots = 3
     table.insert(electro.crafting_categories,"ei-waver-factory")
 end
+--====================================================================================================
+--Gleba
+--====================================================================================================
+--Add nutrients to science pack
+local ag_sci_pack = ei_lib.raw.recipe["agricultural-science-pack"]
+if ag_sci_pack then
+	table.insert(ag_sci_pack.ingredients,{type = "item", name = "nutrients", amount = 40})
+end
+
 --====================================================================================================
 --FUNCTION STUFF
 --====================================================================================================

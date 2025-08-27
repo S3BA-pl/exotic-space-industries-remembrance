@@ -744,7 +744,7 @@ ei_data.specific_heat = "100kJ"
 ei_data.high_specific_heat = "1000kJ"
 
 ei_data.matter_stabilizer.matter_range = 10
-ei_data.matter_stabilizer.alien_range = 12
+ei_data.matter_stabilizer.alien_range = 10
 
 ei_data.beacon_range = 6
 

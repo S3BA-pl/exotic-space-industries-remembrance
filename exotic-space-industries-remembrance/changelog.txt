@@ -1,4 +1,27 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.43
+Date: 8-27-2025
+  Features:
+    - Enabled wiring and set connector graphics for Deep drills & Deep pumpjack.
+    - Created new high resolution icon with 3 variations for Ceramic item and technology.
+  Changes:
+    - Alien age science pack recipe inputs: High energy crystal 1 -> 2.
+    - Alien age science pack recipe outputs: Additionally yields 1 High energy crystal 98%, 1 Energy crystal 2%.
+    - All unmentioned recipes which use Morphium as an ingredient: Additionally yield High energy crystal with >= 90% probability, remaining probability out of 100 yields Energy crystal.
+    - Undilute morphium recipe outputs: Bio sludge .2% 1-3 -> 90% 1-15, Energy crystal 5% -> 2%, additionally yields 1 High energy crystal with 98% probability.
+    - Alien seed harvesting recipe inputs: Additionally requires 1 High energy crystal.
+    - Alien seed harvesting recipe outputs: Additionally yields 1 High energy crystal with 98% probability, 1 Energy crystal with 2% probability, 1-3 Bio sludge with 5% probability.
+    - Alien resin growing recipe inputs: Additionally requires 1 High energy crystal.
+    - Alien resin growing recipe outputs: Additionally yields 1 High energy crystal with 98% probability, 1 Energy crystal with 2% probability, 1-3 Bio sludge with 5% probability.
+    - High energy crystals now lose their charge (spoil) after 15 minutes into Energy crystals.
+    - Blooming alien seeds now fold up their petals (spoil) after 30 minutes into Alien seeds.
+    - Slag extraction with morphium recipe outputs: Energy crystal 5 -> 2%, additionally yields High energy crystal with 98% probability.
+    - Iterated on Electronic parts item icon variations.
+    - Agricultural science pack recipe inputs: Additionally requires 40 Nutrients.
+  Bugfixes:
+    - Fixed ruins/alien flowers spawner would always spawn the same preset (tank with flower).
+    - Cannonshells now collide with Asteroids.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.42
 Date: 8-26-2025
   Features:

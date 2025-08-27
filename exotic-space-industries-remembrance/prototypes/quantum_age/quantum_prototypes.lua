@@ -1887,7 +1887,8 @@ data:extend({
         results = {
             {type = "fluid", name = "ei-dirty-water", amount_min = 20,amount_max=80},
             {type = "item", name = "ei-crushed-neodym", amount = 1},
-            {type="item",name="ei-energy-crystal",amount=1,probability=0.05}
+            {type = "item", name = "ei-high-energy-crystal", amount = 1, probability=0.92,allow_productivity=false},
+            {type = "item", name = "ei-energy-crystal", amount = 1, probability=0.08,allow_productivity=false},
         },
         always_show_made_in = true,
         enabled = false,
@@ -1902,6 +1903,7 @@ data:extend({
         category = "ei-bio-reactor",
         energy_required = 40,
         ingredients = {
+            {type = "item", name = "ei-high-energy-crystal", amount = 1},
             {type = "fluid", name = "ei-concentrated-morphium", amount = 50},
             {type = "fluid", name = "ei-hydrofluoric-acid", amount = 10},
             {type = "item", name = "ei-odd-plating", amount = 2},
@@ -1910,6 +1912,8 @@ data:extend({
         },
         results = {
             {type = "item", name = "ei-clean-plating", amount = 1},
+           {type = "item", name = "ei-high-energy-crystal", amount = 1, probability=0.98,allow_productivity=false},
+            {type = "item", name = "ei-energy-crystal", amount = 1, probability=0.02,allow_productivity=false},
         },
         always_show_made_in = true,
         enabled = false,

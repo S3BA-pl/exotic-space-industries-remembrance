@@ -648,7 +648,8 @@ data:extend({
         },
         results = {
             {type = "fluid", name = "ei-bio-sludge", amount_min = 1, amount_max=2,allow_productivity=false},
-            {type="item",name="ei-energy-crystal",amount=1,probability=0.05,allow_productivity=false},
+           {type = "item", name = "ei-high-energy-crystal", amount = 1, probability=0.98,allow_productivity=false},
+            {type = "item", name = "ei-energy-crystal", amount = 1, probability=0.02,allow_productivity=false},
             {type= "item",name="ei-coal-chunk", amount_min=1, amount_max=3,probability=0.3},
             {type= "item",name="ei-iron-chunk", amount_min=1, amount_max=3,probability=0.2},
             {type= "item",name="ei-copper-chunk", amount_min=1, amount_max=3,probability=0.16},

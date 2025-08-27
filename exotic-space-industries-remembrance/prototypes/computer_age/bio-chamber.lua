@@ -48,7 +48,7 @@ data:extend({
             ingredients = ei_data.science["computer-age"],
             time = 20
         },
-        -- age = "computer-age",
+        age = "computer-age",
     },
     {
         name = "ei-bio-chamber",
@@ -209,10 +209,14 @@ data:extend({
         energy_required = 10,
         ingredients = {
             {type = "fluid", name = "ei-morphium", amount = 100},
+            {type = "item", name = "ei-high-energy-crystal", amount = 1},
             {type = "item", name = "ei-blooming-alien-seed", amount = 1},
         },
         results = {
             {type = "item", name = "ei-alien-seed", amount_min = 1, amount_max = 5},
+            {type = "item", name = "ei-high-energy-crystal", amount = 1, probability=0.98,allow_productivity=false},
+            {type = "item", name = "ei-energy-crystal", amount = 1, probability=0.02,allow_productivity=false},
+            {type = "fluid", name = "ei-bio-sludge", amount_min = 1,amount_max=3,probability=0.05,allow_productivity=false},
         },
         always_show_made_in = true,
         enabled = false,
@@ -227,10 +231,14 @@ data:extend({
             {type = "fluid", name = "ei-phythogas", amount = 5},
             {type = "fluid", name = "ei-morphium", amount = 5},
             {type = "item", name = "ei-alien-seed", amount = 1},
+            {type = "item", name = "ei-high-energy-crystal", amount = 1},
         },
         results = {
             {type = "item", name = "ei-alien-resin", amount = 6},
             {type = "item", name = "ei-alien-seed", amount = 1, probability = 0.9},
+            {type = "item", name = "ei-high-energy-crystal", amount = 1, probability=0.98,allow_productivity=false},
+            {type = "item", name = "ei-energy-crystal", amount = 1, probability=0.02,allow_productivity=false},
+            {type = "fluid", name = "ei-bio-sludge", amount_min = 1,amount_max=3,probability=0.05,allow_productivity=false},
         },
         always_show_made_in = true,
         enabled = false,

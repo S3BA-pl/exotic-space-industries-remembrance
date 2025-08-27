@@ -146,8 +146,29 @@ data:extend({
     {
         name = "ei-ceramic",
         type = "item",
-        icon = ei_graphics_item_path.."ceramic.png",
-        icon_size = 64,
+        icon = ei_path.."graphics/item/ceramic.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
+        pictures = {
+            {
+                filename = ei_path.."graphics/item/ceramic.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            },
+            {
+                filename = ei_path.."graphics/item/ceramic-2.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            },
+            {
+                filename = ei_path.."graphics/item/ceramic-3.png",
+                mipmap_count = 5,
+                size = 512,
+                scale = 0.0625
+            }
+        },
         stack_size = 100,
         subgroup = "ei-refining-secondary",
         order = "a8",

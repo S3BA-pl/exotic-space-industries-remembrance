@@ -513,7 +513,8 @@ function model.select_preset(rarity)
         return nil
     end
 
-    local rand = ei_rng.int("alienpresetlist", 1, #preset_list)
+    --local rand = ei_rng.int("alienpresetlist", 1, #preset_list)
+    local rand = math.random(1,#preset_list)
 
     return preset_list[rand]
 
