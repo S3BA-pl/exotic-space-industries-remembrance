@@ -898,7 +898,7 @@ data:extend({
         energy_required = 1,
         ingredients = {
             {type = "item", name = "ei-crushed-sulfur", amount = 4},
-            {type = "fluid", name = "water", amount = 40},
+            {type = "fluid", name = "water", amount = 20},
         },
         results = {
             {type = "fluid", name = "ei-acidic-water", amount = 20},

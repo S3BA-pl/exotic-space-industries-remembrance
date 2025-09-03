@@ -62,8 +62,9 @@ panel.name = "ei-solar-panel-3"
 panel.icon = ei_graphics_item_path.."solar-panel-3.png"
 panel.icon_size = 64
 panel.minable.result = "ei-solar-panel-3"
-
-panel.production = "320kW"
+--update solar_matrix.lua default prod value at bottom if changing this
+--1.778 is area difference multiplier between vanilla 3x3 solar and matrix 4x4
+panel.production = (320*1.778).."kW"
 panel.fast_replaceable_group = "solar-panel"
 
 -- use new graphics
@@ -71,5 +72,6 @@ panel.picture.layers[1].filename = ei_graphics_entity_path.."solar-panel-3.png"
 panel.picture.layers[1].width = 116
 panel.picture.layers[1].height = 112
 panel.picture.layers[1].scale = 1
+
 
 data:extend({panel})

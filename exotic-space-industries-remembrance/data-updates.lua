@@ -19,11 +19,14 @@ require("scripts/data-updates/vanilla_resources")
 require("scripts/data-updates/tech_flattening")
 -- set prerequisites of vanilla techs for IE
 require("scripts/data-updates/tech_structure")
+
 -- apply vanilla patches
 require("scripts/data-updates/vanilla_patches")
 
 -- add metalworks
 require("prototypes/metalworks")
+--Make sure icon updates get put on top of the overridden solar panel item icons
+require("scripts/data-updates/solar_matrix")
 -- apply icon patches
 require("scripts/data-updates/icon_updates")
 -- apply locale patches
@@ -51,3 +54,4 @@ require("scripts/data-updates/pollution_combinator_jamie_fork")
 require("scripts/data-updates/disco_science")
 require("scripts/data-updates/extinguisher")
 require("scripts/data-updates/vehicle_inventory_limiter")
+require("scripts/data-updates/accumulator_v2")

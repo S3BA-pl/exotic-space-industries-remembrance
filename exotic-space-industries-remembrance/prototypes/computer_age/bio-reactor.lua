@@ -46,22 +46,6 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = "ei-bio-reactor"
             },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-evolved-alien-seed"
-            },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-blooming-evolved-alien-seed"
-            },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-bio-sludge"
-            },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-bio-matter"
-            },
         },
         unit = {
             count = 100,

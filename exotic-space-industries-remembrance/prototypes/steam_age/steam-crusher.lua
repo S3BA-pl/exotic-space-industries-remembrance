@@ -48,12 +48,10 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = "ei-steam-crusher"
             },
-            --[[
             {
                 type = "unlock-recipe",
-                recipe = "ei-crushed-iron-plate"
+                recipe = "ei-crushed-coal"
             },
-            ]]
             {
                 type = "unlock-recipe",
                 recipe = "ei-crushed-iron-mechanical-parts"
@@ -97,6 +95,7 @@ data:extend({
         max_health = 300,
         corpse = "big-remnants",
         dying_explosion = "medium-explosion",
+        result_inventory_size = 24,
         collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
         selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
         map_color = ei_data.colors.assembler,
@@ -166,5 +165,7 @@ data:extend({
             sound = {filename = "__base__/sound/electric-mining-drill.ogg", volume = 0.8},
             apparent_volume = 0.3,
         },
+        allowed_effects = {"speed", "productivity", "consumption", "pollution","quality"},
+        module_slots = 2,
     }
 })

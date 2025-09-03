@@ -428,11 +428,33 @@ data:extend({
         enabled = false,
         main_product = "ei-fission-tech",
     },
-})
-
-table.insert(data.raw.technology["uranium-processing"].effects,  {
-    type = "unlock-recipe",
-    recipe = "ei-fission-facility"
+    {
+        name = "ei-fission-facility",
+        type = "technology",
+        icon = ei_graphics_entity_path.."fission-facility.png",
+        icon_size = 512,
+        prerequisites = {"uranium-processing"},
+        effects = {
+            {
+                type = "unlock-recipe",
+                recipe = "ei-fission-facility"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-uranium-test-fuel"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-fission-tech"
+            },
+        },
+        unit = {
+            count = 100,
+            ingredients = ei_data.science["electricity-age"],
+            time = 20
+        },
+        age = "electricity-age",
+    },
 })
 
 table.insert(data.raw.technology["uranium-processing"].effects,  {
@@ -472,18 +494,6 @@ table.insert(data.raw.technology["nuclear-power"].effects,  {
 
 table.insert(data.raw.technology["uranium-processing"].effects,  {
     type = "unlock-recipe",
-    recipe = "ei-uranium-test-fuel"
-})
-
-table.insert(data.raw.technology["uranium-processing"].effects,  {
-    type = "unlock-recipe",
-    recipe = "ei-fission-tech"
-})
-
-table.insert(data.raw.technology["uranium-processing"].effects,  {
-    type = "unlock-recipe",
     recipe = "ei-uranium-solution"
 })
 
-ei_lib.remove_unlock_recipe("uranium-processing", "uranium-processing")
-ei_lib.remove_unlock_recipe("uranium-processing", "uranium-fuel-cell")

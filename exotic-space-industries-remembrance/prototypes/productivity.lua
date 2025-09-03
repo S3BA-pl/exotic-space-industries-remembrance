@@ -175,6 +175,16 @@ data:extend({
     icon_mipmaps = 4,
     effects =
     {
+    {
+        type = "change-recipe-productivity",
+        recipe = "ei-molten-copper-ore",
+        change = 0.05
+      },
+	  {
+	    	type = "change-recipe-productivity",
+        recipe = "ei-molten-iron-ore",
+        change = 0.05
+      },
       {
         type = "change-recipe-productivity",
         recipe = "ei-molten-copper-pure-ore",
@@ -215,6 +225,16 @@ data:extend({
     icon_mipmaps = 4,
     effects =
     {
+    {
+        type = "change-recipe-productivity",
+        recipe = "ei-molten-copper-ore",
+        change = 0.05
+      },
+	  {
+	    	type = "change-recipe-productivity",
+        recipe = "ei-molten-iron-ore",
+        change = 0.05
+      },
       {
         type = "change-recipe-productivity",
         recipe = "ei-molten-copper-pure-ore",
@@ -255,6 +275,16 @@ data:extend({
     icon_mipmaps = 4,
     effects =
     {
+    {
+        type = "change-recipe-productivity",
+        recipe = "ei-molten-copper-ore",
+        change = 0.05
+      },
+	  {
+	    	type = "change-recipe-productivity",
+        recipe = "ei-molten-iron-ore",
+        change = 0.05
+      },
       {
         type = "change-recipe-productivity",
         recipe = "ei-molten-copper-pure-ore",
@@ -295,6 +325,16 @@ data:extend({
       icon_mipmaps = 4,
     effects =
     {
+    {
+        type = "change-recipe-productivity",
+        recipe = "ei-molten-copper-ore",
+        change = 0.05
+      },
+	  {
+	    	type = "change-recipe-productivity",
+        recipe = "ei-molten-iron-ore",
+        change = 0.05
+      },
       {
         type = "change-recipe-productivity",
         recipe = "ei-molten-copper-pure-ore",
@@ -335,6 +375,16 @@ data:extend({
     icon_mipmaps = 4,
     effects =
     {
+    {
+        type = "change-recipe-productivity",
+        recipe = "ei-molten-copper-ore",
+        change = 0.05
+      },
+	  {
+	    	type = "change-recipe-productivity",
+        recipe = "ei-molten-iron-ore",
+        change = 0.05
+      },
       {
         type = "change-recipe-productivity",
         recipe = "ei-molten-copper-pure-ore",

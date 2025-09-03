@@ -20,8 +20,9 @@ local function add_recipe(energy,speed,name,item)
         enabled = true,
         always_show_products = true,
         show_amount_in_title = false,
-        allow_as_intermediate = false,
+        allowed_effects = {"speed", "consumption","quality","productivity"},
         hide_from_player_crafting = true,
+        allow_productivity = true,
         ingredients = {{type="item", name=name, amount=1}},
         results = {{
             type = "item",

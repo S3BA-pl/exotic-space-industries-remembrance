@@ -614,7 +614,7 @@ table.insert(data.raw["technology"]["ei-computer-age"].effects, {
 
 
 -- =================================================================================================
-
+ei_lib.remove_tech("nuclear-fuel-reprocessing")
 ei_lib.remove_tech("steam-power")
 ei_lib.remove_tech("wdm_ship_fix_lock")
 

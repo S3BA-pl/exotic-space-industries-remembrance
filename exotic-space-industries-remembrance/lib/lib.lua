@@ -1150,6 +1150,124 @@ function ei_lib.make_circuit_connector(Dx, Dy)
 
 end
 
+--rescales entities or corpses
+--entity should be data.raw, scale_multiplier a double
+function ei_lib.entity_icon_scaler(entity,scale_multiplier)
+    if not entity then
+        log("ei_lib.entity_icon_scaler received invalid entity prototype")
+        return
+    end
+    if not scale_multiplier then
+        log("ei_lib.entity_icon_scaler received invalid scale_multiplier for entity: "..entity.name)
+        return
+    end
+
+    local sm = scale_multiplier
+    local e = entity
+    --tile_width, tile_height are corpse variables
+    if e.tile_width then
+      e.tile_width = e.tile_width * sm
+    end
+    if e.tile_height then
+      e.tile_height = e.tile_height  * sm
+    end
+
+    --build_grid_size -- not sure what adjustment to make here if any
+    --static
+    if e.picture and e.picture.layers then
+        for _,layer in pairs(e.picture.layers) do
+            layer.scale = layer.scale * sm
+            if layer.shift then
+              if layer.shift[1] then
+                layer.shift[1] = layer.shift[1] * sm
+              end
+              if layer.shift[2] then
+                layer.shift[2] = layer.shift[2] * sm
+              end
+            end
+        end
+    --animated, particularly corpses
+    elseif e.animation then
+        for count,_ in pairs(e.animation) do
+            if e.animation[count] and e.animation[count].layers then
+                for _,layer in pairs (e.animation[count].layers) do
+                    layer.scale = layer.scale * sm
+                    if layer.shift then
+                      if layer.shift[1] then
+                        layer.shift[1] = layer.shift[1] * sm
+                      end
+                      if layer.shift[2] then
+                        layer.shift[2] = layer.shift[2] * sm
+                      end
+                    end
+                end
+            end
+        end
+    else
+      log("ei_lib.entity_icon_scaler had valid entity: "..e.name.." and multiplier: "..sm.." but didn't have valid picture or animation layers to modify")
+      return
+    end
+    --These are last in case the visuals don't take
+    local boxes = {
+        "collision_box",
+        "selection_box"
+    }
+    for _,box in pairs(boxes) do
+        if e[box] then
+            for _,extent in pairs(e[box]) do
+                extent[1] = extent[1] * sm
+                extent[2] = extent[2] * sm
+            end
+        end
+    end
+    log("ei_lib.entity_icon_scaler successfully rescaled entity: "..e.name.." with scale multiplier: "..sm)
+end
+--Get area of an entity's collision box
+function ei_lib.get_entity_area(entity)
+  if not entity or not entity.valid then
+      log("ei_lib.get_entity_area got invalid entity")
+      return
+  end
+  if not entity.collision_box then
+      log("ei_lib.get_entity_area got invalid collision_box for entity: "..entity.name)
+      return
+  end
+  local box = entity.collision_box
+  return ei_lib.get_box_area(box)
+end
+
+function ei_lib.get_box_area(box)
+  if not box then
+      log("ei_lib.get_entity_area got invalid box")
+      return
+  end
+  -- box is of form {{x1, y1}, {x2, y2}}
+  local x1, y1 = box[1][1], box[1][2]
+  local x2, y2 = box[2][1], box[2][2]
+
+  local width = x2 - x1
+  local height = y2 - y1
+
+  return width * height
+end
+--returns absolute and percent differences in collision area
+function ei_lib.get_entity_area_change(boxA, boxB)
+  local areaA = ei_lib.get_box_area(boxA)
+  local areaB = ei_lib.get_box_area(boxB)
+
+  local diff = areaB - areaA
+  local pct_change = 0
+  if areaA ~= 0 then
+    pct_change = (diff / areaA)-- * 100
+  end
+
+  return {
+    areaA = areaA,
+    areaB = areaB,
+    difference = diff,
+    percent = pct_change
+  }
+end
 function ei_lib.add_item_level(item, level)
 
     -- add level overlay to item icon
@@ -1170,20 +1288,26 @@ function ei_lib.add_item_level(item, level)
 
     local icon_size = item.icon_size or 64
     local current_icon = item.icon
-
-    item.icons = {
-        {
-            icon = current_icon,
-            icon_size = icon_size,
-        },
-        {
-            icon = ei_graphics_other_path.."overlay_"..level..".png",
-            icon_size = 64,
-        }
-    }
-
-    item.icon = nil
-    item.icon_size = nil
+    if not item.icons then
+      item.icons = {
+          {
+              icon = current_icon,
+              icon_size = icon_size,
+          },
+          {
+              icon = ei_graphics_other_path.."overlay_"..level..".png",
+              icon_size = 64,
+          }
+      }
+      item.icon = nil
+      item.icon_size = nil
+    else
+      table.insert(item.icons,
+            {
+              icon = ei_graphics_other_path.."overlay_"..level..".png",
+              icon_size = 64,
+            })
+    end
 end
 
 function ei_lib.merge_fluid(target, fluid, icon_transfer)

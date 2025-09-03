@@ -42,15 +42,11 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."nano-factory.png",
         icon_size = 256,
-        prerequisites = {"ei-quantum-age"},
+        prerequisites = {"ei-quantum-age","ei-carbon-manipulation"},
         effects = {
             {
                 type = "unlock-recipe",
                 recipe = "ei-nano-factory"
-            },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-crushed-coal"
             },
             {
                 type = "unlock-recipe",
@@ -191,33 +187,20 @@ data:extend({
         },
     },
     {
-        name = "ei-crushed-coal",
-        type = "recipe",
-        category = "ei-crushing",
-        energy_required = 1,
-        ingredients = {
-            {type = "item", name = "coal", amount = 1},
-        },
-        results = {
-            {type = "item", name = "ei-crushed-coal", amount = 2},
-        },
-        always_show_made_in = true,
-        enabled = false,
-        main_product = "ei-crushed-coal",
-    },
-    {
         name = "ei-carbon",
         type = "recipe",
-        category = "chemistry",
-        energy_required = 20,
+        category = "ei-nano-factory",
+        energy_required = 10,
         ingredients = {
-            {type = "item", name = "carbon", amount = 1},
-            {type = "item", name = "ei-ceramic", amount = 3},
-            {type = "fluid", name = "ei-hydrofluoric-acid", amount = 15},
+            {type = "item", name = "carbon", amount = 2},
+            {type = "item", name = "ei-ceramic", amount = 6},
+            {type = "fluid", name = "ei-hydrofluoric-acid", amount = 30},
             {type = "fluid", name = "steam", amount = 100,min_temperature=900},
         },
         results = {
-            {type = "item", name = "ei-carbon", amount = 1},
+            {type = "item", name = "ei-carbon", amount_min = 2, amount_max=3},
+            {type = "fluid", name = "ei-acidic-water", amount_min = 5, amount_max=20},
+            {type = "fluid", name = "ei-hydrogen-gas", amount_min = 5, amount_max=15}
         },
         always_show_made_in = true,
         enabled = false,
@@ -232,9 +215,12 @@ data:extend({
             {type = "item", name = "ei-carbon", amount = 5},
             {type = "item", name = "ei-crushed-coke", amount = 2},
             {type = "fluid", name = "ei-nitric-acid", amount = 15},
+            {type = "fluid", name = "ei-oxygen-gas", amount = 100},
         },
         results = {
-            {type = "item", name = "ei-carbon-nanotube", amount = 2},
+            {type = "item", name = "ei-carbon-nanotube", amount_min = 1, amount_max=3},
+            {type = "fluid", name = "ei-nitrogen-gas", amount_min = 5, amount_max=15},
+            {type = "fluid", name = "ei-acidic-water", amount_min = 1, amount_max=5}
         },
         always_show_made_in = true,
         enabled = false,
@@ -248,10 +234,13 @@ data:extend({
         ingredients = {
             {type = "item", name = "ei-carbon-nanotube", amount = 3},
             {type = "item", name = "low-density-structure", amount = 2},
-            {type = "fluid", name = "ei-nitrogen-gas", amount = 100},
+            {type = "fluid", name = "ei-liquid-nitrogen", amount = 100},
+            {type = "fluid", name = "ei-hydrogen-gas", amount = 100},
         },
         results = {
             {type = "item", name = "ei-carbon-structure", amount = 5},
+            {type = "fluid", name = "ei-ammonia-gas", amount_min = 15, amount_max=30},
+            {type = "fluid", name = "ei-nitrogen-gas", amount_min = 5, amount_max=15},
         },
         always_show_made_in = true,
         enabled = false,

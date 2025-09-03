@@ -1,4 +1,101 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.46
+Date: 9-3-2025
+  Features:
+    - Created startup settings to toggle Nauvis main and interlude sound track overrides.
+    - Created T2 Acid neutralisation technology, prerequisites are Nitric acid and Metallurgic Science pack.
+    - Created T2 Acid neutralisation recipe requiring 750 Sulfuric acid, 250 Nitric acid, 15 Calcite to yield 9000 - 12500 500c Steam, 25-125 Acidic water.
+    - Created alternative "Dirty" Hydrofluoric acid recipe—1000 Steam, 50 Sulfuric acid, 1 Fluorite, 30 Ash over 0.8s -> 5-15 Dirty water, 90-110 Hydrofluoric acid, 1-2 Slag.
+    - Created alternative "High-energy" Hydrofluoric acid recipe—2000 Steam, 100 Sulfuric acid, 2 Fluorite over 1.6s-> 2-12 Acidic water, 190-240 Hydrofluoric acid.
+    - Created T2 "Oxygenated" Sulfuric acid technology and recipe—30 Oxygen gas, 50 Water, 2 Crushed iron, 7 Sulfur -> 95-125 Sulfuric acid.
+    - Created Nuclear fission research facility technology and moved Fission research recipes over from Uranium processing—prerequisite is Uranium processing.
+  Changes:
+    - Uranium mining technology prerequisite changed to Deep mining.
+    - Uranium processing technology prerequisites changed to Crystal grower, Uranium mining, and Electronic parts.
+    - Nuclear power technology prerequisite changed to Nuclear fission research facility.
+    - Moved Evolved alien seed, Blooming evolved alien seed, Bio sludge, and Bio matter recipe unlocks from Neuromarrow engine to Flesh crucible technology.
+    - T1 Hydrofluoric acid recipe inputs: Water 100 -> 200, Sulfuric acid 50 -> 100, Fluorite 1 -> 2.
+    - T1 Hydrofluoric acid recipe outputs: 25 Acidic water -> 5-15, 100 Hydrofluoric acid -> 175-225.
+    - T1 Oxygen difluoride recipe inputs: 50 Oxygen gas -> 50 Liquid oxygen, removed Sand, Ash, Fluorite, additionally requires 100 Hydrofluoric acid.
+    - T1 Oxygen difluoride recipe outputs: 5-25 Dirty water -> 5-25 Hydrogen gas.
+    - T2 Oxygen difluoride recipe crafting time: 3 -> 12s.
+    - T2 Oxygen difluoride recipe inputs: Alien resin 1 -> 2, Fluorite 1-> 2, 50 Oxygen gas -> 100 Liquid oxygen, removed Sand, additionally requires 50 Sulfuric acid.
+    - T2 Oxygen difluoride recipe outputs: 35 Oxygen difluoride -> 70-110, additionally yields 1-6 Bio sludge with 10% probability.
+    - Added Carbon manipulation to Nanotecture fabrication complex technology prerequisites.
+    - Moved Crushed coal recipe unlock from Nanotecture fabrication complex technology to Steam crusher.
+    - Crushed coal fuel emissions multiplier: 100 -> 92%.
+    - Coke fuel value: 2 -> 6MJ.
+    - Coke fuel emissions multiplier: 100 -> 80%.
+    - Crushed coke fuel value: 1.5 -> 3MJ.
+    - Crushed coke fuel emissions multiplier: 100 -> 72%.
+    - Coke pellets fuel value: 18 -> 34.5MJ.
+    - Coke pellets fuel emissions multiplier: 100 -> 70%.
+    - Moved T2 Carbon-fiber plate recipe from Chemical lab to Nanotecture fabrication complex.
+    - T2 Carbon-fiber plate recipe inputs: Carbon 1 -> 2, 
+    - T2 Carbon-fiber plate recipe crafting time: 20 -> 10s.
+    - T2 Carbon-fiber plate recipe outputs: 1 Carbon-fiber plate -> 2-3, additionally yields 5-20 Acidic water, 5-15 Hydrogen gas.
+    - Carbon-fiber nanotube recipe inputs: Additionally requires 100 Oxygen gas.
+    - Carbon-fiber nanotube recipe outputs: 2 Carbon-fiber nanotube -> 1-3,  additionally yields 5-15 Nitrogen gas, 1-5 Acidic water.
+    - Carbon-fiber compound recipe inputs: 100 Nitrogen gas -> 100 Liquid nitrogen, additionally requires 100 Hydrogen gas.
+    - Carbon-fiber compound recipe outputs: Additionally yields 15-30 Ammonia gas, 5-15 Nitrogen gas.
+    - Industrial combustion turbine power output: 10 -> 12MW.
+    - Industrial combustion turbine fuel usage effectivity: 125 -> 300%.
+    - Industrial combustion turbine visual production of smoke increased 50%.
+    - Industrial combustion turbine visual deviation of smoke increased 10%.
+    - The pure ore -> molten metal smelting recipe productivity technologies now grant +5% productivity to the poor chunk -> molten metal recipes.
+    - Made Solar panel scaling startup option tooltip description more specific.
+    - Camp-fire will no longer show bottleneck indicators.
+    - Blooming alien seed stack size: 1 -> 100.
+    - Alien seed stack size: 1 -> 100.
+    - Blooming evolved alien seeds now close their petals (spoil) into Evolved alien seeds after 15 minutes.
+    - Steam crusher module slots: 0 -> 2.
+    - Ash separation recipe outputs: Poor iron chunk 4 -> 8%, Coal 25 -> 33%, Slag 1 -> 5%.
+    - Vanilla Carbon recipe inputs: 2 Coal -> 6 Coal coke, Sulfuric acid 20 -> 45.
+    - Vanilla Carbon recipe outputs: Carbon 1 -> 2-3, additionally yields 1-5 250c Steam.
+    - Foundry Steel plate casting recipe inputs: 30 Molten iron -> 20 Molten steel.
+    - Foundry Steel plate casting recipe outputs: Steel plate 1 -> 2.
+    - Foundry Low density structure casting inputs: 80 Molten iron -> 50 Molten steel.
+    - Glass technology now uses the updated Industrial glass icon.
+    - T1 Acid neutralisation recipe inputs: Calcite 1 -> 15.
+    - T1 Acid neutralisation recipe outputs: 10,000 Steam -> 7500-9500, additionally yields 50-250 Acidic water, temperature 500 -> 280c.
+    - Acidic water from crushed sulfur recipe inputs: Water 40 -> 20.
+    - Neo transport belt recipe inputs: Additionally requires 1 Neodymium magnet.
+    - Neo underground transport belt recipe inputs: Additionally requires 1 Neodymium magnet.
+    - Neo splitter recipe inputs: Additionally requires 1 Neodymium magnet.
+    - Vanilla sulfuric acid recipe outputs: Sulfuric acid 50 -> 25-35.
+    - Allowed productivity for Carbon casting, Molten carbon symbiote, Carbon symbiote casting.
+  Bugfixes:
+    - Uranium processing no longer requires Computer age science packs.
+    - Recipes made with spoiled ingredients no longer yield fresh results.
+    - Recipe outputs and crafting entities no longer hidden.
+    - Neo and Exotic assembler corpse bases now tinted identically to working entities.
+    - All 3 tiers of EI Crushers results inventory size increased to 24 to accomodate Scrap asteroid crushing.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.45
+Date: 8-30-2025
+  Features:
+    - Added SacredAnarchy's Assembler reskin mod to required dependencies and swapped Assembler 1-3 entities, technologies, items, and Neo + Exotic assembler entities over to the new visuals.
+    - Added SacredAnarchy's Accumulator V2 mod to required dependencies and swapped the Accumulator entity,technology, and item over to the new visuals.
+    - Created startup setting for Solar panel scaling allowing Solar panels size and energy production to be scaled from 25% -> 300%—Vanilla 3x3 Solar panels are 75%.
+    - Created ei_lib.entity_icon_scaler to facilitate dynamic entity and corpse icon rescaling.
+  Changes:
+    - Neo and Exotic assemblers exteriors now glow in the dark.
+    - Carbonic asteroid crushing recipe outputs: 10 Carbon -> 6-14, additionally yields 2-4 Coal chunk at 95% probability.
+    - Advanced carbonic asteroid crushing recipe outputs: 5 Carbon -> 3-7, 2 Sulfur -> 1-3, additionally yields 1-2 Coal chunk at 95% probability.
+    - The engineer now respawns with the teleport animation and has a Pistol and 5 weapons magazines.
+    - Swapped internal Solar matrix item icon recolors with runtime tinted equivalent of Solar matrix item icon.
+  Bugfixes:
+    - All Scrap recycling outputs now uniformly yield 0-1 instead of some explicitly yielding 1.
+    - Scrap asteroid crushing no longer yields vanilla scrap recycling outputs.
+    - ei_lib.add_item_level checks if icons table exists before overwriting.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.44
+Date: 8-27-2025
+  Features:
+    - Added SacredAnarchy's Solar matrix mod to required dependencies and swapped solar panel 1-3 visuals including death explosion for the Solar matrix's.
+  Bugfixes:
+    - Vanilla logistic chests no longer appear in Factoripedia.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.43
 Date: 8-27-2025
   Features:
@@ -7,7 +104,7 @@ Date: 8-27-2025
   Changes:
     - Alien age science pack recipe inputs: High energy crystal 1 -> 2.
     - Alien age science pack recipe outputs: Additionally yields 1 High energy crystal 98%, 1 Energy crystal 2%.
-    - All unmentioned recipes which use Morphium as an ingredient: Additionally yield High energy crystal with >= 90% probability, remaining probability out of 100 yields Energy crystal.
+    - All unmentioned recipes which use Morphium as an ingredient: If not previously, now require 1 High energy crystal, additionally yield High energy crystal with >= 90% probability, remaining probability out of 100 yields Energy crystal.
     - Undilute morphium recipe outputs: Bio sludge .2% 1-3 -> 90% 1-15, Energy crystal 5% -> 2%, additionally yields 1 High energy crystal with 98% probability.
     - Alien seed harvesting recipe inputs: Additionally requires 1 High energy crystal.
     - Alien seed harvesting recipe outputs: Additionally yields 1 High energy crystal with 98% probability, 1 Energy crystal with 2% probability, 1-3 Bio sludge with 5% probability.
@@ -229,6 +326,8 @@ Date: 8-15-2025
     - Created new high resolution icon for Computing unit.
     - Created Computing unit technology, moved Computing unit recipe unlock to it from Quantum Age, set prerequisites to Advanced deep drill, Advanced centrifuge, Excavator, Electrified refinery, and Subzero phase array beacon.
   Changes:
+    - Centrifuge recipe inputs: 10 Advanced circuits -> 8 Electronic parts.
+    - Nuclear reactor recipe inputs: 250 Advanced circuits -> 185 Electronic parts.
     - Moved Neodymium refining technology to Simulation/Alien age, set prerequisites to Crystal accumulator, Bio high energy crystal growing, Bio electronic parts, Bio nitric acid.
     - Moved Quantum computer technology to Simulation/Alien age, set prerequisites to Neodymium refining and Computing unit.
     - Added Advanced semiconductor to Processing unit technology prerequisites.
@@ -246,6 +345,7 @@ Date: 8-15-2025
     - Camp-fire fire light maximum size 4 -> 5.
     - Added Advanced circuits to Portable solar panel equipment technology prerequisites.
   Bugfixes:
+    - Depreciated vanilla Nuclear fuel reprocessing technology should no longer re-appear.
     - Automation 2 no longer missing Computer age science pack requirement.
     - Fixed typo preventing Portable solar panel equipment prerequisite from being set to Solar energy.
     - Fixed if current index was invalid pipe with next being valid update_fluid_storages() would halt until next updater sub-cycle.

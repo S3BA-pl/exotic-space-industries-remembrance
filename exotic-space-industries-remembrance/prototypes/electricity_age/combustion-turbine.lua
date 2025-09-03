@@ -83,21 +83,21 @@ data:extend({
         burner = {
             type = "burner",
             fuel_categories = {"chemical"},
-            effectivity = 1.25,
+            effectivity = 3,
             fuel_inventory_size = 3,
             emissions_per_minute = {pollution = 120 },
             smoke = {
                 {
                     name = "smoke",
-                    deviation = {0.1, 0.1},
-                    frequency = 30,
+                    deviation = {0.11, 0.11},
+                    frequency = 45,
                     position = {0, -1.75},
                     starting_vertical_speed = 0.08,
                     starting_frame_deviation = 60,
                 }
             }
         },
-        max_power_output = "10MW",
+        max_power_output = "12MW",
         animation = {
             filename = ei_graphics_entity_path.."combustion-turbine_animation.png",
             size = {512,512},

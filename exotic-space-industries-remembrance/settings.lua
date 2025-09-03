@@ -195,6 +195,36 @@ data:extend({
       hidden = true, --Commit to the vision of the mod, don't disable this.
   },
   {
+      name = "ei-solar-icon-scaling",
+      type = "string-setting",
+      setting_type = "startup",
+      default_value = "75% (Vanilla)",
+      allowed_values = {
+      "25%",
+      "50%",
+      "75% (Vanilla)",
+      "100%",
+      "125%",
+      "150%",
+      "175%",
+      "200%",
+      "225%",
+      "250%",
+      "275%",
+      "300%"
+    },
+      order  = "c1f1",
+  },
+    {
+        name = "ei_fueler_range",
+        type = "int-setting",
+        setting_type = "startup",
+        default_value = 16,
+        minimum_value = 1,
+        maximum_value = 32,
+        order  = "c1f2",
+    },
+  {
       name = "ei-menu-background",
       type = "string-setting",
       setting_type = "startup",
@@ -207,17 +237,22 @@ data:extend({
       "Yin and Yang: Cloudflesh",
       "Industrial Dominance: Crystalline Vigil",
       "Choking Smog: Ascension Protocol"},
-      order  = "c1g",
+      order  = "c1g1",
   },
-    {
-        name = "ei_fueler_range",
-        type = "int-setting",
-        setting_type = "startup",
-        default_value = 16,
-        minimum_value = 1,
-        maximum_value = 32,
-        order  = "d2",
-    },
+  {
+      name = "ei-nauvis-main-tracks-override",
+      type = "bool-setting",
+      setting_type = "startup",
+      default_value = true,
+      order  = "c1g2",
+  },
+  {
+      name = "ei-nauvis-interlude-tracks-override",
+      type = "bool-setting",
+      setting_type = "startup",
+      default_value = true,
+      order  = "c1g3",
+  },
     {
         name = "ei_fueler_max_updates_per_tick",
         type = "int-setting",
@@ -229,4 +264,5 @@ data:extend({
         order  = "d1",
         hidden = true
     },
+
 })

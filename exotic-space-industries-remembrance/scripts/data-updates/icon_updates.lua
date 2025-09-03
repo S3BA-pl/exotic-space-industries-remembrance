@@ -3,12 +3,12 @@ local ei_lib = require("lib/lib")
 --====================================================================================================
 --ITEM ICON UPDATES
 --====================================================================================================
-
+--Metalworks use vanilla assembler icon so no longer need tier differentiation
 local level_table = {
     ["1"] = {
         "ei-deep-drill",
         "assembling-machine-1",
-        "ei-metalworks_1",
+--        "ei-metalworks-1",
         "ei-copper-beacon",
         "solar-panel",
         "electric-mining-drill",
@@ -22,7 +22,7 @@ local level_table = {
     ["2"] = {
         "ei-advanced-deep-drill",
         "assembling-machine-2",
-        "ei-metalworks_2",
+--        "ei-metalworks-2",
         "ei-iron-beacon",
         "ei-solar-panel-2",
         "ei-advanced-electric-mining-drill",
@@ -35,14 +35,14 @@ local level_table = {
     },
     ["3"] = {
         "assembling-machine-3",
-        "ei-metalworks_3",
+--        "ei-metalworks-3",
         "ei-solar-panel-3",
         "ei-superior-electric-mining-drill",
         "ei-advanced-chem-plant",
     },
     ["4"] = {
         "ei-neo-assembler",
-        "ei-metalworks_4",
+--        "ei-metalworks-4",
     },
     -- ["filter"] = {
     --     "ei-small-inserter",

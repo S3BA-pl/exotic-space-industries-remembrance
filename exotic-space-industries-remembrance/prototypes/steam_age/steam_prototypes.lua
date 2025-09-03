@@ -31,7 +31,8 @@ data:extend({
         subgroup = "ei-refining-secondary",
         order = "a2",
         fuel_category = "chemical",
-        fuel_value = "3MJ",
+        fuel_value = "6MJ",
+        fuel_emissions_multiplier = 0.8
     },
     {
         name = "ei-coke-pellets",
@@ -42,7 +43,8 @@ data:extend({
         subgroup = "ei-refining-secondary",
         order = "a3",
         fuel_category = "chemical",
-        fuel_value = "18MJ",
+        fuel_value = "34.5MJ",
+        fuel_emissions_multiplier = 0.7
     },
     {
         name = "ei-crushed-coke",
@@ -53,7 +55,8 @@ data:extend({
         subgroup = "ei-refining-crushed",
         order = "c1",
         fuel_category = "chemical",
-        fuel_value = "1.5MJ",
+        fuel_value = "3MJ",
+        fuel_emissions_multiplier = 0.72,
         pictures = {
             {
                 filename = ei_graphics_item_path.."crushed-coke.png",
@@ -142,6 +145,39 @@ data:extend({
         stack_size = 100,
         subgroup = "ei-refining-beam",
         order = "a3",
+    },
+        {
+        name = "ei-crushed-coal",
+        type = "item",
+        icon = ei_graphics_item_path.."crushed-coal.png",
+        icon_mipmaps = 4,
+        icon_size = 64,
+        stack_size = 100,
+        subgroup = "ei-refining-crushed",
+        order = "c1",
+        fuel_category = "chemical",
+        fuel_value = "2MJ",
+        fuel_emissions_multiplier=0.92,
+        pictures = {
+            {
+                filename = ei_graphics_item_path.."crushed-coal.png",
+                icon_mipmaps = 4,
+                scale = 0.375,
+                size = 64
+            },
+            {
+                filename = ei_graphics_item_path.."crushed-coal-1.png",
+                icon_mipmaps = 4,
+                scale = 0.375,
+                size = 64
+            },
+            {
+                filename = ei_graphics_item_path.."crushed-coal-2.png",
+                icon_mipmaps = 4,
+                scale = 0.375,
+                size = 64
+            },
+        },
     },
     {
         name = "ei-ceramic",
@@ -352,6 +388,21 @@ data:extend({
         always_show_made_in = true,
         enabled = false,
         main_product = "ei-crushed-coke",
+    },
+    {
+        name = "ei-crushed-coal",
+        type = "recipe",
+        category = "ei-crushing",
+        energy_required = 1,
+        ingredients = {
+            {type = "item", name = "coal", amount = 1},
+        },
+        results = {
+            {type = "item", name = "ei-crushed-coal", amount = 2},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-crushed-coal",
     },
     {
         name = "ei-crushed-iron",
@@ -741,8 +792,9 @@ data:extend({
     {
         name = "ei-glass",
         type = "technology",
-        icon = ei_graphics_tech_path.."glass.png",
-        icon_size = 128,
+        icon = ei_path.."graphics/item/industrial-glass.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
         prerequisites = {"ei-steam-crusher"},
         effects = {
             {

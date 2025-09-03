@@ -353,38 +353,6 @@ data:extend({
         },
     },
     {
-        name = "ei-crushed-coal",
-        type = "item",
-        icon = ei_graphics_item_path.."crushed-coal.png",
-        icon_mipmaps = 4,
-        icon_size = 64,
-        stack_size = 100,
-        subgroup = "ei-refining-crushed",
-        order = "c1",
-        fuel_category = "chemical",
-        fuel_value = "2MJ",
-        pictures = {
-            {
-                filename = ei_graphics_item_path.."crushed-coal.png",
-                icon_mipmaps = 4,
-                scale = 0.375,
-                size = 64
-            },
-            {
-                filename = ei_graphics_item_path.."crushed-coal-1.png",
-                icon_mipmaps = 4,
-                scale = 0.375,
-                size = 64
-            },
-            {
-                filename = ei_graphics_item_path.."crushed-coal-2.png",
-                icon_mipmaps = 4,
-                scale = 0.375,
-                size = 64
-            },
-        },
-    },
-    {
         name = "ei-carbon",
         type = "item",
         icon = ei_graphics_item_path.."carbon.png",

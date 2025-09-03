@@ -75,6 +75,7 @@ data:extend({
         max_health = 300,
         corpse = "big-remnants",
         dying_explosion = "medium-explosion",
+        result_inventory_size = 24,
         collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
         selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
         map_color = ei_data.colors.assembler,

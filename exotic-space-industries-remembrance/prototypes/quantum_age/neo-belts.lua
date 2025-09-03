@@ -42,6 +42,7 @@ data:extend({
             {type = "fluid", name = "ei-liquid-nitrogen", amount = 20},
             {type = "item", name = "express-transport-belt", amount = 2},
             {type = "item", name = "ei-neodym-ingot", amount = 2},
+			{type = "item", name = "ei-magnet", amount = 1},
             {type = "item", name = "ei-steel-mechanical-parts", amount = 10},
         },
         results = {
@@ -61,6 +62,7 @@ data:extend({
             {type = "fluid", name = "ei-liquid-nitrogen", amount = 20},
             {type = "item", name = "express-splitter", amount = 2},
             {type = "item", name = "ei-neodym-ingot", amount = 2},
+			{type = "item", name = "ei-magnet", amount = 1},
             {type = "item", name = "ei-computing-unit", amount = 5},
             {type = "item", name = "ei-steel-mechanical-parts", amount = 18},
         },
@@ -81,6 +83,7 @@ data:extend({
             {type = "fluid", name = "ei-liquid-nitrogen", amount = 100},
             {type = "item", name = "express-underground-belt", amount = 4},
             {type = "item", name = "ei-neodym-ingot", amount = 20},
+			{type = "item", name = "ei-magnet", amount = 1},
             {type = "item", name = "ei-steel-mechanical-parts", amount = 30},
         },
         results = {

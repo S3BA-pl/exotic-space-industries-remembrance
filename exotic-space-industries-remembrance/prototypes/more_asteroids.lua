@@ -832,28 +832,3 @@ data:extend(
         allow_decomposition = false
     }
   })
-local sac = ei_lib.raw.recipe["ei-scrap-asteroid-crushing"]
-local sac_exclude = {
-  "ei-electronic-parts",
-  "holmium-ore",
-  "low-density-structure"
-}
-local saca = ei_lib.raw.recipe["ei-advanced-scrap-asteroid-crushing"]
-local saca_exclude = {
-  "stone",
-  "advanced-circuit",
-  "ice"
-}
-for _,output in pairs(data.raw.recipe["scrap-recycling"].results) do
-  local output_bak = table.deepcopy(output)
-  if sac and not ei_lib.table_contains_value(sac_exclude,output.name) then
-    output.amount_min = output.amount
-    output.amount_max = output.amount*4
-    table.insert(sac.results,output)
-  end
-  if saca and not ei_lib.table_contains_value(saca_exclude,output.name) then
-    output_bak.amount_min = output_bak.amount
-    output_bak.amount_max = output_bak.amount*2
-    table.insert(saca.results,output_bak)
-  end
-end

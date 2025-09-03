@@ -131,11 +131,6 @@ ei_lib.set_prerequisites("worker-robots-storage-2",{"worker-robots-storage-1"})
 ei_lib.set_prerequisites("worker-robots-storage-3",{"worker-robots-storage-2"})
 ei_lib.set_prerequisites("worker-robots-storage-4",{"worker-robots-storage-3"})
 
-ei_lib.set_prerequisites("nuclear-power",{"uranium-mining"})
-ei_lib.set_prerequisites("uranium-ammo",{"uranium-mining"})
-
-ei_lib.set_prerequisites("uranium-ammo",{"uranium-mining"})
-
 ei_lib.set_prerequisites("asteroid-collector",{"space-platform"})
 ei_lib.set_prerequisites("space-hub-chest",{"space-platform"})
 ei_lib.set_prerequisites("space-chest",{"space-platform"})
@@ -151,6 +146,12 @@ ei_lib.set_prerequisites("flamethrower",{"flammables"})
 
 ei_lib.set_prerequisites("wdm_home_planet",{})
 
+ei_lib.set_prerequisites("uranium-mining",{"ei-deep-mining"})
+
+ei_lib.set_prerequisites("uranium-ammo",{"uranium-processing"})
+ei_lib.set_prerequisites("uranium-processing",{"ei-electronic-parts","uranium-mining","ei-grower"})
+
+ei_lib.set_prerequisites("nuclear-power",{"ei-fission-facility"})
 
 
 ei_lib.set_prerequisites("automation-2",{"automation","ei-computer-age","ei-electronic-parts","ei-advanced-motor"})
@@ -180,8 +181,6 @@ ei_lib.set_prerequisites("kr-ai-core",{"ei-advanced-computer-age-tech"})
 ei_lib.set_prerequisites("artillery-shell-range-1",{"artillery"})
 ei_lib.set_prerequisites("artillery-shell-speed-1",{"artillery"})
 ei_lib.set_prerequisites("artillery-shell-damage-1",{"artillery"})
-
-ei_lib.set_prerequisites("nuclear-power",{"uranium-mining"})
 
 ei_lib.set_prerequisites("kr-fusion-energy",{"lithium-processing","nuclear-power"})
 ei_lib.set_prerequisites("captive-biter-spawner",{"cryogenic-science-pack","biter-egg-handling"})

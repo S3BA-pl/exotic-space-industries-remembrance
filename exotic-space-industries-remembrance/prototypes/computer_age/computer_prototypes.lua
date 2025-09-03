@@ -677,6 +677,8 @@ data:extend({
         icon_size = 64,
         subgroup = "ei-alien-items",
         order = "c-b",
+        spoil_ticks = 0.25 * hour,
+        spoil_result = "ei-evolved-alien-seed",
         stack_size = 100
     },
     {
@@ -919,15 +921,12 @@ data:extend({
         category = "chemistry",
         energy_required = 9,
         ingredients = {
-            {type = "fluid", name = "water", amount = 50},
-            {type = "fluid", name = "ei-oxygen-gas", amount = 50},
-            {type = "item", name = modprefix.."sand", amount = 6},
-            {type = "item", name = "atan-ash", amount = 50},
-            {type = "item", name = "ei-fluorite", amount = 1},
+            {type = "fluid", name = "ei-hydrofluoric-acid", amount = 100},
+            {type = "fluid", name = "ei-liquid-oxygen", amount = 50},
         },
         results = {
-            {type = "fluid", name = "ei-oxygen-difluoride", amount_min = 15,amount_max=35},
-            {type = "fluid", name = "ei-dirty-water", amount_min=5,amount_max=25},
+            {type = "fluid", name = "ei-oxygen-difluoride", amount_min = 25,amount_max=45},
+            {type = "fluid", name = "ei-hydrogen-gas", amount_min=5,amount_max=25},
         },
         always_show_made_in = true,
         enabled = false,
@@ -937,15 +936,16 @@ data:extend({
         name = "ei-oxygen-difluoride-alien",
         type = "recipe",
         category = "chemistry",
-        energy_required = 3,
+        energy_required = 12,
         ingredients = {
-            {type = "fluid", name = "ei-oxygen-gas", amount = 50},
-            {type = "item", name = modprefix.."sand", amount = 3},
-            {type = "item", name = "ei-alien-resin", amount = 1},
-            {type = "item", name = "ei-fluorite", amount = 1},
+            {type = "fluid", name = "ei-liquid-oxygen", amount = 100},
+            {type = "fluid", name = "sulfuric-acid", amount = 50},
+            {type = "item", name = "ei-alien-resin", amount = 2},
+            {type = "item", name = "ei-fluorite", amount = 2},
         },
         results = {
-            {type = "fluid", name = "ei-oxygen-difluoride", amount = 35},
+            {type = "fluid", name = "ei-oxygen-difluoride", amount_min = 70, amount_max = 110},
+            {type = "fluid", name = "ei-bio-sludge", amount_min=1,amount_max=6,probability=0.1,allow_productivity=false},
         },
         always_show_made_in = true,
         enabled = false,
@@ -2275,6 +2275,30 @@ data:extend({
         },
         results={{type = "item", name= "ei-rocket-control-unit", amount=1}}
       },
+    {
+        type = "recipe",
+        name = "ei-oxygen-sulfuric-acid",
+        category = "chemistry",
+        subgroup = "fluid-recipes",
+        order = "c[oil-products]-b[sulfuric-acid]2",
+        energy_required = 1.8,
+        icons = {
+            { icon = data.raw.fluid["ei-oxygen-gas"].icon,            scale = 0.2, shift = { 3, 3 } },
+            { icon = "__base__/graphics/icons/fluid/sulfuric-acid.png", scale = 0.2, shift = { -3, -3 } },
+        },
+        enabled = false,
+        ingredients =
+        {
+            {type="fluid", name="ei-oxygen-gas", amount=30},
+            {type="fluid", name="water", amount=50},
+            {type="item", name="ei-crushed-iron", amount=2},
+            {type="item", name="sulfur", amount=7}
+        },
+        results =
+        {
+        {type = "fluid", name = "sulfuric-acid", amount_min=95,amount_max=125}
+        },
+    },
 })
 
 --TECHS
@@ -2804,11 +2828,35 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."oxygen-steel.png",
         icon_size = 256,
+        
         prerequisites = {"ei-advanced-steel", "ei-oxygen-gas"},
         effects = {
             {
                 type = "unlock-recipe",
                 recipe = "ei-molten-steel-oxygen"
+            },
+        },
+        unit = {
+            count = 100,
+            ingredients = ei_data.science["computer-age"],
+            time = 20
+        },
+        age = "computer-age",
+    },
+    {
+        name = "ei-oxygen-sulfuric-acid",
+        type = "technology",
+        icon = data.raw.fluid["ei-oxygen-gas"].icon,
+        icon_size = data.raw.fluid["ei-oxygen-gas"].icon_size,
+        icons = {
+            { icon = data.raw.fluid["ei-oxygen-gas"].icon,            scale = 0.2, shift = { 3, 4 } },
+            { icon = "__base__/graphics/icons/fluid/sulfuric-acid.png", scale = 0.2, shift = { -3, -4 } },
+        },
+        prerequisites = {"sulfur-processing", "ei-oxygen-gas"},
+        effects = {
+            {
+                type = "unlock-recipe",
+                recipe = "ei-oxygen-sulfuric-acid"
             },
         },
         unit = {

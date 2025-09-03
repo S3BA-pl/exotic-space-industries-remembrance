@@ -28,6 +28,7 @@ end
 --====================================================================================================
 --RECIPES THAT ALLOW PRODUCTIVITY
 --====================================================================================================
+--Burning chemical fuel for ash recipes module effects set in data-final-updates/camp_fire.lua
 
 local recipes = {
     "ei-bio-insulated-wire",
@@ -35,14 +36,17 @@ local recipes = {
     "ei-bio-magnet",
     "ei-bio-hydrofluoric-acid",
     "ei-bio-nitric-acid",
+	"ei-hydrofluoric-acid",
+	"ei-hydrofluoric-acid-steam",
+	"ei-hydrofluoric-acid-steam-ash",
     "ei-desulfurize-kerosene",
     "ei-kerosene-heavy-oil",
-    "ei-hydrofluoric-acid",
     "ei-kerosene-cracking",
     "ei-nitric-acid",
     "ei-crystal-solution",
     "ei-drill-fluid",
     "ei-ammonia",
+	"ei-oxygen-sulfuric-acid",
     "ei-dinitrogen-tetroxide",
     "ei-dinitrogen-tetroxide-water-solution",
     "ei-oxygen-difluoride",
@@ -103,30 +107,56 @@ local recipes = {
     "ei-ceramic-water",
     "ei-solid-fuel-residual-oil",
     "ei-diesel-fuel-unit",
-    "ei-benzol-petroleum"
+    "ei-benzol-petroleum",
+	"ei-molten-carbon-symbiote-casting",
+	"ei-cast-carbon",
+	"ei-molten-carbon-fusion",
+	"ei-molten-carbon-fusion-high-energy",
 }
-
-local remove_prod = {
-    "lubricant",
-}
-
--- add them to limitation of productivity modules
 
 for i,v in pairs(recipes) do
     local modify = ei_lib.raw["recipe"][v]
     if modify then
-	    modify.allow_productivity = true
+		modify.allow_productivity = true
+		log("final-recipe-fixes: allowed productivity for recipe: "..v)
+		if modify.allowed_effects then
+			local found = false
+			for index,effect in pairs(modify.allowed_effects) do
+				if effect == "productivity" then
+					found = true
+					log("final-recipe-fixes: found productivity was already allowed for recipe: "..v..", skipping")
+					break
+				elseif index == #modify.allowed_effects and not found then
+					table.insert(modify.allowed_effects,"productivity")
+					log("final-recipe-fixes: allowed productivity effect for recipe: "..v)
+				end
+			end
+		end
+		--[[
+		else
+			--could probably use recipes table to set individual allowed effects
+			modify.allowed_effects = {
+			"speed",
+			"consumption",
+			"pollution",
+			"quality",
+			"productivity"
+			}
+			log("final-recipe-fixes: allowed module effects including productivity for recipe: "..v)
+		end
+		]]
     else
-        log("final-recipe-fixes: productivity module limitation got bad recipe "..v)
+        log("final-recipe-fixes: adding productivity module effects got invalid recipe:  "..v)
     end
 end
-
+local remove_prod = {
+    "lubricant",
+	"ei-lube-destilation",
+}
+--this segment commented out pending mindful consideration of removing productivity
+--in this bloated 2.0 era of insane productivity
+--[[
 -- remove productivity from given recipes
-
-for i,v in pairs(remove_prod) do
-    ei_lib.raw["recipe"][v].allow_productivity = false
-end
-
 local crafting_categories = {
     "ei-waver-factory",
     "smelting",
@@ -137,10 +167,46 @@ local crafting_categories = {
 for i,v in pairs(crafting_categories) do
     for i2,v2 in pairs(ei_lib.raw["recipe"]) do
         if v2.category == v then
-            v2.allow_productivity = true
+            if not ei_lib.table_contains_value(remove_prod,v2.name) then
+				table.insert(remove_prod,v2.name)
+				log("final-recipe-fixes: crafting category: "..v.." found in recipe: "..v2.name.." adding to productivity limitation table")
+			end
         end
     end
 end
+]]
+for i,v in pairs(remove_prod) do
+    local modify = ei_lib.raw["recipe"][v]
+    if modify then
+		modify.allow_productivity = false
+		log("final-recipe-fixes: forbid productivity for recipe: "..v)
+		if modify.allowed_effects then
+			local found = false
+			for index,effect in pairs(modify.allowed_effects) do
+				if effect == "productivity" then
+					table.remove(modify.allowed_effects,index)
+					log("final-recipe-fixes: forbid productivity effect for recipe: "..v)
+					break
+				end
+			end
+		end
+		--[[
+		else
+			--could probably use recipes table to set individual allowed effects
+			modify.allowed_effects = {
+			"speed",
+			"consumption",
+			"pollution",
+			"quality",
+			}
+			log("final-recipe-fixes: allowed module effects OTHER than productivity for recipe: "..v)
+		]]
+    else
+        log("final-recipe-fixes: forbidding productivity module effects got invaldi recipe: "..v)
+    end
+end
+
+
 
 ei_lib.recipe_swap("concrete", "iron-ore", "ei-iron-beam")
 ei_lib.recipe_swap("refined-concrete", "ei-copper-mechanical-parts", "ei-steel-beam")
@@ -181,6 +247,7 @@ if is then
 end
 local sg = ei_lib.raw.recipe["steel-gear-wheel"] or ei_lib.raw.recipe["kr-steel-gear-wheel"]
 if sg then
+	sg.enabled = false
 	sg.hidden = true
 end
 if mods and mods["aai-signal-transmission"] then
@@ -225,13 +292,14 @@ local function overwrite_barrel_capacity(recipeItem, capacity)
 end
 
 for _, recipe in pairs(data.raw.recipe) do
-
-  recipe.always_show_made_in = false
-  recipe.always_show_products = false
-  recipe.hide_from_signal_gui = false
-  recipe.result_is_always_fresh = true
-  recipe.unlock_results = true
-
+	if recipe.name and string.sub(recipe.name, 1, 3) == "ei-" then
+		--recipe.always_show_made_in = false
+		--recipe.always_show_products = false
+		recipe.hide_from_signal_gui = false
+		recipe.allow_decomposition = true
+		--recipe.result_is_always_fresh = true
+		recipe.unlock_results = true
+	end
 --  if ei_lib.contains(recipe.name,"recycler") then recipe.surface_conditions = nil end
 --  if ei_lib.contains(recipe.name,"crusher") then recipe.surface_conditions = nil end
 
@@ -362,7 +430,17 @@ data.raw.recipe["ei-acidic-water-crushed-sulfur"].crafting_machine_tint =
 	tertiary = {r = 0.876, g = 0.869, b = 0.597, a = 1.000},
 	quaternary = {r = 0.969, g = 1.000, b = 0.019, a = 1.000}
 }
-
+data.raw.recipe["ei-oxygen-sulfuric-acid"].crafting_machine_tint =
+	{
+	primary = {r = 0.313, g = 0.705, b = 0.352, a = 1.000},
+	-- #50b459ff (acidic green)
+	secondary = {r = 0.215, g = 0.607, b = 0.803, a = 1.000},
+	-- #369bcdff (oxygen blue)
+	tertiary = {r = 0.647, g = 0.721, b = 0.309, a = 1.000},
+	-- #a5b852ff (sulfur tint)
+	quaternary = {r = 0.431, g = 0.866, b = 0.784, a = 1.000},
+	-- #6eddd8ff (oxidizer glow)
+	}
 data.raw.recipe["ei-drill-fluid"].crafting_machine_tint =
 {
 	primary = {r=0.49, g=0.48, b=0.44, a = 1.000},
@@ -585,6 +663,22 @@ data.raw.recipe["ei-hydrofluoric-acid"].crafting_machine_tint =
 	primary = {r=0.36, g=0.56, b=0.37, a = 1.000},
 	secondary = {r=0.57, g=0.68, b=0.39, a = 1.000},
 	tertiary = {r=0.4, g=0.3, b=0.54, a = 1.000},
+	quaternary = {r = 0.969, g = 1.000, b = 0.019, a = 1.000}
+}
+
+data.raw.recipe["ei-hydrofluoric-acid-steam-ash"].crafting_machine_tint =
+{
+	primary = {r=0.53, g=0.56, b=0.37, a = 1.000},
+	secondary = {r=0.68, g=0.68, b=0.39, a = 1.000},
+	tertiary = {r=0.54, g=0.3, b=0.54, a = 1.000},
+	quaternary = {r = 0.969, g = 1.000, b = 0.019, a = 1.000}
+}
+
+data.raw.recipe["ei-hydrofluoric-acid-steam"].crafting_machine_tint =
+{
+	primary = {r=0.66, g=0.56, b=0.37, a = 1.000},
+	secondary = {r=0.87, g=0.68, b=0.39, a = 1.000},
+	tertiary = {r=0.7, g=0.3, b=0.54, a = 1.000},
 	quaternary = {r = 0.969, g = 1.000, b = 0.019, a = 1.000}
 }
 

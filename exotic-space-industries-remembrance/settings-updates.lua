@@ -57,6 +57,19 @@ local function set_float(mod,name,value)
   end
 end
 
+local function set_color(mod,name,value)
+  if mods[mod] then
+    if not data.raw["color-setting"][name] then
+      log("EI set_color: Setting "..name.." not found in data.raw.color-setting")
+      return
+    end
+    data.raw["color-setting"][name].hidden = true
+    data.raw["color-setting"][name]["default_value"] = value
+    data.raw["color-setting"][name]["forced_value"] = value
+    data.raw["color-setting"][name]["allowed_values"] = {value}
+  end
+end
+
 -- set_bool("passive-radar","mining-returns-pradar",true)
 -- set_bool("","",true)
 
@@ -102,3 +115,12 @@ set_float("Flammable_Oils_QUICKFIX","flo-damage-power",3)
 set_int("ch-concentrated-solar","ch-solar-max-production-mw",120)
 set_bool("elevated-pipes","elevated-pipes--freezes",true)
 set_int("elevated-pipes","max-underground-distance",12)
+set_color("SolarMatrix","solar-matrix-color", {r=1, g=1, b=1, a=1})
+set_float("SolarMatrix","solar-matrix-power",128)
+set_bool("SolarMatrix","link-multiplier-to-cost",false)
+set_float("Accumulator-V2","accumulator-power-capacity", 10)
+set_bool("Accumulator-V2","multiply-costs",false)
+set_bool("Assembler-Reskin","toggle-reskin",true)
+set_color("Assembler-Reskin","assembler-1-color",{r = 0.47, g = 0.5, b = 0.43, a = 1.0})
+set_color("Assembler-Reskin","assembler-2-color",{r = 0.13, g = 0.25, b = 0.66, a = 1.0})
+set_color("Assembler-Reskin","assembler-3-color",{r = 0.7, g = 0.8, b = 0.32, a = 1.0})

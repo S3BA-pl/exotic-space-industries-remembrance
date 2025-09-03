@@ -197,6 +197,14 @@ data:extend({
             },
             {
                 type = "unlock-recipe",
+                recipe = "ei-hydrofluoric-acid-steam"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-hydrofluoric-acid-steam-ash"
+            },
+            {
+                type = "unlock-recipe",
                 recipe = "ei-gold-chunk-purifier"
             },
             {

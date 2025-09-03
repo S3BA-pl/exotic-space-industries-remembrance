@@ -16,14 +16,14 @@ local ei_data = require("lib/data")
 --====================================================================================================
 ei_lib.remove_unlock_recipe("chcs-concentrated-solar-energy","steam-turbine")
 
-data.raw.technology["chcs-concentrated-solar-energy"].age = "steam-age"
-data.raw.technology["chcs-concentrated-solar-energy"].prerequisites = {
+ei_lib.raw.technology["chcs-concentrated-solar-energy"].age = "steam-age"
+ei_lib.raw.technology["chcs-concentrated-solar-energy"].prerequisites = {
     "ei-burner-heater",
     "electronics"
 }
 
-data.raw.technology["chcs-weaponized-solar-energy"].age = "steam-age"
-data.raw.technology["chcs-weaponized-solar-energy"].prerequisites = {
+ei_lib.raw.technology["chcs-weaponized-solar-energy"].age = "steam-age"
+ei_lib.raw.technology["chcs-weaponized-solar-energy"].prerequisites = {
     "chcs-concentrated-solar-energy",
     "flammables"
 }

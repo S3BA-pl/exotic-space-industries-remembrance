@@ -69,6 +69,10 @@ local ei_start_items = {
     ["burner-mining-drill"] = 2,
     ["coal"] = 4,
 }
+local ei_respawn_items = {
+    ["firearm-magazine"] = 5,
+    ["pistol"] = 1,
+}
 
 --INIT
 ------------------------------------------------------------------------------------------------------
@@ -77,6 +81,7 @@ script.on_init(function(event)
         remote.call("freeplay", "set_disable_crashsite", true)
         remote.call("freeplay", "set_custom_intro_message", ei_intro)
         remote.call("freeplay", "set_created_items", ei_start_items)
+        remote.call("freeplay", "set_respawn_items", ei_respawn_items)
     end
     -- setup storage table
     ei_global.init()
@@ -184,14 +189,15 @@ end)
 script.on_event(defines.events.on_chunk_generated, function(e)
     ei_alien_spawner.on_chunk_generated(e)
 end)
-
+--[[
 script.on_event(defines.events.on_player_respawned, function(event)
+ --[[
   local player = game.players[event.player_index]
   if player.character then
     player.character.clear_items_inside()
   end
 end)
-
+]]
 --GUI RELATED
 -----------------------------------------------------------------------------------------------------
 
@@ -326,6 +332,7 @@ commands.add_command("codex_test", "Triggers a test echo message from echo_codex
 end)
 
 --Uncomment me to teleport to Gaia to test reforge_gaia_surface produced valid result :)
+--[[
 commands.add_command("goto-gaia", "Teleport to Gaia's surface", function(cmd)
     local player = game.get_player(cmd.player_index)
     if not player then return end
@@ -341,7 +348,7 @@ commands.add_command("goto-gaia", "Teleport to Gaia's surface", function(cmd)
     player.teleport(position, surface)
     ei_lib.crystal_echo("✈ [Astral Transit] — " .. player.name .. " arrives upon Gaia’s crust.")
 end)
-
+]]
 --[[
 commands.add_command("goto-fulgora", "Teleport to Fulgoras's surface", function(cmd)
     local player = game.get_player(cmd.player_index)
@@ -546,7 +553,8 @@ script.on_event(
     defines.events.on_load,
     defines.events.on_player_joined_game,
     defines.events.on_cutscene_cancelled,
-    defines.events.on_cutscene_finished
+    defines.events.on_cutscene_finished,
+    defines.events.on_player_respawned
   },
     function(event)
         ei_echo_codex.youHaveArrived(event)
