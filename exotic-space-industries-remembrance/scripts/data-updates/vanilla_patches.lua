@@ -1444,7 +1444,7 @@ for _, spider in pairs(data.raw["spider-vehicle"]) do
         spider.energy_source =
     {
             type = "burner",
-            fuel_categories = {"chemical", "ei-rocket-fuel","ei-nuclear-fuel", "ei-fusion-fuel"},
+            fuel_categories = {"chemical", "ei-rocket-fuel","ei-nuclear-fuel", "ei-fusion-fuel","ei-diesel-fuel"},
             effectivity = 1,
             fuel_inventory_size = 3,
             burnt_inventory_size = 3,
