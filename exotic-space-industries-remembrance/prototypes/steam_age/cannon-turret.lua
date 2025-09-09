@@ -37,7 +37,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."cannon-turret.png",
         icon_size = 256,
-        prerequisites = {"tank"},
+        prerequisites = {"explosives","electric-engine"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -46,10 +46,10 @@ data:extend({
         },
         unit = {
             count = 100,
-            ingredients = ei_data.science["electricity-age"],
+            ingredients = ei_data.science["steam-age"],
             time = 20
         },
-        age = "electricity-age",
+        age = "steam-age",
     },
     {
         type = "ammo-turret",
@@ -69,7 +69,7 @@ data:extend({
         resistances = {
 			{type = "physical", percent = 50},
 			{type = "fire", percent = 75},
-			{type = "impact", percent = 75}
+			{type = "impact", percent = 75},
 		},
         rotation_speed = 0.005,
         --preparing_speed = 0.1,

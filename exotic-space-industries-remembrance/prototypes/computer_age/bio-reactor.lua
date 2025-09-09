@@ -28,7 +28,8 @@ data:extend({
         {
             {type="item", name="chemical-plant", amount=2},
             {type="item", name="ei-bio-chamber", amount=2},
-            {type="item", name="ei-steel-mechanical-parts", amount=16}
+            {type="item", name="ei-alien-resin", amount=16},
+            {type="item", name="ei-bio-matter", amount=50},
         },
         results = {{type="item", name="ei-bio-reactor", amount=1}},
         enabled = false,
@@ -72,14 +73,22 @@ data:extend({
         selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
         map_color = ei_data.colors.assembler,
         crafting_speed = 2,
+        --[[
         energy_source = {
             type = 'electric',
             emissions_per_minute={pollution=35,spores=35},
             usage_priority = 'secondary-input',
         },
+        ]]
         allowed_effects = {"speed", "consumption", "pollution", "productivity","quality"},
         module_slots = 4,
-        energy_usage = "1.5MW",
+        energy_usage = "0.10MW",
+        energy_source = {
+            type = "burner",
+            fuel_categories = {"ei-bio-matter"},
+            fuel_inventory_size = 1,
+            emissions_per_minute={pollution=35,spores=35}
+        },
         fluid_boxes = {
             {   
                 volume = 200,

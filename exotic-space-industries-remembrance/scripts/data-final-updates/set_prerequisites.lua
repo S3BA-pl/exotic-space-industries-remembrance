@@ -104,7 +104,7 @@ ei_lib.set_prerequisites("automation-3",{"ei-advanced-motor","ei-computer-core",
 ei_lib.set_prerequisites("kovarex-enrichment-process",{"uranium-processing"})
 ei_lib.set_prerequisites("processing-unit",{"ei-computer-core","ei-electronic-parts","ei-advanced-semiconductor"})
 ei_lib.set_prerequisites("spidertron",{"processing-unit","ei-high-energy-crystal","ei-advanced-computer-age-tech"})
-
+ei_lib.set_prerequisites("advanced-circuit",{"plastics","electronics","sulfur-processing"})
 ei_lib.set_prerequisites("ei-electronic-parts",{"advanced-circuit"})
 ei_lib.set_prerequisites("ei-lithium-battery",{"lithium-processing"})
 ei_lib.set_prerequisites("ei-lithium-processing",{"lithium-processing"})
@@ -146,7 +146,7 @@ ei_lib.set_prerequisites("flamethrower",{"flammables"})
 
 ei_lib.set_prerequisites("wdm_home_planet",{})
 
-ei_lib.set_prerequisites("uranium-mining",{"ei-deep-mining"})
+ei_lib.set_prerequisites("uranium-mining",{"electric-mining-drill"})
 
 ei_lib.set_prerequisites("uranium-ammo",{"uranium-processing"})
 ei_lib.set_prerequisites("uranium-processing",{"ei-electronic-parts","uranium-mining","ei-grower"})
@@ -178,14 +178,22 @@ ei_lib.set_prerequisites("battery-equipment",{"battery"})
 
 ei_lib.set_prerequisites("kr-ai-core",{"ei-advanced-computer-age-tech"})
 
+ei_lib.set_prerequisites("kr-fusion-energy",{"lithium-processing","nuclear-power"})
+ei_lib.set_prerequisites("captive-biter-spawner",{"cryogenic-science-pack","biter-egg-handling"})
+ei_lib.set_prerequisites("lubricant",{"ei-destill-tower"})
+ei_lib.set_prerequisites("sulfur-processing",{"ei-steam-oil-processing"})
+ei_lib.set_prerequisites("explosives",{"sulfur-processing","ei-advanced-coke-processing","flammables","electronics"})
+ei_lib.set_prerequisites("electric-engine",{"lubricant","electronics","engine"})
+ei_lib.set_prerequisites("ei-electricity-age",{"ei-steam-inserter","logistics","ei-steam-assembler","ei-tank-silo","ei-steam-advanced-train","rp-steam-logistics-chests","ei-fluid-boiler","ei-lube-destilation","electric-engine","ei-deep-mining"})
+ei_lib.set_prerequisites("explosive-rocketry",{"rocketry"})
+
+ei_lib.set_prerequisites("oil-processing",{"ei-electricity-power"})
+
+ei_lib.set_prerequisites("artillery",{"ei-advanced-computer-age-tech","processing-unit","ei-electronic-parts","ei-carbon-manipulation"})
 ei_lib.set_prerequisites("artillery-shell-range-1",{"artillery"})
 ei_lib.set_prerequisites("artillery-shell-speed-1",{"artillery"})
 ei_lib.set_prerequisites("artillery-shell-damage-1",{"artillery"})
 
-ei_lib.set_prerequisites("kr-fusion-energy",{"lithium-processing","nuclear-power"})
-ei_lib.set_prerequisites("captive-biter-spawner",{"cryogenic-science-pack","biter-egg-handling"})
-
-ei_lib.set_prerequisites("ei-electricity-age",{"engine","electronics","ei-steam-inserter","logistics","ei-steam-assembler","ei-tank-silo","ei-steam-advanced-train","rp-steam-logistics-chests","ei-fluid-boiler"})
 -- ======================================================================================
 
 if mods["planet-muluna"] then ei_lib.set_prerequisites("space-science-pack",{"planet-discovery-muluna"})

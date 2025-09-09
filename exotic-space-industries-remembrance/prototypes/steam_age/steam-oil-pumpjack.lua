@@ -64,6 +64,15 @@ data:extend({
                 type = "unlock-recipe",
                 recipe = "basic-oil-processing"
             },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-basic-water-oil-processing"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-basic-steam-oil-processing"
+            },
+            
         },
         unit = {
             count = 100,

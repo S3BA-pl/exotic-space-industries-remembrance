@@ -94,7 +94,7 @@ data:extend({
         icon_size = 512,
         icon_mipmaps = 5,
         prerequisites = {
-            "engine","electronics","ei-steam-inserter","logistics","ei-steam-assembler","ei-tank-silo","ei-steam-advanced-train","rp-steam-logistics-chests","ei-fluid-boiler"
+            "ei-steam-inserter","logistics","ei-steam-assembler","ei-tank-silo","ei-steam-advanced-train","rp-steam-logistics-chests","ei-fluid-boiler","ei-lube-destilation","electric-engine"
         },
         effects = {
             {

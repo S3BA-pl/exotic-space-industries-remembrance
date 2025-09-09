@@ -717,7 +717,7 @@ data:extend({
             {type="item", name="ei-steam-basic-wagon", amount=1},
             {type="item", name="ei-steel-mechanical-parts", amount=5},
             {type="item", name="steel-plate", amount=5},
-			{type="item", name="storage-tank", amount=1},
+			{type="item", name="ei-tank-1", amount=1},
         },
         results = {{type="item", name="ei-steam-advanced-fluid-wagon", amount=1}},
         enabled = false,
@@ -729,7 +729,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."steam-advanced-train.png",
         icon_size = 500,
-        prerequisites = {"ei-steam-basic-train", "ei-tank", "engine", "automated-rail-transportation"},
+        prerequisites = {"ei-steam-basic-train", "ei-tank-column", "engine", "automated-rail-transportation"},
         effects = {
             {
                 type = "unlock-recipe",

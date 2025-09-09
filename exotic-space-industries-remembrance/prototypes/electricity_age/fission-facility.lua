@@ -182,7 +182,7 @@ data:extend({
         energy_required = 1,
         ingredients =
         {
-            {type="item", name="advanced-circuit", amount=40},
+            {type="item", name="ei-electronic-parts", amount=30},
             {type="item", name="ei-lead-ingot", amount=50},
             {type="item", name="ei-energy-crystal", amount=25},
             {type="item", name="steel-plate", amount=50},
@@ -277,13 +277,12 @@ data:extend({
             {type = "item", name = "ei-uranium-chunk", amount = 1},
         },
         results = {
-            {type = "item", name = "uranium-ore", amount_min = 1, amount_max = 10},
+            {type = "item", name = "uranium-ore", amount_min = 6, amount_max = 12},
         },
         always_show_made_in = true,
         enabled = false,
         main_product = "uranium-ore",
     },
-
     {
         name = "ei-crushed-uranium",
         type = "recipe",
@@ -310,7 +309,7 @@ data:extend({
         },
         results = {
             {type = "item", name = "ei-crushed-pure-uranium", amount = 5},
-            {type = "fluid", name = "ei-uranium-solution", amount = 5},
+            {type = "fluid", name = "ei-uranium-solution", amount = 5,allow_productivity=false},
         },
         always_show_made_in = true,
         enabled = false,

@@ -185,7 +185,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."purifier.png",
         icon_size = 256,
-        prerequisites = {"ei-deep-mining"},
+        prerequisites = {"oil-processing"},
         effects = {
             {
                 type = "unlock-recipe",

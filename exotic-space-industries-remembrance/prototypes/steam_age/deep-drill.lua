@@ -26,7 +26,7 @@ data:extend({
         energy_required = 1,
         ingredients =
         {
-            {type="item", name="electric-mining-drill", amount=4},
+            {type="item", name="ei-steam-quarry", amount=4},
             {type="item", name="electric-engine-unit", amount=40},
             {type="item", name="steel-plate", amount=24},
             {type="item", name="ei-steel-mechanical-parts", amount=40}
@@ -67,7 +67,7 @@ data:extend({
                 pipe_connections = {
                     {direction = defines.direction.east, position = {2, 0}},
                     {direction = defines.direction.west, position = {-2, 0}},
-                    {direction = defines.direction.north, position = {0, -2}},
+                    --{direction = defines.direction.north, position = {0, -2}},
                 },
                 production_type = "input-output",
             },
@@ -86,22 +86,18 @@ data:extend({
 			width = 12,
 			height = 12
 		},
-        --[[
         input_fluid_box = {   
             volume = 200,
             pipe_covers = pipecoverspictures(),
             pipe_picture = ei_pipe_big,
             pipe_connections = {
-                {direction = defines.direction.east, position = {2, 0}},
-                {direction = defines.direction.west, position = {-2, 0}},
-                {direction = defines.direction.south, position = {0, 2}},
-                -- {direction = defines.direction.north, position = {0, -2}},
+                --{direction = defines.direction.east, position = {2, 0}},
+                --{direction = defines.direction.west, position = {-2, 0}},
+                --{direction = defines.direction.south, position = {0, 2}},
+                {direction = defines.direction.north, position = {0, -2}},
             },
             production_type = "input-output",
-            
         },
-        ]]
-
         circuit_connector =  circuit_connector_definitions.create_vector(
         universal_connector_template,
         {

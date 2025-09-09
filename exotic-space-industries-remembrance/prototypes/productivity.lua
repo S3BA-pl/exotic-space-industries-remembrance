@@ -205,6 +205,11 @@ data:extend({
         recipe = "ei-molten-lead-pure-ore",
         change = 0.1
 		},
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-molten-neodym",
+        change = 0.1
+		},
     },
     prerequisites = {"ei-arc-furnace"},
     unit =
@@ -253,6 +258,11 @@ data:extend({
 	  {
 		type = "change-recipe-productivity",
         recipe = "ei-molten-lead-pure-ore",
+        change = 0.1
+		},
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-molten-neodym",
         change = 0.1
 		},
     },
@@ -305,6 +315,11 @@ data:extend({
         recipe = "ei-molten-lead-pure-ore",
         change = 0.1
 		},
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-molten-neodym",
+        change = 0.1
+		},
     },
     prerequisites = {"ei-advanced-computer-age-tech","ei-productivity-pure-ore-smelting-advanced"},
     unit =
@@ -353,6 +368,11 @@ data:extend({
 	  {
 		type = "change-recipe-productivity",
         recipe = "ei-molten-lead-pure-ore",
+        change = 0.1
+		},
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-molten-neodym",
         change = 0.1
 		},
     },
@@ -405,6 +425,11 @@ data:extend({
         recipe = "ei-molten-lead-pure-ore",
         change = 0.1
 		},
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-molten-neodym",
+        change = 0.1
+		},
     },
     prerequisites = {"ei-black-hole","ei-productivity-pure-ore-smelting-exotic"},
     unit =
@@ -443,6 +468,16 @@ data:extend({
 	  {
 		type = "change-recipe-productivity",
         recipe = "ei-lead-chunk-purifier",
+        change = 0.1
+		},
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-pure-crushed-neodym",
+        change = 0.1
+		},
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-crushed-pure-uranium",
         change = 0.1
 		},
     },
@@ -485,6 +520,16 @@ data:extend({
         recipe = "ei-lead-chunk-purifier",
         change = 0.1
 		},
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-pure-crushed-neodym",
+        change = 0.1
+		},
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-crushed-pure-uranium",
+        change = 0.1
+		},
     },
     prerequisites = {"ei-productivity-ore-purification","ei-advanced-computer-age-tech"},
     unit =
@@ -523,6 +568,16 @@ data:extend({
 	  {
 		type = "change-recipe-productivity",
         recipe = "ei-lead-chunk-purifier",
+        change = 0.1
+		},
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-pure-crushed-neodym",
+        change = 0.1
+		},
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-crushed-pure-uranium",
         change = 0.1
 		},
     },
@@ -565,6 +620,16 @@ data:extend({
         recipe = "ei-lead-chunk-purifier",
         change = 0.1
 		},
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-pure-crushed-neodym",
+        change = 0.1
+		},
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-crushed-pure-uranium",
+        change = 0.1
+		},
     },
     prerequisites = {"ei-productivity-ore-purification-quantum","ei-exotic-age"},
     unit =
@@ -603,6 +668,16 @@ data:extend({
 	  {
 		type = "change-recipe-productivity",
         recipe = "ei-lead-chunk-purifier",
+        change = 0.1
+		},
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-pure-crushed-neodym",
+        change = 0.1
+		},
+	  {
+		type = "change-recipe-productivity",
+        recipe = "ei-crushed-pure-uranium",
         change = 0.1
 		},
     },

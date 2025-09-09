@@ -85,7 +85,7 @@ data:extend({
         energy_source = {
             type = "burner",
             fuel_categories = {"chemical"},
-            effectivity = 0.85,
+            effectivity = 1.25,
             fuel_inventory_size = 1,
             burnt_inventory_size = 1,
             smoke = {
@@ -95,7 +95,7 @@ data:extend({
                     position = {0,-1.3},
                 },
             },
-            emissions_per_minute = {pollution = 15 },
+            emissions_per_minute = {pollution = 30 },
         },
         heat_buffer = {
             max_temperature = 275,

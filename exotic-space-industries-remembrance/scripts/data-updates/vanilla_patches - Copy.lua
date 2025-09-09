@@ -46,46 +46,7 @@ end
 --ei_lib.raw["resource"]["copper-ore"].minable.result = "ei-poor-copper-chunk"
 
 
---Fulgora ruins, scrap recycling, previously below, can now be handled with merge_item
------------------------------------------------------------------------------------------------------
---[[
-replaced = {
-    ["iron-gear-wheel"] = "ei-iron-mechanical-parts",
-    ["iron-stick"] = "ei-iron-beam"
-}
 
-for ruin_name, ruin in pairs(data.raw["simple-entity"]) do
-  if ruin.minable and ruin.minable.results then
-    for i, result in ipairs(ruin.minable.results) do
-      if result.type == "item" then
-        local replacement = replaced[result.name]
-        if replacement then
-          log("ei: Replacing '"..result.name.."' with '"..replacement.."' in ruin: " .. ruin_name)
-          result.name = replacement
-        end
-      end
-    end
-  end
-end
-
-for i, result in ipairs(ei_lib.raw.recipe["scrap-recycling"].results) do
-    if result.type == "item" then
-        local replacement = replaced[result.name]
-        if replacement then
-            log("ei: Replacing '"..result.name.."' with '"..replacement.."' in scrap: ")
-            result.name = replacement
-        end
-    end
-end
-]]
---[[
-table.insert(data.raw['simple-entity']['fulgurite'].minable.results, {
-  amount_max = 1,
-  amount_min = 0,
-  name = "ei-alien-seed",
-  type = "item"
-})
-]]
 
 ------------------------------------------------------------------------------------------------------
 
@@ -391,14 +352,6 @@ local new_ingredients_table = {
         {type="item",name="ei-iron-beam", amount=3},
         {type="item",name="ei-iron-mechanical-parts", amount=5},
     },
-    ["big-mining-drill"] = {
-        {type="item",name="electric-mining-drill", amount=4},
-        {type="item",name="ei-advanced-motor", amount=10},
-        {type="item",name="ei-electronic-parts", amount=10},
-        {type="item",name="tungsten-carbide", amount=35},
-        {type="fluid",name="ei-molten-steel", amount=250},
-        {type="item",name="ei-carbon", amount=50},
-    },
     ["storage-tank"] = {
         {type="item",name="steel-plate", amount=8},
         {type="item",name="ei-iron-beam", amount=4},
@@ -703,52 +656,7 @@ end
 if sp then
     sp.hidden = true
 end
---alternative explosives recipes
-local explosives = ei_lib.raw.recipe["explosives"]
-if explosives then
-    --alt 1
-    local explosives_2 = table.deepcopy(explosives)
-    explosives_2.ingredients = {
-        {type="item",name="ei-crushed-coke", amount=6},
-        {type="item",name="ei-crushed-sulfur", amount=6},
-        {type="fluid",name="light-oil", amount=20},
-    }
-    explosives_2.results = {
-        {type="item",name="explosives", amount=6},
-    }
-    explosives_2.name = "ei-explosives-light-crushed"
-    explosives_2.energy_required =  explosives_2.energy_required * 4
-    explosives_2.icons = {
-        { icon = data.raw.item["ei-crushed-coke"].icon,            scale = 0.18, shift = { 4, 4 } },
-        { icon = data.raw.item["ei-crushed-sulfur"].icon, scale = 0.18, shift = { -4, 4 } },
-        { icon = data.raw.fluid["light-oil"].icon,            scale = 0.18, shift = { -4, -4 } },
-        { icon = data.raw.item["explosives"].icon, scale = 0.2, shift = { 4, -4 } },
-    }
-    --alt 2
-    local explosives_3 = table.deepcopy(explosives)
-    explosives_3.ingredients = {
-        {type="fluid",name="ei-nitric-acid", amount=275},
-        {type="fluid",name="sulfuric-acid", amount=250},
-        {type="item",name="solid-fuel", amount=5},
-    }
-    explosives_3.results = {
-        {type="item",name="explosives", amount=30},
-    }
-    explosives_3.name = "ei-explosives-solid-sulfuric-nitric"
-    explosives_3.energy_required =  explosives_3.energy_required * 12
-    explosives_3.icons = {
-        { icon = data.raw.fluid["ei-nitric-acid"].icon,            scale = 0.18, shift = { 4, 4 } },
-        { icon = data.raw.fluid["sulfuric-acid"].icon, scale = 0.18, shift = { -4, 4 } },
-        { icon = data.raw.item["solid-fuel"].icon,            scale = 0.18, shift = { -4, -4 } },
-        { icon = data.raw.item["explosives"].icon, scale = 0.2, shift = { 4, -4 } },
-    }
-    data:extend({
-        explosives_2,
-        explosives_3
-    })
-    ei_lib.add_unlock_recipe("explosives","ei-explosives-light-crushed")
-    ei_lib.add_unlock_recipe("ei-nitric-acid","ei-explosives-solid-sulfuric-nitric")
-end
+
 -- treat cracking
 ei_lib.raw["recipe"]["basic-oil-processing"] = {
     force_replace = true,
@@ -841,10 +749,6 @@ ei_lib.raw["recipe"]["electric-engine-unit"].energy_required = 6
 ------------------------------------------------------------------------------------------------------
 ---
 ---
---match with recipe changes
-ei_lib.add_prerequisite("big-mining-drill","ei-advanced-motor")
-ei_lib.add_prerequisite("big-mining-drill","ei-electronic-parts")
-ei_lib.add_prerequisite("big-mining-drill","ei-carbon-manipulation")
 
 ei_lib.raw.technology["radar"].age = "electricity-age"
 local removerecipes = {
@@ -914,28 +818,30 @@ new_prerequisites_table["steam-age"] = {
     {"electronics", "ei-glass"},
     {"flamethrower","flammables"},
     {"concrete","advanced-material-processing"},
-    {"automobilism","engine"}
+    {"automobilism","engine"},
+    {"lubricant","ei-destill-tower"},
+    {"sulfur-processing","ei-steam-oil-processing"}
 }
 
 new_prerequisites_table["electricity-age"] = {
+
     {"automation", "ei-electricity-power"},
-    {"automation", "advanced-circuit"},
     {"fast-inserter", "automation"},
     {"fast-inserter", "ei-grower"},
+    {"automation", "ei-electricity-power"},
     {"circuit-network", "ei-electricity-power"},
+    {"advanced-oil-processing", "ei-electricity-power"},
+    {"advanced-material-processing-2", "ei-electricity-power"},
+    {"oil-gathering", "ei-electricity-power"},
     {"lamp", "ei-electricity-power"},
+    {"radar", "ei-electricity-power"},
     {"robotics", "ei-electronic-parts"},
-    {"lubricant", "ei-destill-tower"},
-    {"sulfur-processing", "ei-destill-tower"},
     {"coal-liquefaction", "ei-benzol"},
-    {"advanced-oil-processing", "ei-destill-tower"},
     {"laser", "ei-grower"},
     {"power-armor", "ei-grower"},
     {"solar-energy", "ei-waver-factory"},
-    {"advanced-material-processing-2", "ei-electricity-power"},
     {"solar-panel-equipment", "solar-energy"},
     {"solar-panel-equipment", "advanced-circuit"},
-    {"radar", "ei-electricity-power"},
     {"tank","advanced-circuit"},
     {"tank","plastics"},
     {"tank","explosives"},
@@ -1083,6 +989,12 @@ ei_lib.raw.technology.electronics.effects = {
         recipe = "ei-ceramic-steam-assembler"
     },
 }
+--move cannon shells from tank to explosives
+ei_lib.remove_unlock_recipe("tank","cannon-shell")
+ei_lib.remove_unlock_recipe("tank","explosive-cannon-shell")
+ei_lib.add_unlock_recipe("explosives","cannon-shell")
+ei_lib.add_unlock_recipe("explosives","explosive-cannon-shell")
+
 --rename to Electric chemical plant
 ei_lib.raw.technology["oil-processing"] = {
     localised_name = {"technology-name.ei-oil-processing"},
@@ -1105,8 +1017,7 @@ ei_lib.raw.recipe["basic-oil-processing"] = {
     localised_name = {"recipe-name.ei-basic-oil-processing"},
 }
 
--- edit electric enigne tech to use only steam age science for progression
---ei_lib.set_age_packs("electric-engine","steam-age")
+
 
 -- make inserter-capaity-bonus-1 buff normal inserters
 
@@ -1233,7 +1144,7 @@ if a3 then
     a3.energy_usage = "1164kW" --def 388
     a3.energy_source.emissions_per_minute.pollution = 4 --def 2
 end
-
+        
 -- set fluid burn values for crude, light, heavy - oil and petrol
 ei_lib.raw["fluid"]["crude-oil"] = {
     fuel_value = "50kJ",
@@ -1399,7 +1310,7 @@ ei_lib.raw.accumulator.accumulator = {
 ei_lib.raw["item"]["nuclear-reactor"].subgroup = "ei-nuclear-buildings"
 ei_lib.raw["item"]["nuclear-reactor"].order = "b-a"
 
-ei_lib.raw["mining-drill"]["big-mining-drill"].energy_usage = "2MW"
+
 --adjust furnaces energy usage
 local stf = ei_lib.raw["furnace"]["stone-furnace"] or ei_lib.raw["assembling-machine"]["stone-furnace"]
 if sf then
@@ -1444,7 +1355,7 @@ for _, spider in pairs(data.raw["spider-vehicle"]) do
         spider.energy_source =
     {
             type = "burner",
-            fuel_categories = {"chemical", "ei-rocket-fuel","ei-nuclear-fuel", "ei-fusion-fuel"},
+            fuel_categories = {"chemical", "ei-rocket-fuel","ei-nuclear-fuel", "ei-fusion-fuel","ei-diesel-fuel"},
             effectivity = 1,
             fuel_inventory_size = 3,
             burnt_inventory_size = 3,
@@ -1825,6 +1736,7 @@ ei_lib.patch_nested_value(
 --Modify laser turrets for extended range and lowered damage
 ei_lib.raw["electric-turret"]["laser-turret"] = {
     attack_parameters = {
+        prepare_range = 32,
         range = 30,
         damage_modifier = 1.2,
     }
@@ -1845,7 +1757,7 @@ ei_lib.raw["fluid-turret"]["flamethrower-turret"] = {
             {type = "ei-heavy-destilate", damage_modifier = 0.4, damage_override_animation_modifier = 0.4},
             {type = "ei-medium-destilate", damage_modifier = 0.5, damage_override_animation_modifier = 0.5},
             {type = "ei-residual-oil", damage_modifier = 0.65, damage_override_animation_modifier = 0.65},
-            {type = "crude-oil"},
+            {type = "crude-oil", damage_modifier = 1.0, damage_override_animation_modifier = 1.0},
             {type = "heavy-oil", damage_modifier = 1.15, damage_override_animation_modifier = 1.15},
             {type = "light-oil", damage_modifier = 1.25, damage_override_animation_modifier = 1.25},
             {type = "petroleum-gas", damage_modifier = 1.35, damage_override_animation_modifier = 1.35},
@@ -1882,109 +1794,7 @@ ei_lib.raw["item"]["oil-refinery"].localised_description = {"item-description.ei
 data.raw["resource"]["iron-ore"].localised_name = {"item-name.ei-poor-iron-chunk"}
 data.raw["resource"]["copper-ore"].localised_name = {"item-name.ei-poor-copper-chunk"}
 
--- foundry
-local foundry = ei_lib.raw["assembling-machine"].foundry
-if foundry then
-    foundry.crafting_speed = 1.5
-    foundry.energy_usage = "58MW"
-    foundry.module_slots = 2
-    foundry.energy_source.emissions_per_minute.pollution=18
-    table.insert(foundry.crafting_categories,"ei-casting")
-end
 
-ei_lib.recipe_swap("casting-low-density-structure","molten-iron","ei-molten-steel",50)
-
-ei_lib.raw.recipe["casting-steel"].ingredients = {
-    {type="fluid",name="ei-molten-steel",amount=20}
-}
-ei_lib.raw.recipe["casting-steel"].results = {
-    {type="item",name="steel-plate",amount=2}
-}
-ei_lib.raw.recipe["casting-iron-gear-wheel"].results = {
-    {type="item",name="ei-iron-mechanical-parts",amount=1}
-}
-ei_lib.raw.recipe["casting-iron-stick"].results = {
-    {type="item",name="ei-iron-beam",amount=1}
-}
-ei_lib.raw.recipe["molten-copper"].results[2] = {
-    type="item",name="ei-slag",amount_min=8,amount_max=12,probability=0.33,allow_productivity=false
-}
-ei_lib.raw.recipe["molten-iron"].results[2] = {
-    type="item",name="ei-slag",amount_min=8,amount_max=12,probability=0.33,allow_productivity=false
-}
-ei_lib.raw.recipe["molten-copper-from-lava"].results[2] = {
-    type="item",name="ei-slag",amount_min=8,amount_max=12,allow_productivity=false
-}
-ei_lib.raw.recipe["molten-iron-from-lava"].results[2] = {
-    type="item",name="ei-slag",amount_min=8,amount_max=12,allow_productivity=false
-}
-
-ei_lib.merge_fluid("ei-molten-iron", "molten-iron", false)
-ei_lib.merge_fluid("ei-molten-copper", "molten-copper", false)
---allow caster to produce space-age plates
-local addToCaster = {
-    "holmium-plate",
-    "tungsten-plate"
-}
-for _,toCast in pairs(addToCaster) do
-    local recipe = ei_lib.raw.recipe[toCast]
-    if recipe then
-        if recipe.additional_categories then
-            table.insert(recipe.additional_categories,"ei-casting") 
-        else
-            recipe.additional_categories = {"ei-casting"}
-        end
-    end
-end
---acid neutralisation
-local a_n = ei_lib.raw.recipe["acid-neutralisation"]
-if a_n then
-    --acid neutralisation t2
-    local a_n_t2 = table.deepcopy(a_n)
-    a_n_t2.name = "ei-acid-neutralisation-t2"
-    a_n_t2.ingredients = {
-        {type= "item", name= "calcite", amount=15},
-        {type= "fluid", name= "sulfuric-acid", amount=750},
-        {type= "fluid", name= "ei-nitric-acid", amount=250},
-    }
-    a_n_t2.results = {
-        {type= "fluid", name= "steam", amount_min= 9000, amount_max=12500, temperature=500},
-        {type = "fluid", name= "ei-acidic-water", amount_min=25,amount_max=125}
-    }
-    data:extend({
-        a_n_t2,
-    {
-        name = "ei-acid-neutralisation-t2",
-        type = "technology",
-        icon = ei_path.."graphics/fluid/acid-neutralisation-t2.png",
-        icon_size = 64,
-        prerequisites = {"ei-nitric-acid","metallurgic-science-pack"},
-        effects = {
-            {
-                type = "unlock-recipe",
-                recipe = "ei-acid-neutralisation-t2"
-            }
-        },
-        unit = {
-            count = 100,
-            ingredients = ei_data.science["computer-age"],
-            time = 20
-        },
-        age = "computer-age",
-    },
-        })
-    local a_n_t2_tech = ei_lib.raw.technology["ei-acid-neutralisation-t2"]
-    table.insert(a_n_t2_tech.unit.ingredients,{"metallurgic-science-pack",1})
-    a_n.ingredients = {
-        {type= "item", name= "calcite", amount=15},
-        {type= "fluid", name= "sulfuric-acid", amount=1000},
-    }
-    --modify acid neutralization
-    a_n.results = {
-        {type= "fluid", name= "steam", amount_min= 7500, amount_max=9500, temperature= 280},
-        {type = "fluid", name= "ei-acidic-water", amount_min=50,amount_max=250}
-    }
-end
 --allow space crusher to do ground based crusher recipes
 local space_crusher = ei_lib.raw["assembling-machine"]["crusher"]
 if space_crusher and space_crusher.crafting_categories then
@@ -2036,22 +1846,15 @@ table.insert(two_three_three.ingredients,{type="item",name="ei-uranium-233-fuel"
 local two_three_two = table.deepcopy(ssp)
 two_three_two.name = "ei-space-science-pack-232"
 table.insert(two_three_two.ingredients,{type="item",name="ei-thorium-232-fuel",amount=4})
---test fuel
-local test_fuel = table.deepcopy(ssp)
-test_fuel.name = "ei-space-science-pack-testfuel"
-test_fuel.results[1].amount = 1
-table.insert(test_fuel.ingredients,{type="item",name="ei-uranium-test-fuel",amount=16})
 
 data:extend({
     two_three_nine,
     two_three_three,
-    two_three_two,
-    test_fuel
+    two_three_two
 })
 ei_lib.add_unlock_recipe("space-science-pack","ei-space-science-pack-239")
 ei_lib.add_unlock_recipe("space-science-pack","ei-space-science-pack-233")
 ei_lib.add_unlock_recipe("space-science-pack","ei-space-science-pack-232")
-ei_lib.add_unlock_recipe("space-science-pack","ei-space-science-pack-testfuel")
 
 --double centrifuge fluidboxes
 local cent = ei_lib.raw["assembling-machine"].centrifuge
@@ -2068,38 +1871,37 @@ if cent then
     end
 end
 
-local cryo = ei_lib.raw["assembling-machine"]["cryogenic-plant"]
-if cryo then
-    cryo.energy_usage = "31MW"
-    cryo.energy_source.emissions_per_minute.pollution = 18 --def 6
-    cryo.crafting_speed = 1.5
-    cryo.module_slots = 4
-    table.insert(cryo.crafting_categories,"ei-cooler")
-end
-local electro = ei_lib.raw["assembling-machine"]["electromagnetic-plant"]
-if electro then
-    electro.energy_usage = "41.4MW"
-    electro.energy_source.emissions_per_minute.pollution = 12 --def 4
-    electro.crafting_speed = 1.5
-    electro.module_slots = 3
-    table.insert(electro.crafting_categories,"ei-waver-factory")
-end
---====================================================================================================
---Gleba
---====================================================================================================
---Add nutrients to science pack
-local ag_sci_pack = ei_lib.raw.recipe["agricultural-science-pack"]
-if ag_sci_pack then
-	table.insert(ag_sci_pack.ingredients,{type = "item", name = "nutrients", amount = 40})
-end
 
+
+
+local aquilo = require("vanilla-patches/aquilo")
+local fulgora = require("vanilla-patches/fulgora")
+local gleba = require("vanilla-patches/gleba")
+local vulcanus = require("vanilla-patches/vulcanus")
+local planets = {
+    aquilo,
+    fulgora,
+    gleba,
+    vulcanus
+}
 --====================================================================================================
 --FUNCTION STUFF
 --====================================================================================================
-
--- loop over new_ingredients_table and set new ingredients for indexed recipes
-for i,v in pairs(new_ingredients_table) do
-    ei_lib.recipe_new(i, v)
+-- loop over new_table and set new ingredients for indexed recipes
+local function replace_ingredients(new_table)
+    if new_table then
+        for i,v in pairs(new_table) do
+            ei_lib.recipe_new(i, v)
+        end
+    end
+end
+--run main recipe replacer
+replace_ingredients(new_ingredients_table)
+--run planet recipe replacers
+for _,planet in pairs(planets) do
+    if planet and planet.new_ingredients_table then
+        replace_ingredients( planet.new_ingredients_table)
+    end
 end
 -- loop over new_prerequisites_table and add new prerequisites for indexed technologies
 -- if so remove the age tech as prerequisiter
@@ -2116,52 +1918,4 @@ end
 
 for i,v in ipairs(prereqs_to_remove) do
     ei_lib.remove_prerequisite(v[1], v[2])
-end
-
---====================================================================================================
---Recycling
---====================================================================================================
---Swap superior data for simulation else nobody will ever do the space crafting chain
-local recycler = ei_lib.raw.furnace.recycler
-if recycler then
-    recycler.result_inventory_size = 24
-    ei_lib.raw.recipe["processing-unit-recycling"].results = {
-        {type="item",name="ei-electronic-parts", amount_min=0,amount_max=1,probability=0.21},
-        {type="item",name="ei-advanced-semiconductor", amount_min=0,amount=1,probability=0.06},
-        {type="item",name="ei-simulation-data", amount_min=0,amount=1,probability=0.01},
-        {type="item",name="ei-crushed-gold", amount_min=0,amount_max=1,probability=0.16},
-    }
-    ei_lib.raw.recipe["ei-energy-crystal-recycling"].results = {
-        {type="item",name="ei-sand", amount_min=0,amount_max=1,probability=0.18},
-        {type="item",name="ei-crushed-sulfur", amount_min=0,amount=1,probability=0.11},
-    }
-    ei_lib.raw.recipe["ei-coke-recycling"].results = {
-        {type="item",name="coal", amount_min=0,amount_max=1,probability=0.17},
-    }
-    ei_lib.raw.recipe["scrap-recycling"].results = {
-        {type="item",name="ei-iron-mechanical-parts", amount_min=0,amount_max=1,probability=0.07},
-        {type="item",name="ei-copper-mechanical-parts", amount_min=0,amount_max=1,probability=0.07},
-        {type="item",name="ei-steel-mechanical-parts", amount_min=0,amount_max=1,probability=0.07},
-        {type="item",name="ei-iron-beam", amount_min=0,amount_max=1,probability=0.04},
-        {type="item",name="ei-copper-beam", amount_min=0,amount_max=1,probability=0.03},
-        {type="item",name="ei-steel-beam", amount_min=0,amount_max=1,probability=0.02},
-        {type="item",name="steel-plate", amount_min=0,amount_max=1,probability=0.02},
-        {type="item",name="iron-plate", amount_min=0,amount_max=1,probability=0.025},
-        {type="item",name="concrete", amount_min=0,amount_max=1,probability=0.05},
-        {type="item",name="ice", amount_min=0,amount_max=1,probability=0.06},
-        {type="item",name="battery", amount_min=0,amount_max=1,probability=0.04},
-        {type="item",name="stone", amount_min=0,amount_max=1,probability=0.025},
-        {type="item",name="ei-slag", amount_min=0,amount_max=1,probability=0.02},
-        {type="item",name="electronic-circuit", amount_min=0,amount_max=1,probability=0.04},
-        {type="item",name="advanced-circuit", amount_min=0,amount_max=1,probability=0.03},
-        {type="item",name="ei-electronic-parts", amount_min=0,amount_max=1,probability=0.03},
-        {type="item",name="copper-cable", amount_min=0,amount_max=1,probability=0.02},
-        {type="item",name="ei-electron-tube", amount_min=0,amount_max=1,probability=0.02},
-        {type="item",name="ei-insulated-wire", amount_min=0,amount_max=1,probability=0.02},
-        {type="item",name="low-density-structure", amount_min=0,amount_max=1,probability=0.01},
-        {type="item",name="holmium-ore", amount_min=0,amount_max=1,probability=0.01},
-        {type="item",name="rp-steam-soul", amount_min=0,amount_max=1,probability=0.005},
-        {type="item",name="rp-steam-calculator", amount_min=0,amount_max=1,probability=0.005},
-        {type="item",name="ei-module-part", amount_min=0,amount_max=1,probability=0.02}
-    }
 end

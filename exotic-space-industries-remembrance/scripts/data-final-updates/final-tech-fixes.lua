@@ -159,7 +159,8 @@ local science_packs = ei_data.science
 local tech_swap_dict = ei_data.tech_swap_dict
 local exclude = {
     ["electric-engine"] = true,
-    ["ei-electricity-power"] = true
+    ["ei-electricity-power"] = true,
+    ["ei-computer-age-tech"] = true,
 }
 
 -- also get all techs wich have space science pack as prereuisite
@@ -278,10 +279,13 @@ for i,v in pairs(data.raw.technology) do
                 if not found then
                     data.raw.technology[i].unit.ingredients[x][1] = ei_data.science_dict[y[1]]
                 else
-                  -- if not is_exoplanetary_science(x) then 
-                    -- if ei_science pack is in tech, remove vanilla science pack
-                    -- table.remove(data.raw.technology[i].unit.ingredients, x)
-                  -- end
+                    --[[
+                   if not is_exoplanetary_science(x) then 
+                        --if ei_science pack is in tech, remove vanilla science pack
+                            table.remove(data.raw.technology[i].unit.ingredients, x)
+                        --end
+                    end
+                    ]]
                 end 
             end
         end
@@ -495,12 +499,12 @@ for i,v in pairs(data.raw.technology) do
         table.remove(data.raw.technology[i].unit.ingredients, x)
       end
     end
-
-    for x,y in ipairs(data.raw.technology[i].unit.ingredients) do
-      if ei_data.science_dict_obsolete[y[1]] then
-        table.remove(data.raw.technology[i].unit.ingredients, x)
-      end
-    end
+--why is this here twice?
+--    for x,y in ipairs(data.raw.technology[i].unit.ingredients) do
+--      if ei_data.science_dict_obsolete[y[1]] then
+--        table.remove(data.raw.technology[i].unit.ingredients, x)
+--      end
+--    end
 
     -- error(serpent.block(data.raw.technology[i].unit.ingredients))
   end

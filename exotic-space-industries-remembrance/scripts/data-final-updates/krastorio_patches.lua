@@ -1,9 +1,9 @@
 --====================================================================================================
 -- -- CHECK FOR MOD
--- ABSOLUTELY UNTESTED. BARE MINIMUM UPDATES HAVE BEEN DONE HERE BESIDES MINOR DATA STAGE FIXES. THIS IS IMPORTED DIRECT FROM EI 0.6.9
 --====================================================================================================
-
-if not mods["krastorio2-spaced-out"] then
+--at this point an import from the "messy 2.0" EI port has been done and most variables renamed to point in the right direction
+--however there are still tech loops and 0 testing has been done, so will continue to skip loading until someone that cares/plays k2 looks through it
+if not mods["Krastorio2-spaced-out"] then
     return
 end
 local ei_lib = require("lib.lib")
@@ -27,21 +27,18 @@ for entity,size in pairs(containers) do
         target.inventory_size = size
     end
 end
-
-goto skip_rest
-
-local k2path = "__krastorio2-spaced-out__/"
+goto do_not_load
 -- changes to K2 mod
 
-
+local ei_lib = require("lib.lib")
 local ei_data = require("lib.data")
-local matter = require(k2path.."lib.public.data-stages.matter-util")
-local variations_util = require(k2path.."lib.public.data-stages.create-roboport-states")
+local matter = require("__Krastorio2-spaced-out__.prototypes.libraries.matter")
+-- local variations_util = require("-Krastorio2-.prototypes.updates.generate-roboport-variations")
 local _td = table.deepcopy
 
 --CONSTANTS
 ------------------------------------------------------------------------------------------------------
-local ei_medium_container, ei_big_container = 200, 1000
+local ei_medium_container, ei_big_container = 32, 64
 local ei_neo_speed = data.raw["transport-belt"]["transport-belt"].speed * 8
 
 local function convertTypePrototype(name, old_type, new_type)
@@ -60,151 +57,186 @@ end
 --ROBOPORT
 ------------------------------------------------------------------------------------------------------
 
-variations_util.createRoboportVariations("ei-advanced-port")
+-- if mods["exotic-industries-robots"] then
 
+-- variations_util.createRoboportVariations("ei-advanced-port")
+
+-- end
 
 --MATTER
 ------------------------------------------------------------------------------------------------------
 local K2_MATTER =  {
-    -- TODO- dirty-water / ei_dirty-water
+    -- TODO: dirty-water / ei_dirty-water
     {
-        item_name = "ei-uranium-chunk",
-        minimum_conversion_quantity = 10,
-        matter_value = 10,
+        material = {
+            name = "ei-uranium-chunk",
+            type = "item",
+            amount = 10,
+        },
+        matter_count = 10,
         energy_required = 1,
-        unlocked_by_technology = "kr-matter-uranium-processing",
-    },
-    {
-        item_name = "ei-sulfur-chunk",
-        minimum_conversion_quantity = 10,
-        matter_value = 10,
+        allow_productivity = true,
+        unlocked_by = "kr-matter-uranium-processing",
+    },{
+        material = {
+            name = "ei-sulfur-chunk",
+            type = "item",
+            amount = 10,
+        },
+        matter_count = 10,
         energy_required = 1,
-        unlocked_by_technology = "kr-matter-sulfur-processing",
-    },
-    {
-        item_name = "ei-iron-chunk",
-        minimum_conversion_quantity = 10,
-        matter_value = 10,
+        allow_productivity = true,
+        unlocked_by = "kr-matter-sulfur-processing",
+    },{
+        material = {
+            name = "ei-iron-chunk",
+            type = "item",
+            amount = 10,
+        },
+        matter_count = 10,
         energy_required = 1,
-        unlocked_by_technology = "kr-matter-iron-processing",
-    },
-    {
-        item_name = "ei-copper-chunk",
-        minimum_conversion_quantity = 10,
-        matter_value = 10,
+        allow_productivity = true,
+        unlocked_by = "kr-matter-iron-processing",
+    },{
+        material = {
+            name = "ei-neodym-chunk",
+            type = "item",
+            amount = 10,
+        },
+        matter_count = 10,
         energy_required = 1,
-        unlocked_by_technology = "kr-matter-copper-processing",
-    },
-    {
-        item_name = "ei-poor-iron-chunk",
-        minimum_conversion_quantity = 5,
-        matter_value = 5,
+        allow_productivity = true,
+        unlocked_by = "kr-matter-neodym-processing",
+    },{
+        material = {
+            name = "ei-lead-chunk",
+            type = "item",
+            amount = 10,
+        },
+        matter_count = 10,
         energy_required = 1,
-        unlocked_by_technology = "kr-matter-iron-processing",
-    },
-    {
-        item_name = "ei-poor-copper-chunk",
-        minimum_conversion_quantity = 5,
-        matter_value = 5,
+        allow_productivity = true,
+        unlocked_by = "kr-matter-lead-processing",
+    },{
+        material = {
+            name = "ei-gold-chunk",
+            type = "item",
+            amount = 10,
+        },
+        matter_count = 10,
         energy_required = 1,
-        unlocked_by_technology = "kr-matter-copper-processing",
-    },
-    {
-        item_name = "ei-iron-chunk",
-        minimum_conversion_quantity = 10,
-        matter_value = 10,
+        allow_productivity = true,
+        unlocked_by = "kr-matter-gold-processing",
+    },{
+        material = {
+            name = "ei-copper-chunk",
+            type = "item",
+            amount = 10,
+        },
+        matter_count = 10,
         energy_required = 1,
-        unlocked_by_technology = "kr-matter-iron-processing",
-    },
-    {
-        item_name = "ei-copper-chunk",
-        minimum_conversion_quantity = 10,
-        matter_value = 10,
+        allow_productivity = true,
+        unlocked_by = "kr-matter-copper-processing",
+    },{
+        material = {
+            name = "ei-coal-chunk",
+            type = "item",
+            amount = 10,
+        },
+        matter_count = 10,
         energy_required = 1,
-        unlocked_by_technology = "kr-matter-copper-processing",
-    },
-    {
-        item_name = "ei-coal-chunk",
-        minimum_conversion_quantity = 10,
-        matter_value = 10,
+        allow_productivity = true,
+        unlocked_by = "kr-matter-coal-processing",
+    },{
+        material = {
+            name = "ei-coal-gas",
+            type = "fluid",
+            amount = 100,
+        },
+        matter_count = 4,
         energy_required = 1,
-        unlocked_by_technology = "kr-matter-coal-processing",
-    },
-    {
-        item_name = "ei-coal-gas",
-        minimum_conversion_quantity = 100,
-        matter_value = 4,
+        allow_productivity = true,
+        unlocked_by = "kr-matter-coal-gas-processing",
+    },{
+        material = {
+            name = "ei-ammonia-gas",
+            type = "fluid",
+            amount = 100,
+        },
+        matter_count = 10,
         energy_required = 1,
-        unlocked_by_technology = "kr-matter-coal-gas-processing",
-    },
-    {
-        item_name = "ei-ammonia-gas",
-        minimum_conversion_quantity = 100,
-        matter_value = 10,
+        allow_productivity = true,
+        unlocked_by = "kr-matter-ammonia-gas-processing",
+    },{
+        material = {
+            name = "ei-phythogas",
+            type = "fluid",
+            amount = 100,
+        },
+        matter_count = 20,
         energy_required = 1,
-        unlocked_by_technology = "kr-matter-ammonia-gas-processing",
-    },
-    {
-        item_name = "ei-pythogas",
-        minimum_conversion_quantity = 100,
-        matter_value = 20,
+        allow_productivity = true,
+        unlocked_by = "kr-matter-pythogas-processing",
+    },{
+        material = {
+            name = "ei-cryoflux",
+            type = "fluid",
+            amount = 100,
+        },
+        matter_count = 20,
         energy_required = 1,
-        unlocked_by_technology = "kr-matter-pythogas-processing",
-    },
-    {
-        item_name = "ei-cryoflux",
-        minimum_conversion_quantity = 100,
-        matter_value = 20,
+        allow_productivity = true,
+        unlocked_by = "kr-matter-cryoflux-processing",
+    },{
+        material = {
+            name = "ei-poor-iron-chunk",
+            type = "item",
+            amount = 5,
+        },
+        matter_count = 5,
         energy_required = 1,
-        unlocked_by_technology = "kr-matter-cryoflux-processing",
-    },
-    {
-        item_name = "ei-neodym-chunk",
-        minimum_conversion_quantity = 10,
-        matter_value = 10,
+        allow_productivity = true,
+        unlocked_by = "kr-matter-iron-processing",
+    },{
+        material = {
+            name = "ei-poor-copper-chunk",
+            type = "item",
+            amount = 5,
+        },
+        matter_count = 5,
         energy_required = 1,
-        unlocked_by_technology = "kr-matter-neodym-processing",
-    },
-    {
-        item_name = "ei-lead-chunk",
-        minimum_conversion_quantity = 10,
-        matter_value = 10,
-        energy_required = 1,
-        unlocked_by_technology = "kr-matter-lead-processing",
-    },
-    {
-        item_name = "ei-gold-chunk",
-        minimum_conversion_quantity = 10,
-        matter_value = 10,
-        energy_required = 1,
-        unlocked_by_technology = "kr-matter-gold-processing",
-    },
-    {
-        item_name = "ei-bio-matter",
-        minimum_conversion_quantity = 1,
-        matter_value = 80,
+        allow_productivity = true,
+        unlocked_by = "kr-matter-copper-processing",
+    },{
+        material = {
+            name = "ei-bio-matter",
+            type = "item",
+            amount = 1,
+        },
+        matter_count = 80,
         energy_required = 20,
-        unlocked_by_technology = "kr-matter-bio-matter-processing",
+        allow_productivity = true,
+        unlocked_by = "kr-matter-bio-matter-processing",
     },
 }
 
 for _, matter_args in pairs(K2_MATTER) do
-    if not data.raw.technology[matter_args.unlocked_by_technology] then
-        local item = data.raw.item[matter_args.item_name] or data.raw.fluid[matter_args.item_name]
+    if not data.raw.technology[matter_args.unlocked_by] then
+        local item = data.raw.item[matter_args.material] or data.raw.fluid[matter_args.material]
         local tech = table.deepcopy(data.raw.technology["kr-matter-iron-processing"])
-        tech.name = matter_args.unlocked_by_technology
+        tech.name = matter_args.unlocked_by
         tech.effects = {}
         tech.icon = nil
         tech.icons = {
             {
-                icon = "__Krastorio2Assets__/technologies/backgrounds/matter.png",
+                icon = "-Krastorio2Assets-/technologies/backgrounds/matter.png",
                 icon_size = 256,
             },
         }
-        krastorio.icons.addOverlayIcons(tech, krastorio.icons.getIconsForOverlay(item), 64, 2, {0, 0})
+        -- krastorio.icons.addOverlayIcons(tech, krastorio.icons.getIconsForOverlay(item), 64, 2, {0, 0})
         data:extend({ tech })
     end
-    krastorio.matter_func.createMatterRecipe(matter_args)
+    matter.make_recipes(matter_args)
 end
 
 --CATEGORIES, GROUPS, SUBGROUPS
@@ -220,10 +252,12 @@ data:extend({
         type = "item-subgroup",
         group = "intermediate-products",
     },
+    --[[
     {
         name = "t4-tech-cards",
         type = "recipe-category",
     },
+    ]]
     {
         name = "ei-atmosphere-condensation",
         type = "recipe-category",
@@ -288,6 +322,7 @@ convertTypePrototype("ei-arc-furnace", "furnace", "assembling-machine")
 convertTypePrototype("kr-crusher", "furnace", "assembling-machine")
 
 --convertTypePrototype("basic-tech-card", "tool", "item")
+--[[
 convertTypePrototype("automation-science-pack", "tool", "item")
 convertTypePrototype("logistic-science-pack", "tool", "item")
 convertTypePrototype("military-science-pack", "tool", "item")
@@ -298,7 +333,7 @@ convertTypePrototype("space-science-pack", "tool", "item")
 convertTypePrototype("matter-tech-card", "tool", "item")
 convertTypePrototype("advanced-tech-card", "tool", "item")
 convertTypePrototype("singularity-tech-card", "tool", "item")
-
+]]
 ei_lib.add_item_level("kr-superior-filter-inserter", "filter")
 ei_lib.add_item_level("kr-superior-long-filter-inserter", "filter")
 ei_lib.add_item_level("kr-crusher", "3")
@@ -312,7 +347,7 @@ ei_lib.add_item_level("kr-advanced-furnace", "4")
 ei_lib.add_item_level("kr-advanced-chemical-plant", "4")
 ei_lib.add_item_level("ei-dark-age-lab", "1")
 ei_lib.add_item_level("lab", "2")
-ei_lib.add_item_level("biusart-lab", "3")
+ei_lib.add_item_level("kr-advanced-lab", "3")
 ei_lib.add_item_level("kr-singularity-lab", "4")
 ei_lib.add_item_level("ei-big-lab", "5")
 ei_lib.add_item_level("kr-advanced-assembling-machine", "5")
@@ -325,9 +360,9 @@ ei_lib.add_item_level("ei-lufter", "1")
 ei_lib.add_item_level("kr-atmospheric-condenser", "2")
 
 data.raw.lab["lab"].inputs = nil
-data.raw.lab["biusart-lab"].inputs = nil
+data.raw.lab["kr-advanced-lab"].inputs = nil
 data.raw.lab["kr-singularity-lab"].inputs = nil
-data.raw.resource["imersite"].autoplace = nil
+data.raw.resource["kr-imersite"].autoplace = nil
 data.raw["assembling-machine"]["kr-crusher"].crafting_categories = nil
 data.raw["assembling-machine"]["ei-arc-furnace"].source_inventory_size = nil
 data.raw["assembling-machine"]["kr-crusher"].source_inventory_size = nil
@@ -359,6 +394,7 @@ local K2_CHANGES = {
         ["kr-medium-requester-container"] = {inventory_size = ei_medium_container},
         ["kr-medium-storage-container"] = {inventory_size = ei_medium_container},
     },
+    --[[
     ["loader-1x1"] = {
         ["ei-loader"] = {filter_count = 5},
         ["ei-fast-loader"] = {filter_count = 5},
@@ -367,6 +403,7 @@ local K2_CHANGES = {
         ["ei-superior-loader"] = {filter_count = 5},
         ["ei-neo-loader"] = {filter_count = 5, speed = ei_neo_speed},
     },
+    ]]
     ["transport-belt"] = {
         ["ei-neo-belt"] = {speed = ei_neo_speed},
     },
@@ -377,7 +414,7 @@ local K2_CHANGES = {
         ["ei-neo-splitter"] = {speed = ei_neo_speed},
     },
     ["beacon"] = {
-        ["kr-singularity-beacon"] = {module_specification = {module_slots = 1}, distribution_effectivity = 0.25},
+        ["kr-singularity-beacon"] = {module_slots = 1, distribution_effectivity = 0.25},
     },
     ["burner-generator"] = {
         ["kr-antimatter-reactor"] = {max_power_output = "10GW"},
@@ -385,28 +422,30 @@ local K2_CHANGES = {
     ["assembling-machine"] = {
         ["kr-advanced-chemical-plant"] = {crafting_categories = {"ei-advanced-chem-plant", "chemistry"}, localised_name = {"item-name.kr-advanced-chemical-plant"}},
         ["kr-crusher"] = {crafting_categories = {"ei-crushing"}, crafting_speed = 12, localised_name = {"item-name.kr-crusher"}},
-        ["kr-filtration-plant"] = {crafting_categories = {"ei-purifier", "fluid-filtration"}, crafting_speed = 3, module_specification = { module_slots = 6 }},
+        ["kr-filtration-plant"] = {crafting_categories = {"ei-purifier", "kr-fluid-filtration"}, crafting_speed = 3, module_slots = 6},
         ["kr-quantum-computer"] = {crafting_speed = 2},
-        ["kr-advanced-assembling-machine"] = {crafting_speed = 8, crafting_categories = {"crafting", "basic-crafting", "advanced-crafting", "crafting-with-fluid"}, module_specification = {module_slots = 6}, energy_usage = "10MW",},
-        ["ei-quantum-computer"] = {crafting_categories = {"ei-quantum-computer", "t4-tech-cards", "t3-tech-cards", "t2-tech-cards"}, crafting_speed = 10, localised_name = {"item-name.kr-ai-core"}}, -- from 1x
+        ["kr-advanced-assembling-machine"] = {crafting_speed = 8, crafting_categories = {"crafting", "basic-crafting", "advanced-crafting", "crafting-with-fluid"}, module_slots = 6, energy_usage = "10MW",},
+        ["ei-quantum-computer"] = {crafting_categories = {"ei-quantum-computer", "kr-tech-cards"}, crafting_speed = 10, localised_name = {"item-name.kr-ai-core"}}, -- from 1x
         ["kr-atmospheric-condenser"] = {crafting_categories = {"ei-atmosphere-condensation", "ei-lufter"}, crafting_speed = 4},
     },
     ["lab"] = {
-        ["kr-crash-site-lab-repaired"] = {inputs = {"ei-dark-age-tech"}},
+        ["kr-spaceship-research-computer"] = {inputs = {"ei-dark-age-tech"}},
         ["lab"] = {inputs = {"ei-dark-age-tech", "ei-steam-age-tech", "ei-electricity-age-tech"}},
-        ["biusart-lab"] = {inputs = {"ei-dark-age-tech", "ei-steam-age-tech", "ei-electricity-age-tech", "ei-computer-age-tech"}, researching_speed = 2},
-        ["kr-singularity-lab"] = {inputs = {"ei-dark-age-tech", "ei-steam-age-tech", "ei-electricity-age-tech", "ei-computer-age-tech", "ei-advanced-computer-age-tech", "ei-knowledge-computer-age-tech", "ei-quantum-age-tech"}, researching_speed = 4},
-        ["ei-big-lab"] = {inputs = {"ei-dark-age-tech", "ei-steam-age-tech", "ei-electricity-age-tech", "ei-computer-age-tech", "ei-advanced-computer-age-tech", "ei-knowledge-computer-age-tech", "ei-quantum-age-tech", "ei-space-quantum-age-tech", "ei-fusion-quantum-age-tech", "ei-matter-quantum-age-tech", "ei-imersite-quantum-age-tech", "ei-exotic-age-tech", "ei-black-hole-exotic-age-tech"}},
+        ["kr-advanced-lab"] = {inputs = {"ei-dark-age-tech", "ei-steam-age-tech", "ei-electricity-age-tech", "ei-computer-age-tech"}, researching_speed = 2},
+        ["kr-singularity-lab"] = {inputs = {"ei-dark-age-tech", "ei-steam-age-tech", "ei-electricity-age-tech", "ei-computer-age-tech", "ei-advanced-computer-age-tech", "ei-alien-computer-age-tech", "ei-quantum-age-tech"}, researching_speed = 4},
+        ["ei-big-lab"] = {inputs = {"ei-dark-age-tech", "ei-steam-age-tech", "ei-electricity-age-tech", "ei-computer-age-tech", "ei-advanced-computer-age-tech", "ei-alien-computer-age-tech", "ei-quantum-age-tech",
+        --"ei-space-quantum-age-tech", 
+        "ei-fusion-quantum-age-tech", "ei-matter-quantum-age-tech", "ei-imersite-quantum-age-tech", "ei-exotic-age-tech", "ei-black-hole-exotic-age-tech"}},
     },
     ["tool"] = {
         ["ei-dark-age-tech"] = {subgroup = "ei-science-science"},
         ["ei-steam-age-tech"] = {subgroup = "ei-science-science"},
         ["ei-electricity-age-tech"] = {subgroup = "ei-science-science"},
         ["ei-computer-age-tech"] = {subgroup = "ei-science-science"},
-        ["ei-knowledge-computer-age-tech"] = {subgroup = "ei-science-science"},
+        ["ei-alien-computer-age-tech"] = {subgroup = "ei-science-science"},
         ["ei-advanced-computer-age-tech"] = {subgroup = "ei-science-science"},
         ["ei-quantum-age-tech"] = {subgroup = "ei-science-science"},
-        ["ei-space-quantum-age-tech"] = {subgroup = "ei-science-science"},
+        --["ei-space-quantum-age-tech"] = {subgroup = "ei-science-science"},
         ["ei-fusion-quantum-age-tech"] = {subgroup = "ei-science-science"},
         --["ei-imersite-quantum-age-tech"] = {subgroup = "ei-science-science"},
         --["ei-matter-quantum-age-tech"] = {subgroup = "ei-science-science"},
@@ -462,8 +501,8 @@ local K2_CHANGES = {
         ["kr-medium-storage-container"] = {order = "d"},
         ["storage-tank"] = {order = "z-b[fluid]-a[storage-tank]"},
 
-        ["blank-tech-card"] = {subgroup = "ei-science-other"},
-        --["basic-tech-card"] = {subgroup = "ei-science-other"},
+        ["kr-blank-tech-card"] = {subgroup = "ei-science-other"},
+        --["kr-basic-tech-card"] = {subgroup = "ei-science-other"},
         ["automation-science-pack"] = {subgroup = "ei-science-kr-cards"},
         ["logistic-science-pack"] = {subgroup = "ei-science-kr-cards"},
         ["military-science-pack"] = {subgroup = "ei-science-kr-cards"},
@@ -471,9 +510,9 @@ local K2_CHANGES = {
         ["production-science-pack"] = {subgroup = "ei-science-kr-cards", order = "b07[utility-tech-card]-a"},
         ["utility-science-pack"] = {subgroup = "ei-science-kr-cards"},
         ["space-science-pack"] = {subgroup = "ei-science-kr-cards"},
-        ["matter-tech-card"] = {subgroup = "ei-science-kr-cards", order = "b07[utility-tech-card]-b"},
-        ["advanced-tech-card"] = {subgroup = "ei-science-kr-cards"},
-        ["singularity-tech-card"] = {subgroup = "ei-science-kr-cards"},
+        ["kr-matter-tech-card"] = {subgroup = "ei-science-kr-cards", order = "b07[utility-tech-card]-b"},
+        ["kr-advanced-tech-card"] = {subgroup = "ei-science-kr-cards"},
+        ["kr-singularity-tech-card"] = {subgroup = "ei-science-kr-cards"},
         ["ei-simulation-data"] = {subgroup = "ei-science-ei-cards"},
         ["ei-space-data"] = {subgroup = "ei-science-ei-cards"},
         ["ei-superior-data"] = {subgroup = "ei-science-ei-cards"},
@@ -484,16 +523,16 @@ local K2_CHANGES = {
         ["ei-gas-giant-data"] = {subgroup = "ei-science-ei-cards"},
         ["ei-black-hole-data"] = {subgroup = "ei-science-ei-cards", order = "a-d-a"},
         ["ei-fission-tech"] = {subgroup = "ei-science-ei-cards"},
-        ["biters-research-data"] = {subgroup = "ei-science-kr-cards"},
-        ["matter-research-data"] = {subgroup = "ei-science-kr-cards"},
-        ["space-research-data"] = {subgroup = "ei-science-kr-cards"},
+        ["kr-biter-research-data"] = {subgroup = "ei-science-kr-cards"},
+        ["kr-matter-research-data"] = {subgroup = "ei-science-kr-cards"},
+        ["kr-space-research-data"] = {subgroup = "ei-science-kr-cards"},
 
         --energy
         ["kr-wind-turbine"] = {order = "d[solar-panel]-a"},
         ["kr-antimatter-reactor"] = {order = "c-g", subgroup = "ei-nuclear-buildings"},
         ["steam-turbine"] = {order = "b[steam-power]-b[steam-engine]-a"},
         ["heat-exchanger"] = {order = "b[steam-power]-a[fluid-boiler]-a"},
-        ["charged-antimatter-fuel-cell"] = {fuel_value = "1TJ"},
+        ["kr-charged-antimatter-fuel-cell"] = {fuel_value = "1TJ"},
 
         --machinery
         ["kr-quarry-drill"] = {order = "a[items]-a[stone-quarry]-c"},
@@ -514,61 +553,61 @@ local K2_CHANGES = {
         ["ei-quantum-computer"] = {order = "f3[research-servers]-b2", subgroup = "production-machine", localised_name = {"item-name.kr-ai-core"}},
         ["kr-crusher"] = {localised_name = {"item-name.kr-crusher"}},
 
-        ["biusart-lab"] = {order = "a3", subgroup = "ei-labs"},
+        ["kr-advanced-lab"] = {order = "a3", subgroup = "ei-labs"},
         ["kr-singularity-lab"] = {order = "a4", subgroup = "ei-labs"},
         ["ei-big-lab"] = {order = "a5", subgroup = "ei-labs"},
         ["kr-advanced-chemical-plant"] = {localised_name = {"item-name.kr-advanced-chemical-plant"}},
 
         --intermediates
-        ["quartz"] = {subgroup = "ei-refining-secondary", order = "c-a"}, --
-        ["silicon"] = {subgroup = "ei-refining-secondary", order = "c-b", localised_name = {"item-name.kr-silicon"}}, 
-        ["rare-metals"] = {subgroup = "ei-refining-ingot", order = "a7"}, -- 2 recipes
-        ["imersium-plate"] = {subgroup = "ei-refining-plate", order = "a7"},
-        ["enriched-iron"] = {subgroup = "ei-refining-secondary", order = "c-d"}, --
-        ["enriched-copper"] = {subgroup = "ei-refining-secondary", order = "c-e"}, -- 
-        ["enriched-rare-metals"] = {subgroup = "ei-refining-secondary", order = "c-d"}, -- 
-        ["lithium-chloride"] = {subgroup = "ei-refining-secondary", order = "c-f"}, --
-        ["lithium"] = {subgroup = "ei-refining-secondary", order = "c-g", localised_name = {"item-name.kr-lithium"}}, --
-        ["imersite-powder"] = {subgroup = "ei-refining-crushed", order = "c2"},
-        ["imersium-beam"] = {subgroup = "ei-refining-beam", order = "a4"},
-        ["imersium-gear-wheel"] = {subgroup = "ei-refining-parts", order = "a4"},
+        ["kr-quartz"] = {subgroup = "ei-refining-secondary", order = "c-a"}, --
+        ["kr-silicon"] = {subgroup = "ei-refining-secondary", order = "c-b", localised_name = {"item-name.kr-silicon"}}, 
+        ["kr-rare-metals"] = {subgroup = "ei-refining-ingot", order = "a7"}, -- 2 recipes
+        ["kr-imersium-plate"] = {subgroup = "ei-refining-plate", order = "a7"},
+        ["kr-enriched-iron"] = {subgroup = "ei-refining-secondary", order = "c-d"}, --
+        ["kr-enriched-copper"] = {subgroup = "ei-refining-secondary", order = "c-e"}, -- 
+        ["kr-enriched-rare-metals"] = {subgroup = "ei-refining-secondary", order = "c-d"}, -- 
+        ["kr-lithium-chloride"] = {subgroup = "ei-refining-secondary", order = "c-f"}, --
+        ["kr-lithium"] = {subgroup = "ei-refining-secondary", order = "c-g", localised_name = {"item-name.kr-lithium"}}, --
+        ["kr-imersite-powder"] = {subgroup = "ei-refining-crushed", order = "c2"},
+        ["kr-imersium-beam"] = {subgroup = "ei-refining-beam", order = "a4"},
+        ["kr-imersium-gear-wheel"] = {subgroup = "ei-refining-parts", order = "a4"},
     },
     ["mining-drill"] = {
         ["electric-mining-drill"] = {next_upgrade = "ei-advanced-electric-mining-drill"},
-        ["ei-steam-oil-pumpjack"] = {resource_categories = {"oil"}},
-        ["ei-deep-pumpjack"] = {resource_categories = {"ei-pumping", "basic-fluid", "oil"}},
+        ["ei-steam-oil-pumpjack"] = {resource_categories = {"kr-oil"}},
+        ["ei-deep-pumpjack"] = {resource_categories = {"ei-pumping", "basic-fluid", "kr-oil"}},
     },
     ["resource"] = {
-        ["imersite"] = {autoplace = ei_autoplace("imersite", "gaia")}
+        ["kr-imersite"] = {autoplace = ei_autoplace("kr-imersite", "gaia")}
     },
     ["recipe"] = {
         ["express-splitter"] = {category = "crafting-with-fluid", ingredients = {
             {type = "item", name = "fast-splitter", amount = 1},
             {type = "item", name = "ei-steel-mechanical-parts", amount = 5},
-            {type = "item", name = "rare-metals", amount = 4},
+            {type = "item", name = "kr-rare-metals", amount = 4},
             {type = "item", name = "ei-electronic-parts", amount = 2},
         }},
         --[[ -- why does this not work? manually overwrite below
         ["express-transport-belt"] = {category = "crafting-with-fluid", ingredients = {
             {type = "item", name = "fast-transport-belt", amount = 1},
             {type = "item", name = "ei-steel-mechanical-parts", amount = 5},
-            {type = "item", name = "rare-metals", amount = 1},
+            {type = "item", name = "kr-rare-metals", amount = 1},
         }},
         ]]
         ["express-underground-belt"] = {category = "crafting-with-fluid", ingredients = {
             {type = "item", name = "fast-underground-belt", amount = 2},
             {type = "item", name = "ei-steel-mechanical-parts", amount = 5},
-            {type = "item", name = "rare-metals", amount = 4},
+            {type = "item", name = "kr-rare-metals", amount = 4},
         }},
         -- intermediates
-        ["quartz"] = {subgroup = "ei-refining-secondary", order = "c-a", category = "advanced-crafting"},
-        ["rare-metals"] = {subgroup = "ei-refining-ingot", order = "a7"}, -- 2 recipes
-        ["rare-metals-2"] = {subgroup = "ei-refining-ingot", order = "a7"}, -- 2 recipes
-        ["enriched-iron"] = {subgroup = "ei-refining-secondary", order = "c-d"},
-        ["enriched-copper"] = {subgroup = "ei-refining-secondary", order = "c-e"},
-        ["enriched-rare-metals"] = {subgroup = "ei-refining-secondary", order = "c-d"},
-        ["lithium-chloride"] = {subgroup = "ei-refining-secondary", order = "c-f"},
-        ["lithium"] = {subgroup = "ei-refining-secondary", order = "c-g"},
+        ["kr-quartz"] = {subgroup = "ei-refining-secondary", order = "c-a", category = "advanced-crafting"},
+        ["kr-rare-metals"] = {subgroup = "ei-refining-ingot", order = "a7"}, -- 2 recipes
+        ["kr-rare-metals-2"] = {subgroup = "ei-refining-ingot", order = "a7"}, -- 2 recipes
+        ["kr-enriched-iron"] = {subgroup = "ei-refining-secondary", order = "c-d"},
+        ["kr-enriched-copper"] = {subgroup = "ei-refining-secondary", order = "c-e"},
+        ["kr-enriched-rare-metals"] = {subgroup = "ei-refining-secondary", order = "c-d"},
+        ["kr-lithium-chloride"] = {subgroup = "ei-refining-secondary", order = "c-f"},
+        ["kr-lithium"] = {subgroup = "ei-refining-secondary", order = "c-g"},
 
         ["kr-big-active-provider-container"] = {order = "g"},
         ["kr-big-buffer-container"] = {order = "f"},
@@ -588,13 +627,13 @@ local K2_CHANGES = {
         ["kr-advanced-splitter"] = {category = "crafting-with-fluid"},
         ["kr-advanced-loader"] = {category = "crafting-with-fluid"},
         -- fuel refining
-        ["rocket-fuel"] = {category = "fuel-refinery"},
-        ["ei-diesel-fuel-unit"] = {category = "fuel-refinery"},
-        ["ei-drill-fluid"] = {category = "fuel-refinery"},
-        ["ei-kerosene-heavy-oil"] = {category = "fuel-refinery"},
+        ["rocket-fuel"] = {category = "kr-fuel-refinery"},
+        ["ei-diesel-fuel-unit"] = {category = "kr-fuel-refinery"},
+        ["ei-drill-fluid"] = {category = "kr-fuel-refinery"},
+        ["ei-kerosene-heavy-oil"] = {category = "kr-fuel-refinery"},
         -- crushing
         ["sand"] = {category = "ei-crushing"},
-        ["imersite-powder"] = {category = "ei-crushing"},
+        ["kr-imersite-powder"] = {category = "ei-crushing"},
         ["imersite-crystal-to-dust"] = {category = "ei-crushing"},
         -- inserters to parts
         ["inserter-to-parts"] = {category = "ei-crushing"},
@@ -609,11 +648,11 @@ local K2_CHANGES = {
         ["superior-filter-inserter-to-parts"] = {category = "ei-crushing"},
         ["superior-long-filter-inserter-to-parts"] = {category = "ei-crushing"},
         -- k2 science cards + multiplication of ei times
-        ["utility-science-pack"] = {category = "t2-tech-cards"},
-        ["production-science-pack"] = {category = "t3-tech-cards"},
-        ["space-science-pack"] = {category = "t4-tech-cards"},
-        ["matter-tech-card"] = {category = "t4-tech-cards"},
-        ["advanced-tech-card"] = {category = "t4-tech-cards"},
+--        ["utility-science-pack"] = {category = "kr-t2-tech-cards"},
+--        ["production-science-pack"] = {category = "kr-tech-cards"},
+        ["space-science-pack"] = {category = "kr-tech-cards"},
+        ["kr-matter-tech-card"] = {category = "kr-tech-cards"},
+        ["kr-advanced-tech-card"] = {category = "kr-tech-cards"},
         ["ei-superior-data"] = {energy_required = 50},
         ["ei-plasma-data-deuterium"] = {energy_required = 50},
         ["ei-plasma-data-protium"] = {energy_required = 50},
@@ -625,7 +664,7 @@ local K2_CHANGES = {
         ["ei-bio-armor"] = {order = "h"},  
     },
     ["equipment-grid"] = {
-        ["ei-bio-armor"] = {equipment_categories = {"armor", "universal-equipment", "robot-interaction-equipment"}},
+        ["ei-bio-armor"] = {equipment_categories = {"armor"}}, -- what should the new categories be? removed old universal and robot interactions
     },
     ["solar-panel-equipment"] = {
         ["imersite-solar-panel-equipment"] = {power = "300kW"},
@@ -637,13 +676,13 @@ local K2_CHANGES = {
     ["generator-equipment"] = {
         ["nuclear-reactor-equipment"] = {
             burner = {
-                type = "burner", fuel_category = "ei-nuclear-fuel",
+                type = "burner", fuel_categories = {"ei-nuclear-fuel"},
                 effectivity = 0.25, fuel_inventory_size = 3, burnt_inventory_size = 3
             },
         },
-        ["fusion-reactor-equipment"] = {
+        ["ei-personal-reactor"] = {
             burner = {
-                type = "burner", fuel_category = "ei-fusion-fuel",
+                type = "burner", fuel_categories = {"ei-fusion-fuel"},
                 effectivity = 1, fuel_inventory_size = 1, burnt_inventory_size = 1
             },
         },
@@ -682,14 +721,14 @@ data:extend({
               {
                 size = 64,
                 filename = ei_graphics_item_path.."matter-quantum-age-tech.png",
-                scale = 0.375
+                scale = 0.5
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 64,
                 filename = ei_graphics_item_path.."quantum-age-tech_light.png",
-                scale = 0.375
+                scale = 0.5
               }
             }
         },
@@ -709,14 +748,14 @@ data:extend({
               {
                 size = 64,
                 filename = ei_graphics_item_path.."imersite-quantum-age-tech.png",
-                scale = 0.375
+                scale = 0.5
               },
               {
                 draw_as_light = true,
                 flags = {"light"},
                 size = 64,
                 filename = ei_graphics_item_path.."quantum-age-tech_light.png",
-                scale = 0.375
+                scale = 0.5
               }
             }
         },
@@ -735,6 +774,7 @@ local to_remove = {
     "kr-fusion-energy",
     "kr-singularity-tech-card",
     "automation-science-pack",
+    "kr-laboratory"
 }
 
 -- turn K2 fusion into something crystal energy powered
@@ -744,16 +784,16 @@ local new_prerequisites = {
         ["kr-automation-core"] = {{"ei-steam-age"},{"ei-steam-assembler"},true},
     },
     ["electricity-age"] = {
-        ["kr-gas-power-station"] = {{"ei-fluid-boiler", "advanced-electronics"},{},false},
+        ["kr-gas-power-station"] = {{"ei-fluid-boiler", "advanced-circuit"},{},false},
         ["kr-greenhouse"] = {{"ei-electricity-age"},{},false},
         ["logistics-2"] = {{"plastics", "logistics", "fast-inserter"},{},false},
-        ["kr-advanced-lab"] = {{"advanced-electronics"},{"ei-computer-age"},true},
+        ["kr-advanced-lab"] = {{"advanced-circuit"},{"ei-computer-age"},true},
         ["kr-steel-fluid-handling"] = {{"fluid-handling", "electric-engine"},{},true},
         ["kr-steel-fluid-tanks"] = {{"kr-steel-fluid-handling"},{},false},
-        ["advanced-radar"] = {{"kr-radar", "ei-electronic-parts"},{},false},
-        ["advanced-electronics"] = {{"kr-silicon-processing", "sulfur-processing"},{},false},
-        ["kr-research-server"] = {{"advanced-electronics", "ei-grower"},{"ei-computer-age"},true},
-        ["kr-air-purification"] = {{"advanced-electronics"},{},true},
+        ["kr-advanced-radar"] = {{"kr-sentinel", "ei-electronic-parts"},{},false},
+        ["advanced-circuit"] = {{"kr-silicon-processing", "sulfur-processing"},{},false},
+        ["kr-research-server"] = {{"advanced-circuit", "ei-grower"},{"ei-computer-age"},true},
+        ["kr-air-purification"] = {{"advanced-circuit"},{},true},
         ["kr-fuel"] = {{"ei-destill-tower"},{},false},
         ["ei-grower"] = {{"sulfur-processing", "kr-silicon-processing"},{},false},
         ["railway"] = {{"sulfur-processing", "kr-fuel"},{},false},
@@ -764,20 +804,20 @@ local new_prerequisites = {
         ["kr-fluid-excess-handling"] = {{"kr-fluids-chemistry"},{},false},
         ["kr-railgun-turret"] = {{"military-4", "kr-fluids-chemistry", "ei-cannon-turret"},{},false},
         ["ei-nitric-acid"] = {{"ei-dinitrogen-tetroxide"},{},false},
-        ["stack-inserter"] = {{"kr-fluids-chemistry"},{},false},
+        ["bulk-inserter"] = {{"kr-fluids-chemistry"},{},false},
         ["ei-deep-pumpjack"] = {{"kr-fluids-chemistry"},{},false},
         ["ei-cooler"] = {{"kr-fluids-chemistry"},{},false},
-        ["kr-nuclear-reactor-equipment"] = {{"ei-personal-reactor"},{},false},
+        ["kr-nuclear-reactor-equipment"] = {{"fission-reactor-equipment"},{},false},
         ["ei-high-energy-crystal"] = {{"kr-fluids-chemistry"},{},false},
-        ["kr-singularity-lab"] = {{"ei-computer-core"},{"ei-advanced-computer-age-tech", "ei-knowledge-computer-age-tech"},true},
+        ["kr-singularity-lab"] = {{"ei-computer-core"},{"ei-advanced-computer-age-tech", "ei-alien-computer-age-tech"},true},
     },
     ["advanced-computer-age"] = {
         ["kr-enriched-ores"] = {{"ei-silicon"},{},false},
-        ["kr-improved-pollution-filter"] = {{"advanced-electronics-2", "kr-air-purification"},{},true},
+        ["kr-improved-pollution-filter"] = {{"processing-unit", "kr-air-purification"},{},true},
         ["kr-advanced-exoskeleton-equipment"] = {{"exoskeleton-equipment"},{},true},
-        ["kr-quantum-computer"] = {{"advanced-electronics-2"},{"ei-quantum-age"},true},
+        ["kr-quantum-computer"] = {{"processing-unit"},{"ei-quantum-age"},true},
     },
-    ["knowledge-computer-age"] = {
+    ["alien-computer-age"] = {
         ["kr-logistic-4"] = {{"ei-computer-core", "logistics-3"},{},false},
         ["kr-atmosphere-condensation"] = {{"automation-3", "ei-oxygen-gas"},{},false},
         ["kr-advanced-chemistry"] = {{"kr-atmosphere-condensation", "kr-mineral-water-gathering", "ei-advanced-chem-plant"},{},true},
@@ -812,8 +852,8 @@ local new_prerequisites = {
         ["kr-advanced-furnace"] = {{"ei-nano-factory", "kr-imersium-processing"},{},true},
         ["kr-power-armor-mk3"] = {{"kr-imersium-processing"},{},false},
         ["kr-automation"] = {{"kr-imersium-processing", "ei-neo-assembler"},{},true},
-        ["kr-superior-inserters"] = {{"kr-imersium-processing", "stack-inserter"},{},true},
-        ["kr-logistic-5"] = {{"kr-imersium-processing", "stack-inserter"},{},true},
+        ["kr-superior-inserters"] = {{"kr-imersium-processing", "bulk-inserter"},{},true},
+        ["kr-logistic-5"] = {{"kr-imersium-processing", "bulk-inserter"},{},true},
         ["kr-energy-storage"] = {{"kr-imersium-processing"},{"ei-superior-induction-matrix"},true},
         ["kr-personal-laser-defense-mk4-equipment"] = {{"kr-personal-laser-defense-mk3-equipment"},{},false},
     },
@@ -823,19 +863,19 @@ local new_prerequisites = {
         ["kr-matter-cube"] = {{"kr-energy-control-unit"},{},false},
         ["kr-matter-processing"] = {{"kr-energy-control-unit"},{},false},
         ["kr-laser-artillery-turret"] = {{"kr-energy-control-unit", "kr-military-5"},{},false},
-        ["kr-power-armor-mk4"] = {{"kr-power-armor-mk3", "kr-energy-control-unit"},{},false},
-        ["kr-creep-virus"] = {{"kr-military-5", "kr-energy-control-unit"},{},false},
-        ["kr-biter-virus"] = {{"kr-creep-virus"},{},false},
+        --["kr-power-armor-mk4"] = {{"kr-power-armor-mk3", "kr-energy-control-unit"},{},false},
+        ["kr-biter-virus"] = {{"kr-military-5", "kr-energy-control-unit"},{},false},
+        -- ["kr-biter-virus"] = {{"kr-biter-virus"},{},false},
     },
     ["four-quantum-age"] = {
         ["ei-high-tech-parts"] = {{"kr-matter-processing", "ei-asteroid-mining", "ei-eu-circuit", "kr-matter-cube"},{},false},
         ["ei-neo-logistics"] = {{"kr-logistic-5"},{},false},
         ["kr-planetary-teleporter"] = {{"ei-high-tech-parts"},{},false},
-        ["ei-bio-armor"] = {{"kr-power-armor-mk4", "ei-high-tech-parts"},{},false},
+        ["ei-bio-armor"] = {{"kr-power-armor-mk3", "ei-high-tech-parts"},{},false},
         ["ei-plasma-turret"] = {{"ei-high-tech-parts", "kr-laser-artillery-turret"},{},false},
         ["kr-antimatter-reactor"] = {{"ei-antimatter-cube"},{},false},
         ["kr-antimatter-ammo"] = {{"kr-antimatter-reactor", "kr-laser-artillery-turret", "kr-rocket-turret"},{},false},
-        ["kr-antimatter-reactor-equipment"] = {{"kr-antimatter-reactor", "fusion-reactor-equipment"},{},false},
+        ["kr-antimatter-reactor-equipment"] = {{"kr-antimatter-reactor", "ei-personal-reactor"},{},false},
         ["ei-personal-shield"] = {{"kr-energy-shield-mk4-equipment", "ei-high-tech-parts"},{},false},
     },
 }
@@ -916,15 +956,16 @@ local function make_dummy_techs(foo, ages_dummy_dict)
             if ei_data.sub_age[age] then
                 age = ei_data.sub_age[age]
             end
-
-            local next_age = "ei-"..ages_dummy_dict[age].."-dummy"
-            
-            if next_age then
-                --set_prerequisites(next_age, i)
-                --table.insert(data.raw["technology"][tech].prerequisites, prerequisite)
-                ei_lib.add_prerequisite(next_age, i)
+            if ages_dummy_dict_age and ages_dummy_dict[age] then
+                local next_age = "ei-"..ages_dummy_dict[age].."-dummy"
+                if next_age then
+                    --set_prerequisites(next_age, i)
+                    --table.insert(data.raw["technology"][tech].prerequisites, prerequisite)
+                    ei_lib.add_prerequisite(next_age, i)
+                end
             end
-
+        end
+--[[
             -- find out if the tech already has the age count effect
             for _, effect in pairs(data.raw.technology[i].effects) do
                 if ((effect.type == "nothing") and (effect.effect_description == {"description.tech-counts-for-age-progression"})) then
@@ -940,7 +981,7 @@ local function make_dummy_techs(foo, ages_dummy_dict)
                 icon = ei_graphics_other_path.."tech_overlay.png",
             })
         end
-
+]]
         ::continue::
     end
 
@@ -979,15 +1020,16 @@ local fluids_to_merge = {
     ["ei-dirty-water"] = { fluid = "dirty-water", use_icon = true },
     ["ei-nitrogen-gas"] = { fluid = "nitrogen", use_icon = false },
     ["ei-oxygen-gas"] = { fluid = "oxygen", use_icon = false },
-    ["ei-hydrogen-gas"] = { fluid = "hydrogen", use_icon = true },
+    ["ei-hydrogen-gas"] = { fluid = "kr-hydrogen", use_icon = true },
     ["ei-ammonia-gas"] = { fluid = "ammonia", use_icon = true },
+    ["ei-dirty-water"] = { fluid = "dirty-water", use_icon = true },
 }
 
 local entites_to_hide = {
     {"generator", "kr-fusion-reactor"},
     {"mining-drill", "kr-electric-mining-drill-mk2"},
     {"mining-drill", "kr-electric-mining-drill-mk3"},
-    {"beacon", "beacon"},
+--    {"beacon", "beacon"},
 }
 
 -- hide entities
@@ -996,7 +1038,7 @@ for _, foo in ipairs(entites_to_hide) do
     local entity_name = foo[2]
 
     if data.raw[entity_type][entity_name] then
-        data.raw[entity_type][entity_name].flags = {"hidden"}
+        data.raw[entity_type][entity_name].hidden = true
 
         -- also remove next upgrade
         data.raw[entity_type][entity_name].next_upgrade = nil
@@ -1008,26 +1050,26 @@ local items_to_hide = {
     "kr-fusion-reactor",
     "kr-electric-mining-drill-mk2",
     "kr-electric-mining-drill-mk3",
-    "beacon",
-    "coke",
-    "tritium",
+--    "beacon",
+    "kr-coke",
+    "kr-tritium",
     "iron-stick",
     "iron-gear-wheel",
-    "iron-beam",
-    "steel-beam",
-    "steel-gear-wheel",
-    "empty-dt-fuel",
-    "dt-fuel",
-    "biters-research-data",
-    "matter-research-data",
-    "space-research-data",
-    "singularity-tech-card",
+    "kr-iron-beam",
+    "kr-steel-beam",
+    "kr-steel-gear-wheel",
+    "kr-empty-dt-fuel-cell",
+    "kr-dt-fuel-cell",
+    "kr-biter-research-data",
+    "kr-matter-research-data",
+    "kr-space-research-data",
+    "kr-singularity-tech-card",
 }
 
 -- hide items
 for _, item in ipairs(items_to_hide) do
     if data.raw.item[item] then
-        data.raw.item[item].flags = {"hidden"}
+        data.raw.item[item].hidden = true
 
         -- also remove the place result
         data.raw.item[item].place_result = nil
@@ -1035,18 +1077,20 @@ for _, item in ipairs(items_to_hide) do
 end
 
 local recipe_to_hide = {
-    "iron-beam",
-    "steel-beam",
-    "steel-gear-wheel",
+    "kr-iron-beam",
+    "kr-steel-beam",
+    "kr-steel-gear-wheel",
     "dirty-water-filtration-1",
+    "kr-filter-iron-ore-from-dirty-water",
+    "kr-filter-copper-ore-from-dirty-water",
+    "kr-filter-rare-metal-ore-from-dirty-water",
     "dirty-water-filtration-2",
     "dirty-water-filtration-3",
-    "coal-filtration", -- balance this and unhide?
-    "basic-tech-card",
-    "matter-to-copper-ore",
-    "matter-to-iron-ore",
-    "copper-ore-to-matter",
-    "iron-ore-to-matter",
+    "kr-basic-tech-card",
+    "kr-matter-to-copper-ore",
+    "kr-matter-to-iron-ore",
+    "kr-copper-ore-to-matter",
+    "kr-iron-ore-to-matter",
     "glass",
 
     -- advanced assembler stuff
@@ -1067,35 +1111,37 @@ local recipe_to_hide = {
 
 local hard_recipe_overwrite = {
     ["automation-science-pack"] = {
-        {type = "item", name = "blank-tech-card", amount = 2},
+        {type = "item", name = "kr-blank-tech-card", amount = 2},
         {type = "item", name = "ei-iron-mechanical-parts", amount = 1},
     },
     ["logistic-science-pack"] = {
-        {type = "item", name = "blank-tech-card", amount = 2},
+        {type = "item", name = "kr-blank-tech-card", amount = 2},
         {type = "item", name = "ei-copper-mechanical-parts", amount = 1},
     },
     ["chemical-science-pack"] = {
-        {type = "item", name = "blank-tech-card", amount = 4},
+        {type = "item", name = "kr-blank-tech-card", amount = 4},
         {type = "item", name = "electronic-circuit", amount = 3},
-        {type = "item", name = "automation-core", amount = 1},
+        {type = "item", name = "kr-automation-core", amount = 1},
     },
     ["utility-science-pack"] = {
-        {type = "item", name = "blank-tech-card", amount = 6},
+        {type = "item", name = "kr-blank-tech-card", amount = 6},
         {type = "item", name = "ei-electronic-parts", amount = 3},
         {type = "item", name = "decider-combinator", amount = 2},
     },
     ["production-science-pack"] = {
-        {type = "item", name = "blank-tech-card", amount = 6},
+        {type = "item", name = "kr-blank-tech-card", amount = 6},
         {type = "item", name = "ei-space-data", amount = 2},
         {type = "item", name = "ei-simulation-data", amount = 20},
     },
+    --[[
     ["space-science-pack"] = {
-        {type = "item", name = "blank-tech-card", amount = 10},
+        {type = "item", name = "kr-blank-tech-card", amount = 10},
         {type = "item", name = "ei-space-data", amount = 4},
         {type = "item", name = "ei-moon-fish", amount = 1},
     },
-    ["matter-tech-card"] = {
-        {type = "item", name = "blank-tech-card", amount = 10},
+    ]]
+    ["kr-matter-tech-card"] = {
+        {type = "item", name = "kr-blank-tech-card", amount = 10},
         {type = "item", name = "ei-crushed-iron", amount = 1},
         {type = "item", name = "ei-crushed-copper", amount = 1},
         {type = "item", name = "ei-crushed-gold", amount = 1},
@@ -1106,11 +1152,11 @@ local hard_recipe_overwrite = {
         {type = "item", name = "ei-crushed-neodym", amount = 1},
         --{type = "item", name = "ei-fluorite", amount = 1},
         --{type = "item", name = "ei-lithium-crystal", amount = 1},
-        {type = "item", name = "imersite-crystal", amount = 1},
-        {type = "item", name = "rare-metals", amount = 1},
+        {type = "item", name = "kr-imersite-crystal", amount = 1},
+        {type = "item", name = "kr-rare-metals", amount = 1},
     },
-    ["advanced-tech-card"] = {
-        {type = "item", name = "blank-tech-card", amount = 10},
+    ["kr-advanced-tech-card"] = {
+        {type = "item", name = "kr-blank-tech-card", amount = 10},
         {type = "item", name = "ei-superior-data", amount = 10},
         {type = "item", name = "ei-cavity", amount = 1},
     },
@@ -1118,6 +1164,10 @@ local hard_recipe_overwrite = {
 
 local recipe_overwrite = {
     -- machinery
+    ["kr-inserter-parts"] = {
+        {type = "item", name = "ei-iron-mechanical-parts", amount = 1},
+        {type = "item", name = "ei-copper-mechanical-parts", amount = 1},
+    },
     ["kr-atmospheric-condenser"] = {
         {type = "item", name = "ei-lufter", amount = 4},
         {type = "item", name = "ei-advanced-motor", amount = 4},
@@ -1145,32 +1195,32 @@ local recipe_overwrite = {
         {type = "item", name = "ei-advanced-motor", amount = 12},
         {type = "item", name = "ei-carbon-structure", amount = 10},
         {type = "item", name = "processing-unit", amount = 10},
-        {type = "item", name = "imersium-gear-wheel", amount = 6},
-        {type = "item", name = "imersium-beam", amount = 14},
+        {type = "item", name = "kr-imersium-gear-wheel", amount = 6},
+        {type = "item", name = "kr-imersium-beam", amount = 14},
     },
     ["kr-advanced-chemical-plant"] = {
         {type = "item", name = "ei-advanced-chem-plant", amount = 2},
         {type = "item", name = "ei-advanced-motor", amount = 12},
         {type = "item", name = "ei-carbon-structure", amount = 10},
         {type = "item", name = "processing-unit", amount = 10},
-        {type = "item", name = "imersium-gear-wheel", amount = 6},
-        {type = "item", name = "imersium-beam", amount = 14},
+        {type = "item", name = "kr-imersium-gear-wheel", amount = 6},
+        {type = "item", name = "kr-imersium-beam", amount = 14},
     },
     ["kr-advanced-furnace"] = {
         {type = "item", name = "electric-furnace", amount = 4},
         {type = "item", name = "ei-advanced-motor", amount = 12},
         {type = "item", name = "ei-carbon-structure", amount = 24},
         {type = "item", name = "processing-unit", amount = 2},
-        {type = "item", name = "imersium-gear-wheel", amount = 6},
-        {type = "item", name = "imersium-beam", amount = 14},
+        {type = "item", name = "kr-imersium-gear-wheel", amount = 6},
+        {type = "item", name = "kr-imersium-beam", amount = 14},
     },
     ["kr-crusher"] = {
         {type = "item", name = "ei-advanced-crusher", amount = 2},
         {type = "item", name = "ei-advanced-motor", amount = 12},
         {type = "item", name = "ei-carbon-structure", amount = 10},
         {type = "item", name = "processing-unit", amount = 10},
-        {type = "item", name = "imersium-gear-wheel", amount = 6},
-        {type = "item", name = "imersium-beam", amount = 14},
+        {type = "item", name = "kr-imersium-gear-wheel", amount = 6},
+        {type = "item", name = "kr-imersium-beam", amount = 14},
     },
     ["kr-filtration-plant"] = {
         {type = "item", name = "ei-advanced-motor", amount = 10},
@@ -1182,11 +1232,11 @@ local recipe_overwrite = {
         {type = "item", name = "ei-solar-panel-3", amount = 2},
         {type = "item", name = "ei-carbon-structure", amount = 6},
         {type = "item", name = "processing-unit", amount = 2},
-        {type = "item", name = "imersium-plate", amount = 4},
-        {type = "item", name = "imersite-crystal", amount = 12},
+        {type = "item", name = "kr-imersium-plate", amount = 4},
+        {type = "item", name = "kr-imersite-crystal", amount = 12},
     },
     ["kr-singularity-lab"] = {
-        {type = "item", name = "biusart-lab", amount = 1},
+        {type = "item", name = "kr-advanced-lab", amount = 1},
         {type = "item", name = "ei-simulation-data", amount = 100},
         {type = "item", name = "ei-energy-crystal", amount = 24},
         {type = "item", name = "ei-steel-mechanical-parts", amount = 8},
@@ -1207,37 +1257,37 @@ local recipe_overwrite = {
     ["kr-energy-storage"] = {
         {type = "item", name = "accumulator", amount = 4},
         {type = "item", name = "processing-unit", amount = 10},
-        {type = "item", name = "imersium-beam", amount = 12},
+        {type = "item", name = "kr-imersium-beam", amount = 12},
         {type = "item", name = "ei-magnet", amount = 2},
     },
     ["kr-small-roboport"] = {
         {type = "item", name = "roboport", amount = 1},
         {type = "item", name = "processing-unit", amount = 1},
-        {type = "item", name = "imersium-beam", amount = 2},
+        {type = "item", name = "kr-imersium-beam", amount = 2},
     },
     ["kr-large-roboport"] = {
         {type = "item", name = "kr-small-roboport", amount = 4},
         {type = "item", name = "ei-magnet", amount = 10},
-        {type = "item", name = "imersium-beam", amount = 12},
-        {type = "item", name = "imersium-gear-wheel", amount = 20},
+        {type = "item", name = "kr-imersium-beam", amount = 12},
+        {type = "item", name = "kr-imersium-gear-wheel", amount = 20},
     },
     ["kr-quarry-drill"] = {
         {type = "item", name = "ei-excavator", amount = 1},
         {type = "item", name = "processing-unit", amount = 4},
-        {type = "item", name = "rare-metals", amount = 20},
+        {type = "item", name = "kr-rare-metals", amount = 20},
     },
     ["kr-singularity-beacon"] = {
         {type = "item", name = "ei-iron-beacon", amount = 1},
-        {type = "item", name = "energy-control-unit", amount = 4},
-        {type = "item", name = "imersium-beam", amount = 6},
+        {type = "item", name = "kr-energy-control-unit", amount = 4},
+        {type = "item", name = "kr-imersium-beam", amount = 6},
     },
     ["kr-antimatter-reactor"] = {
         {type = "item", name = "ei-fusion-reactor", amount = 1},
         {type = "item", name = "ei-neutron-collector", amount = 4},
-        {type = "item", name = "energy-control-unit", amount = 50},
-        {type = "item", name = "ai-core", amount = 100},
+        {type = "item", name = "kr-energy-control-unit", amount = 50},
+        {type = "item", name = "kr-ai-core", amount = 100},
         {type = "item", name = "ei-clean-plating", amount = 250},
-        {type = "item", name = "imersium-beam", amount = 500},
+        {type = "item", name = "kr-imersium-beam", amount = 500},
         {type = "item", name = "ei-carbon-structure", amount = 100},
     },
     ["kr-intergalactic-transceiver"] = {
@@ -1247,71 +1297,73 @@ local recipe_overwrite = {
         {type = "item", name = "ei-high-temperature-reactor", amount = 1},
         {type = "item", name = "ei-high-tech-parts", amount = 100},
         {type = "item", name = "ei-clean-plating", amount = 200},
-        {type = "item", name = "imersium-beam", amount = 200},
+        {type = "item", name = "kr-imersium-beam", amount = 200},
         {type = "item", name = "ei-carbon-structure", amount = 200},
     },
     ["nuclear-reactor"] = {
         {type = "item", name = "ei-energy-crystal", amount = 100},
         {type = "item", name = "advanced-circuit", amount = 100},
         {type = "item", name = "concrete", amount = 200},
-        {type = "item", name = "ei-lead-plate", amount = 200},
+        {type = "item", name = "ei-lead-ingot", amount = 200},
         {type = "item", name = "steel-plate", amount = 200},
         {type = "item", name = "ei-fission-tech", amount = 100},
     },
     --armor and stuff
     ["imersite-solar-panel-equipment"] = {
         {type = "item", name = "ei-personal-solar-3", amount = 2},
-        {type = "item", name = "ai-core", amount = 20},
+        {type = "item", name = "kr-ai-core", amount = 20},
         {type = "item", name = "ei-odd-plating", amount = 4},
-        {type = "item", name = "imersite-crystal", amount = 10},
+        {type = "item", name = "kr-imersite-crystal", amount = 10},
         {type = "item", name = "ei-magnet", amount = 6},
         {type = "fluid", name = "ei-nitric-acid", amount = 25},
     },
     ["nuclear-reactor-equipment"] = {
-        {type = "item", name = "ei-personal-reactor", amount = 1},
-        {type = "item", name = "rare-metals", amount = 30},
+        {type = "item", name = "fission-reactor-equipment", amount = 1},
+        {type = "item", name = "kr-rare-metals", amount = 30},
         {type = "item", name = "ei-simulation-data", amount = 20},
         {type = "item", name = "ei-fission-tech", amount = 20},
     },
     ["ei-personal-shield"] = {
-        {type = "item", name = "energy-shield-mk4-equipment", amount = 1},
+        {type = "item", name = "kr-energy-shield-mk4-equipment", amount = 1},
         {type = "item", name = "ei-superior-data", amount = 20},
         {type = "item", name = "ei-high-tech-parts", amount = 10},
     },
-    ["power-armor-mk3"] = {
+    ["kr-power-armor-mk3"] = {
         {type = "item", name = "power-armor-mk2", amount = 1},
-        {type = "item", name = "imersium-plate", amount = 20},
+        {type = "item", name = "kr-imersium-plate", amount = 20},
         {type = "item", name = "ei-carbon-structure", amount = 24},
         {type = "item", name = "processing-unit", amount = 10},
     },
-    ["power-armor-mk4"] = {
-        {type = "item", name = "power-armor-mk3", amount = 1},
-        {type = "item", name = "energy-control-unit", amount = 20},
+    ["kr-power-armor-mk4"] = {
+        {type = "item", name = "kr-power-armor-mk3", amount = 1},
+        {type = "item", name = "kr-energy-control-unit", amount = 20},
         {type = "item", name = "ei-eu-magnet", amount = 14},
         {type = "item", name = "ei-clean-plating", amount = 10},
     },
+    --[[
     ["ei-bio-armor"] = {
-        {type = "item", name = "power-armor-mk4", amount = 1},
+        {type = "item", name = "kr-power-armor-mk3", amount = 1},
         {type = "item", name = "ei-high-tech-parts", amount = 20},
         {type = "item", name = "ei-superior-data", amount = 40},
         {type = "item", name = "ei-bio-matter", amount = 100},
     },
+    ]]
     ["kr-railgun-turret"] = {
         {type = "item", name = "ei-cannon-turret", amount = 1},
-        {type = "item", name = "rare-metals", amount = 20},
+        {type = "item", name = "kr-rare-metals", amount = 20},
         {type = "item", name = "steel-plate", amount = 10},
         {type = "item", name = "ei-electronic-parts", amount = 20},
     },
     ["kr-rocket-turret"] = {
         {type = "item", name = "ei-cannon-turret", amount = 1},
-        {type = "item", name = "rare-metals", amount = 20},
+        {type = "item", name = "kr-rare-metals", amount = 20},
         {type = "item", name = "steel-plate", amount = 10},
-        {type = "item", name = "heavy-rocket-launcher", amount = 6},
+        {type = "item", name = "kr-heavy-rocket-launcher", amount = 6},
         {type = "item", name = "processing-unit", amount = 20},
     },
     ["kr-nuclear-locomotive"] = {
         {type = "item", name = "locomotive", amount = 1},
-        {type = "item", name = "rare-metals", amount = 80},
+        {type = "item", name = "kr-rare-metals", amount = 80},
         {type = "item", name = "ei-steel-mechanical-parts", amount = 20},
         {type = "item", name = "ei-advanced-motor", amount = 20},
         {type = "item", name = "ei-electronic-parts", amount = 20},
@@ -1319,7 +1371,7 @@ local recipe_overwrite = {
 
     -- intermediates
     ["electric-engine-unit"] = {
-        {type = "item", name = "automation-core", amount = 1},
+        {type = "item", name = "kr-automation-core", amount = 1},
         {type = "item", name = "engine-unit", amount = 1},
         {type = "item", name = "copper-cable", amount = 4},
     },
@@ -1328,14 +1380,14 @@ local recipe_overwrite = {
         {type = "item", name = "ei-eu-circuit", amount = 1},
         {type = "item", name = "ei-plasma-cube", amount = 1},
         {type = "item", name = "ei-exotic-matter-up", amount = 1},
-        {type = "item", name = "matter-cube", amount = 1},
-        {type = "item", name = "charged-matter-stabilizer", amount = 1},
+        {type = "item", name = "kr-matter-cube", amount = 1},
+        {type = "item", name = "kr-charged-matter-stabilizer", amount = 1},
     },
-    ["energy-control-unit"] = {
-        {type = "item", name = "lithium-sulfur-battery", amount = 3},
+    ["kr-energy-control-unit"] = {
+        {type = "item", name = "kr-lithium-sulfur-battery", amount = 3},
         {type = "item", name = "ei-electronic-parts", amount = 4},
         {type = "item", name = "ei-carbon-structure", amount = 3},
-        {type = "item", name = "imersite-crystal", amount = 2},
+        {type = "item", name = "kr-imersite-crystal", amount = 2},
         {type = "item", name = "ei-superior-data", amount = 1},
     },
     ["rocket-fuel"] = {
@@ -1344,73 +1396,73 @@ local recipe_overwrite = {
         {type = "fluid", name = "ei-liquid-oxygen", amount = 25},
         {type = "fluid", name = "ei-kerosene", amount = 15},
     },
-    ["charged-antimatter-fuel-cell"] = {
-        {type = "item", name = "empty-antimatter-fuel-cell", amount = 1},
-        {type = "item", name = "lithium", amount = 10},
+    ["kr-charged-antimatter-fuel-cell"] = {
+        {type = "item", name = "kr-empty-antimatter-fuel-cell", amount = 1},
+        {type = "item", name = "kr-lithium", amount = 10},
         {type = "item", name = "ei-charged-neutron-container", amount = 1},
         {type = "item", name = "ei-antimatter-cube", amount = 1},
     },
 
-    ["inserter-parts"] = {
+    ["kr-inserter-parts"] = {
         {type = "item", name = "ei-iron-mechanical-parts", amount = 1},
         {type = "item", name = "ei-copper-mechanical-parts", amount = 1},
     },
     ["inserter"] = {
-        {type = "item", name = "inserter-parts", amount = 1},
-        {type = "item", name = "automation-core", amount = 1},
+        {type = "item", name = "kr-inserter-parts", amount = 1},
+        {type = "item", name = "kr-automation-core", amount = 1},
         {type = "item", name = "electric-engine-unit", amount = 1},
     },
     ["long-handed-inserter"] = {
-        {type = "item", name = "inserter-parts", amount = 1},
-        {type = "item", name = "automation-core", amount = 1},
+        {type = "item", name = "kr-inserter-parts", amount = 1},
+        {type = "item", name = "kr-automation-core", amount = 1},
         {type = "item", name = "electric-engine-unit", amount = 1},
         {type = "item", name = "ei-iron-mechanical-parts", amount = 2},
     },
     ["fast-inserter"] = {
-        {type = "item", name = "inserter-parts", amount = 1},
+        {type = "item", name = "kr-inserter-parts", amount = 1},
         {type = "item", name = "inserter", amount = 1},
         {type = "item", name = "electronic-circuit", amount = 2},
     },
-    ["filter-inserter"] = {
-        {type = "item", name = "inserter-parts", amount = 1},
+    ["fast-inserter"] = {
+        {type = "item", name = "kr-inserter-parts", amount = 1},
         {type = "item", name = "inserter", amount = 1},
         {type = "item", name = "electronic-circuit", amount = 6},
     },
-    ["stack-inserter"] = {
-        {type = "item", name = "inserter-parts", amount = 2},
+    ["bulk-inserter"] = {
+        {type = "item", name = "kr-inserter-parts", amount = 2},
         {type = "item", name = "fast-inserter", amount = 1},
         {type = "item", name = "ei-electronic-parts", amount = 1},
         {type = "item", name = "ei-steel-mechanical-parts", amount = 4},
     },
-    ["stack-filter-inserter"] = {
-        {type = "item", name = "inserter-parts", amount = 2},
+    ["bulk-inserter"] = {
+        {type = "item", name = "kr-inserter-parts", amount = 2},
         {type = "item", name = "fast-inserter", amount = 1},
         {type = "item", name = "ei-electronic-parts", amount = 2},
         {type = "item", name = "ei-steel-mechanical-parts", amount = 4},
     },
     -- belts and stuff
     ["kr-advanced-transport-belt"] = {
-        {"express-transport-belt", 1},
-        {"ei-steel-mechanical-parts", 5},
-        {"ei-condensed-cryodust", 1},
+        {type="item", name="express-transport-belt", amount=1},
+        {type="item", name="ei-steel-mechanical-parts", amount=5},
+        {type="item", name="ei-condensed-cryodust", amount=1},
         {type="fluid", name="lubricant", amount=15},
     },
     ["kr-advanced-underground-belt"] = {
-        {"express-underground-belt", 2},
-        {"ei-steel-mechanical-parts", 5},
-        {"ei-condensed-cryodust", 1},
+        {type="item", name="express-underground-belt", amount=2},
+        {type="item", name="ei-steel-mechanical-parts", amount=5},
+        {type="item", name="ei-condensed-cryodust", amount=1},
         {type="fluid", name="lubricant", amount=35},
     },
     ["kr-advanced-splitter"] = {
-        {"express-splitter", 1},
-        {"ei-steel-mechanical-parts", 5},
-        {"ei-condensed-cryodust", 1},
+        {type="item", name="express-splitter", amount=1},
+        {type="item", name="ei-steel-mechanical-parts", amount=5},
+        {type="item", name="ei-condensed-cryodust", amount=1},
         {type="fluid", name="lubricant", amount=55},
     },
-    ["kr-advanced-loader"] = {
-        {"kr-express-loader", 2},
-        {"ei-steel-mechanical-parts", 5},
-        {"ei-condensed-cryodust", 1},
+    ["kr-advanced-laoder"] = {
+        {type="item", name="kr-express-loader", amount=2},
+        {type="item", name="ei-steel-mechanical-parts", amount=5},
+        {type="item", name="ei-condensed-cryodust", amount=1},
         {type="fluid", name="lubricant", amount=55},
     },
 
@@ -1437,12 +1489,12 @@ local recipe_overwrite = {
     },
 
     -- science packs and their tech cards
-    ["blank-tech-card"] = {
+    ["kr-blank-tech-card"] = {
         {type = "item", name = "stone", amount = 1},
         {type = "item", name = "iron-plate", amount = 2},
     },
     ["ei-dark-age-tech"] = {
-        {type = "item", name = "inserter-parts", amount = 1},
+        {type = "item", name = "kr-inserter-parts", amount = 1},
         {type = "item", name = "automation-science-pack", amount = 1},
     },
     ["ei-steam-age-tech"] = {
@@ -1459,7 +1511,7 @@ local recipe_overwrite = {
         {type = "item", name = "ei-energy-crystal", amount = 3},
         {type = "item", name = "utility-science-pack", amount = 5},
     },
-    ["ei-knowledge-computer-age-tech"] = {
+    ["ei-alien-computer-age-tech"] = {
         {type = "fluid", name = "ei-cryoflux", amount = 100},
         {type = "item", name = "ei-alien-resin", amount = 10},
         {type = "item", name = "ei-alien-seed", amount = 1},
@@ -1468,7 +1520,7 @@ local recipe_overwrite = {
     ["ei-advanced-computer-age-tech"] = {
         {type = "fluid", name = "ei-ammonia-gas", amount = 100},
         {type = "item", name = "ei-simulation-data", amount = 12},
-        {type = "item", name = "rare-metals", amount = 4},
+        {type = "item", name = "kr-rare-metals", amount = 4},
         {type = "item", name = "utility-science-pack", amount = 5},
     },
     ["ei-quantum-age-tech"] = {
@@ -1481,28 +1533,30 @@ local recipe_overwrite = {
         {type = "item", name = "ei-fusion-data", amount = 5},
         {type = "item", name = "production-science-pack", amount = 5},
     },
+    --[[
     ["ei-space-quantum-age-tech"] = {
         {type = "item", name = "ei-advanced-rocket-fuel", amount = 4},
         {type = "item", name = "space-science-pack", amount = 1},
     },
+    ]]
     ["ei-exotic-age-tech"] = {
         {type = "item", name = "ei-high-tech-parts", amount = 2},
-        {type = "item", name = "advanced-tech-card", amount = 1},
+        {type = "item", name = "kr-advanced-tech-card", amount = 1},
     },
 }
 
-ei_lib.recipe_add("ei-simulation-data", "blank-tech-card", 3)
-ei_lib.recipe_add("ei-superior-data", "blank-tech-card", 10)
-ei_lib.recipe_add("ei-plasma-data-deuterium", "blank-tech-card", 10)
-ei_lib.recipe_add("ei-plasma-data-tritium", "blank-tech-card", 10)
-ei_lib.recipe_add("ei-plasma-data-protium", "blank-tech-card", 10)
-ei_lib.recipe_add("ei-magnet-data", "blank-tech-card", 10)
-ei_lib.recipe_add("ei-fusion-data", "blank-tech-card", 10)
-ei_lib.recipe_add("ei-fission-tech", "blank-tech-card", 4)
-ei_lib.recipe_add("ei-fission-tech-pt239", "blank-tech-card", 10)
-ei_lib.recipe_add("ei-fission-tech-th232", "blank-tech-card", 10)
-ei_lib.recipe_add("ei-fission-tech-u233", "blank-tech-card", 10)
-ei_lib.recipe_add("ei-fission-tech-u235", "blank-tech-card", 10)
+ei_lib.recipe_add("ei-simulation-data", "kr-blank-tech-card", 3)
+ei_lib.recipe_add("ei-superior-data", "kr-blank-tech-card", 10)
+ei_lib.recipe_add("ei-plasma-data-deuterium", "kr-blank-tech-card", 10)
+ei_lib.recipe_add("ei-plasma-data-tritium", "kr-blank-tech-card", 10)
+ei_lib.recipe_add("ei-plasma-data-protium", "kr-blank-tech-card", 10)
+ei_lib.recipe_add("ei-magnet-data", "kr-blank-tech-card", 10)
+ei_lib.recipe_add("ei-fusion-data", "kr-blank-tech-card", 10)
+ei_lib.recipe_add("ei-fission-tech", "kr-blank-tech-card", 4)
+ei_lib.recipe_add("ei-fission-tech-pt239", "kr-blank-tech-card", 10)
+ei_lib.recipe_add("ei-fission-tech-th232", "kr-blank-tech-card", 10)
+ei_lib.recipe_add("ei-fission-tech-u233", "kr-blank-tech-card", 10)
+ei_lib.recipe_add("ei-fission-tech-u235", "kr-blank-tech-card", 10)
 
 -- machinery and other
 -------------------------------------------------------------------------------
@@ -1522,13 +1576,13 @@ data.raw.recipe["copper-plate"].icon = nil
 data.raw.recipe["copper-plate"].icons = nil
 data.raw.recipe["copper-plate"].icon_size = nil
 
-data.raw.recipe["rare-metals"].enabled = false
-ei_lib.add_unlock_recipe("kr-fluids-chemistry", "rare-metals")
+data.raw.recipe["kr-rare-metals"].enabled = false
+ei_lib.add_unlock_recipe("kr-fluids-chemistry", "kr-rare-metals")
 
 
 data:extend({
     {
-        name = "enriched-iron",
+        name = "kr-enriched-iron",
         type = "recipe",
         category = "ei-purifier",
         energy_required = 1,
@@ -1537,17 +1591,17 @@ data:extend({
             {type = "fluid", name = "sulfuric-acid", amount = 3},
         },
         results = {
-            {type = "item", name = "enriched-iron", amount = 9},
+            {type = "item", name = "kr-enriched-iron", amount = 9},
             {type = "fluid", name = "ei-dirty-water", amount = 3},
         },
-        main_product = "enriched-iron",
+        main_product = "kr-enriched-iron",
         subgroup = "ei-refining-purified",
         order = "b",
         enabled = false,
         always_show_made_in = true,
     },
     {
-        name = "enriched-copper",
+        name = "kr-enriched-copper",
         type = "recipe",
         category = "ei-purifier",
         energy_required = 1,
@@ -1556,66 +1610,66 @@ data:extend({
             {type = "fluid", name = "sulfuric-acid", amount = 3},
         },
         results = {
-            {type = "item", name = "enriched-copper", amount = 9},
+            {type = "item", name = "kr-enriched-copper", amount = 9},
             {type = "fluid", name = "ei-dirty-water", amount = 3},
         },
-        main_product = "enriched-copper",
+        main_product = "kr-enriched-copper",
         subgroup = "ei-refining-purified",
         order = "b",
         enabled = false,
         always_show_made_in = true,
     },
     {
-        name = "enriched-rare-metals",
+        name = "kr-enriched-rare-metals",
         type = "recipe",
         category = "ei-purifier",
         energy_required = 1,
         ingredients = {
-            {type = "item", name = "raw-rare-metals", amount = 9},
-            {type = "fluid", name = "hydrogen-chloride", amount = 10},
+            {type = "item", name = "kr-rare-metal-ore", amount = 9},
+            {type = "fluid", name = "kr-hydrogen-chloride", amount = 10},
         },
         results = {
-            {type = "item", name = "enriched-rare-metals", amount = 9},
-            {type = "fluid", name = "chlorine", amount = 5},
+            {type = "item", name = "kr-enriched-rare-metals", amount = 9},
+            {type = "fluid", name = "kr-chlorine", amount = 5},
         },
-        main_product = "enriched-rare-metals",
+        main_product = "kr-enriched-rare-metals",
         subgroup = "ei-refining-purified",
         order = "b",
         enabled = false,
         always_show_made_in = true,
     },
     {
-        name = "enriched-iron-plate",
+        name = "kr-enriched-iron-plate",
         type = "recipe",
         category = "smelting",
         energy_required = 16,
         ingredients = {
-            {type = "item", name = "enriched-iron", amount = 10},
+            {type = "item", name = "kr-enriched-iron", amount = 10},
         },
         results = {
-            {type = "item", name = "ei-iron-ingot", amount = 20},
+            {type = "item", name = "iron-plate", amount = 20},
         },
-        main_product = "ei-iron-ingot",
+        main_product = "iron-plate",
         enabled = false,
         always_show_made_in = true,
     },
     {
-        name = "enriched-copper-plate",
+        name = "kr-enriched-copper-plate",
         type = "recipe",
         category = "smelting",
         energy_required = 16,
         ingredients = {
-            {type = "item", name = "enriched-copper", amount = 10},
+            {type = "item", name = "kr-enriched-copper", amount = 10},
         },
         results = {
-            {type = "item", name = "ei-copper-ingot", amount = 20},
+            {type = "item", name = "copper-plate", amount = 20},
         },
-        main_product = "ei-copper-ingot",
+        main_product = "copper-plate",
         enabled = false,
         always_show_made_in = true,
     },
     {
-        name = "quartz",
+        name = "kr-quartz",
         type = "recipe",
         category = "ei-purifier",
         energy_required = 3,
@@ -1624,9 +1678,9 @@ data:extend({
             {type = "fluid", name = "water", amount = 10},
         },
         results = {
-            {type = "item", name = "quartz", amount = 6},
+            {type = "item", name = "kr-quartz", amount = 6},
         },
-        main_product = "quartz",
+        main_product = "kr-quartz",
         subgroup = "ei-refining-purified",
         order = "b-a",
         enabled = false,
@@ -1635,14 +1689,14 @@ data:extend({
     {
         name = "ei-bio-matter-biomass",
         type = "recipe",
-        category = "bioprocessing",
+        category = "kr-bioprocessing",
         energy_required = 10,
         ingredients = {
             {type = "item", name = "ei-bio-matter", amount = 1},
-            {type = "item", name = "fertilizer", amount = 1},
-            {type = "item", name = "biomass", amount = 10},
+            {type = "item", name = "kr-fertilizer", amount = 1},
+            {type = "item", name = "kr-biomass", amount = 10},
             {type = "item", name = "ei-cryodust", amount = 4},
-            {type = "fluid", name = "chlorine", amount = 10},
+            {type = "fluid", name = "kr-chlorine", amount = 10},
         },
         results = {
             {type = "item", name = "ei-bio-matter", amount = 2},
@@ -1658,13 +1712,13 @@ data:extend({
         category = "ei-metalworks",
         energy_required = 3,
         ingredients = {
-            {type = "item", name = "imersium-plate", amount = 2},
+            {type = "item", name = "kr-imersium-plate", amount = 2},
             {type = "item", name = "steel-plate", amount = 1},
         },
         results = {
-            {type = "item", name = "imersium-beam", amount = 1},
+            {type = "item", name = "kr-imersium-beam", amount = 1},
         },
-        main_product = "imersium-beam",
+        main_product = "kr-imersium-beam",
         hide_from_player_crafting = true,
         enabled = false,
         always_show_made_in = true,
@@ -1675,13 +1729,13 @@ data:extend({
         category = "ei-metalworks",
         energy_required = 2,
         ingredients = {
-            {type = "item", name = "imersium-plate", amount = 4},
+            {type = "item", name = "kr-imersium-plate", amount = 4},
             {type = "item", name = "ei-steel-mechanical-parts", amount = 4},
         },
         results = {
-            {type = "item", name = "imersium-gear-wheel", amount = 4},
+            {type = "item", name = "kr-imersium-gear-wheel", amount = 4},
         },
-        main_product = "imersium-gear-wheel",
+        main_product = "kr-imersium-gear-wheel",
         hide_from_player_crafting = true,
         enabled = false,
         always_show_made_in = true,
@@ -1716,15 +1770,15 @@ data:extend({
         category = "ei-accelerator",
         energy_required = 100, -- 100s at 100MW = 10GJ
         ingredients = {
-            {type = "item", name = "matter-cube", amount = 1},
-            {type = "item", name = "ai-core", amount = 1},
-            {type = "item", name = "ei-lead-plate", amount = 10},
+            {type = "item", name = "kr-matter-cube", amount = 1},
+            {type = "item", name = "kr-ai-core", amount = 1},
+            {type = "item", name = "ei-lead-ingot", amount = 10},
             {type = "item", name = "ei-eu-magnet", amount = 1},
         },
         results = {
             {type = "item", name = "ei-antimatter-cube", amount = 1, probability = 0.5},
-            {type = "item", name = "matter-cube", amount = 1, probability = 0.5},
-            {type = "item", name = "ai-core", amount = 1, probability = 0.5},
+            {type = "item", name = "kr-matter-cube", amount = 1, probability = 0.5},
+            {type = "item", name = "kr-ai-core", amount = 1, probability = 0.5},
             {type = "item", name = "ei-eu-magnet", amount = 1, probability = 0.5},
         },
         main_product = "ei-antimatter-cube",
@@ -1754,10 +1808,10 @@ data:extend({
 
 -- inserters and belts
 -------------------------------------------------------------------------------
-ei_lib.recipe_add("ei-steam-inserter", "inserter-parts", 1)
-ei_lib.recipe_add("ei-steam-long-inserter", "inserter-parts", 1)
-ei_lib.recipe_add("ei-small-inserter-normal", "inserter-parts", 4)
-ei_lib.recipe_add("ei-big-inserter-normal", "inserter-parts", 4)
+ei_lib.recipe_add("ei-steam-inserter", "kr-inserter-parts", 1)
+ei_lib.recipe_add("ei-steam-long-inserter", "kr-inserter-parts", 1)
+ei_lib.recipe_add("ei-small-inserter-normal", "kr-inserter-parts", 4)
+ei_lib.recipe_add("ei-big-inserter-normal", "kr-inserter-parts", 4)
 ei_lib.remove_unlock_recipe("logistics", "inserter")
 ei_lib.remove_unlock_recipe("logistics", "long-handed-inserter")
 ei_lib.remove_unlock_recipe("logistics", "kr-loader")
@@ -1769,10 +1823,10 @@ data.raw["item"]["ei-neo-splitter"].subgroup = "splitter-belt"
 
 -- science
 -------------------------------------------------------------------------------
-data.raw.item["automation-science-pack"].flags = nil
-data.raw.item["space-science-pack"].flags = nil
-data.raw.recipe["automation-science-pack"].enabled = true
-data.raw.recipe["blank-tech-card"].enabled = true
+--data.raw.item["automation-science-pack"].flags = nil
+--data.raw.item["space-science-pack"].flags = nil
+--data.raw.recipe["automation-science-pack"].enabled = true
+data.raw.recipe["kr-blank-tech-card"].enabled = true
 
 data:extend({
     {
@@ -1781,12 +1835,11 @@ data:extend({
         category = "crafting",
         energy_required = 4,
         ingredients = {
-            {"ei-ceramic", 3},
-            {"iron-plate", 4},
-            {"ei-glass", 2},
+            {type="item", name="ei-ceramic", amount=3},
+            {type="item", name="iron-plate", amount=4},
+            {type="item", name="ei-glass", amount=2},
         },
-        result = "blank-tech-card",
-        result_count = 14,
+        results = {{type="item", name="kr-blank-tech-card", amount=14}},
         enabled = false,
         always_show_made_in = true,
     },
@@ -1796,12 +1849,11 @@ data:extend({
         category = "crafting",
         energy_required = 8,
         ingredients = {
-            {"ei-ceramic", 6},
-            {"iron-plate", 6},
-            {"ei-electronic-parts", 2},
+            {type="item", name="ei-ceramic", amount=6},
+            {type="item", name="iron-plate", amount=6},
+            {type="item", name="ei-electronic-parts", amount=2},
         },
-        result = "blank-tech-card",
-        result_count = 32,
+        results = {{type="item", name="kr-blank-tech-card", amount=32}},
         enabled = false,
         always_show_made_in = true,
     },
@@ -1811,12 +1863,11 @@ data:extend({
         category = "ei-nano-factory",
         energy_required = 60,
         ingredients = {
-            {"ei-clean-plating", 2},
-            {"energy-control-unit", 1},
-            {"matter-tech-card", 1},
+            {type="item", name="ei-clean-plating", amount=2},
+            {type="item", name="kr-energy-control-unit", amount=1},
+            {type="item", name="kr-matter-tech-card", amount=1},
         },
-        result = "ei-matter-quantum-age-tech",
-        result_count = 12,
+        results = {{type="item", name="ei-matter-quantum-age-tech", amount=12}},
         enabled = false,
         always_show_made_in = true,
     },
@@ -1826,12 +1877,11 @@ data:extend({
         category = "ei-nano-factory",
         energy_required = 60,
         ingredients = {
-            {"imersium-plate", 2},
-            {"ei-carbon-structure", 1},
-            {"production-science-pack", 5},
+            {type="item", name="kr-imersium-plate", amount=2},
+            {type="item", name="ei-carbon-structure", amount=1},
+            {type="item", name="production-science-pack", amount=5},
         },
-        result = "ei-imersite-quantum-age-tech",
-        result_count = 10,
+        results = {{type="item", name="ei-imersite-quantum-age-tech", amount=10}},
         enabled = false,
         always_show_made_in = true,
     },
@@ -1843,10 +1893,9 @@ data:extend({
         ingredients = {
             {type = "item", name = "fast-transport-belt", amount = 1},
             {type = "item", name = "ei-steel-mechanical-parts", amount = 5},
-            {type = "item", name = "rare-metals", amount = 1},
+            {type = "item", name = "kr-rare-metals", amount = 1},
         },
-        result = "express-transport-belt",
-        result_count = 1,
+        results = {{type="item", name="express-transport-belt", amount=1}},
         enabled = false,
     },
     {
@@ -1859,23 +1908,22 @@ data:extend({
             {type = "item", name = "ei-iron-mechanical-parts", amount = 3},
             {type = "item", name = "ei-copper-mechanical-parts", amount = 3},
         },
-        result = "kr-wind-turbine",
-        result_count = 1,
+        results = {{type="item", name="kr-wind-turbine", amount=1}},
         enabled = false,
     },
     {
         type = "recipe",
-        name = "imersite-powder",
+        name = "kr-imersite-powder",
         category = "ei-crushing",
         energy_required = 3,
         ingredients = {
-            {type = "item", name = "raw-imersite", amount = 6},
+            {type = "item", name = "kr-imersite", amount = 6},
         },
         results = {
             {type = "item", name = "ei-sand", amount = 2},
-            {type = "item", name = "imersite-powder", amount = 4},
+            {type = "item", name = "kr-imersite-powder", amount = 4},
         },
-        main_product = "imersite-powder",
+        main_product = "kr-imersite-powder",
         enabled = false,
     },
     
@@ -1890,8 +1938,8 @@ ei_lib.add_unlock_recipe("kr-quantum-computer", "production-science-pack")
 ei_lib.add_unlock_recipe("ei-moon-exploration", "space-science-pack")
 ei_lib.add_unlock_recipe("kr-imersium-processing", "ei-imersite-quantum-age-tech")
 ei_lib.add_unlock_recipe("kr-energy-control-unit", "ei-matter-quantum-age-tech")
-ei_lib.add_unlock_recipe("kr-energy-control-unit", "matter-tech-card")
-ei_lib.add_unlock_recipe("ei-exotic-age", "advanced-tech-card")
+ei_lib.add_unlock_recipe("kr-energy-control-unit", "kr-matter-tech-card")
+ei_lib.add_unlock_recipe("ei-exotic-age", "kr-advanced-tech-card")
 
 ei_lib.add_prerequisite("ei-moon-exploration", "ei-quantum-computer")
 ei_lib.add_prerequisite("kr-intergalactic-transceiver", "ei-exotic-age")
@@ -1912,72 +1960,70 @@ data.raw["recipe"]["copper-plate"].results = {
     {type = "item", name = "copper-plate", amount = 1}
 }
 
-ei_lib.remove_unlock_recipe("advanced-electronics", "electronic-components")
-ei_lib.recipe_add("ei-crystal-solution", "chlorine", 20, true)
-ei_lib.recipe_add("ei-advanced-semiconductor", "chlorine", 5, true)
-ei_lib.recipe_add("ei-advanced-semiconductor-monosilicon", "chlorine", 10, true)
-ei_lib.recipe_add("ei-monosilicon", "chlorine", 2, true)
-ei_lib.recipe_add("ei-nitric-acid-uranium-235", "chlorine", 10, true)
-ei_lib.recipe_add("ei-nitric-acid-uranium-233", "chlorine", 10, true)
-ei_lib.recipe_add("ei-nitric-acid-plutonium-239", "chlorine", 10, true)
-ei_lib.recipe_add("ei-nitric-acid-thorium-232", "chlorine", 10, true)
-ei_lib.recipe_add("ei-bio-matter", "chlorine", 2, true)
+ei_lib.remove_unlock_recipe("advanced-circuit", "electronic-components")
+ei_lib.recipe_add("ei-crystal-solution", "kr-chlorine", 20, true)
+ei_lib.recipe_add("ei-advanced-semiconductor", "kr-chlorine", 5, true)
+ei_lib.recipe_add("ei-advanced-semiconductor-monosilicon", "kr-chlorine", 10, true)
+ei_lib.recipe_add("ei-monosilicon", "kr-chlorine", 2, true)
+ei_lib.recipe_add("ei-nitric-acid-uranium-235", "kr-chlorine", 10, true)
+ei_lib.recipe_add("ei-nitric-acid-uranium-233", "kr-chlorine", 10, true)
+ei_lib.recipe_add("ei-nitric-acid-plutonium-239", "kr-chlorine", 10, true)
+ei_lib.recipe_add("ei-nitric-acid-thorium-232", "kr-chlorine", 10, true)
+ei_lib.recipe_add("ei-bio-matter", "kr-chlorine", 2, true)
 
-ei_lib.recipe_add("empty-antimatter-fuel-cell", "ei-empty-cryo-container", 1, false)
-ei_lib.recipe_add("empty-antimatter-fuel-cell", "ei-clean-plating", 10, false)
+ei_lib.recipe_add("kr-empty-antimatter-fuel-cell", "ei-empty-cryo-container", 1, false)
+ei_lib.recipe_add("kr-empty-antimatter-fuel-cell", "ei-clean-plating", 10, false)
 
-ei_lib.recipe_add("heat-pipe", "quartz", 4, false)
-ei_lib.recipe_add("solar-panel", "quartz", 8, false)
+ei_lib.recipe_add("heat-pipe", "kr-quartz", 4, false)
+ei_lib.recipe_add("solar-panel", "kr-quartz", 8, false)
 ei_lib.recipe_add("electronic-circuit", "wood", 1, false)
 ei_lib.recipe_add("ei-green-circuit-waver", "wood", 4, false)
-ei_lib.recipe_add("ei-advanced-motor", "rare-metals", 2, false)
-ei_lib.recipe_add("ei-module-part", "rare-metals", 4, false)
-ei_lib.recipe_add("processing-unit", "rare-metals", 6, false)
+ei_lib.recipe_add("ei-advanced-motor", "kr-rare-metals", 2, false)
+ei_lib.recipe_add("ei-module-part", "kr-rare-metals", 4, false)
+ei_lib.recipe_add("processing-unit", "kr-rare-metals", 6, false)
 
-ei_lib.recipe_add("advanced-circuit", "silicon", 1)
-data.raw["recipe"]["quartz"].ingredients = {
+ei_lib.recipe_add("advanced-circuit", "kr-silicon", 1)
+data.raw["recipe"]["kr-quartz"].ingredients = {
     {type = "item", name = "ei-sand", amount = 2},
     {type = "fluid", name = "water", amount = 20},
 }
-ei_lib.recipe_add("ei-semiconductor", "silicon", 2)
-ei_lib.recipe_add("ei-advanced-base-semiconductor", "silicon", 4)
-ei_lib.recipe_add("ei-silicon", "silicon", 1)
-ei_lib.recipe_add("ei-lithium-crystal", "lithium", 1)
-ei_lib.recipe_add("ei-neutron-collector", "lithium", 15)
-ei_lib.recipe_add("ei-fusion-reactor", "lithium", 100)
-ei_lib.recipe_add("lithium-sulfur-battery", "battery", 1)
-ei_lib.recipe_add("ei-fusion-data", "lithium", 2)
+ei_lib.recipe_add("ei-semiconductor", "kr-silicon", 2)
+ei_lib.recipe_add("ei-advanced-base-semiconductor", "kr-silicon", 4)
+ei_lib.recipe_add("ei-silicon", "kr-silicon", 1)
+ei_lib.recipe_add("ei-lithium-crystal", "kr-lithium", 1)
+ei_lib.recipe_add("ei-neutron-collector", "kr-lithium", 15)
+ei_lib.recipe_add("ei-fusion-reactor", "kr-lithium", 100)
+ei_lib.recipe_add("kr-lithium-sulfur-battery", "battery", 1)
+ei_lib.recipe_add("ei-fusion-data", "kr-lithium", 2)
 
-data.raw["recipe"]["ai-core"].ingredients = {
-    {"processing-unit", 1}, {"imersite-crystal", 3}, {"ei-computing-unit", 1}, 
+data.raw["recipe"]["kr-ai-core"].ingredients = {
+    {type="item", name="processing-unit", amount=1}, {type="item", name="kr-imersite-crystal", amount=3}, {type="item", name="ei-computing-unit", amount=1}, 
 }
-data.raw["recipe"]["ai-core"].results = nil
-data.raw["recipe"]["ai-core"].result = "ai-core"
-data.raw["recipe"]["ai-core"].result_count = 10
-ei_lib.recipe_add("ei-superior-data", "ai-core", 1)
-ei_lib.recipe_add("ei-plasma-data-tritium", "ai-core", 1)
-ei_lib.recipe_add("ei-plasma-data-deuterium", "ai-core", 1)
-ei_lib.recipe_add("ei-plasma-data-protium", "ai-core", 1)
-ei_lib.recipe_add("ei-magnet-data", "ai-core", 1)
-ei_lib.recipe_add("ei-fusion-data", "ai-core", 1)
+data.raw["recipe"]["kr-ai-core"].results = {{type="item", name="kr-ai-core", amount=10}}
+ei_lib.recipe_add("ei-superior-data", "kr-ai-core", 1)
+ei_lib.recipe_add("ei-plasma-data-tritium", "kr-ai-core", 1)
+ei_lib.recipe_add("ei-plasma-data-deuterium", "kr-ai-core", 1)
+ei_lib.recipe_add("ei-plasma-data-protium", "kr-ai-core", 1)
+ei_lib.recipe_add("ei-magnet-data", "kr-ai-core", 1)
+ei_lib.recipe_add("ei-fusion-data", "kr-ai-core", 1)
 
-ei_lib.recipe_add("ei-odd-plating", "imersite-crystal", 1)
-ei_lib.recipe_add("imersium-plate", "ei-neodym-plate", 2)
+ei_lib.recipe_add("ei-odd-plating", "kr-imersite-crystal", 1)
+ei_lib.recipe_add("kr-imersium-plate", "ei-neodym-ingot", 2)
 
-ei_lib.recipe_add("ei-energy-crystal-growing", "quartz", 1)
+ei_lib.recipe_add("ei-energy-crystal-growing", "kr-quartz", 1)
 
 ei_lib.add_unlock_recipe("kr-bio-processing", "ei-bio-matter-biomass")
 ei_lib.add_unlock_recipe("kr-imersium-processing", "imersium-beam-metalworks")
 ei_lib.add_unlock_recipe("kr-imersium-processing", "imersium-gear-wheel-metalworks")
 
-ei_lib.recipe_add("imersium-beam", "steel-plate", 1)
-ei_lib.recipe_add("imersium-gear-wheel", "ei-steel-mechanical-parts", 4)
+ei_lib.recipe_add("kr-imersium-beam", "steel-plate", 1)
+ei_lib.recipe_add("kr-imersium-gear-wheel", "ei-steel-mechanical-parts", 4)
 
 data.raw.technology["kr-automation"].effects = {
     { type = "unlock-recipe", recipe = "kr-advanced-assembling-machine" },
 }
 
-ei_lib.recipe_add("ei-sus-plating", "rare-metals", 1)
+ei_lib.recipe_add("ei-sus-plating", "kr-rare-metals", 1)
 
 -- chemistry changes
 -------------------------------------------------------------------------------
@@ -1998,11 +2044,11 @@ ei_lib.remove_unlock_recipe("kr-fluids-chemistry", "chemical-plant")
 
 ei_lib.add_prerequisite("speed-module", "kr-mineral-water-gathering")
 ei_lib.add_prerequisite("productivity-module", "kr-mineral-water-gathering")
-ei_lib.add_prerequisite("effectivity-module", "kr-mineral-water-gathering")
+ei_lib.add_prerequisite("efficiency-module", "kr-mineral-water-gathering")
 
 --[[
 data.raw.recipe["ei-module-base"].recipe_category = "crafting-with-fluid"
-ei_lib.recipe_add("ei-module-base", "mineral-water", 50, true)
+ei_lib.recipe_add("ei-module-base", "kr-mineral-water", 50, true)
 ]]
 data:extend({
     {
@@ -2012,59 +2058,55 @@ data:extend({
         energy_required = 4,
         ingredients =
         {
-            {"ei-module-part", 1},
-            {"ei-energy-crystal", 1},
-            {"ei-glass", 2},
-            {type = "fluid", name = "mineral-water", amount = 50},
+            {type="item", name="ei-module-part", amount=1},
+            {type="item", name="ei-energy-crystal", amount=1},
+            {type="item", name="ei-glass", amount=2},
+            {type = "fluid", name = "kr-mineral-water", amount = 50},
         },
-        result = "ei-module-base",
-        result_count = 1,
+        results = {{type="item", name="ei-module-base", amount=1}},
         enabled = false,
         always_show_made_in = true,
         main_product = "ei-module-base",
     },
 })
 
-ei_lib.recipe_add("ei-neodym-plate", "mineral-water", 25, true)
-ei_lib.recipe_add("ei-cast-neodym-ingot", "rare-metals", 1)
+ei_lib.recipe_add("ei-neodym-ingot", "kr-mineral-water", 25, true)
+ei_lib.recipe_add("ei-cast-neodym-ingot", "kr-rare-metals", 1)
 
 -- fuel and vehicles
 -------------------------------------------------------------------------------
-data.raw["locomotive"]["ei-steam-advanced-locomotive"].burner.fuel_categories = {
+data.raw["locomotive"]["ei-steam-advanced-locomotive"].energy_source.fuel_categories = {
     "chemical",
-    "vehicle-fuel"
+    "kr-vehicle-fuel"
 }
 
-data.raw["locomotive"]["locomotive"].burner.fuel_categories = {
+data.raw["locomotive"]["locomotive"].energy_source.fuel_categories = {
     "ei-diesel-fuel",
     "ei-rocket-fuel"
 }
 
-data.raw["locomotive"]["kr-nuclear-locomotive"].burner.fuel_categories = {
+data.raw["locomotive"]["kr-nuclear-locomotive"].energy_source.fuel_categories = {
     "ei-nuclear-fuel",
     "ei-fusion-fuel"
 }
 
 for _, spider in pairs(data.raw["spider-vehicle"]) do
-    if spider.energy_source.type ~= "burner" then
-        spider.energy_source = {
-            type = "burner",
-            fuel_categories = {"chemical", "ei-nuclear-fuel", "ei-fusion-fuel"},
-            effectivity = 1,
-            fuel_inventory_size = 3,
-            burnt_inventory_size = 3,
-        }
-        spider.movement_energy_consumption = "1.0MW"
-    end
-
+    spider.energy_source = {
+        type = "burner",
+        fuel_categories = {"chemical", "ei-nuclear-fuel", "ei-fusion-fuel"},
+        effectivity = 1,
+        fuel_inventory_size = 3,
+        burnt_inventory_size = 3,
+    }
+    spider.movement_energy_consumption = "1.0MW"
 end
 
-ei_lib.recipe_add("ei-diesel-fuel-unit", "fuel", 1)
+ei_lib.recipe_add("ei-diesel-fuel-unit", "kr-fuel", 1)
 
-
+--[[
 -- nuclear and steam reset
 -------------------------------------------------------------------------------
-data.raw["reactor"]["nuclear-reactor"].energy_source.fuel_category = "ei-nuclear-fuel"
+data.raw["reactor"]["nuclear-reactor"].energy_source.fuel_categories = {"ei-nuclear-fuel"}
 data.raw["reactor"]["nuclear-reactor"].energy_source.effectivity = 2
 if ei_lib.config("nuclear-reactor-remove-bonus") then
     data.raw["reactor"]["nuclear-reactor"].neighbour_bonus = 0
@@ -2080,8 +2122,8 @@ data.raw["reactor"]["nuclear-reactor"].consumption = ei_lib.config("nuclear-reac
 -- steam turbine
 -- 900kw at 165dec steam with 30/s
 
--- boiler- 165dec steam out, with 60/s at 1.8MW
--- fluid boiler- same with fluid
+-- boiler: 165dec steam out, with 60/s at 1.8MW
+-- fluid boiler: same with fluid
 
 data.raw["boiler"]["ei-fluid-boiler"].energy_consumption = "1.5MW"
 
@@ -2161,13 +2203,13 @@ data.raw["assembling-machine"]["ei-energy-injector-pylon"].energy_usage = "10GW"
 data.raw["pump"]["pump"].energy_source = {
     type = 'void'
 }
-data.raw["assembling-machine"]["kr-electric-offshore-pump"].energy_source = {
-    type = 'void'
-}
+-- data.raw["offshore-pump"]["offshore-pump"].energy_source = {
+--     type = "void"
+-- }
 data.raw["item"]["satellite"].rocket_launch_product = nil
 data.raw["capsule"]["raw-fish"].rocket_launch_product = nil
 data.raw["capsule"]["raw-fish"].rocket_launch_products = nil
-
+]]
 -- starting machinery
 -------------------------------------------------------------------------------
 data:extend({
@@ -2180,8 +2222,7 @@ data:extend({
             {type = "item", name = "wood", amount = 2},
             {type = "item", name = "copper-plate", amount = 3},
         },
-        result = "small-electric-pole",
-        result_count = 1,
+        results = {{type="item", name="small-electric-pole", amount=1}},
         enabled = false,
     },
 })
@@ -2190,8 +2231,8 @@ ei_lib.add_unlock_recipe("ei-dark-age", "ei-basic-power-pole")
 
 -- remove non ei drops from crash site things
 local swap_crash_items = {
-    ["iron-plate"] = "ei-iron-ingot",
-    ["copper-plate"] = "ei-copper-ingot",
+    ["iron-plate"] = "iron-plate",
+    ["copper-plate"] = "copper-plate",
     ["iron-gear-wheel"] = "ei-iron-mechanical-parts",
     ["copper-cable"] = "ei-copper-mechanical-parts",
 } 
@@ -2286,10 +2327,10 @@ end
 -------------------------------------------------------------------------------
 
 -- only if "kr-more-realistic-weapon" setting is enabled
-if settings.startup["kr-more-realistic-weapon"].value then
-    data.raw["ammo"]["firearm-magazine"].ammo_type.category = "pistol-ammo"
-    data.raw["ammo"]["piercing-rounds-magazine"].ammo_type.category = "pistol-ammo"
-end
+-- if settings.startup["kr-more-realistic-weapon"].value then
+--     data.raw["ammo"]["firearm-magazine"].ammo_type.category = "pistol-ammo"
+--     data.raw["ammo"]["piercing-rounds-magazine"].ammo_type.category = "pistol-ammo"
+-- end
 
 -- productivity modules
 -------------------------------------------------------------------------------
@@ -2299,10 +2340,10 @@ local recipes = {
     "chemical-science-pack",
     "utility-science-pack",
     "production-science-pack",
-    "space-science-pack",
-    "matter-tech-card",
-    "advanced-tech-card",
-    "blank-tech-card",
+--    "space-science-pack",
+    "kr-matter-tech-card",
+    "kr-advanced-tech-card",
+    "kr-blank-tech-card",
     "ei-blank-tech-card",
     "ei-blank-tech-card-electronic-parts",
     "utility-science-pack_alt",
@@ -2313,11 +2354,11 @@ local recipes = {
     "chemical-science-pack_alt",
 }
 
-for i,v in pairs(recipes) do
-    table.insert(data.raw["module"]["productivity-module"].limitation, v)
-    table.insert(data.raw["module"]["productivity-module-2"].limitation, v)
-    table.insert(data.raw["module"]["productivity-module-3"].limitation, v)
-end
+-- for i,v in pairs(recipes) do
+--     table.insert(data.raw["module"]["productivity-module"].limitation, v)
+--     table.insert(data.raw["module"]["productivity-module-2"].limitation, v)
+--     table.insert(data.raw["module"]["productivity-module-3"].limitation, v)
+-- end
 
 for target, info in pairs(items_to_merge) do
     ei_lib.merge_item(target, info.item, info.use_icon)
@@ -2363,4 +2404,8 @@ for recipe, info in pairs(hard_recipe_overwrite) do
     ei_lib.recipe_hard_overwrite(recipe, info)
     ::continue::
 end
-::skip_rest::
+ei_lib.remove_prerequisite("automation","advanced-circuit")
+ei_lib.remove_prerequisite("advanced-circuit","automation")
+ei_lib.remove_prerequisite("ei-computer-age-tech","automation-2")
+
+::do_not_load::

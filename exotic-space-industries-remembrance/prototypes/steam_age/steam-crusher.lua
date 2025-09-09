@@ -63,7 +63,7 @@ data:extend({
             {
                 type = "unlock-recipe",
                 recipe = "ei-crushed-iron"
-            }
+            },
         },
         unit = {
             count = 100,

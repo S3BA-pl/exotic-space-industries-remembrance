@@ -100,10 +100,10 @@ data:extend({
                 },
                 production_type = "input-output",
             },
-            effectivity = 1,
+            effectivity = 1.25,
             burns_fluid = true,
             scale_fluid_usage = true,
-            emissions_per_minute = {pollution = 15 },
+            emissions_per_minute = {pollution = 30 },
         },
         heat_buffer = {
             max_temperature = 275,

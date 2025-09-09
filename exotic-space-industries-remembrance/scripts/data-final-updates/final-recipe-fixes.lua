@@ -112,6 +112,8 @@ local recipes = {
 	"ei-cast-carbon",
 	"ei-molten-carbon-fusion",
 	"ei-molten-carbon-fusion-high-energy",
+	"ei-basic-steam-oil-processing",
+	"ei-basic-water-oil-processing"
 }
 
 for i,v in pairs(recipes) do
@@ -152,6 +154,12 @@ end
 local remove_prod = {
     "lubricant",
 	"ei-lube-destilation",
+	"ei-vaporize-liquid-ammonia",
+	"ei-vaporize-liquid-nitrogen",
+	"ei-vaporize-liquid-oxygen",
+	"ei-liquid-ammonia",
+	"ei-liquid-nitrogen",
+	"ei-liquid-oxygen",
 }
 --this segment commented out pending mindful consideration of removing productivity
 --in this bloated 2.0 era of insane productivity

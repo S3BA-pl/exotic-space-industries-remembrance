@@ -99,7 +99,7 @@ data:extend({
         collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
         selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
         map_color = ei_data.colors.assembler,
-        crafting_categories = {"ei-bio-chamber","organic"},
+        crafting_categories = {"ei-bio-chamber","organic","ei-bio-reactor"},
         crafting_speed = 1,
         energy_source = {
             type = 'electric',
@@ -147,7 +147,7 @@ data:extend({
             },
         },
         allowed_effects = {"speed", "consumption", "pollution","quality"},
-        module_slots = 1,
+        module_slots = 2,
         fluid_boxes = {
             {   
                 volume = 200,

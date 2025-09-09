@@ -100,7 +100,7 @@ boiler.energy_source = {
         },
         production_type = "input",
     },
-    effectivity = 1,
+    effectivity = 1.25,
     emissions_per_minute = {pollution=30},
     burns_fluid = true,
     scale_fluid_usage = true,

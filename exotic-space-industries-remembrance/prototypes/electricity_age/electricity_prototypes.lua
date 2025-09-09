@@ -104,36 +104,6 @@ data:extend({
     },
 
     {
-      name = "ei-lead-ingot",
-      type = "item",
-      icon = ei_graphics_item_path.."lead-ingot.png",
-      icon_size = 64,
-      stack_size = 100,
-      subgroup = "intermediate-product",
-      order = "a5",
-    },
-
-    {
-      name = "ei-gold-ingot",
-      type = "item",
-      icon = ei_graphics_item_path.."gold-ingot.png",
-      icon_size = 64,
-      stack_size = 100,
-      subgroup = "intermediate-product",
-      order = "a4",
-  },
-
-  {
-      name = "ei-neodym-ingot",
-      type = "item",
-      icon = ei_graphics_item_path.."neodym-ingot.png",
-      icon_size = 64,
-      stack_size = 100,
-      subgroup = "intermediate-product",
-      order = "a6",
-  },
-
-    {
         name = "ei-electronic-parts",
         type = "item",
         icon = ei_path.."graphics/item/electronic-parts.png",
@@ -164,131 +134,6 @@ data:extend({
         stack_size = 100
     },
 
-    -- new materials
-    {
-        name = "ei-crushed-gold",
-        type = "item",
-        icon = ei_graphics_item_path.."crushed-gold.png",
-        icon_size = 64,
-        stack_size = 100,
-        subgroup = "ei-refining-crushed",
-        order = "a4",
-        pictures = {
-            {
-                filename = ei_graphics_item_path.."crushed-gold.png",
-                scale = 0.375,
-                size = 64
-            },
-            {
-                filename = ei_graphics_item_path.."crushed-gold-1.png",
-                scale = 0.375,
-                size = 64
-            },
-            {
-                filename = ei_graphics_item_path.."crushed-gold-2.png",
-                scale = 0.375,
-                size = 64
-            },
-        },
-    },
-    {
-        name = "ei-crushed-sulfur",
-        type = "item",
-        icon = ei_graphics_item_path.."crushed-sulfur.png",
-        icon_size = 64,
-        stack_size = 100,
-        subgroup = "ei-refining-crushed",
-        order = "a5",
-        pictures = {
-            {
-                filename = ei_graphics_item_path.."crushed-sulfur.png",
-                scale = 0.375,
-                size = 64
-            },
-            {
-                filename = ei_graphics_item_path.."crushed-sulfur-1.png",
-                scale = 0.375,
-                size = 64
-            },
-            {
-                filename = ei_graphics_item_path.."crushed-sulfur-2.png",
-                scale = 0.375,
-                size = 64
-            },
-        },
-    },
-    {
-        name = "ei-gold-chunk",
-        type = "item",
-        icon = ei_graphics_item_path.."gold-chunk.png",
-        icon_size = 64,
-        stack_size = 100,
-        subgroup = "ei-refining-raw",
-        order = "a-d",
-    },
-    {
-        name = "ei-sulfur-chunk",
-        type = "item",
-        icon = ei_graphics_item_path.."sulfur-chunk.png",
-        icon_size = 64,
-        stack_size = 100,
-        subgroup = "ei-refining-raw",
-        order = "a-f",
-    },
-    {
-        name = "ei-lead-chunk",
-        type = "item",
-        icon = ei_graphics_item_path.."lead-chunk.png",
-        icon_size = 64,
-        stack_size = 100,
-        subgroup = "ei-refining-raw",
-        order = "a-e",
-    },
-    {
-        name = "ei-neodym-chunk",
-        type = "item",
-        icon = ei_graphics_item_path.."neodym-chunk.png",
-        icon_size = 64,
-        stack_size = 100,
-        subgroup = "ei-refining-raw",
-        order = "a-e",
-    },
-    {
-        name = "ei-coal-chunk",
-        type = "item",
-        icon = ei_graphics_item_path.."coal-chunk.png",
-        icon_size = 64,
-        stack_size = 100,
-        subgroup = "ei-refining-raw",
-        order = "a-c",
-    },
-    {
-        name = "ei-iron-chunk",
-        type = "item",
-        icon = ei_graphics_item_path.."iron-chunk.png",
-        icon_size = 64,
-        stack_size = 100,
-        subgroup = "ei-refining-raw",
-        order = "a-a",
-    },
-    {
-        name = "ei-copper-chunk",
-        type = "item",
-        icon = ei_graphics_item_path.."copper-chunk.png",
-        icon_size = 64,
-        stack_size = 100,
-        subgroup = "ei-refining-raw",
-        order = "a-b",
-    },
-    {
-        name = "ei-uranium-chunk",
-        type = "item",
-        icon = ei_graphics_item_path.."uranium-chunk.png",
-        icon_size = 64,
-        stack_size = 100,
-        subgroup = "ei-refining-raw",
-        order = "a-f",
-    },
     {
         name = "ei-diesel-fuel-unit-empty",
         type = "item",
@@ -530,40 +375,6 @@ data:extend({
         order = "a[fluid-chemistry]-a[ei_desulfurize-kerosene]",
     },
     {
-        name = "ei-acidic-water-sulfur",
-        type = "recipe",
-        category = "chemistry",
-        energy_required = 1,
-        ingredients = {
-            {type = "fluid", name = "ei-acidic-water", amount = 10},
-        },
-        results = {
-            {type = "item", name = "sulfur", amount = 1},
-            {type = "fluid", name = "water", amount = 10},
-        },
-        always_show_made_in = true,
-        enabled = false,
-        main_product = "sulfur",
-    },
-    {
-        name = "ei-sulfur-acidic-water",
-        type = "recipe",
-        category = "chemistry",
-        energy_required = 1,
-        ingredients = {
-            {type = "item", name = "sulfur", amount = 1},
-            {type = "fluid", name = "water", amount = 10},
-        },
-        results = {
-            {type = "fluid", name = "ei-acidic-water", amount = 10},
-        },
-        always_show_made_in = true,
-        enabled = false,
-        main_product = "ei-acidic-water",
-        subgroup = "fluid-recipes",
-        order = "a[fluid-chemistry]-a[ei_sulfur-acidic-water]",
-    },
-    {
         name = "ei-kerosene-heavy-oil",
         type = "recipe",
         category = "chemistry",
@@ -618,32 +429,6 @@ data:extend({
         main_product = "petroleum-gas",
         subgroup = "fluid-recipes",
         order = "b[fluid-chemistry]-b[petroleum]",
-    },
-    {
-        name = "ei-electric-engine-lube",
-        type = "recipe",
-        category = "advanced-crafting",
-        energy_required = 6,
-        ingredients = {
-            {type = "fluid", name = "lubricant", amount = 10},
-            {type = "item", name = "engine-unit", amount = 1},
-            {type = "item", name = "copper-cable", amount = 4},
-            {type = "item", name = "ei-iron-mechanical-parts", amount = 2},
-        },
-        results = {
-            {type = "item", name = "electric-engine-unit", amount = 2},
-        },
-        always_show_made_in = true,
-        enabled = false,
-        icon_size = 64,
-        icons = {
-            {
-                icon = ei_graphics_base_path.."electric-engine-unit.png",
-            },
-            {
-                icon = ei_graphics_other_path.."lube_overlay.png",
-            }
-        },
     },
     {
         name = "ei-crushed-brick",
@@ -749,205 +534,6 @@ data:extend({
         main_product = "ei-computer-age-tech",
     },
     {
-        name = "ei-gold-ingot",
-        type = "recipe",
-        category = "smelting",
-        energy_required = 3.2,
-        ingredients = {
-            {type = "item", name = "ei-gold-chunk", amount = 3},
-        },
-        results = {
-            {type = "item", name = "ei-gold-ingot", amount = 1},
-            {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.1,allow_productivity=false}
-        },
-        always_show_made_in = true,
-        enabled = false,
-        main_product = "ei-gold-ingot",
-    },
-    {
-        name = "ei-crushed-gold",
-        type = "recipe",
-        category = "ei-crushing",
-        energy_required = 1,
-        ingredients = {
-            {type = "item", name = "ei-gold-ingot", amount = 1},
-        },
-        results = {
-            {type = "item", name = "ei-crushed-gold", amount = 2},
-        },
-        always_show_made_in = true,
-        enabled = false,
-        main_product = "ei-crushed-gold",
-    },
-    --[[
-    {
-        name = "ei-crushed-gold-plate",
-        type = "recipe",
-        category = "ei-crushing",
-        energy_required = 1,
-        ingredients = {
-            {type = "item", name = "ei-gold-ingot", amount = 1},
-        },
-        results = {
-            {type = "item", name = "ei-crushed-gold", amount = 2},
-        },
-        always_show_made_in = true,
-        enabled = false,
-        main_product = "ei-crushed-gold",
-        hide_from_player_crafting = true,
-    },
-    ]]
-    {
-        name = "ei-lead-ingot",
-        type = "recipe",
-        category = "smelting",
-        energy_required = 3.2,
-        ingredients = {
-            {type = "item", name = "ei-lead-chunk", amount = 3},
-        },
-        results = {
-            {type = "item", name = "ei-lead-ingot", amount = 1},
-            {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.1,allow_productivity=false}
-        },
-        always_show_made_in = true,
-        enabled = false,
-        main_product = "ei-lead-ingot",
-    },
-    {
-        name = "ei-neodym-ingot",
-        type = "recipe",
-        category = "smelting",
-        energy_required = 3.2,
-        ingredients = {
-            {type = "item", name = "ei-neodym-chunk", amount = 3},
-        },
-        results = {
-            {type = "item", name = "ei-neodym-ingot", amount = 1},
-            {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.1,allow_productivity=false}
-        },
-        always_show_made_in = true,
-        enabled = false,
-        main_product = "ei-neodym-ingot",
-    },
-    {
-        name = "ei-iron-ingot-chunk-smelting",
-        type = "recipe",
-        category = "smelting",
-        energy_required = 3.2,
-        ingredients = {
-            {type = "item", name = "ei-iron-chunk", amount = 3},
-        },
-        results = {
-            {type = "item", name = "iron-plate", amount = 2},
-            {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.1,allow_productivity=false}
-        },
-        always_show_made_in = true,
-        enabled = false,
-        main_product = "iron-plate",
-    },
-    {
-        name = "ei-copper-ingot-chunk-smelting",
-        type = "recipe",
-        category = "smelting",
-        energy_required = 3.2,
-        ingredients = {
-            {type = "item", name = "ei-copper-chunk", amount = 3},
-        },
-        results = {
-            {type = "item", name = "copper-plate", amount = 2},
-            {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.1,allow_productivity=false}
-        },
-        always_show_made_in = true,
-        enabled = false,
-        main_product = "copper-plate",
-    },
-    {
-        name = "ei-coal-chunk-crushing",
-        type = "recipe",
-        category = "ei-crushing",
-        energy_required = 2,
-        ingredients = {
-            {type = "item", name = "ei-coal-chunk", amount = 1},
-        },
-        results = {
-            {type = "item", name = "coal", amount = 4},
-        },
-        always_show_made_in = true,
-        enabled = false,
-        main_product = "coal",
-    },
-    {
-        name = "ei-sulfur-chunk-crushing",
-        type = "recipe",
-        category = "ei-crushing",
-        energy_required = 1,
-        ingredients = {
-            {type = "item", name = "ei-sulfur-chunk", amount = 1},
-        },
-        results = {
-            {type = "item", name = "ei-crushed-sulfur", amount = 2},
-        },
-        always_show_made_in = true,
-        enabled = false,
-        main_product = "ei-crushed-sulfur",
-    },
-    {
-        name = "ei-acidic-water-crushed-sulfur",
-        type = "recipe",
-        category = "chemistry",
-        energy_required = 1,
-        ingredients = {
-            {type = "item", name = "ei-crushed-sulfur", amount = 4},
-            {type = "fluid", name = "water", amount = 20},
-        },
-        results = {
-            {type = "fluid", name = "ei-acidic-water", amount = 20},
-        },
-        always_show_made_in = true,
-        enabled = false,
-        main_product = "ei-acidic-water",
-        subgroup = "fluid-recipes",
-        order = "a[fluid-chemistry]-a[ei_crushed-sulfur-acidic-water]",
-    },
-    {
-        name = "ei-drill-fluid",
-        type = "recipe",
-        category = "chemistry",
-        energy_required = 8,
-        ingredients = {
-            {type = "item", name = "solid-fuel", amount = 5},
-            {type = "fluid", name = "sulfuric-acid", amount = 20},
-            {type = "fluid", name = "lubricant", amount = 10},
-        },
-        results = {
-            {type = "fluid", name = "ei-drill-fluid", amount = 30},
-        },
-        always_show_made_in = true,
-        enabled = false,
-        main_product = "ei-drill-fluid",
-    },
-    {
-        name = "ei-lube-destilation",
-        type = "recipe",
-        category = "chemistry",
-        energy_required = 4,
-        ingredients = {
-            {type = "fluid", name = "steam", amount = 5},
-            {type = "fluid", name = "lubricant", amount = 20},
-        },
-        results = {
-            {type = "fluid", name = "heavy-oil", amount_min = 13,amount_max=17},
-            {type = "item", name = "coal", amount = 1},
-        },
-        always_show_made_in = true,
-        enabled = false,
-        main_product = "heavy-oil",
-        icon = ei_graphics_tech_path.."lube-extraction.png",
-        icon_size = 64,
-        subgroup = "fluid-recipes",
-        order = "b[fluid-chemistry]-g[lube-extraction]",
-    },
-    {
         name = "ei-green-circuit-waver",
         type = "recipe",
         category = "crafting-with-fluid",
@@ -1003,6 +589,7 @@ data:extend({
         },
         results = {
             {type = "fluid", name = "ei-molten-glass", amount = 25},
+            {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.01,allow_productivity=false}
         },
         always_show_made_in = true,
         enabled = false,
@@ -1034,7 +621,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."electricity-power.png",
         icon_size = 350,
-        prerequisites = {"electric-engine"},
+        prerequisites = {"ei-electricity-age"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -1140,25 +727,6 @@ data:extend({
         age = "electricity-age",
     },
     {
-        name = "ei-lube-destilation",
-        type = "technology",
-        icon = ei_graphics_tech_path.."lube-extraction.png",
-        icon_size = 64,
-        prerequisites = {"lubricant"},
-        effects = {
-            {
-                type = "unlock-recipe",
-                recipe = "ei-lube-destilation"
-            },
-        },
-        unit = {
-            count = 100,
-            ingredients = ei_data.science["electricity-age"],
-            time = 20
-        },
-        age = "electricity-age",
-    },
-    {
         name = "ei-circuit-waver",
         type = "technology",
         icon = ei_graphics_tech_path.."circuit-waver.png",
@@ -1184,8 +752,9 @@ data:extend({
     {
         name = "ei-molten-glass",
         type = "technology",
-        icon = ei_graphics_tech_path.."molten-glass.png",
-        icon_size = 128,
+        icon = ei_path.."graphics/tech/molten-glass.png",
+        icon_size = 512,
+        icon_mipmaps = 5,
         prerequisites = {"ei-arc-furnace"},
         effects = {
             {
@@ -1195,71 +764,6 @@ data:extend({
             {
                 type = "unlock-recipe",
                 recipe = "ei-cast-glass"
-            },
-        },
-        unit = {
-            count = 100,
-            ingredients = ei_data.science["electricity-age"],
-            time = 20
-        },
-        age = "electricity-age",
-    },
-    {
-        name = "ei-deep-mining",
-        type = "technology",
-        icon = ei_graphics_tech_path.."deep-mining.png",
-        icon_size = 128,
-        prerequisites = {"automation", "sulfur-processing"},
-        effects = {
-            {
-                type = "unlock-recipe",
-                recipe = "ei-gold-ingot"
-            },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-crushed-gold"
-            },
-            --[[
-            {
-                type = "unlock-recipe",
-                recipe = "ei-crushed-gold-plate"
-            },
-            ]]
-            {
-                type = "unlock-recipe",
-                recipe = "ei-lead-ingot"
-            },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-iron-ingot-chunk-smelting"
-            },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-copper-ingot-chunk-smelting"
-            },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-coal-chunk-crushing"
-            },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-sulfur-chunk-crushing"
-            },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-acidic-water-crushed-sulfur"
-            },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-deep-drill"
-            },
-            {
-                type = "unlock-recipe",
-                recipe = "ei-drill-fluid"
-            },
-            {
-                type="mining-with-fluid",
-                modifier=true
             },
         },
         unit = {
@@ -1329,29 +833,14 @@ table.insert(data.raw.technology["electric-mining-drill"].effects,  {
     type = "unlock-recipe",
     recipe = modprefix.."electric-quarry"
 })
-table.insert(data.raw.technology["sulfur-processing"].effects,  {
+table.insert(data.raw.technology["advanced-oil-processing"].effects,  {
     type = "unlock-recipe",
     recipe = "ei-desulfurize-kerosene"
-})
-
-table.insert(data.raw.technology["sulfur-processing"].effects,  {
-    type = "unlock-recipe",
-    recipe = "ei-sulfur-acidic-water"
-})
-
-table.insert(data.raw.technology["sulfur-processing"].effects,  {
-    type = "unlock-recipe",
-    recipe = "ei-acidic-water-sulfur"
 })
 
 table.insert(data.raw.technology["coal-liquefaction"].effects,  {
     type = "unlock-recipe",
     recipe = "ei-kerosene-heavy-oil"
-})
-
-table.insert(data.raw.technology["lubricant"].effects,  {
-    type = "unlock-recipe",
-    recipe = "ei-electric-engine-lube"
 })
 
 table.insert(data.raw["technology"]["battery"].effects, {
@@ -1379,9 +868,7 @@ table.insert(data.raw["technology"]["coal-liquefaction"].effects, {
 --     recipe = "ei-electric-stone-quarry"
 -- })
 
-ei_lib.add_prerequisite("railway","plastics")
-ei_lib.add_prerequisite("railway","electric-engine")
-ei_lib.add_prerequisite("railway","advanced-circuit")
+ei_lib.set_prerequisites("railway",{"plastics","advanced-oil-processing","advanced-circuit"})
 
 table.insert(data.raw["technology"]["railway"].effects, {
     type = "unlock-recipe",

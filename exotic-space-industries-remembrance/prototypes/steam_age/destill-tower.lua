@@ -41,7 +41,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."destill-tower.png",
         icon_size = 256,
-        prerequisites = {"oil-processing"},
+        prerequisites = {"ei-steam-oil-processing"},
         effects = {
             {
                 type = "unlock-recipe",
@@ -66,10 +66,10 @@ data:extend({
         },
         unit = {
             count = 100,
-            ingredients = ei_data.science["electricity-age"],
+            ingredients = ei_data.science["steam-age"],
             time = 20
         },
-        age = "electricity-age",
+        age = "steam-age",
     },
     {
         name = "ei-destill-tower",

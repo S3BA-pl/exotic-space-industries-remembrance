@@ -87,13 +87,14 @@ data:extend({
         collision_box = {{-1.3,-1.3},{1.3,1.3}},
         selection_box = {{-1.5,-1.5},{1.5,1.5}},
         map_color = ei_data.colors.assembler,
+        fast_replaceable_group = "ei-nitrogen-beacon",
         allowed_effects = {"speed", "productivity", "consumption", "pollution", "quality"},
         minable = {
             mining_time = 1,
             result = "ei-iron-beacon",
         },
         distribution_effectivity = 0.75,
-         distribution_effectivity_bonus_per_quality_level = 0.5,
+        distribution_effectivity_bonus_per_quality_level = 0.5,
         energy_source = {
             type = "fluid",
             fluid_box = {

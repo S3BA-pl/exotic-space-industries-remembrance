@@ -387,6 +387,8 @@ data:extend({
         {
             mining_time = 1,
             result = "ei-uranium-chunk",
+            fluid_amount = 25,
+            required_fluid = "sulfuric-acid"
         },
         collision_box = {{-2.4, -2.4}, {2.4, 2.4}},
         --collision_mask = {"item-layer", "water-tile"},

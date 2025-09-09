@@ -1159,6 +1159,7 @@ data:extend({
         },
         results = {
             {type = "fluid", name = "ei-molten-neodym", amount = 20},
+            {type = "item", name = "ei-slag", amount_min = 1, amount_max = 2, probability = 0.01,allow_productivity=false}
         },
         always_show_made_in = true,
         enabled = false,

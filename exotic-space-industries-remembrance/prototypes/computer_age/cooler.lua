@@ -51,7 +51,21 @@ data:extend({
         enabled = false,
         main_product = "ei-liquid-nitrogen",
     },
-
+    {
+        name = "ei-vaporize-liquid-nitrogen",
+        type = "recipe",
+        category = "ei-cooler",
+        energy_required = 1,
+        ingredients = {
+            {type = "fluid", name = "ei-liquid-nitrogen", amount = 20},
+        },
+        results = {
+            {type = "fluid", name = "ei-nitrogen-gas", amount = 50},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-nitrogen-gas",
+    },
     {
         name = "ei-liquid-oxygen",
         type = "recipe",
@@ -67,24 +81,54 @@ data:extend({
         enabled = false,
         main_product = "ei-liquid-oxygen",
     },
+    {
+        name = "ei-vaporize-liquid-oxygen",
+        type = "recipe",
+        category = "ei-cooler",
+        energy_required = 1,
+        ingredients = {
+            {type = "fluid", name = "ei-liquid-oxygen", amount = 20},
+        },
+        results = {
 
+            {type = "fluid", name = "ei-oxygen-gas", amount = 50},
+        },
+        always_show_made_in = true,
+        enabled = false,
+        main_product = "ei-oxygen-gas",
+    },
     {
         name = "ei-liquid-ammonia",
         type = "recipe",
         category = "ei-cooler",
         energy_required = 1,
         ingredients = {
-            {type = "fluid", name = "ei-ammonia-gas", amount = 100},
+            {type = "fluid", name = "ei-ammonia-gas", amount = 50},
         },
         results = {
-            {type = "fluid", name = "ammonia", amount = 10},
+            {type = "fluid", name = "ammonia", amount = 20},
         },
         always_show_made_in = true,
         hide_from_player_crafting = true,
         enabled = false,
         main_product = "ammonia",
     },
-
+    {
+        name = "ei-vaporize-liquid-ammonia",
+        type = "recipe",
+        category = "ei-cooler",
+        energy_required = 1,
+        ingredients = {
+            {type = "fluid", name = "ammonia", amount = 20},
+        },
+        results = {
+            {type = "fluid", name = "ei-ammonia-gas", amount = 50},
+        },
+        always_show_made_in = true,
+        hide_from_player_crafting = true,
+        enabled = false,
+        main_product = "ei-ammonia-gas",
+    },
 
     {
         name = "ei-cooler",
@@ -103,11 +147,19 @@ data:extend({
             },
             {
                 type = "unlock-recipe",
+                recipe = "ei-vaporize-liquid-nitrogen"
+            },
+            {
+                type = "unlock-recipe",
                 recipe = "ei-nitrogen-gas"
             },
             {
                 type = "unlock-recipe",
                 recipe = "ei-liquid-ammonia"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ei-vaporize-liquid-ammonia"
             },
             {
                 type = "unlock-recipe",

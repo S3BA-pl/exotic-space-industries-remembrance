@@ -1,4 +1,129 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.48
+Date: 9-8-2025
+  Features:
+    - Imported and tweaked Acidthrower turret from AdditionalTurrets mod, situated in Steam age—technology prerequisites are Sulfur processing and Refined flammables. Able to deal caustic damage with Sulfuric, Nitric, and Hydrofluoric acid, as well as Acidic water.
+    - Created Steam oil processing recipe, uses 500 165c Steam and 50 Crude oil -> 68-72 Residual oil, 23-27 Petroleum gas, 8-12 Light oil—unlocked with Oil processing.
+    - Created Water oil processing recipe, uses 50 Water and 50 Crude oil -> 48-52 Residual oil, 48-52 Petroleum Gas—unlocked with Oil processing.
+    - Created Sulfur crushing recipe: 1 Sulfur -> 2 Crushed sulfur—unlocked with Sulfur processing.
+    - Created alternate Sulfur chunk crushing recipe: 1 Sulfur chunk 2s-> 1-2 Sulfur, 4-8 Stone.
+    - Created alternate Coal chunk crushing recipe: 1 Coal chunk 6s -> 4-12 Crushed coal.
+    - Added Colorful biochamber to optional dependencies—splits the Biochamber sprite into segments allowing individual per recipe RGB tinting.
+    - Created alternative T2 Explosives recipe: 6 Crushed coke, 6 Crushed sulfur, 20 Light oil -> 6 Explosives.
+    - Created alternative T3 Explosives recipe: 275 Nitric acid, 250 Sulfuric acid, 5 Solid fuel -> 30 Explosives.
+    - Created alternative Uranium test fuel Cosmic criticality pack recipe: Swaps Fuel rod ingredient for 16 Test fuel -> 1 Cosmic criticality pack.
+  Changes:
+    - Uranium chunk crushing recipe outputs: 1-10 Uranium ore -> 6-12.
+    - Ore purification productivity technology effects: Additionally affects Crushed pure uranium yield.
+    - Neo belts, splitters, underground recipe inputs: Express equivalent -> Turbo.
+    - Oxygenated sulfuric acid recipe inputs: 7 Sulfur -> 14 Crushed sulfur.
+    - Excavator technology prerequisites: Swapped Automation 3 with Simulation age.
+    - Deep drill technology prerequisites: Additionally requires Excavator.
+    - Computing unit technology prerequisites: Removed Excavator.
+    - Oil processing recipe inputs: Crude oil 50 -> 65.
+    - Oil processing recipe outputs: 48-52 Residual oil -> 28-32, 48-52 Petroleum Gas -> 38-42.
+    - Updated Molten glass technology with new Industrial glass icon.
+    - Removed Ash from T1 Oxygen difluoride technology icon.
+    - Added description for Camp-fire item and entity.
+    - Changed Oil byproduct processing and Sulfur processing technology prerequisite from Distillation tower to Electrified chemical plant.
+    - Moved Distillation tower technology from Electricity to Steam age, prerequisite is Oil processing.
+    - Moved Electric engine technology from Electricity to Steam age, prerequisites are Lubricant, Engine, and Electronics.
+    - Electric engine unit with lubricant recipe inputs: Lubricant 10 -> 100, Engine unit 1 -> 10, Copper cable 4 -> 40, Iron mechanical parts 2 -> 20, additionally requires 10 Electronic circuits.
+    - Electricity age science pack recipe inputs: 3 Engine unit -> 3 Electric engine unit.
+    - Electric engine unit with lubricant recipe outputs: Electric engine unit 2 -> 20.
+    - Electric engine unit with lubricant recipe crafting time: 6 -> 60s.
+    - Moved Lubricant from Electricity to Steam age.
+    - Moved Lubricant reforming from Electricity to Steam age.
+    - Added Lubricant reforming to Electricity Age technology prerequisites.
+    - Moved Weapon shooting speed 1 to Steam age.
+    - Moved Physical projectile damage 1 to Steam age.
+    - Moved Weapon shooting speed 2 to Electricity age.
+    - Moved Physical projectile damage 2 to Electricity age.
+    - Moved Physical projectile damage 3 to Computer age.
+    - Moved Physical projectile damage 4 to Simulation age.
+    - Moved Weapon shooting speed 4 to Simulation age.
+    - Moved Stronger explosives 1 to Steam age.
+    - Moved Stronger explosives 2 to Electricity age.
+    - Moved Refined flammables 3 to Electricity age.
+    - Moved Refined flammables 4 to Computer age.
+    - Moved Refined flammables 5 to Simulation age.
+    - Moved Refined flammables 6 to Simulation age.
+    - Moved Refined flammables 7 to Quantum age.
+    - Changed Ore Arc smelting productivity technologies names to Arc furnace ore smelting productivity.
+    - Flamethrower range: 36 -> 38.
+    - Flamethrower now pre-emptively aims at enemies within range 40.
+    - Laser turret now pre-emptively aims at enemies within range 32.
+    - Nuclear fission research facility recipe inputs: 40 Advanced circuits -> 30 Electronic parts.
+    - Swapped Advanced steam train technology prerequisite Fluid tank with Storage tank column.
+    - Advanced steam fluid wagon recipe inputs: 1 Storage tank -> 1 Storage tank column.
+    - Moved Sulfur processing technology from Electricity to Steam age, prerequisite is Oil processing.
+    - Moved Explosives technology from Electricity to Steam age, prerequisites are Sulfur processing, Advanced coal coke processing, Electronics, and Flammables.
+    - Sulfur chunk crushing recipe outputs: 2 Crushed sulfur -> 4-12.
+    - Sulfur chunk crushing recipe crafting time: 1 -> 2s.
+    - Coal chunk crushing recipe outputs: 4 Coal chunk -> 2-6.
+    - Moved Cannon shell and Explosive cannon shell recipe unlocks from Tank to Explosives technology.
+    - Moved Cannon turret technology from Electricity to Steam age, prerequisites are Explosives and Electric engine unit.
+    - Moved Deep mining technology from Electricity to Steam age, prerequisites are Sulfur processing and Electric engine unit.
+    - Deep miner recipe inputs: 4 Electric mining drills -> 4 Steam quarries.
+    - Electricity age technology prerequisites: Swapped Engine for Electric engine unit, additionally requires Deep mining, Electric engine unit, and Lubricant reforming.
+    - Purifier technology prerequisites: Swapped Deep mining for Automation.
+    - Uranium mining technology prerequisites: Swapped Deep mining for Electric mining drill.
+    - Moved Kerosene -> Diesel recipe unlock from Sulfur processing to Oil byproduct processing technology.
+    - Railway technology prerequisites: Swapped Logistics 2 with Plastics, additionally requires Oil byproduct processing.
+    - Removed Mining with fluid ability unlock from Deep mining technology.
+    - *BREAKING* Deep drills now require input fluids to mine resources that require them, such as Uranium—to facilitate this the North direction is now for secondary fluid I/O while East and West remain exclusively for Drilling fluid.
+    - Mining Uranium chunks now requires Sulfuric acid.
+    - Purified neodymium into molten neodymium recipe outputs: Additionally yields 1-2 Slag with 1% probability.
+    - Advanced circuit technology prerequisites: Additionally requires Plastics.
+    - Crystal grower technology prerequisites: Additionally requires Electrified chemical plant.
+    - Burner heater fuel effectivity: 85 -> 125%.
+    - Burner heater emissions per minute: 15 -> 30.
+    - Fluid boiler fuel effectivity: 100 -> 125%.
+    - Fluid boiler emissions per minute: 15 -> 30.
+    - Fluid heater fuel effectivity: 100 -> 125%.
+    - Electrified chemical plant technology prerequisites: Now requires Electric power.
+    - Explosive rocketry technology prerequisites: Now requires Rocketry.
+    - Oil gathering technology prerequisites: Additionally requires Electric power.
+    - Sand -> Molten glass recipe outputs: Additionally yields 1-2 Slag with 1% probability.
+    - Crude oil fuel emissions multiplier: 100 -> 125%.
+    - Residual oil fuel emissions multiplier: 100 -> 120%.
+    - Heavy distillate fuel emissions multiplier: 100 -> 117.5%.
+    - Medium distillate fuel emissions multiplier: 100 -> 115%.
+    - Heavy oil fuel emissions multiplier: 100 -> 110%.
+    - Kerosene fuel emissions multiplier: 100 -> 65%.
+    - Petroleum gas fuel emissions multiplier: 100 -> 80%.
+    - Diesel fuel emissions multiplier: 100 -> 70%.
+    - Morphium fuel emissions multiplier: 100 -> 50%.
+    - Concentrated morphium fuel emissions multiplier: 100 -> 25%.
+    - Car, tank and spidertron can now burn diesel fuel units.
+  Bugfixes:
+    - Interstellar technologies properly require Cryogenic science pack.
+    - Artillery technology prerequisites correctly show that it requires Simulation age.
+    - Neodymium purification recipe now affected by Ore chunk purification productivity.
+    - Neodymium -> Molten neodymium recipe now affected by Arc furnace smelting productivity.
+    - The presence of an extraplanetary science pack in a technologies ingredients no longer causes Dark, Steam, and Electric age science packs to be removed.
+    - Corrected mention of Spidertron's unlock age in Informatron wiki.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.47
+Date: 9-3-2025
+  Features:
+    - Created Vaporize liquid oxygen recipe to convert Liquid oxygen -> Oxygen gas—unlocked with Oxygen gas technology.
+    - Created Vaporize liquid nitrogen recipe to convert Liquid nitrogen -> Nitrogen gas—Unlocked with Hypercooler technology.
+    - Created Vaporize liquid ammonia recipe to convert Liquid ammonia -> Ammonia gas—Unlocked with Hypercooler technology.
+  Changes:
+    - Neuromarrow engine recipe inputs: 16 Steel mechanical parts -> 16 Alien resin, additionally requires 50 Bio matter.
+    - Neuromarrow engine power source: Electricity -> 0.1/s Bio matter.
+    - Flesh crucible module slots: 1 -> 2.
+    - Liquid ammonia to Ammonia gas recipe inputs: Liquid ammonia 100 -> 50.
+    - Liquid ammonia to Ammonia gas recipe outputs: Ammonia gas 10 -> 20.
+    - Ammonia gas to Liquid ammonia recipe inputs: Ammonia gas 10 -> 20.
+    - Ammonia gas to Liquid ammonia recipe outputs: Liquid ammonia 100 -> 50.
+    - Flesh Crucible and Neuromarrow Engine entities can now craft each other's recipes.
+    - High energy crystals are now explicitly always crafted unspoiled during production recipes.
+    - Forbid productivity for converting Oxygen Gas <-> Liquid.
+    - Forbid productivity for converting Nitrogen Gas <-> Liquid.
+    - Forbid productivity for converting Ammonia Gas <-> Liquid.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.46
 Date: 9-3-2025
   Features:

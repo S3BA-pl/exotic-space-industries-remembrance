@@ -838,6 +838,7 @@ data:extend({
             {type = "item", name = "ei-high-energy-crystal", amount_min = 2,amount_max=3},
             {type="fluid",name="ei-bio-sludge",amount_min=1,amount_max=2,probability=0.10,allow_productivity=false}
         },
+        result_is_always_fresh = true,
         always_show_made_in = true,
         enabled = false,
         icon = ei_path.."graphics/other/bio-high-energy-crystal.png",
@@ -1660,6 +1661,7 @@ data:extend({
             {type = "item", name = "ei-high-energy-crystal", amount_min=1,amount_max=2,probability=0.05}
         },
         always_show_made_in = true,
+        result_is_always_fresh = true,
         enabled = false,
         main_product = "ei-high-energy-crystal",
     },
@@ -2292,7 +2294,7 @@ data:extend({
             {type="fluid", name="ei-oxygen-gas", amount=30},
             {type="fluid", name="water", amount=50},
             {type="item", name="ei-crushed-iron", amount=2},
-            {type="item", name="sulfur", amount=7}
+            {type="item", name="ei-crushed-sulfur", amount=14}
         },
         results =
         {
@@ -2327,9 +2329,8 @@ data:extend({
         {
         name = "ei-oxygen-difluoride",
         type = "technology",
-        icon = ei_path.."graphics/tech/oxygen-difluoride.png",
+        icon = ei_graphics_tech_path.."oxygen-difluoride.png",
         icon_size = 128,
-        icon_mipmaps = 3,
         prerequisites = {"ei-bio-chamber","ei-oxygen-gas"},
         effects = {
             {
@@ -2994,6 +2995,10 @@ data:extend({
             },
             {
                 type = "unlock-recipe",
+                recipe = "ei-vaporize-liquid-ammonia"
+            },
+            {
+                type = "unlock-recipe",
                 recipe = "ei-oxygen-gas-vent"
             },
         },
@@ -3352,7 +3357,7 @@ data:extend({
         icon = ei_path.."graphics/item/computing-unit.png",
         icon_size = 512,
         icon_mipmaps = 5,
-        prerequisites = {"ei-copper-beacon","ei-advanced-deep-drill","ei-advanced-centrifuge","ei-excavator","ei-advanced-refinery","ei-sus-plating","ei-cryodust"},
+        prerequisites = {"ei-copper-beacon","ei-advanced-deep-drill","ei-advanced-centrifuge","ei-advanced-refinery","ei-sus-plating","ei-cryodust"},
         effects = {
             {
                 type = "unlock-recipe",

@@ -142,7 +142,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_path.."grower.png",
         icon_size = 256,
-        prerequisites = {"sulfur-processing"},
+        prerequisites = {"ei-electricity-age","sulfur-processing","oil-processing"},
         effects = {
             {
                 type = "unlock-recipe",

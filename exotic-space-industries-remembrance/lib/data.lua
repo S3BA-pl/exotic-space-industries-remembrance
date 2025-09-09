@@ -240,6 +240,7 @@ ei_data.science["interstellar"] = {
     {"electromagnetic-science-pack",1},
     {"metallurgic-science-pack",1},
     {"agricultural-science-pack",1},
+    {"cryogenic-science-pack",1},
 }
 
 -- inputs for labs
@@ -319,11 +320,11 @@ ei_data.science_dict = {
 }
 
 ei_data.science_dict_obsolete = {
-    ["ei-dark-age-tech"] = true,
-    ["ei-steam-age-tech"] = true,
-    ["ei-electricity-age-tech"] = true,
-    ["wood-science-pack"] = true,
-    ["steam-science-pack"] = true,
+--    ["ei-dark-age-tech"] = true,
+--    ["ei-steam-age-tech"] = true,
+--    ["ei-electricity-age-tech"] = true,
+--    ["wood-science-pack"] = true,
+--    ["steam-science-pack"] = true,
 }
 
 --====================================================================================================
@@ -335,8 +336,7 @@ ei_data.sub_age["alien-computer-age"] = "computer-age"
 ei_data.sub_age["both-computer-age"] = "computer-age"
 
 ei_data.add_to_sub_age["alien-computer-age"] = {
-    "weapon-shooting-speed-4",
-    "physical-projectile-damage-4",
+
     "braking-force-6",
     "braking-force-7",
     "research-speed-4",
@@ -344,12 +344,13 @@ ei_data.add_to_sub_age["alien-computer-age"] = {
 }
 
 ei_data.add_to_sub_age["advanced-computer-age"] = {
-    "weapon-shooting-speed-3",
-    "physical-projectile-damage-3",
+    "weapon-shooting-speed-4",
+    "physical-projectile-damage-4",
     "inserter-capacity-bonus-2",
     "logistics-3",
     "mining-productivity-2",
-
+    "refined-flammables-5",
+    "refined-flammables-6",
     "automation-3",
     "spidertron",
     "processing-unit",
@@ -501,8 +502,8 @@ ei_data.tech_structure["dark-age"] = {
 -- KEY = TECH, VALUE = PREREQUISITE
 ei_data.prerequisites_to_set["dark-age"] = {
     ["heavy-armor"] = "military",
-    ["weapon-shooting-speed-1"] = "military",
-    ["physical-projectile-damage-1"] = "military",
+    --["weapon-shooting-speed-1"] = "military",
+    --["physical-projectile-damage-1"] = "military",
 
     -- set mandatory for next age
     -- ["ei-steam-age"] = "military",
@@ -513,6 +514,8 @@ ei_data.tech_structure["steam-age"] = {
     "electronics",
     "logistics",
     "repair-pack",
+    "weapon-shooting-speed-1",
+    "physical-projectile-damage-1",
     -- steel furnace
     "advanced-material-processing",
     -- train
@@ -520,11 +523,11 @@ ei_data.tech_structure["steam-age"] = {
 --    "braking-force-1",
 --    "braking-force-2",
     "automobilism",
-    "engine",
+--    "engine",
     "flammables",
 --    "refined-flammables-1",
 --    "refined-flammables-2",
---    "stronger-explosives-1",
+    "stronger-explosives-1",
     "gate",
     "research-speed-1",
     "landfill",
@@ -536,8 +539,8 @@ ei_data.tech_structure["steam-age"] = {
 
 ei_data.tech_structure["electricity-age"] = {
     "oil-processing",
-    "weapon-shooting-speed-1",
-    "physical-projectile-damage-1",
+    "physical-projectile-damage-2",
+    "weapon-shooting-speed-2",
 --    "fluid-wagon",
     "fluid-handling",
     "automation",
@@ -545,7 +548,7 @@ ei_data.tech_structure["electricity-age"] = {
     "advanced-circuit",
     -- electric furnace
     "advanced-material-processing-2",
-    "automation-2",
+--    "automation-2",
     "battery",
     "battery-equipment",
     "belt-immunity-equipment",
@@ -560,9 +563,9 @@ ei_data.tech_structure["electricity-age"] = {
 --    "braking-force-4",
 --    "braking-force-5",
     "circuit-network",
-    "explosives",
---    "stronger-explosives-2",
---    "refined-flammables-3",
+--    "explosives",
+    "stronger-explosives-2",
+    "refined-flammables-3",
 --    "refined-flammables-4",
 
 --    "physical-projectile-damage-4",
@@ -574,8 +577,6 @@ ei_data.tech_structure["electricity-age"] = {
     "electric-energy-accumulators",
     "electric-energy-distribution-1",
 --    "electric-energy-distribution-2",
-    "electric-engine",
-    "lubricant",
     "fast-inserter",
 --    "inserter-capacity-bonus-2",
     "research-speed-2",
@@ -614,16 +615,15 @@ ei_data.tech_structure["electricity-age"] = {
 }
 
 ei_data.tech_structure["computer-age"] = {
-    "weapon-shooting-speed-2",
-    "physical-projectile-damage-2",
     "research-speed-3",
     -- green circ
     "weapon-shooting-speed-3",
+    "physical-projectile-damage-3",
 --    "weapon-shooting-speed-4",
     "stronger-explosives-3",
     "explosive-rocketry",
     "processing-unit",
-    "automation-3",
+--    "automation-3",
     "battery-mk2-equipment",
     "energy-shield-mk2-equipment",
     "power-armor-mk2",
@@ -631,6 +631,7 @@ ei_data.tech_structure["computer-age"] = {
     "braking-force-6",
 --    "braking-force-7",
     "modules",
+    "refined-flammables-4",
     -- "effect-transmission",
 --    "efficiency-module",
 --    "efficiency-module-2",
@@ -679,12 +680,13 @@ ei_data.tech_structure["quantum-age"] = {
     "inserter-capacity-bonus-5",
     "weapon-shooting-speed-5",
     "physical-projectile-damage-5",
+    "refined-flammables-7",
 --[[
     "inserter-capacity-bonus-7",
     "worker-robots-speed-5",
     "worker-robots-speed-6",
     "worker-robots-storage-3",
-    "refined-flammables-7",
+
     "physical-projectile-damage-7",
     "research-speed-6",
     "stronger-explosives-6",

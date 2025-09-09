@@ -42,7 +42,7 @@ data:extend({
         type = "technology",
         icon = ei_graphics_tech_2_path.."excavator.png",
         icon_size = 256,
-        prerequisites = {"automation-3"},
+        prerequisites = {"ei-advanced-computer-age-tech"},
         effects = {
             {
                 type = "unlock-recipe",
